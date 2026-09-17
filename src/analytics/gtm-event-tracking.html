@@ -1,0 +1,334 @@
+<script>
+/*
+  Amami Italia - full-coverage interaction tracking
+  Install: GTM GTM-MNHMB7C9 > Tags > New > Custom HTML
+           Trigger: Initialization - All Pages
+  Every handler below is keyed to markup that actually exists on this site.
+*/
+(function () {
+  'use strict';
+  var dl = (window.dataLayer = window.dataLayer || []);
+  function push(event, params) {
+    var o = { event: event };
+    for (var k in params) if (params.hasOwnProperty(k)) o[k] = params[k];
+    dl.push(o);
+  }
+  function txt(el) {
+    return ((el && el.textContent) || '').replace(/\s+/g, ' ').trim().slice(0, 100);
+  }
+  function up(node, test) {
+    while (node && node.nodeType === 1) {
+      if (test(node)) return node;
+      node = node.parentNode;
+    }
+    return null;
+  }
+  function region(el) {
+    if (up(el, function (n) { return n.id === 'qodef-page-header' || n.tagName === 'HEADER'; })) return 'header';
+    if (up(el, function (n) { return n.id === 'qodef-page-footer' || n.tagName === 'FOOTER'; })) return 'footer';
+    if (up(el, function (n) { return n.className && /qodef-mobile-header/.test(n.className); })) return 'mobile_header';
+    return 'body';
+  }
+  var PATH = location.pathname;
+
+  /* ================= 1. Link clicks =================
+     Exactly ONE event per click. Priority order below; CTA/nav context rides
+     along as parameters instead of firing a second event, so counts stay honest. */
+  document.addEventListener('click', function (e) {
+    var a = up(e.target, function (n) { return n.tagName === 'A'; });
+    if (!a) return;
+    var href  = a.getAttribute('href') || '';
+    var label = txt(a) || a.getAttribute('aria-label') || '';
+    var loc   = region(a);
+    var cls   = a.className || '';
+
+    /* context carried as parameters, never as extra events */
+    var isCta   = /qodef-button/.test(cls);
+    var ctaStyle = isCta ? (cls.match(/qodef-layout--(\w+)/) || [, ''])[1] : '';
+    var inNav = !!up(a, function (n) {
+      return n.className && /qodef-header-navigation|qodef-mobile-header-navigation|qodef-drop-down/.test(n.className);
+    });
+    /* openers/toggles are handled in section 2 - never a link click */
+    if (/qodef-opener-icon|qodef-mobile-header-opener|qodef-search-opener/.test(cls)) return;
+
+    var base = { link_text: label, link_url: href, link_location: loc };
+    if (isCta) { base.cta_style = ctaStyle; }
+
+    function fire(ev, extra) {
+      for (var k in base) if (!(k in extra)) extra[k] = base[k];
+      push(ev, extra);
+    }
+
+    if (/^tel:/i.test(href)) {
+      return fire('phone_click', { phone_number: href.replace(/^tel:/i, '') });
+    }
+    if (/^mailto:/i.test(href)) {
+      return fire('email_click', { email_address: href.replace(/^mailto:/i, '').split('?')[0] });
+    }
+    if (/opentable\./i.test(href)) {
+      return fire('reservation_click', { booking_provider: 'OpenTable' });
+    }
+    if (/qodef-share-link/.test(cls)) {
+      var oc = a.getAttribute('onclick') || '';
+      return fire('share_click', {
+        social_network: (oc.match(/(facebook|twitter|linkedin|pinterest|whatsapp)/i) || [, 'other'])[1].toLowerCase(),
+        page_path: PATH
+      });
+    }
+    if (/instagram\.com|facebook\.com|tiktok\.com|x\.com|twitter\.com|linkedin\.com/i.test(href)) {
+      return fire('social_click', {
+        social_network: (href.match(/(instagram|facebook|tiktok|twitter|linkedin)/i) || [, 'other'])[1].toLowerCase()
+      });
+    }
+    if (/\.(pdf|jpe?g|png|webp|docx?|xlsx?)($|\?)/i.test(href)) {
+      return fire('file_download', {
+        file_url: href,
+        file_extension: (href.split('.').pop() || '').split('?')[0].toLowerCase()
+      });
+    }
+    if ((a.id && /back-to-top/i.test(a.id)) || /back-to-top/i.test(cls)) {
+      return fire('back_to_top_click', { page_path: PATH });
+    }
+    if (up(a, function (n) {
+      return (n.className && /breadcrumb/i.test(n.className)) || (n.id && /breadcrumb/i.test(n.id));
+    })) {
+      return fire('breadcrumb_click', {});
+    }
+    if (/^https?:\/\//i.test(href) && a.hostname && a.hostname !== location.hostname) {
+      return fire('outbound_click', { link_domain: a.hostname });
+    }
+    /* internal link: a real menu item, or a CTA, or neither */
+    if (inNav) { return fire('nav_click', {}); }
+    if (isCta) { return fire('cta_click', {}); }
+  }, true);
+
+  /* ================= 2. Buttons: wine list, mobile menu, accordions ================= */
+  document.addEventListener('click', function (e) {
+    var b = up(e.target, function (n) { return n.tagName === 'BUTTON'; });
+    if (b) {
+      var aria = b.getAttribute('aria-label') || '', m;
+      if ((m = aria.match(/^Save (.+) to your list$/i))) {
+        push('menu_item_save', { item_name: m[1], page_path: PATH, saved: b.getAttribute('aria-pressed') !== 'true' });
+      } else if ((m = aria.match(/^Add (.+) to your order$/i))) {
+        push('menu_item_add', { item_name: m[1], page_path: PATH });
+      } else if (b.className && /wn-arrow/.test(b.className)) {
+        push('carousel_nav', { direction: b.id === 'wn-prev' ? 'prev' : 'next', carousel_name: 'wine_list', page_path: PATH });
+      }
+    }
+    /* Mobile menu opener */
+    var opener = up(e.target, function (n) { return n.className && /qodef-mobile-header-opener/.test(n.className); });
+    if (opener) push('mobile_menu_toggle', { page_path: PATH });
+
+    /* Accordion / toggle headings (Elementor + theme) */
+    var acc = up(e.target, function (n) {
+      return n.className && /elementor-tab-title|elementor-accordion-title|qodef-accordion-title|accordion-title/.test(n.className);
+    });
+    if (acc) push('accordion_toggle', { section_title: txt(acc), page_path: PATH });
+
+    /* Lightbox / gallery image opens (magnific popup + swiper slides) */
+    var lb = up(e.target, function (n) {
+      return n.className && /qodef-popup-item|magnific|lightbox|swiper-slide|eg-item/.test(n.className);
+    });
+    if (lb) push('lightbox_open', { item_label: txt(lb).slice(0, 60) || 'image', page_path: PATH });
+
+    /* Swiper carousel arrows */
+    var sw = up(e.target, function (n) { return n.className && /swiper-button-(next|prev)/.test(n.className); });
+    if (sw) push('carousel_nav', { direction: /next/.test(sw.className) ? 'next' : 'prev', carousel_name: 'swiper', page_path: PATH });
+  }, true);
+
+  /* ================= 3. Forms ================= */
+  var FORM_NAMES = {
+    'ca-form': 'catering_enquiry',
+    'wn-join-form': 'newsletter_signup',
+    'feedbackForm': 'customer_feedback',
+    'commentform': 'blog_comment'
+  };
+  function formName(f) {
+    if (!f) return 'unknown';
+    if (f.id && FORM_NAMES[f.id]) return FORM_NAMES[f.id];
+    if (f.className && /wpcf7-form/.test(f.className)) return 'contact_form';
+    if (f.action && /opentable\./i.test(f.action)) return 'opentable_widget';
+    return f.id || f.getAttribute('name') || 'unnamed_form';
+  }
+  /* form_start - first interaction with any field of a given form */
+  var started = {};
+  document.addEventListener('focusin', function (e) {
+    var el = e.target;
+    if (!el || !/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
+    var f = up(el, function (n) { return n.tagName === 'FORM'; });
+    if (!f) return;
+    var n = formName(f);
+    if (started[n]) return;
+    started[n] = 1;
+    push('form_start', { form_name: n, form_id: f.id || '', page_path: PATH });
+  }, true);
+
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    push('form_submit', { form_name: formName(f), form_id: f.id || '', page_path: PATH });
+  }, true);
+
+  document.addEventListener('wpcf7mailsent', function (e) {
+    push('form_submit_success', { form_name: 'contact_form', form_id: (e.detail && e.detail.contactFormId) || '', page_path: PATH });
+  }, false);
+  document.addEventListener('wpcf7invalid', function () {
+    push('form_error', { form_name: 'contact_form', error_type: 'validation', page_path: PATH });
+  }, false);
+  document.addEventListener('wpcf7mailfailed', function () {
+    push('form_error', { form_name: 'contact_form', error_type: 'mail_failed', page_path: PATH });
+  }, false);
+
+  /* ================= 4. Scroll depth ================= */
+  var hitScroll = {}, marks = [25, 50, 75, 90];
+  function onScroll() {
+    var d = document.documentElement, b = document.body;
+    var h = Math.max(b.scrollHeight, d.scrollHeight) - window.innerHeight;
+    if (h <= 0) return;
+    var pct = ((window.pageYOffset || d.scrollTop) / h) * 100;
+    for (var i = 0; i < marks.length; i++) {
+      if (pct >= marks[i] && !hitScroll[marks[i]]) {
+        hitScroll[marks[i]] = 1;
+        push('scroll_depth', { percent_scrolled: marks[i], page_path: PATH });
+      }
+    }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    setTimeout(function () { ticking = false; onScroll(); }, 250);
+  }, { passive: true });
+
+  /* ================= 5. Time on page ================= */
+  setTimeout(function () { push('engaged_visit', { page_path: PATH }); }, 15000);
+  [30, 60, 120, 180].forEach(function (s) {
+    setTimeout(function () {
+      if (!document.hidden) push('time_on_page', { seconds_on_page: s, page_path: PATH });
+    }, s * 1000);
+  });
+
+  /* ================= 6. Section visibility ================= */
+  if ('IntersectionObserver' in window) {
+    var seen = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var name = el.getAttribute('data-track-section') || el.id || 'section';
+        if (seen[name]) return;
+        seen[name] = 1;
+        push('section_view', { section_name: name, page_path: PATH });
+        io.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    try {
+      var targets = document.querySelectorAll('#qodef-page-footer, [data-track-section], .qodef-m-reservation, form');
+      for (var i = 0; i < targets.length; i++) io.observe(targets[i]);
+    } catch (err) {}
+  }
+
+  /* ================= 7. Google Maps iframe engagement ================= */
+  var mapFocused = false;
+  window.addEventListener('blur', function () {
+    if (mapFocused) return;
+    var el = document.activeElement;
+    if (el && el.tagName === 'IFRAME' && /google\.com\/maps/i.test(el.src || '')) {
+      mapFocused = true;
+      push('map_engagement', { page_path: PATH });
+    }
+  });
+
+  /* ================= 8. HTML5 video ================= */
+  document.addEventListener('play', function (e) {
+    var v = e.target;
+    if (!v || v.tagName !== 'VIDEO') return;
+    if (v.__tracked) return;
+    v.__tracked = 1;
+    push('video_start', { video_url: v.currentSrc || v.src || '', page_path: PATH });
+  }, true);
+  document.addEventListener('ended', function (e) {
+    var v = e.target;
+    if (!v || v.tagName !== 'VIDEO') return;
+    push('video_complete', { video_url: v.currentSrc || v.src || '', page_path: PATH });
+  }, true);
+
+  /* ================= 9. Frustration + errors ================= */
+  var lastEl = null, clickRun = 0, clickTimer = null;
+  document.addEventListener('click', function (e) {
+    if (e.target === lastEl) { clickRun++; } else { lastEl = e.target; clickRun = 1; }
+    clearTimeout(clickTimer);
+    if (clickRun >= 3) {
+      push('rage_click', {
+        element_text: txt(e.target).slice(0, 60),
+        element_tag: (e.target.tagName || '').toLowerCase(),
+        page_path: PATH
+      });
+      clickRun = 0;
+    }
+    clickTimer = setTimeout(function () { clickRun = 0; lastEl = null; }, 1000);
+  }, true);
+
+  window.addEventListener('error', function (e) {
+    push('js_error', {
+      error_message: String((e && e.message) || 'unknown').slice(0, 150),
+      error_source: String((e && e.filename) || '').slice(0, 150),
+      page_path: PATH
+    });
+  });
+
+  /* ================= 10. 404, print, copy, exit intent ================= */
+  if (document.body && /error404|not-found/.test(document.body.className)) {
+    push('page_not_found', { page_path: PATH, referrer: document.referrer });
+  }
+  window.addEventListener('beforeprint', function () { push('print_page', { page_path: PATH }); });
+  document.addEventListener('copy', function () {
+    var s = '';
+    try { s = String(window.getSelection()); } catch (err) {}
+    push('text_copy', { copied_text: s.replace(/\s+/g, ' ').trim().slice(0, 100), page_path: PATH });
+  });
+  var exitFired = false;
+  document.addEventListener('mouseout', function (e) {
+    if (exitFired || e.clientY > 0 || e.relatedTarget) return;
+    exitFired = true;
+    push('exit_intent', { page_path: PATH });
+  });
+
+  /* ================= 11. Core Web Vitals ================= */
+  if ('PerformanceObserver' in window) {
+    try {
+      var lcp = 0;
+      new PerformanceObserver(function (l) {
+        var es = l.getEntries();
+        lcp = es[es.length - 1].startTime;
+      }).observe({ type: 'largest-contentful-paint', buffered: true });
+
+      var cls = 0;
+      new PerformanceObserver(function (l) {
+        l.getEntries().forEach(function (en) { if (!en.hadRecentInput) cls += en.value; });
+      }).observe({ type: 'layout-shift', buffered: true });
+
+      var inp = 0;
+      new PerformanceObserver(function (l) {
+        l.getEntries().forEach(function (en) { if (en.duration > inp) inp = en.duration; });
+      }).observe({ type: 'event', buffered: true, durationThreshold: 40 });
+
+      /* function EXPRESSION, not a declaration - GTM's Custom HTML compiler is
+         ES5-only and rejects block-scoped function declarations inside try{} */
+      var vitalsSent = false;
+      var sendVitals = function () {
+        if (vitalsSent) return;
+        vitalsSent = true;
+        push('web_vitals', {
+          lcp_ms: Math.round(lcp),
+          cls_score: Math.round(cls * 1000) / 1000,
+          inp_ms: Math.round(inp),
+          page_path: PATH
+        });
+      };
+      addEventListener('visibilitychange', function () { if (document.hidden) sendVitals(); });
+      addEventListener('pagehide', sendVitals);
+    } catch (err) {}
+  }
+})();
+</script>

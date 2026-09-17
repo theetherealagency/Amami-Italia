@@ -1,0 +1,1986 @@
+[
+ {
+  "n": 110,
+  "s": "Menu"
+ },
+ {
+  "n": 102,
+  "s": "&middot;"
+ },
+ {
+  "n": 90,
+  "s": "Reserve a Table"
+ },
+ {
+  "n": 74,
+  "s": "After Dark"
+ },
+ {
+  "n": 70,
+  "s": "Our Story"
+ },
+ {
+  "n": 69,
+  "s": "&nbsp;"
+ },
+ {
+  "n": 68,
+  "s": "Directions"
+ },
+ {
+  "n": 68,
+  "s": "English"
+ },
+ {
+  "n": 68,
+  "s": "Events"
+ },
+ {
+  "n": 68,
+  "s": "Italiano"
+ },
+ {
+  "n": 68,
+  "s": "Reservations"
+ },
+ {
+  "n": 50,
+  "s": "Home"
+ },
+ {
+  "n": 38,
+  "s": "Accessibility"
+ },
+ {
+  "n": 37,
+  "s": "6261 Mayfield Rd, #140"
+ },
+ {
+  "n": 37,
+  "s": "Brampton, ON L6P 0X9"
+ },
+ {
+  "n": 37,
+  "s": "Cookies"
+ },
+ {
+  "n": 37,
+  "s": "Gift Card Terms"
+ },
+ {
+  "n": 37,
+  "s": "Privacy"
+ },
+ {
+  "n": 37,
+  "s": "Reservation Terms"
+ },
+ {
+  "n": 37,
+  "s": "Terms of Use"
+ },
+ {
+  "n": 36,
+  "s": "info@amamiitalia.com"
+ },
+ {
+  "n": 35,
+  "s": "Address"
+ },
+ {
+  "n": 35,
+  "s": "Amami Italia"
+ },
+ {
+  "n": 35,
+  "s": "Phone"
+ },
+ {
+  "n": 34,
+  "s": "&copy;"
+ },
+ {
+  "n": 34,
+  "s": "&times;"
+ },
+ {
+  "n": 34,
+  "s": "6261 Mayfield Rd, #140, Brampton, ON L6P 0X9"
+ },
+ {
+  "n": 34,
+  "s": "Call"
+ },
+ {
+  "n": 34,
+  "s": "EN"
+ },
+ {
+  "n": 34,
+  "s": "Instagram"
+ },
+ {
+  "n": 34,
+  "s": "Join the Amami table"
+ },
+ {
+  "n": 34,
+  "s": "Language"
+ },
+ {
+  "n": 34,
+  "s": "Mon closed &middot; Tue–Thu 12–10pm &middot; Fri–Sat 12–11pm &middot; Sun 12–9pm"
+ },
+ {
+  "n": 34,
+  "s": "Reserve"
+ },
+ {
+  "n": 34,
+  "s": "Sign up"
+ },
+ {
+  "n": 34,
+  "s": "Skip to content"
+ },
+ {
+  "n": 34,
+  "s": "Today"
+ },
+ {
+  "n": 34,
+  "s": "Tuscan restaurant, lounge & catering in Brampton."
+ },
+ {
+  "n": 17,
+  "s": "Asset required"
+ },
+ {
+  "n": 16,
+  "s": "Dish names, one-line descriptions and prices as HTML text. Awaiting the current list from the kitchen."
+ },
+ {
+  "n": 13,
+  "s": "GF"
+ },
+ {
+  "n": 12,
+  "s": "Shoot 3"
+ },
+ {
+  "n": 8,
+  "s": "Legal"
+ },
+ {
+  "n": 7,
+  "s": "Automatic gratuity of 18% applies to parties of six or more."
+ },
+ {
+  "n": 7,
+  "s": "Catering"
+ },
+ {
+  "n": 7,
+  "s": "Maximum of three separate checks per table, split evenly."
+ },
+ {
+  "n": 7,
+  "s": "Ready to book?"
+ },
+ {
+  "n": 7,
+  "s": "This policy is being finalised. For anything urgent, call or email us and we will answer directly."
+ },
+ {
+  "n": 6,
+  "s": "Full-bleed landscape."
+ },
+ {
+  "n": 6,
+  "s": "How to book"
+ },
+ {
+  "n": 6,
+  "s": "Landscape."
+ },
+ {
+  "n": 6,
+  "s": "One action, stated plainly."
+ },
+ {
+  "n": 6,
+  "s": "Publish the range."
+ },
+ {
+  "n": 6,
+  "s": "Supporting image"
+ },
+ {
+  "n": 6,
+  "s": "To write."
+ },
+ {
+  "n": 6,
+  "s": "What it costs"
+ },
+ {
+  "n": 6,
+  "s": "What to expect"
+ },
+ {
+  "n": 5,
+  "s": "List to come"
+ },
+ {
+  "n": 5,
+  "s": "Pizza"
+ },
+ {
+  "n": 4,
+  "s": "Catering Enquiry"
+ },
+ {
+  "n": 4,
+  "s": "Cocktails"
+ },
+ {
+  "n": 4,
+  "s": "Dining"
+ },
+ {
+  "n": 4,
+  "s": "Dolci"
+ },
+ {
+  "n": 4,
+  "s": "Event Enquiry"
+ },
+ {
+  "n": 4,
+  "s": "Read"
+ },
+ {
+  "n": 4,
+  "s": "Wine"
+ },
+ {
+  "n": 3,
+  "s": "Contact"
+ },
+ {
+  "n": 3,
+  "s": "Email"
+ },
+ {
+  "n": 3,
+  "s": "Pasta"
+ },
+ {
+  "n": 3,
+  "s": "Signatures"
+ },
+ {
+  "n": 3,
+  "s": "Visit"
+ },
+ {
+  "n": 2,
+  "s": "1.5 oz"
+ },
+ {
+  "n": 2,
+  "s": "Add shrimp 8"
+ },
+ {
+  "n": 2,
+  "s": "Antipasti"
+ },
+ {
+  "n": 2,
+  "s": "Aperitivi"
+ },
+ {
+  "n": 2,
+  "s": "Bianche"
+ },
+ {
+  "n": 2,
+  "s": "Bistecca alla Fiorentina"
+ },
+ {
+  "n": 2,
+  "s": "By the glass"
+ },
+ {
+  "n": 2,
+  "s": "Caffè e Specialità"
+ },
+ {
+  "n": 2,
+  "s": "Calzoni"
+ },
+ {
+  "n": 2,
+  "s": "Capacity |"
+ },
+ {
+  "n": 2,
+  "s": "Careers"
+ },
+ {
+  "n": 2,
+  "s": "Chef Gianluca"
+ },
+ {
+  "n": 2,
+  "s": "Classics"
+ },
+ {
+  "n": 2,
+  "s": "Contorni"
+ },
+ {
+  "n": 2,
+  "s": "Dal Forno"
+ },
+ {
+  "n": 2,
+  "s": "Degustazione"
+ },
+ {
+  "n": 2,
+  "s": "Digestivi"
+ },
+ {
+  "n": 2,
+  "s": "Dopo Cena"
+ },
+ {
+  "n": 2,
+  "s": "Enquire"
+ },
+ {
+  "n": 2,
+  "s": "FAQ"
+ },
+ {
+  "n": 2,
+  "s": "Fuori Casa"
+ },
+ {
+  "n": 2,
+  "s": "Grappa"
+ },
+ {
+  "n": 2,
+  "s": "Italy by region"
+ },
+ {
+  "n": 2,
+  "s": "La Cantina"
+ },
+ {
+  "n": 2,
+  "s": "Liquore"
+ },
+ {
+  "n": 2,
+  "s": "Mains"
+ },
+ {
+  "n": 2,
+  "s": "Message"
+ },
+ {
+  "n": 2,
+  "s": "Name"
+ },
+ {
+  "n": 2,
+  "s": "Porto & Dessert Wine"
+ },
+ {
+  "n": 2,
+  "s": "Pranzo e Cena"
+ },
+ {
+  "n": 2,
+  "s": "Press"
+ },
+ {
+  "n": 2,
+  "s": "Primi Piatti"
+ },
+ {
+  "n": 2,
+  "s": "Read the menu"
+ },
+ {
+  "n": 2,
+  "s": "Rosse"
+ },
+ {
+  "n": 2,
+  "s": "Secondi"
+ },
+ {
+  "n": 2,
+  "s": "Sparkling"
+ },
+ {
+  "n": 2,
+  "s": "Tasting"
+ },
+ {
+  "n": 2,
+  "s": "Tasting Menu"
+ },
+ {
+  "n": 2,
+  "s": "The Lounge"
+ },
+ {
+  "n": 2,
+  "s": "The sequence"
+ },
+ {
+  "n": 2,
+  "s": "Toscana"
+ },
+ {
+  "n": 2,
+  "s": "Trays & platters"
+ },
+ {
+  "n": 2,
+  "s": "View Menus"
+ },
+ {
+  "n": 2,
+  "s": "Zero proof"
+ },
+ {
+  "n": 1,
+  "s": "12 at the bar"
+ },
+ {
+  "n": 1,
+  "s": "12 oz AAA"
+ },
+ {
+  "n": 1,
+  "s": "12pm – 10pm"
+ },
+ {
+  "n": 1,
+  "s": "12pm – 11pm"
+ },
+ {
+  "n": 1,
+  "s": "12pm – 9pm"
+ },
+ {
+  "n": 1,
+  "s": "190/kg"
+ },
+ {
+  "n": 1,
+  "s": "195/kg"
+ },
+ {
+  "n": 1,
+  "s": "2 oz"
+ },
+ {
+  "n": 1,
+  "s": "32 dishes &middot; 12pm until close"
+ },
+ {
+  "n": 1,
+  "s": "4 oz"
+ },
+ {
+  "n": 1,
+  "s": "43 pours &middot; port, amaro, grappa, caff&egrave;"
+ },
+ {
+  "n": 1,
+  "s": "45-day dry-aged, on the bone."
+ },
+ {
+  "n": 1,
+  "s": "@amamiitalia_official"
+ },
+ {
+  "n": 1,
+  "s": "A Brampton"
+ },
+ {
+  "n": 1,
+  "s": "A Tavola"
+ },
+ {
+  "n": 1,
+  "s": "A Tavola &mdash; the menu"
+ },
+ {
+  "n": 1,
+  "s": "A room that can hold a conversation"
+ },
+ {
+  "n": 1,
+  "s": "A short drive from Bolton"
+ },
+ {
+  "n": 1,
+  "s": "Accessibility policy."
+ },
+ {
+  "n": 1,
+  "s": "Accessibility | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Add Parma prosciutto 6"
+ },
+ {
+  "n": 1,
+  "s": "Add chicken 6 · shrimp 8 · vegetables 6"
+ },
+ {
+  "n": 1,
+  "s": "Add chicken 6 · smoked salmon 10 · shrimp 8 to any salad"
+ },
+ {
+  "n": 1,
+  "s": "Affogato"
+ },
+ {
+  "n": 1,
+  "s": "After"
+ },
+ {
+  "n": 1,
+  "s": "After Dark Small Plates — Late Night in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "After dinner, at Amami"
+ },
+ {
+  "n": 1,
+  "s": "After dinner."
+ },
+ {
+  "n": 1,
+  "s": "Agnello alla Griglia"
+ },
+ {
+  "n": 1,
+  "s": "Also on the menu"
+ },
+ {
+  "n": 1,
+  "s": "Amami"
+ },
+ {
+  "n": 1,
+  "s": "Amami After Dark — Late Night Lounge in Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Amami Caffè"
+ },
+ {
+  "n": 1,
+  "s": "Amami Fuori Casa"
+ },
+ {
+  "n": 1,
+  "s": "Amami Italia — Tuscan Restaurant &amp; Lounge in Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Amami means love me. It is a Tuscan kitchen on Mayfield Road, cooking the food of Lucca for Brampton, Caledon and Vaughan."
+ },
+ {
+  "n": 1,
+  "s": "Amami, away from home."
+ },
+ {
+  "n": 1,
+  "s": "Amaretto"
+ },
+ {
+  "n": 1,
+  "s": "Amaro Dli Amis"
+ },
+ {
+  "n": 1,
+  "s": "Amaro Jefferson"
+ },
+ {
+  "n": 1,
+  "s": "Amaro Montenegro"
+ },
+ {
+  "n": 1,
+  "s": "Amaro Nonino"
+ },
+ {
+  "n": 1,
+  "s": "Amaro Washington"
+ },
+ {
+  "n": 1,
+  "s": "Americano"
+ },
+ {
+  "n": 1,
+  "s": "Americano with Bushmills and a hint of vanilla (1.5 oz)"
+ },
+ {
+  "n": 1,
+  "s": "Americano with Frangelico, Galliano and Gran Sasso Amaro (1.5 oz)"
+ },
+ {
+  "n": 1,
+  "s": "Americano with brandy and Kahlúa (1.5 oz)"
+ },
+ {
+  "n": 1,
+  "s": "An evening for two."
+ },
+ {
+  "n": 1,
+  "s": "Antipasti through dolci. Gnocchi al pesto, saffron risotto, lamb chops, and the tomahawk and fiorentina, both aged 45 days and cut by the kilo."
+ },
+ {
+  "n": 1,
+  "s": "Aperitivi & Cocktails"
+ },
+ {
+  "n": 1,
+  "s": "Aperitivi &amp; Cocktails"
+ },
+ {
+  "n": 1,
+  "s": "Aperitivi list"
+ },
+ {
+  "n": 1,
+  "s": "Aperitivo, and what to drink before dinner."
+ },
+ {
+  "n": 1,
+  "s": "Appetizers"
+ },
+ {
+  "n": 1,
+  "s": "Apply"
+ },
+ {
+  "n": 1,
+  "s": "Arancini"
+ },
+ {
+  "n": 1,
+  "s": "Artisanal Penne"
+ },
+ {
+  "n": 1,
+  "s": "Artisanal lemon sorbet"
+ },
+ {
+  "n": 1,
+  "s": "Ask about a private night"
+ },
+ {
+  "n": 1,
+  "s": "Away from home."
+ },
+ {
+  "n": 1,
+  "s": "Baileys"
+ },
+ {
+  "n": 1,
+  "s": "Baked layers of eggplant, tomato sauce, mozzarella and parmigiano"
+ },
+ {
+  "n": 1,
+  "s": "Bar"
+ },
+ {
+  "n": 1,
+  "s": "Beans in house tomato sauce"
+ },
+ {
+  "n": 1,
+  "s": "Beef, spinach, mozzarella and house tomato sauce"
+ },
+ {
+  "n": 1,
+  "s": "Bianche list"
+ },
+ {
+  "n": 1,
+  "s": "Birthdays &amp; Celebrations in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Bistecca di Cavolfiore"
+ },
+ {
+  "n": 1,
+  "s": "Bocale Grappa di Sagrantino"
+ },
+ {
+  "n": 1,
+  "s": "Bolton"
+ },
+ {
+  "n": 1,
+  "s": "Bolton hero"
+ },
+ {
+  "n": 1,
+  "s": "Book the table first &mdash; the menu will still be here."
+ },
+ {
+  "n": 1,
+  "s": "Born and raised in Lucca. Learned tordelli from his mother and grandmother. In restaurants by sixteen. In Canada since 2014. APCI certified."
+ },
+ {
+  "n": 1,
+  "s": "Born in Lucca"
+ },
+ {
+  "n": 1,
+  "s": "Bottle 125"
+ },
+ {
+  "n": 1,
+  "s": "Bottle 60"
+ },
+ {
+  "n": 1,
+  "s": "Bring everyone"
+ },
+ {
+  "n": 1,
+  "s": "Bruschetta"
+ },
+ {
+  "n": 1,
+  "s": "Buffalo mozzarella with heirloom tomatoes and basil oil"
+ },
+ {
+  "n": 1,
+  "s": "Buono a Sapersi"
+ },
+ {
+  "n": 1,
+  "s": "Burrata"
+ },
+ {
+  "n": 1,
+  "s": "Buy a Gift Card"
+ },
+ {
+  "n": 1,
+  "s": "By the glass list"
+ },
+ {
+  "n": 1,
+  "s": "Caesar Salad"
+ },
+ {
+  "n": 1,
+  "s": "Caffè Corretto"
+ },
+ {
+  "n": 1,
+  "s": "Cajun fried brussels sprouts"
+ },
+ {
+  "n": 1,
+  "s": "Caledon"
+ },
+ {
+  "n": 1,
+  "s": "Caledon hero"
+ },
+ {
+  "n": 1,
+  "s": "Call 905-794-3366"
+ },
+ {
+  "n": 1,
+  "s": "Calzoni list"
+ },
+ {
+  "n": 1,
+  "s": "Can we book the whole room?"
+ },
+ {
+  "n": 1,
+  "s": "Can you handle allergies?"
+ },
+ {
+  "n": 1,
+  "s": "Capacities, set menus and the notice period, stated plainly."
+ },
+ {
+  "n": 1,
+  "s": "Cappuccino"
+ },
+ {
+  "n": 1,
+  "s": "Caprese"
+ },
+ {
+  "n": 1,
+  "s": "Careers — Work at Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Carnaroli risotto finished with saffron"
+ },
+ {
+  "n": 1,
+  "s": "Castelgrave Vinsanto"
+ },
+ {
+  "n": 1,
+  "s": "Catering Menu — Italian Catering in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Catering enquiry"
+ },
+ {
+  "n": 1,
+  "s": "Cavoletti Fritti"
+ },
+ {
+  "n": 1,
+  "s": "Celebrations"
+ },
+ {
+  "n": 1,
+  "s": "Celebrations hero"
+ },
+ {
+  "n": 1,
+  "s": "Cene di Lavoro"
+ },
+ {
+  "n": 1,
+  "s": "Chambord"
+ },
+ {
+  "n": 1,
+  "s": "Cheesecake ai Frutti di Bosco"
+ },
+ {
+  "n": 1,
+  "s": "Chef Gianluca Martinucci — Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Chef&#x27;s Tasting Menu — Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Chicken breast with a light lemon jus"
+ },
+ {
+  "n": 1,
+  "s": "Chocolate Cheesecake"
+ },
+ {
+  "n": 1,
+  "s": "Classics list"
+ },
+ {
+  "n": 1,
+  "s": "Closed"
+ },
+ {
+  "n": 1,
+  "s": "Cocktails &amp; Aperitivo — Lounge in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Cocktails, small plates and music once dinner service turns over."
+ },
+ {
+  "n": 1,
+  "s": "Cointreau"
+ },
+ {
+  "n": 1,
+  "s": "Come and find us. An invitation rather than a directory listing."
+ },
+ {
+  "n": 1,
+  "s": "Contact — Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Cookies policy."
+ },
+ {
+  "n": 1,
+  "s": "Cookies | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Corporate Dining in Brampton — Private Rooms | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Corporate dining"
+ },
+ {
+  "n": 1,
+  "s": "Corporate dining hero"
+ },
+ {
+  "n": 1,
+  "s": "Coverage"
+ },
+ {
+  "n": 1,
+  "s": "Creamy cheesecake with rich ganache on a chocolate crumb base"
+ },
+ {
+  "n": 1,
+  "s": "Crisp romaine, croutons and house caesar dressing"
+ },
+ {
+  "n": 1,
+  "s": "Da Bolton"
+ },
+ {
+  "n": 1,
+  "s": "Da Caledon"
+ },
+ {
+  "n": 1,
+  "s": "Da Lucca"
+ },
+ {
+  "n": 1,
+  "s": "Da Lucca a Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Da Vaughan"
+ },
+ {
+  "n": 1,
+  "s": "Dark"
+ },
+ {
+  "n": 1,
+  "s": "Date"
+ },
+ {
+  "n": 1,
+  "s": "Date Night in Brampton — Italian Restaurant | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Date night"
+ },
+ {
+  "n": 1,
+  "s": "Date night hero"
+ },
+ {
+  "n": 1,
+  "s": "Degustazione, with a notice period — see the menu page."
+ },
+ {
+  "n": 1,
+  "s": "Dessert"
+ },
+ {
+  "n": 1,
+  "s": "Dining Menu — Italian Restaurant in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Dinner"
+ },
+ {
+  "n": 1,
+  "s": "Dinner service turns over and the room stays open. Forty-three pours after the plates go away &mdash; tawny port, a long row of amari, grappa, and coffee with something in it."
+ },
+ {
+  "n": 1,
+  "s": "Dinner, then the lounge"
+ },
+ {
+  "n": 1,
+  "s": "Do you have a tasting menu?"
+ },
+ {
+  "n": 1,
+  "s": "Do you take reservations?"
+ },
+ {
+  "n": 1,
+  "s": "Dolci list"
+ },
+ {
+  "n": 1,
+  "s": "Drambuie"
+ },
+ {
+  "n": 1,
+  "s": "Drop-off"
+ },
+ {
+  "n": 1,
+  "s": "Dry-aged 45 days, AAA Canadian"
+ },
+ {
+  "n": 1,
+  "s": "Dry-aged 45 days, AAA Canadian T-bone"
+ },
+ {
+  "n": 1,
+  "s": "Espresso"
+ },
+ {
+  "n": 1,
+  "s": "Espresso corrected with grappa or Sambuca (0.5 oz)"
+ },
+ {
+  "n": 1,
+  "s": "Espresso double or macchiato"
+ },
+ {
+  "n": 1,
+  "s": "FAQ — Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "FAQPage schema to be emitted from this list."
+ },
+ {
+  "n": 1,
+  "s": "Faccia Brutto Centerbe"
+ },
+ {
+  "n": 1,
+  "s": "Fagioli al Pomodoro"
+ },
+ {
+  "n": 1,
+  "s": "First name"
+ },
+ {
+  "n": 1,
+  "s": "Fonseca White Port"
+ },
+ {
+  "n": 1,
+  "s": "For Vaughan and Woodbridge"
+ },
+ {
+  "n": 1,
+  "s": "Frangelico"
+ },
+ {
+  "n": 1,
+  "s": "Free on-site parking."
+ },
+ {
+  "n": 1,
+  "s": "Free on-site parking. Count and accessible bays to confirm."
+ },
+ {
+  "n": 1,
+  "s": "Fresh burrata with sautéed cherry tomatoes, garlic and basil oil"
+ },
+ {
+  "n": 1,
+  "s": "Friday – Saturday"
+ },
+ {
+  "n": 1,
+  "s": "Fried calamari, prawns and zucchini with Greek lime yogurt"
+ },
+ {
+  "n": 1,
+  "s": "Frittura di Mare Mista"
+ },
+ {
+  "n": 1,
+  "s": "From 10pm"
+ },
+ {
+  "n": 1,
+  "s": "From Bolton."
+ },
+ {
+  "n": 1,
+  "s": "From Caledon."
+ },
+ {
+  "n": 1,
+  "s": "From Italy to Brampton"
+ },
+ {
+  "n": 1,
+  "s": "From Vaughan."
+ },
+ {
+  "n": 1,
+  "s": "From the oven."
+ },
+ {
+  "n": 1,
+  "s": "Full service"
+ },
+ {
+  "n": 1,
+  "s": "Garlic, extra virgin olive oil, hot pepper"
+ },
+ {
+  "n": 1,
+  "s": "General"
+ },
+ {
+  "n": 1,
+  "s": "Get Directions"
+ },
+ {
+  "n": 1,
+  "s": "Getting here"
+ },
+ {
+  "n": 1,
+  "s": "Gianluca's hands. Ties the chef directly to the craft."
+ },
+ {
+  "n": 1,
+  "s": "Gift Card Terms policy."
+ },
+ {
+  "n": 1,
+  "s": "Gift Card Terms | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Gift Cards"
+ },
+ {
+  "n": 1,
+  "s": "Gift Cards — Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Gift card purchase widget"
+ },
+ {
+  "n": 1,
+  "s": "Give Amami."
+ },
+ {
+  "n": 1,
+  "s": "Gnocchi al Pesto"
+ },
+ {
+  "n": 1,
+  "s": "Goldschläger"
+ },
+ {
+  "n": 1,
+  "s": "Good to know. Publish every fact — these answer guests, local search and AI answer engines at the same time."
+ },
+ {
+  "n": 1,
+  "s": "Grand Marnier"
+ },
+ {
+  "n": 1,
+  "s": "Grappa Friulano Nonino"
+ },
+ {
+  "n": 1,
+  "s": "Grilled cauliflower steak with chickpea and beet cream sauce"
+ },
+ {
+  "n": 1,
+  "s": "Grilled lamb chops marinated with rosemary and lemon"
+ },
+ {
+  "n": 1,
+  "s": "Grotta del Ninfeo Recioto"
+ },
+ {
+  "n": 1,
+  "s": "Group sizes, cake policy, timings and what a celebration here includes."
+ },
+ {
+  "n": 1,
+  "s": "Guests"
+ },
+ {
+  "n": 1,
+  "s": "Hours"
+ },
+ {
+  "n": 1,
+  "s": "Il Mestiere"
+ },
+ {
+  "n": 1,
+  "s": "Il Quaderno"
+ },
+ {
+  "n": 1,
+  "s": "Images, bio, fact sheet &mdash; to assemble."
+ },
+ {
+  "n": 1,
+  "s": "Insalata di Casa"
+ },
+ {
+  "n": 1,
+  "s": "Irish Coffee"
+ },
+ {
+  "n": 1,
+  "s": "Is the lounge age-restricted?"
+ },
+ {
+  "n": 1,
+  "s": "Is there parking?"
+ },
+ {
+  "n": 1,
+  "s": "It means love me. Tuscan cooking on Mayfield Road."
+ },
+ {
+  "n": 1,
+  "s": "Italian Catering in Brampton &amp; Caledon | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Italian Restaurant near Bolton | Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Italian Restaurant near Caledon | Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Italian Restaurant near Vaughan &amp; Woodbridge | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Italy by region list"
+ },
+ {
+  "n": 1,
+  "s": "Journal"
+ },
+ {
+  "n": 1,
+  "s": "Journal — Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Jägermeister"
+ },
+ {
+  "n": 1,
+  "s": "Kahlúa"
+ },
+ {
+  "n": 1,
+  "s": "Lasagna"
+ },
+ {
+  "n": 1,
+  "s": "Last name"
+ },
+ {
+  "n": 1,
+  "s": "Latte macchiato"
+ },
+ {
+  "n": 1,
+  "s": "Lavora con Noi"
+ },
+ {
+  "n": 1,
+  "s": "Le Feste"
+ },
+ {
+  "n": 1,
+  "s": "Le Mani di Gianluca"
+ },
+ {
+  "n": 1,
+  "s": "Legal | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Light ricotta and mascarpone cheesecake with fresh berries"
+ },
+ {
+  "n": 1,
+  "s": "Limoncello"
+ },
+ {
+  "n": 1,
+  "s": "Logos and links to add."
+ },
+ {
+  "n": 1,
+  "s": "Lost? Here are the three places people usually want."
+ },
+ {
+  "n": 1,
+  "s": "Lucca sits inside its walls in northern Tuscany. Its cooking is plainer than the Italy most people picture — bread, beans, olive oil, a short list of things done properly."
+ },
+ {
+  "n": 1,
+  "s": "Lunch and dinner."
+ },
+ {
+  "n": 1,
+  "s": "Main entrées — all served with grilled seasonal vegetables and fingerling potatoes"
+ },
+ {
+  "n": 1,
+  "s": "Mains list"
+ },
+ {
+  "n": 1,
+  "s": "Malibu"
+ },
+ {
+  "n": 1,
+  "s": "Mandy's Signature Salad"
+ },
+ {
+  "n": 1,
+  "s": "Mayfield Road at Brampton's northern edge; minutes from Caledon, Bolton and Vaughan."
+ },
+ {
+  "n": 1,
+  "s": "Media Enquiry"
+ },
+ {
+  "n": 1,
+  "s": "Media enquiry"
+ },
+ {
+  "n": 1,
+  "s": "Melanzane Parmigiana"
+ },
+ {
+  "n": 1,
+  "s": "Menu — Tuscan Restaurant in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Mighty Leaf"
+ },
+ {
+  "n": 1,
+  "s": "Minutes from Caledon"
+ },
+ {
+  "n": 1,
+  "s": "Monday"
+ },
+ {
+  "n": 1,
+  "s": "Montanaro Liquore di Camomilla"
+ },
+ {
+  "n": 1,
+  "s": "Music"
+ },
+ {
+  "n": 1,
+  "s": "Neapolitan, from the oven."
+ },
+ {
+  "n": 1,
+  "s": "Open in Google Maps"
+ },
+ {
+  "n": 1,
+  "s": "Our Story — Tuscan Restaurant in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Our team, on site, start to finish."
+ },
+ {
+  "n": 1,
+  "s": "Paesani Amaro Gran Sasso"
+ },
+ {
+  "n": 1,
+  "s": "Page not found | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Parking"
+ },
+ {
+  "n": 1,
+  "s": "Pasta list"
+ },
+ {
+  "n": 1,
+  "s": "Peach Schnapps"
+ },
+ {
+  "n": 1,
+  "s": "People are talking about us."
+ },
+ {
+  "n": 1,
+  "s": "Petto di Pollo al Limone"
+ },
+ {
+  "n": 1,
+  "s": "Pistachio and ricotta creams separated by sponge cake, crusted pistachios, powdered sugar"
+ },
+ {
+  "n": 1,
+  "s": "Pizza Menu — Neapolitan Pizza in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Planning a night for a group, or taking the room for the evening? Tell us the date and how many."
+ },
+ {
+  "n": 1,
+  "s": "Po' di Poli Morbida Grappa"
+ },
+ {
+  "n": 1,
+  "s": "Policies and terms for Amami Italia."
+ },
+ {
+  "n": 1,
+  "s": "Policy to confirm and publish here."
+ },
+ {
+  "n": 1,
+  "s": "Port, amaro, grappa"
+ },
+ {
+  "n": 1,
+  "s": "Potato gnocchi tossed in fresh basil pesto and pine nuts, Parmigiano, topped with stracciatella"
+ },
+ {
+  "n": 1,
+  "s": "Press &amp; Recognition — Amami Italia, Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Press kit"
+ },
+ {
+  "n": 1,
+  "s": "Privacy policy."
+ },
+ {
+  "n": 1,
+  "s": "Privacy | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Private Dining"
+ },
+ {
+  "n": 1,
+  "s": "Private dining or events"
+ },
+ {
+  "n": 1,
+  "s": "Provider not yet chosen."
+ },
+ {
+  "n": 1,
+  "s": "Queen Mary Amaro Trittico"
+ },
+ {
+  "n": 1,
+  "s": "Raise the"
+ },
+ {
+  "n": 1,
+  "s": "Ravioli"
+ },
+ {
+  "n": 1,
+  "s": "Read the after-dark list"
+ },
+ {
+  "n": 1,
+  "s": "Regala Amami"
+ },
+ {
+  "n": 1,
+  "s": "Reservation"
+ },
+ {
+  "n": 1,
+  "s": "Reservation Terms policy."
+ },
+ {
+  "n": 1,
+  "s": "Reservation Terms | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Ribeye"
+ },
+ {
+  "n": 1,
+  "s": "Rice balls filled with mozzarella, served with house tomato sauce (3)"
+ },
+ {
+  "n": 1,
+  "s": "Ricotta & Pistachio Cheesecake"
+ },
+ {
+  "n": 1,
+  "s": "Ricotta and spinach ravioli with blush sauce"
+ },
+ {
+  "n": 1,
+  "s": "Risotto allo Zafferano e Asparagi"
+ },
+ {
+  "n": 1,
+  "s": "Roasted red beets, greens, feta, mandarin oranges and house Italian dressing"
+ },
+ {
+  "n": 1,
+  "s": "Role"
+ },
+ {
+  "n": 1,
+  "s": "Romantic dining in Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Rosse list"
+ },
+ {
+  "n": 1,
+  "s": "Route, drive time and parking."
+ },
+ {
+  "n": 1,
+  "s": "Salmone al Sambuca"
+ },
+ {
+  "n": 1,
+  "s": "Sambuca"
+ },
+ {
+  "n": 1,
+  "s": "Savoiardi soaked in espresso and rum essence, layered with mascarpone and cocoa"
+ },
+ {
+  "n": 1,
+  "s": "Scaloppine al Marsala"
+ },
+ {
+  "n": 1,
+  "s": "Scrivici"
+ },
+ {
+  "n": 1,
+  "s": "Seasonal mixed salad with house dressing"
+ },
+ {
+  "n": 1,
+  "s": "See the list"
+ },
+ {
+  "n": 1,
+  "s": "Send"
+ },
+ {
+  "n": 1,
+  "s": "Send enquiry"
+ },
+ {
+  "n": 1,
+  "s": "Sesame-crusted seared salmon with Pernod and Sambuca cream sauce"
+ },
+ {
+  "n": 1,
+  "s": "Shoot 1"
+ },
+ {
+  "n": 1,
+  "s": "Si Parla di Noi"
+ },
+ {
+  "n": 1,
+  "s": "Sides"
+ },
+ {
+  "n": 1,
+  "s": "Signatures list"
+ },
+ {
+  "n": 1,
+  "s": "Single"
+ },
+ {
+  "n": 1,
+  "s": "Sorbetto al Limone"
+ },
+ {
+  "n": 1,
+  "s": "Southern Comfort"
+ },
+ {
+  "n": 1,
+  "s": "Spaghetti Aglio Olio e Peperoncino"
+ },
+ {
+  "n": 1,
+  "s": "Spanish Coffee"
+ },
+ {
+  "n": 1,
+  "s": "Sparkling list"
+ },
+ {
+  "n": 1,
+  "s": "St. Germain"
+ },
+ {
+  "n": 1,
+  "s": "Standing 60 · seated 30"
+ },
+ {
+  "n": 1,
+  "s": "Step-free entry, accessible washroom. Details to confirm."
+ },
+ {
+  "n": 1,
+  "s": "Sunday"
+ },
+ {
+  "n": 1,
+  "s": "Taylor Fladgate 20 Year Tawny"
+ },
+ {
+  "n": 1,
+  "s": "Tea"
+ },
+ {
+  "n": 1,
+  "s": "Technique arrives with a person, not from a book. Pasta is rolled here, sauces are built here, and the kitchen is run by someone who learned it where it comes from."
+ },
+ {
+  "n": 1,
+  "s": "Tell us what you are planning and we will come back to you with dates, space and a per-head price."
+ },
+ {
+  "n": 1,
+  "s": "Terms of Use policy."
+ },
+ {
+  "n": 1,
+  "s": "Terms of Use | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "The Bar"
+ },
+ {
+  "n": 1,
+  "s": "The Room"
+ },
+ {
+  "n": 1,
+  "s": "The aperitivo hour and the bar's own list."
+ },
+ {
+  "n": 1,
+  "s": "The aperitivo hour, and where the signatures are made."
+ },
+ {
+  "n": 1,
+  "s": "The celebrations."
+ },
+ {
+  "n": 1,
+  "s": "The cellar."
+ },
+ {
+  "n": 1,
+  "s": "The chef's sequence, on notice."
+ },
+ {
+  "n": 1,
+  "s": "The counter takes twelve. The lounge takes sixty standing, thirty seated. Come for one, stay for the room."
+ },
+ {
+  "n": 1,
+  "s": "The craft that travelled"
+ },
+ {
+  "n": 1,
+  "s": "The family recipe."
+ },
+ {
+  "n": 1,
+  "s": "The lounge"
+ },
+ {
+  "n": 1,
+  "s": "The notebook."
+ },
+ {
+  "n": 1,
+  "s": "The other five lists"
+ },
+ {
+  "n": 1,
+  "s": "The room"
+ },
+ {
+  "n": 1,
+  "s": "The room on Mayfield Road"
+ },
+ {
+  "n": 1,
+  "s": "The room seats a Tuesday dinner for two and a table of twenty on a Saturday. It is warm, it is loud when it should be, and it is ten minutes from Caledon and Vaughan."
+ },
+ {
+  "n": 1,
+  "s": "The sequence list"
+ },
+ {
+  "n": 1,
+  "s": "The tasting."
+ },
+ {
+  "n": 1,
+  "s": "These pages are built and named. The kitchen and the bar are still sending the current lists, and they go up as text the day they arrive."
+ },
+ {
+  "n": 1,
+  "s": "Ti Sei Perso?"
+ },
+ {
+  "n": 1,
+  "s": "Tiramisù"
+ },
+ {
+  "n": 1,
+  "s": "Toasted artisan bread topped with tomatoes, garlic, olive oil and sea salt (3)"
+ },
+ {
+  "n": 1,
+  "s": "Tomahawk"
+ },
+ {
+  "n": 1,
+  "s": "Tordelli di Nonna Lia"
+ },
+ {
+  "n": 1,
+  "s": "Toscana list"
+ },
+ {
+  "n": 1,
+  "s": "Trays &amp; platters list"
+ },
+ {
+  "n": 1,
+  "s": "Trays and platters delivered, set out by you."
+ },
+ {
+  "n": 1,
+  "s": "Trays, pasta and mains to take away."
+ },
+ {
+  "n": 1,
+  "s": "Truffle Fries / Sweet Potato Fries"
+ },
+ {
+  "n": 1,
+  "s": "Tuesday – Thursday"
+ },
+ {
+  "n": 1,
+  "s": "Tuscan, slow, unfashionable, correct."
+ },
+ {
+  "n": 1,
+  "s": "Tuscany"
+ },
+ {
+  "n": 1,
+  "s": "Tuscany first, then the rest of Italy."
+ },
+ {
+  "n": 1,
+  "s": "Una Sera per Due"
+ },
+ {
+  "n": 1,
+  "s": "Vanilla or pistachio ice cream drowned in freshly made espresso"
+ },
+ {
+  "n": 1,
+  "s": "Vaughan & Woodbridge"
+ },
+ {
+  "n": 1,
+  "s": "Vaughan &amp; Woodbridge hero"
+ },
+ {
+  "n": 1,
+  "s": "Veal or chicken scaloppine, mushrooms and creamy marsala sauce"
+ },
+ {
+  "n": 1,
+  "s": "Veneto"
+ },
+ {
+  "n": 1,
+  "s": "Venti Amaro"
+ },
+ {
+  "n": 1,
+  "s": "Vertical."
+ },
+ {
+  "n": 1,
+  "s": "Vieni a Trovarci"
+ },
+ {
+  "n": 1,
+  "s": "Vieni a Trovarci &mdash; visit"
+ },
+ {
+  "n": 1,
+  "s": "Visit — Hours, Location &amp; Parking | Amami Italia Brampton"
+ },
+ {
+  "n": 1,
+  "s": "Vodka-infused tomato cream sauce"
+ },
+ {
+  "n": 1,
+  "s": "We reply within one business day."
+ },
+ {
+  "n": 1,
+  "s": "What are you planning?"
+ },
+ {
+  "n": 1,
+  "s": "What is it about?"
+ },
+ {
+  "n": 1,
+  "s": "What makes a luxury Italian restaurant different"
+ },
+ {
+  "n": 1,
+  "s": "What the bar works from once the plates go away. Tawny port, a long row of amari, grappa, and coffee with something in it."
+ },
+ {
+  "n": 1,
+  "s": "What the evening actually looks like, from arrival to the last drink."
+ },
+ {
+  "n": 1,
+  "s": "Where it came from"
+ },
+ {
+  "n": 1,
+  "s": "Where we are relative to Caledon, drive time and parking."
+ },
+ {
+  "n": 1,
+  "s": "White or black"
+ },
+ {
+  "n": 1,
+  "s": "Why Italian food works for corporate events"
+ },
+ {
+  "n": 1,
+  "s": "Why the drive is worth it, and how long it takes."
+ },
+ {
+  "n": 1,
+  "s": "Wild boar ragù"
+ },
+ {
+  "n": 1,
+  "s": "Wine List — Italian Wine in Brampton | Amami Italia"
+ },
+ {
+  "n": 1,
+  "s": "Work with us."
+ },
+ {
+  "n": 1,
+  "s": "Working dinners."
+ },
+ {
+  "n": 1,
+  "s": "Working portrait"
+ },
+ {
+  "n": 1,
+  "s": "Write to us. One form, routed by subject, so nothing lands in the wrong inbox."
+ },
+ {
+  "n": 1,
+  "s": "Yes — OpenTable, and by phone."
+ },
+ {
+  "n": 1,
+  "s": "Yes — private dining and full buyouts."
+ },
+ {
+  "n": 1,
+  "s": "Yes. Tell us when you book and again at the table."
+ },
+ {
+  "n": 1,
+  "s": "Zero proof list"
+ },
+ {
+  "n": 1,
+  "s": "amamiitalia.com"
+ },
+ {
+  "n": 1,
+  "s": "at ten"
+ },
+ {
+  "n": 1,
+  "s": "doesn&rsquo;t empty"
+ }
+]

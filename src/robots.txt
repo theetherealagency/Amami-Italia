@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# The old file pointed at amamiitalia.com's WordPress sitemap over http.
+Sitemap: https://amami-italia.vercel.app/sitemap.xml

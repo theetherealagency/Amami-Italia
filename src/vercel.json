@@ -1,0 +1,134 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "cleanUrls": false,
+  "headers": [
+    {
+      "source": "/wp-content/uploads/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/wp-content/(plugins|themes)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/wp-includes/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/lounge",
+      "destination": "/after-dark/",
+      "permanent": true
+    },
+    {
+      "source": "/lounge/",
+      "destination": "/after-dark/",
+      "permanent": true
+    },
+    {
+      "source": "/reservations",
+      "destination": "/reservation/",
+      "permanent": true
+    },
+    {
+      "source": "/reservations/",
+      "destination": "/reservation/",
+      "permanent": true
+    },
+    {
+      "source": "/gallery",
+      "destination": "/after-dark/",
+      "permanent": true
+    },
+    {
+      "source": "/gallery/",
+      "destination": "/after-dark/",
+      "permanent": true
+    },
+    {
+      "source": "/menu-new/",
+      "destination": "/menu/",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us-new/",
+      "destination": "/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/dining-experience-new/",
+      "destination": "/dining-experience/",
+      "permanent": true
+    },
+    {
+      "source": "/reservation-new/",
+      "destination": "/reservation/",
+      "permanent": true
+    },
+    {
+      "source": "/author/mandy/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us-new/",
+      "destination": "/about-us/",
+      "permanent": true
+    },
+    {
+      "source": "/xmlrpc.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/team/gianluca-martinucci",
+      "destination": "/our-story/chef/",
+      "permanent": true
+    },
+    {
+      "source": "/team/gianluca-martinucci/",
+      "destination": "/our-story/chef/",
+      "permanent": true
+    }
+  ]
+}

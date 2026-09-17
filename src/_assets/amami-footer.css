@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Amami Italia — the site's one footer.
+   Kept in its own stylesheet, and deliberately self-contained: it declares the
+   handful of tokens it needs on .ftr rather than reading them from :root, so
+   the same footer can be dropped into a page that does not load amami.css
+   (the restored /events/ page) without dragging the rest of the design system
+   in with it and restyling that page's body.
+
+   Three tight rows — brand + navigation, the facts, legal — instead of the
+   four tall columns it used to be.
+   ========================================================================== */
+.ftr{
+  --f-ink:#141110;
+  --f-cream:#fdf8f4;
+  --f-bronze-lit:#ca9d75;
+  --f-line:rgba(253,248,244,.16);
+  --f-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --f-sans:'Poppins','Helvetica Neue',system-ui,sans-serif;
+  background:var(--f-ink);color:var(--f-cream);
+  font-family:var(--f-sans);font-size:16px;line-height:1.6;text-align:left;
+  border-top:1px solid var(--f-line);
+  padding:clamp(24px,3vw,38px) 0 clamp(16px,2.2vw,24px);
+  margin:0;
+}
+.ftr *{box-sizing:border-box}
+.ftr__wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)}
+.ftr a{color:inherit;text-decoration:none;transition:color .2s}
+.ftr a:hover{color:var(--f-bronze-lit)}
+
+.ftr__top{display:grid;gap:18px 34px;grid-template-columns:1fr}
+@media(min-width:760px){.ftr__top{grid-template-columns:1fr auto;align-items:center}}
+.ftr__brand{display:flex;align-items:center;gap:14px}
+.ftr__brand img{height:34px;width:auto;display:block;margin:0}
+.ftr__brand span{font-family:var(--f-serif);font-size:1.05rem;line-height:1.25;
+  color:rgba(253,248,244,.8);max-width:24ch}
+.ftr__brand:hover span{color:var(--f-bronze-lit)}
+.ftr__nl label{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--f-bronze-lit);margin:0 0 .4rem}
+.ftr__nlrow{display:flex}
+.ftr .ftr__nlrow input,
+.ftr__nl input{background:transparent;border:1px solid var(--f-line);border-right:0;
+  color:var(--f-cream);font:inherit;font-size:.85rem;padding:.55em .8em;
+  width:min(210px,50vw);border-radius:0;margin:0}
+.ftr__nl input::placeholder{color:rgba(253,248,244,.42)}
+.ftr__nl input:focus{outline:none;border-color:var(--f-bronze-lit)}
+/* The restored /events/ page carries a theme that styles bare <button>, so the
+   footer's own button needs the extra specificity to win. */
+.ftr .ftr__nlrow button,
+.ftr__nl button{background:transparent;border:1px solid var(--f-bronze-lit);color:var(--f-cream);
+  font:inherit;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.55em 1.1em;cursor:pointer;border-radius:0;margin:0;
+  transition:background .2s,color .2s}
+.ftr .ftr__nlrow button:hover,
+.ftr__nl button:hover{background:var(--f-bronze-lit);color:var(--f-ink)}
+
+.ftr__meta{margin-top:clamp(16px,2.2vw,26px);padding-top:clamp(13px,1.8vw,18px);
+  border-top:1px solid var(--f-line);display:grid;gap:.25rem 2rem}
+@media(min-width:960px){.ftr__meta{grid-template-columns:1.15fr 1.35fr 1fr;align-items:center}}
+.ftr__meta p{margin:0;font-size:.82rem;color:rgba(253,248,244,.72)}
+.ftr__meta p:last-child{text-align:left}
+@media(min-width:960px){.ftr__meta p:last-child{text-align:right}}
+.ftr__meta a{color:rgba(253,248,244,.92)}
+/* Spacing separates these, not punctuation — a wrapped line was leaving a
+   middot dangling at its end. */
+.ftr__meta .sep{display:none}
+.ftr__meta p{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem;align-items:baseline}
+@media(min-width:960px){.ftr__meta p:last-child{justify-content:flex-end}}
+
+.ftr__legal{margin-top:clamp(12px,1.8vw,18px);padding-top:.85rem;
+  border-top:1px solid var(--f-line);display:flex;flex-wrap:wrap;
+  gap:.25rem .95rem;font-size:.71rem;color:rgba(253,248,244,.55)}
+
+/* Phones: the small print was 11px and the links were 19px tall, which is
+   under the tap target every mobile guideline asks for — and most of this
+   site's traffic arrives from an ad on a phone. */
+@media(max-width:760px){
+  .ftr__meta{gap:.5rem 2rem}
+  .ftr__meta p{font-size:.875rem}
+  .ftr__meta a{display:inline-block;padding:.5rem 0}
+  .ftr__legal{gap:.15rem 1rem;font-size:.8rem}
+  .ftr__legal a{padding:.45rem 0;display:inline-block}
+  .ftr__nl input,.ftr .ftr__nlrow input{font-size:16px}
+  .ftr__brand span{font-size:1rem}
+}
+
+/* --- the footer on a phone --------------------------------------------------
+   Stacked, everything ran together into one column of loose text. The links
+   become a two-column list with rules, the facts get their own labelled rows,
+   and the legal line is set apart, so the eye has somewhere to land instead of
+   reading a paragraph of navigation. */
+@media(max-width:760px){
+  .ftr{padding-top:clamp(28px,6vw,36px)}
+  .ftr__top{gap:22px}
+  .ftr__brand{align-items:flex-start;gap:12px}
+  .ftr__brand img{height:30px}
+  .ftr__brand span{font-size:.95rem;max-width:22ch}
+  .ftr__meta{grid-template-columns:1fr;gap:.85rem;text-align:left}
+  .ftr__meta p{font-size:.9rem;line-height:1.5}
+  .ftr__meta p:last-child{text-align:left}
+  /* stacked, the middots ended up dangling at the end of wrapped lines */
+  .ftr__meta p{display:block}
+  .ftr__meta a,.ftr__meta span{display:block}
+  .ftr__legal{justify-content:flex-start;gap:.1rem .9rem;font-size:.78rem;
+    opacity:.85;padding-top:1rem}
+  .ftr__legal a{padding:.4rem 0}
+  .ftr__nl{margin-top:.2rem}
+  .ftr__nl label{font-size:.78rem}
+}
