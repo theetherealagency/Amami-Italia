@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Amami Italia — home page (2026 comp, "Amami Website.svg")
+   Loaded by / only, so the rest of the site is untouched: the comp's ground
+   is cream and its accent is the red the artwork is built around, neither of
+   which belongs in amami.css, where --cocoa is the brown the client asked
+   for in September.
+
+   The comp is a 1366-wide artboard and the page is that artboard scaled:
+   every length below is the comp's own number over 1366, written as vw, so
+   the proportions hold at any width. max() only adds a floor, for phones,
+   where the artboard has nothing to say; the narrow block at the end is the
+   one place this file departs from the drawing.
+
+   Type positions are set from measured baselines, not guessed leading —
+   Cormorant Garamond's advance widths match the comp's to a tenth of a
+   pixel, so both full-bleed lines are sized to land exactly edge to edge.
+   ========================================================================== */
+
+body.is-home{
+  --hm-cream:#ede9dc;      /* the artboard ground */
+  --hm-red:#77312c;        /* the band, and the type that sits on cream */
+  --hm-panel:#161616;      /* the two split panels */
+  --hm-silver:#cdd6e2;     /* panel titles and the line icons */
+  --hm-scrim:#080809;      /* both photographic gradients */
+  background:var(--hm-cream);
+  color:var(--hm-panel);
+}
+/* The two full-bleed lines are set to exactly 100vw; clip keeps a rounding
+   error from becoming a horizontal scrollbar. */
+body.is-home main{overflow-x:clip}
+/* amami.css gives every <section> block padding. Each section below sets
+   its own padding shorthand, which clears it without editing that file. */
+
+/* The comp has no button of its own: a 1px rule, a wide-tracked label, and
+   nothing else. One rule, two colourways — white on photography, red on
+   cream. text-indent puts back the space .2em tracking steals from the
+   right, so the label sits optically centred. */
+.hm-btn{
+  display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
+  min-width:max(112px,12.027vw);
+  height:max(36px,3.226vw);
+  padding-inline:max(9px,.886vw);
+  border:1px solid #fff;color:#fff;background:transparent;
+  font-family:var(--sans);font-weight:300;
+  font-size:max(9.5px,1.16vw);
+  letter-spacing:.2em;text-indent:.2em;
+  text-transform:uppercase;text-decoration:none;white-space:nowrap;
+  transition:background .25s,color .25s,border-color .25s;
+}
+.hm-btn:hover,.hm-btn:focus-visible{background:#fff;color:var(--hm-panel)}
+.hm-btn--red{border-color:var(--hm-red);color:var(--hm-red)}
+.hm-btn--red:hover,.hm-btn--red:focus-visible{background:var(--hm-red);color:var(--hm-cream)}
+
+/* --- 1. hero -------------------------------------------------------------
+   762.2 of 1366 tall. The scrim is the comp's gradient exactly: nothing at
+   all until 40.6% down, then to solid by the bottom edge, which is what lets
+   cream type sit over a photograph of a white tablecloth. */
+.hm-hero{
+  position:relative;isolation:isolate;overflow:hidden;padding:0;
+  height:max(520px,55.797vw);
+  background:var(--hm-scrim);
+}
+.hm-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hm-hero__scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(8,9,9,0) 40.6%,var(--hm-scrim) 100%);
+}
+/* Copy left, mark on the centre line, action right — a three-column grid
+   rather than space-between, so the mark stays centred however long the two
+   outer items get in Italian. 24.21% is the comp's button centre. */
+.hm-hero__row{
+  position:absolute;left:0;right:0;bottom:24.21%;z-index:2;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  gap:max(10px,2vw);
+  padding-inline:max(14px,6.142vw);
+}
+.hm-hero__claim{
+  margin:0;max-width:max(18ch,22vw);color:var(--hm-cream);
+  font-family:var(--sans);font-weight:400;
+  font-size:max(8.5px,1.14vw);
+  letter-spacing:.2em;line-height:2.057;text-transform:uppercase;
+}
+.hm-hero__mark{width:max(48px,7.03vw);height:auto}
+.hm-hero__act{justify-self:end}
+
+/* 146.73 of 1366, all caps, and the line is the full width of the artboard.
+   Its baseline sits on the hero's bottom edge: with line-height 1 the
+   baseline falls .818em down the box, and the comp wants it at 1.013em, so
+   the line is nudged the .195em difference. Caps, so nothing is lost to the
+   crop below it. */
+.hm-hero__word{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
+  font-family:var(--serif);font-weight:300;color:var(--hm-cream);
+  font-size:10.8vw;line-height:1;letter-spacing:-.05em;
+  text-align:center;white-space:nowrap;text-transform:uppercase;
+  transform:translateY(.195em);
+}
+
+/* --- 2. the room ---------------------------------------------------------
+   Cream, centred, and the one drawing on the page. The four gaps here are
+   the comp's: 96.04 to the title's cap, 3.83 and 19.27 between the three
+   things, 41.68 to the action and 95.04 out. */
+.hm-room{
+  background:var(--hm-cream);text-align:center;
+  padding:max(30px,7.031vw) max(14px,4vw) max(34px,6.958vw);
+}
+.hm-room__h{
+  margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-red);
+  font-size:max(30px,5.748vw);line-height:1;
+  letter-spacing:-.05em;text-transform:uppercase;
+}
+.hm-room__sub{
+  margin:max(3px,.28vw) 0 0;font-family:var(--accent);
+  color:var(--hm-panel);font-size:max(11.5px,1.133vw);line-height:1.5;
+}
+.hm-room__illo{
+  display:block;width:70.278vw;height:auto;
+  margin:max(16px,1.411vw) auto 0;
+}
+.hm-room__cta{margin-top:max(22px,3.051vw)}
+
+/* --- 3. the red band + after dark ---------------------------------------
+   The band is 729.42 of 1366 tall and is painted by ::before, because the
+   After Dark photograph hangs 185 past its bottom edge onto the cream. The
+   Tuscan drawing is baked into that one JPEG at the blend and opacity the
+   comp gives it (soft-light, 30%), which is cheaper and steadier than
+   shipping two transparent PNGs for the browser to composite. */
+.hm-band{position:relative;isolation:isolate;padding:0 max(14px,4vw)}
+.hm-band::before{
+  content:"";position:absolute;left:0;right:0;top:0;z-index:-1;
+  height:53.398vw;
+  background:var(--hm-red)
+    url(/wp-content/uploads/2026/09/home-band-tuscany.jpg) bottom center / 100% auto no-repeat;
+}
+.hm-band__h{
+  margin:0;padding-top:max(18px,2.561vw);
+  font-family:var(--serif);font-weight:300;color:var(--hm-cream);
+  font-size:7.63vw;line-height:1;letter-spacing:-.05em;
+  text-align:center;white-space:nowrap;text-transform:uppercase;
+}
+.hm-band__cta{display:flex;justify-content:center;margin:max(20px,3.551vw) 0 0}
+.hm-band__cta .hm-btn{
+  min-width:max(180px,24.599vw);
+  height:max(38px,3.704vw);
+  font-size:max(10px,1.332vw);
+}
+
+/* After Dark: the photograph is 32.57% of the artboard and the two words
+   straddle it, printed across its top corners. */
+.hm-ad{position:relative;margin-top:max(30px,6.212vw)}
+.hm-ad__fig{position:relative;width:32.57vw;margin:0 auto}
+.hm-ad__img{display:block;width:100%;height:auto;aspect-ratio:1532/2036;object-fit:cover}
+.hm-ad__cta{position:absolute;left:50%;top:81.71%;transform:translateX(-50%)}
+.hm-ad__word{
+  position:absolute;top:13.7%;margin:0;z-index:2;
+  font-family:var(--sans);font-weight:300;color:var(--hm-cream);
+  font-size:max(18px,3.698vw);line-height:1;
+  letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;
+}
+.hm-ad__word--l{left:27.53%}
+.hm-ad__word--r{left:60.96%}
+
+/* --- 4 & 5. the two split blocks ----------------------------------------
+   1109.55 of 1366 wide, centred: a photograph and a black panel, mirrored
+   the second time. The photograph's ratio sets the row height and the panel
+   stretches to it. Both panels carry the same three things, and the comp
+   spaces them evenly inside 52.73 of padding at the top and 68.79 at the
+   bottom — which is exactly what space-between gives, for the two-line
+   title and the one-line title alike. */
+.hm-split{
+  display:grid;grid-template-columns:51.7% 48.3%;
+  width:81.226vw;margin:0 auto;padding:0;
+}
+.hm-split--flip{grid-template-columns:48.3% 51.7%}
+.hm-split__img{
+  display:block;width:100%;height:auto;object-fit:cover;
+  aspect-ratio:573.5/605.18;
+}
+.hm-split__panel{
+  background:var(--hm-panel);
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  text-align:center;gap:max(16px,2vw);
+  padding:max(20px,3.861vw) max(12px,2.196vw) max(26px,5.036vw);
+}
+.hm-split__lede{
+  margin:0;color:var(--hm-cream);font-family:var(--sans);
+  font-size:max(11px,1.282vw);line-height:1.2;
+}
+.hm-split__mid{display:flex;flex-direction:column;align-items:center}
+.hm-split__icon{display:block;height:auto}
+.hm-split__icon--cloche{width:max(38px,5.214vw)}
+.hm-split__icon--chair{width:max(31px,4.241vw)}
+.hm-split__h{
+  margin:max(12px,1.7vw) 0 0;
+  font-family:var(--serif);font-weight:300;color:var(--hm-silver);
+  font-size:max(22px,3.469vw);line-height:.94;
+  letter-spacing:-.05em;text-transform:uppercase;
+}
+.hm-private{margin-top:max(40px,9.207vw)}
+.hm-catering{margin-top:max(24px,4.701vw)}
+
+/* --- 6. your table is waiting -------------------------------------------
+   Full-bleed room, the comp's scrim running the other way: solid at the top
+   edge, gone by 61.4% down. The OpenTable widget is not in the comp — see
+   the note in index.html — so it keeps its place below the line it belongs
+   to rather than being dropped. */
+.hm-close{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:53.913vw;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  margin-top:max(44px,11.416vw);
+  padding:max(28px,5.304vw) max(14px,4vw) max(30px,4.5vw);
+}
+.hm-close__img{
+  position:absolute;inset:0;z-index:-2;
+  width:100%;height:100%;object-fit:cover;object-position:center 55%;
+}
+.hm-close__scrim{
+  position:absolute;left:0;right:0;top:0;z-index:-1;height:61.4%;
+  background:linear-gradient(to bottom,var(--hm-scrim),rgba(8,9,9,0));
+}
+.hm-close__lede{
+  margin:0;max-width:max(32ch,37.5vw);color:var(--hm-cream);
+  font-family:var(--sans);font-size:max(12px,1.282vw);line-height:1.2;
+}
+.hm-close__h{
+  margin:max(14px,3.208vw) 0 0;
+  font-family:var(--accent);font-weight:400;color:var(--hm-cream);
+  font-size:max(20px,2.304vw);line-height:1.2;
+}
+.hm-close__card{display:flex;justify-content:center;width:100%;margin-top:max(18px,2.6vw)}
+.hm-close__note{
+  margin:max(12px,1.8vw) 0 0;color:rgba(237,233,220,.86);
+  font-size:.86rem;letter-spacing:.02em;
+}
+.hm-close__note a{color:var(--hm-cream)}
+
+/* --- narrow ---------------------------------------------------------------
+   The artboard is a desktop drawing, so this is interpretation rather than
+   transcription: the split blocks stack, the two After Dark words come off
+   the photograph and sit above it, the red headline is allowed to wrap, and
+   the hero's three-across row becomes copy over an action. The gold mark
+   goes, because at 48px it is a smudge. */
+@media (max-width:760px){
+  .hm-hero{height:max(480px,min(88svh,680px))}
+  .hm-hero__row{
+    grid-template-columns:1fr;justify-items:center;text-align:center;
+    bottom:19%;gap:max(14px,4vw);
+  }
+  .hm-hero__claim{font-size:11px;line-height:1.9;max-width:26ch}
+  .hm-hero__mark{display:none}
+  .hm-hero__act{justify-self:center}
+
+  .hm-room{padding-top:max(34px,9vw)}
+  .hm-room__illo{width:92vw;margin-top:max(18px,3vw)}
+  .hm-room__sub{margin-top:6px}
+
+  .hm-band{padding-bottom:max(30px,8vw)}
+  .hm-band::before{height:auto;bottom:0}
+  .hm-band__h{
+    white-space:normal;font-size:max(30px,9.4vw);
+    max-width:14ch;margin-inline:auto;line-height:1.02;padding-top:max(26px,7vw);
+  }
+  .hm-band__cta{margin-top:max(18px,5vw)}
+
+  .hm-ad{margin-top:max(28px,7vw)}
+  .hm-ad__fig{width:min(62vw,300px)}
+  .hm-ad__words{
+    display:flex;justify-content:center;gap:max(14px,5vw);
+    margin-bottom:max(16px,4vw);
+  }
+  .hm-ad__word{position:static;text-align:center;font-size:max(22px,7.4vw)}
+
+  .hm-split,.hm-split--flip{grid-template-columns:1fr;width:min(88vw,520px)}
+  .hm-split__img{aspect-ratio:4/3}
+  .hm-split--flip .hm-split__panel{order:2}
+  .hm-split__panel{gap:max(20px,6vw);padding-block:max(30px,8vw)}
+  .hm-split__h{font-size:max(26px,8.4vw);margin-top:max(12px,3.4vw)}
+  .hm-split__lede{font-size:14px}
+  .hm-private{margin-top:max(36px,11vw)}
+  .hm-catering{margin-top:max(20px,5vw)}
+
+  .hm-close{min-height:min(120vw,620px);margin-top:max(40px,12vw);padding-top:max(32px,9vw)}
+  .hm-close__lede{font-size:14px;max-width:34ch}
+  .hm-close__h{font-size:max(22px,6.6vw);margin-top:max(14px,4vw)}
+}
+
+/* Above 760 the two words are placed on the photograph, so their wrapper
+   must add nothing of its own. */
+@media (min-width:761px){
+  .hm-ad__words{display:contents}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hm-btn{transition:none}
+}

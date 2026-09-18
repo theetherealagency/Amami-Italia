@@ -32,13 +32,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/wp-content/uploads/2026/09/home-hero-table.jpg" fetchpriority="high">
 <link rel="stylesheet" href="/_assets/amami.css">
 <link rel="stylesheet" href="/_assets/amami-header.css">
 <link rel="stylesheet" href="/_assets/amami-footer.css">
+<link rel="stylesheet" href="/_assets/amami-home.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "@id": "https://amami-italia.vercel.app/#restaurant", "name": "Amami Italia", "description": "Tuscan restaurant, lounge & catering in Brampton.", "url": "https://amami-italia.vercel.app/", "image": ["https://amami-italia.vercel.app/_assets/share/room_evening.jpg"], "logo": "https://amami-italia.vercel.app/wp-content/uploads/2025/09/amami-logo.png", "telephone": "+1-905-794-3366", "email": "info@amamiitalia.com", "priceRange": "$$$", "servesCuisine": ["Italian", "Tuscan"], "address": {"@type": "PostalAddress", "streetAddress": "6261 Mayfield Rd, #140", "addressLocality": "Brampton", "addressRegion": "ON", "postalCode": "L6P 0X9", "addressCountry": "CA"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "21:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "12:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "12:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "23:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "23:00"}], "acceptsReservations": "https://amami-italia.vercel.app/reservation/", "hasMenu": "https://amami-italia.vercel.app/menu/", "sameAs": ["https://www.instagram.com/amamiitalia_official"]}</script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MNHMB7C9');</script>
 </head>
-<body class="is-panels" data-hours='{"sun": [12, 21], "mon": null, "tue": [12, 22], "wed": [12, 22], "thu": [12, 22], "fri": [12, 23], "sat": [12, 23]}'>
+<body class="is-home" data-hours='{"sun": [12, 21], "mon": null, "tue": [12, 22], "wed": [12, 22], "thu": [12, 22], "fri": [12, 23], "sat": [12, 23]}'>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNHMB7C9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="sr-only" href="#main"><span data-it="Vai al contenuto">Skip to content</span></a>
 <header class="hdr">
@@ -92,83 +94,98 @@
 </div>
 <main id="main">
 
-<section class="panel panel--first">
-  <video class="panel__media" autoplay muted loop playsinline preload="metadata" aria-label="The dining room through service"><source src="/wp-content/uploads/2026/08/dining-loop.mp4" type="video/mp4"></video>
-  <div class="panel__inner">
-    <p class="panel__over">Amami Italia</p>
-    <h1 class="panel__word panel__word--line"><span data-it="La cena è più bella in rosso.">Dinner looks better in red.</span></h1>
-    <p class="panel__sub"><span data-it="Pasta. Vino. Nottate lunghe. Il piano è questo.">Pasta. Vino. Late nights. That’s the plan.</span></p>
-    <div class="panel__act"><a class="btn btn--ghost" href="/reservation/"><span data-it="Prenota un tavolo">Book a Table</span></a><a class="btn btn--ghost" href="/menu/"><span data-it="Guarda il menù">See the Menu</span></a></div>
+<!-- 1. Hero. The comp's own gradient does the legibility work, so the
+     photograph is left alone and the type sits in its bottom quarter. -->
+<section class="hm-hero">
+  <img class="hm-hero__img" src="/wp-content/uploads/2026/09/home-hero-table.jpg"
+       alt="A table laid from above: scallops on saffron rice, spaghetti, lamb chops and two cocktails"
+       width="2400" height="1799" fetchpriority="high" decoding="async" sizes="100vw">
+  <div class="hm-hero__scrim" aria-hidden="true"></div>
+  <div class="hm-hero__row">
+    <p class="hm-hero__claim"><span data-it="Pasta. Vino. Nottate lunghe. Il piano è questo.">Pasta. Vino. Late nights. That’s the plan.</span></p>
+    <img class="hm-hero__mark" src="/_assets/amami-mark-gold.svg" alt="" width="96" height="95" aria-hidden="true">
+    <a class="hm-btn hm-hero__act" href="/reservation/" data-gtm="reserve"><span data-it="Prenota un tavolo">Book a Table</span></a>
+  </div>
+  <h1 class="hm-hero__word"><span data-it="Benvenuti da Amami">Welcome to Amami</span></h1>
+</section>
+
+<!-- 2. The room, on cream, around the drawing of the restaurant. -->
+<section class="hm-room">
+  <h2 class="hm-room__h"><span data-it="La Sala">The Room</span></h2>
+  <p class="hm-room__sub"><span data-it="Vieni a cena. Perdi il conto delle ore.">Come for dinner. Lose track of time.</span></p>
+  <img class="hm-room__illo" src="/wp-content/uploads/2026/09/home-room-illustration.jpg"
+       alt="An illustration of the Amami Italia room: the wine wall, the bar and the team walking through it"
+       width="1920" height="1080" loading="lazy" decoding="async" sizes="(max-width:760px) 92vw, 70vw">
+  <a class="hm-btn hm-btn--red hm-room__cta" href="/our-story/"><span data-it="Chi siamo">Our Story</span></a>
+</section>
+
+<!-- 3. The red band, with After Dark hanging off its bottom edge. -->
+<section class="hm-band">
+  <h2 class="hm-band__h"><span data-it="La cena è più bella in rosso.">Dinner looks better in red.</span></h2>
+  <p class="hm-band__cta"><a class="hm-btn" href="/menu/dining/"><span data-it="Dai un&#x27;occhiata al menù">Take a Look at the Menu</span></a></p>
+
+  <div class="hm-ad">
+    <div class="hm-ad__words">
+      <p class="hm-ad__word hm-ad__word--l"><span data-it="A Notte">After</span></p>
+      <p class="hm-ad__word hm-ad__word--r"><span data-it="Fonda">Dark</span></p>
+    </div>
+    <figure class="hm-ad__fig">
+      <img class="hm-ad__img" src="/wp-content/uploads/2026/09/home-after-dark.jpg"
+           alt="A bartender finishing a cocktail at the bar"
+           width="903" height="1200" loading="lazy" decoding="async" sizes="(max-width:760px) 62vw, 33vw">
+      <a class="hm-btn hm-ad__cta" href="/after-dark/"><span data-it="Il Salotto">The Lounge</span></a>
+    </figure>
   </div>
 </section>
-<section class="panel">
-  <img class="panel__media" src="/wp-content/uploads/2025/11/DSC04982.jpg" alt="Pasta finished at the pass" loading="lazy" decoding="async" sizes="100vw">
-  <div class="panel__inner">
-    
-    <h2 class="panel__word"><span data-it="Cena">Dinner</span></h2>
-    <p class="panel__sub"><span data-it="Niente scorciatoie. Solo sugo.">No shortcuts. Just sauce.</span></p>
-    <a class="btn btn--ghost" href="/menu/dining/"><span data-it="Dai un&#x27;occhiata al menù">Take a Look at the Menu</span></a>
+
+<!-- 4. Private dining: photograph left, black panel right. -->
+<section class="hm-split hm-private">
+  <img class="hm-split__img" src="/wp-content/uploads/2026/09/home-private-dining.jpg"
+       alt="A guest at the curved banquette, the table laid in front of her"
+       width="1200" height="1600" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw">
+  <div class="hm-split__panel">
+    <p class="hm-split__lede"><span data-it="Tu li inviti. Noi li sfamiamo.">You invite them. We feed them.</span></p>
+    <div class="hm-split__mid">
+      <img class="hm-split__icon hm-split__icon--cloche" src="/_assets/amami-icon-cloche.svg" alt="" width="71" height="57" aria-hidden="true">
+      <h2 class="hm-split__h"><span data-it="Sala">Private</span><br><span data-it="privata">Dining</span></h2>
+    </div>
+    <a class="hm-btn" href="/events/"><span data-it="Richiedi informazioni">Enquire</span></a>
   </div>
 </section>
-<section class="panel">
-  <img class="panel__media" src="/wp-content/uploads/2025/12/amami-Pizza-scaled.jpeg" alt="Margherita from the oven" loading="lazy" decoding="async" sizes="100vw">
-  <div class="panel__inner">
-    
-    <h2 class="panel__word"><span data-it="Pizza">Pizza</span></h2>
-    
-    <a class="btn btn--ghost" href="/menu/pizza/"><span data-it="Guarda i menu">View Menus</span></a>
+
+<!-- 5. Catering: the same block, mirrored. -->
+<section class="hm-split hm-split--flip hm-catering">
+  <div class="hm-split__panel">
+    <p class="hm-split__lede"><span data-it="Un po&#x27; d&#x27;Italia. Tanto amore.">A little Italy. A lot of amore.</span></p>
+    <div class="hm-split__mid">
+      <img class="hm-split__icon hm-split__icon--chair" src="/_assets/amami-icon-chair.svg" alt="" width="58" height="89" aria-hidden="true">
+      <h2 class="hm-split__h"><span data-it="Fuori Casa">Catering</span></h2>
+    </div>
+    <a class="hm-btn" href="/catering/"><span data-it="Richiedi informazioni">Enquire</span></a>
   </div>
+  <img class="hm-split__img" src="/wp-content/uploads/2026/09/home-catering-chef.jpg"
+       alt="Chef Isabella Comello carrying a board of bruschetta through the kitchen"
+       width="1200" height="1800" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw">
 </section>
-<section class="panel">
-  <img class="panel__media" src="/wp-content/uploads/2025/11/A7404259.jpg" alt="A smoked cocktail, lid lifting" loading="lazy" decoding="async" sizes="100vw">
-  <div class="panel__inner">
-    
-    <h2 class="panel__word"><span data-it="A Notte Fonda">After Dark</span></h2>
-    <p class="panel__sub"><span data-it="Mangia piano. Resta fino a tardi.">Eat slow. Stay late.</span></p>
-    <a class="btn btn--ghost" href="/after-dark/"><span data-it="Il Salotto">The Lounge</span></a>
-  </div>
-</section>
-<section class="panel">
-  <img class="panel__media" src="/wp-content/uploads/2025/11/A7404217.jpg" alt="The dining room, warm light under the canopy" loading="lazy" decoding="async" sizes="100vw">
-  <div class="panel__inner">
-    
-    <h2 class="panel__word"><span data-it="La Sala">The Room</span></h2>
-    <p class="panel__sub"><span data-it="Vieni a cena. Perdi il conto delle ore.">Come for dinner. Lose track of time.</span></p>
-    <a class="btn btn--ghost" href="/our-story/"><span data-it="Chi siamo">Our Story</span></a>
-  </div>
-</section>
-<section class="panel">
-  <img class="panel__media" src="/wp-content/uploads/2025/12/DSC08761.jpg" alt="The private table under the mirrors" loading="lazy" decoding="async" sizes="100vw">
-  <div class="panel__inner">
-    
-    <h2 class="panel__word"><span data-it="Sala privata">Private Dining</span></h2>
-    <p class="panel__sub"><span data-it="Tu li inviti. Noi li sfamiamo.">You invite them. We feed them.</span></p>
-    <a class="btn btn--ghost" href="/events/"><span data-it="Richiedi informazioni">Enquire</span></a>
-  </div>
-</section>
-<section class="panel">
-  <img class="panel__media" src="/wp-content/uploads/2025/11/DSC05009.jpg" alt="The table, laid" loading="lazy" decoding="async" sizes="100vw">
-  <div class="panel__inner">
-    
-    <h2 class="panel__word"><span data-it="Fuori Casa">Catering</span></h2>
-    <p class="panel__sub"><span data-it="Un po&#x27; d&#x27;Italia. Tanto amore.">A little Italy. A lot of amore.</span></p>
-    <a class="btn btn--ghost" href="/catering/"><span data-it="Richiedi informazioni">Enquire</span></a>
-  </div>
-</section>
-<section class="homebook" id="book">
-  <div class="wrap">
-    <h2 class="homebook__h"><span data-it="Il tuo tavolo ti aspetta.">Your table is waiting.</span></h2>
-    <p class="homebook__lede"><span data-it="Porta un appuntamento. Porta la chat di gruppo. Porta quello che ruba sempre le patatine.">Bring a date. Bring the group chat. Bring the person who
-       always steals fries.</span></p>
-    <p class="homebook__lede"><span data-it="Basta che non salti il tiramisù.">Just don’t skip the tiramisu.</span></p>
-    <div class="homebook__card">
+
+<!-- 6. Your table is waiting. The comp stops at the line of copy; the
+     OpenTable widget is kept below it so the home page does not lose its
+     booking path, and is the one thing on this page not drawn in the comp. -->
+<section class="hm-close" id="book">
+  <img class="hm-close__img" src="/wp-content/uploads/2026/09/home-room-night.jpg"
+       alt="The dining room at night, tables laid under the mural"
+       width="2400" height="1600" loading="lazy" decoding="async" sizes="100vw">
+  <div class="hm-close__scrim" aria-hidden="true"></div>
+  <p class="hm-close__lede"><span data-it="Porta un appuntamento. Porta la chat di gruppo. Porta quello che ruba sempre le patatine. Basta che non salti il tiramisù.">Bring a date. Bring the group chat. Bring the person who always steals fries. Just don’t skip the tiramisu.</span></p>
+  <h2 class="hm-close__h"><span data-it="Il tuo tavolo ti aspetta.">Your table is waiting.</span></h2>
+  <div class="hm-close__card">
 <script type="text/javascript" src="https://www.opentable.ca/widget/reservation/loader?rid=1470808&amp;type=standard&amp;theme=standard&amp;color=1&amp;dark=false&amp;iframe=true&amp;domain=ca&amp;lang=en-CA&amp;newtab=false&amp;ot_source=Restaurant%20website&amp;cfe=true"></script>
-<noscript><a class="btn btn--solid" href="/reservation/"><span data-it="Prenota un tavolo">Reserve a Table</span></a></noscript>
+<noscript><a class="hm-btn" href="/reservation/"><span data-it="Prenota un tavolo">Reserve a Table</span></a></noscript>
 </div>
-    <p class="homebook__note"><span data-it="Da otto persone in su è meglio per telefono &amp;mdash;">Eight or more is best arranged by phone &mdash;</span>
-      <a href="tel:+19057943366">905-794-3366</a>.</p>
-  </div>
-</section></main>
+  <p class="hm-close__note"><span data-it="Da otto persone in su è meglio per telefono &mdash;">Eight or more is best arranged by phone &mdash;</span>
+    <a href="tel:+19057943366">905-794-3366</a>.</p>
+</section>
+</main>
 <footer class="ftr">
   <div class="ftr__wrap">
     <div class="ftr__top">
