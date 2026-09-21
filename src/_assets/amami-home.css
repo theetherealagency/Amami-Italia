@@ -129,9 +129,26 @@ body.is-home main{overflow-x:clip}
   margin:max(3px,.28vw) 0 0;font-family:var(--accent);
   color:var(--hm-panel);font-size:max(11.5px,1.133vw);line-height:1.5;
 }
+/* Two layers: the empty room, and the team on their own transparent plate.
+   The team walks out to the right, and while they are off the frame the
+   transform jumps to the far left so they walk back in — one continuous
+   loop with no visible reset. At rest the two layers sit exactly on top of
+   each other and read as the original single drawing. */
 .hm-room__illo{
-  display:block;width:70.278vw;height:auto;
-  margin:max(16px,1.411vw) auto 0;
+  position:relative;display:block;width:70.278vw;
+  margin:max(16px,1.411vw) auto 0;overflow:hidden;
+}
+.hm-room__room{display:block;width:100%;height:auto}
+.hm-room__team{
+  position:absolute;inset:0;width:100%;height:auto;
+  animation:hm-room-walk 19s linear infinite;
+  will-change:transform;
+}
+@keyframes hm-room-walk{
+  0%,34%    {transform:translateX(0)}
+  60%       {transform:translateX(92%)}   /* clear of the right edge */
+  60.01%    {transform:translateX(-92%)}  /* jump left, off frame */
+  92%,100%  {transform:translateX(0)}
 }
 .hm-room__cta{margin-top:max(22px,3.051vw)}
 
@@ -310,5 +327,6 @@ body.is-home main{overflow-x:clip}
 @media (prefers-reduced-motion:reduce){
   .hm-btn{transition:none}
   .hm-hero__img{animation:none}
+  .hm-room__team{animation:none}
   .hm-hero__img--1{opacity:1}
 }
