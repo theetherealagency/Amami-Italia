@@ -95,3 +95,53 @@ body.is-page main{overflow-x:clip}
   .pg-end__h{font-size:22px}
 }
 @media (prefers-reduced-motion:reduce){.pg-btn{transition:none}}
+
+/* --- the split block: photograph beside a black panel ---------------------
+   The homepage's, at 81.226vw; --bleed runs it edge to edge for a portrait. */
+.pg-split{display:grid;grid-template-columns:51.7% 48.3%;width:81.226vw;margin:0 auto;padding:0}
+.pg-split--bleed{width:100%}
+.pg-split--flip{grid-template-columns:48.3% 51.7%}
+.pg-split__img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:573.5/605.18}
+.pg-split--bleed .pg-split__img{aspect-ratio:auto;min-height:max(420px,42vw)}
+.pg-split__panel{background:var(--hm-panel);color:var(--hm-cream);
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;
+  gap:max(14px,1.6vw);padding:max(28px,4.5vw) max(22px,4.2vw)}
+.pg-split__panel--center{align-items:center;text-align:center}
+.pg-label{margin:0;font-family:var(--sans);font-weight:400;color:rgba(237,233,220,.62);
+  font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase}
+.pg-split__h{margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-silver);
+  font-size:max(22px,3.469vw);line-height:.94;letter-spacing:-.05em;text-transform:uppercase}
+.pg-split__lede{margin:0;max-width:40ch;font-family:var(--sans);font-size:max(11px,1.282vw);line-height:1.5}
+.pg-quote{margin:0;max-width:34ch;font-family:var(--accent);font-style:italic;font-weight:400;
+  color:var(--hm-cream);font-size:max(20px,2.304vw);line-height:1.25}
+.pg-quote__it{display:block;margin-top:max(8px,.8vw);font-size:max(13px,1.28vw);color:rgba(237,233,220,.62);line-height:1.4}
+.pg-quote__it:empty{display:none}
+
+/* two or three short paragraphs of body copy, centred, one measure */
+.pg-body{margin:max(14px,1.6vw) auto 0;max-width:max(34ch,46vw);text-align:center;
+  font-family:var(--sans);color:var(--hm-panel);font-size:max(12px,1.282vw);line-height:1.6}
+.pg-body p{margin:0}
+.pg-body p+p{margin-top:max(10px,1.1vw)}
+
+/* --- three tiles: name and one line, on the dark ground ------------------ */
+.pg-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:max(10px,1.2vw);
+  width:81.226vw;margin:max(22px,3.051vw) auto 0;padding:0;list-style:none}
+.pg-tile{background:var(--hm-panel);color:var(--hm-cream);text-align:center;
+  padding:max(24px,3.2vw) max(14px,1.8vw)}
+.pg-tile__h{margin:0 0 max(8px,.8vw);font-family:var(--serif);font-weight:300;color:var(--hm-silver);
+  font-size:max(22px,2.6vw);line-height:1;letter-spacing:-.04em;text-transform:uppercase}
+.pg-tile__p{margin:0;font-family:var(--accent);font-style:italic;font-size:max(13px,1.28vw);line-height:1.45;color:rgba(237,233,220,.85)}
+
+@media (max-width:760px){
+  .pg-split,.pg-split--flip,.pg-split--bleed{grid-template-columns:1fr;width:min(88vw,520px)}
+  .pg-split--bleed{width:100%}
+  .pg-split__img{aspect-ratio:4/3;height:auto}
+  .pg-split--bleed .pg-split__img{min-height:0;aspect-ratio:4/5}
+  .pg-split--flip .pg-split__panel{order:2}
+  .pg-split__panel{padding:30px 22px;gap:14px}
+  .pg-split__h{font-size:max(26px,8.4vw)}
+  .pg-split__lede,.pg-body{font-size:14px}
+  .pg-quote{font-size:22px}
+  .pg-tiles{grid-template-columns:1fr;width:min(88vw,520px);gap:10px}
+  .pg-tile__h{font-size:24px}.pg-tile__p{font-size:14px}
+}
