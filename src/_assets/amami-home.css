@@ -129,13 +129,13 @@ body.is-home main{overflow-x:clip}
   margin:max(3px,.28vw) 0 0;font-family:var(--accent);
   color:var(--hm-panel);font-size:max(11.5px,1.133vw);line-height:1.5;
 }
-/* The drawing is a 3s film on a true loop: the team walk on the spot,
-   exactly where the illustration always had them, nobody travelling. It
-   was generated with the same frame as both the start and the end frame,
-   so the last frame IS the first frame — the seam measures smaller than
-   an ordinary frame step, which is to say it cannot be seen. The poster
-   is that frame, so before it plays — and for anyone who has asked for
-   less motion — the section looks exactly like the original artwork. */
+/* The drawing is a one-second film on a loop: the team walk on the spot,
+   exactly where the illustration always had them, nobody travelling and
+   no fade at either end. One second is the stride period — the cut lands
+   where the cycle closes on itself, so the repeat reads as just another
+   frame. The poster is the opening frame, so before it plays — and for
+   anyone who has asked for less motion — the section looks exactly like
+   the original artwork. */
 .hm-room__illo{
   display:block;width:70.278vw;
   margin:max(16px,1.411vw) auto 0;
