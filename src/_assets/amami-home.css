@@ -28,6 +28,11 @@ body.is-home{
 /* The two full-bleed lines are set to exactly 100vw; clip keeps a rounding
    error from becoming a horizontal scrollbar. */
 body.is-home main{overflow-x:clip}
+/* No header over the hero until the visitor moves or scrolls; then it
+   arrives once, 300ms, and stays. */
+body.is-home .hdr{transition:opacity .3s ease-out,transform .3s cubic-bezier(.22,1,.36,1)}
+body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-events:none}
+@media (prefers-reduced-motion:reduce){body.is-home .hdr{transition:none}body.is-home.hdr-hidden .hdr{transform:none}}
 /* amami.css gives every <section> block padding. Each section below sets
    its own padding shorthand, which clears it without editing that file. */
 
@@ -49,6 +54,9 @@ body.is-home main{overflow-x:clip}
 }
 .hm-btn:hover,.hm-btn:focus-visible{background:#fff;color:var(--hm-panel)}
 .hm-btn--red{border-color:var(--hm-red);color:var(--hm-red)}
+/* the one filled button: the brand book's red, cream label, inverts on hover */
+.hm-btn--fill{background:var(--hm-red);border-color:var(--hm-red);color:var(--hm-cream)}
+.hm-btn--fill:hover,.hm-btn--fill:focus-visible{background:var(--hm-cream);border-color:var(--hm-cream);color:var(--hm-red)}
 .hm-btn--red:hover,.hm-btn--red:focus-visible{background:var(--hm-red);color:var(--hm-cream)}
 
 /* --- 1. hero -------------------------------------------------------------
@@ -91,12 +99,12 @@ body.is-home main{overflow-x:clip}
   padding-inline:max(14px,6.142vw);
 }
 .hm-hero__claim{
-  margin:0;max-width:max(24ch,30vw);color:var(--hm-cream);
+  margin:0;max-width:max(18ch,22vw);color:var(--hm-cream);
   font-family:var(--sans);font-weight:400;
   font-size:max(8.5px,1.14vw);
   letter-spacing:.2em;line-height:2.057;text-transform:uppercase;
 }
-.hm-hero__mark{width:max(48px,7.03vw);height:auto}
+.hm-hero__mid{display:block}
 .hm-hero__act{justify-self:end}
 
 /* The hero word is one sentence in two halves that trade places: "AMAMI
@@ -160,16 +168,11 @@ body.is-home main{overflow-x:clip}
   letter-spacing:-.05em;text-transform:uppercase;
 }
 .hm-room__sub{
-  margin:max(3px,.28vw) 0 0;font-family:var(--accent);font-style:italic;
-  color:var(--hm-panel);font-size:max(13px,1.28vw);line-height:1.5;
+  margin:max(3px,.28vw) auto 0;max-width:max(30ch,50vw);
+  font-family:var(--accent);font-style:italic;
+  color:var(--hm-panel);font-size:max(14px,1.5vw);line-height:1.45;
 }
-/* two short sentences of body under the accent line */
-.hm-room__body{
-  margin:max(10px,1.1vw) auto 0;max-width:max(30ch,44vw);
-  color:var(--hm-panel);font-family:var(--sans);
-  font-size:max(12px,1.282vw);line-height:1.5;
-}
-.hm-room__body span{display:block}
+.hm-room__sub span{display:block}
 /* The drawing is a one-second film on a loop: the team walk on the spot,
    exactly where the illustration always had them, nobody travelling and
    no fade at either end. One second is the stride period — the cut lands
@@ -221,7 +224,7 @@ body.is-home main{overflow-x:clip}
 .hm-ad{position:relative;margin-top:max(30px,14.864vw)}
 .hm-ad__fig{position:relative;width:32.57vw;margin:0 auto;aspect-ratio:1532/2036;overflow:hidden}
 .hm-ad__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;animation:hm-ad-fade 25s linear infinite}
+  filter:grayscale(1);opacity:0;animation:hm-ad-fade 25s linear infinite}
 .hm-ad__img--1{opacity:1;animation-delay:-1.2s}
 .hm-ad__img--2{animation-delay:3.8s}
 .hm-ad__img--3{animation-delay:8.8s}
@@ -329,10 +332,9 @@ body.is-home main{overflow-x:clip}
     grid-template-columns:1fr;justify-items:center;text-align:center;
     bottom:19%;gap:max(14px,4vw);
   }
-  .hm-hero__claim{font-size:11px;line-height:1.9;max-width:30ch}
+  .hm-hero__claim{font-size:11px;line-height:1.9;max-width:26ch}
   .hm-proof__line{font-size:9px;line-height:2;letter-spacing:.16em}
   .hm-proof__sep{margin:0 .5em}
-  .hm-hero__mark{display:none}
   .hm-hero__act{justify-self:center}
 
   .hm-room{padding-top:max(34px,9vw)}

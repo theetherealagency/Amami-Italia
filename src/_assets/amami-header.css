@@ -34,7 +34,8 @@
 .hours-status{display:none;font-size:.75rem;letter-spacing:.08em;color:var(--h-bronze-lit)}
 .burger{width:44px;height:44px;display:grid;place-items:center;background:none;border:0;cursor:pointer;padding:0}
 .burger span{display:block;width:24px;height:1px;background:var(--h-cream);margin:4px 0}
-@media(min-width:1024px){.hdr__nav{display:flex}.hours-status{display:block}.burger{display:none}}
+/* the hours readout stays out of the bar: logo, nav, language, one action */
+@media(min-width:1024px){.hdr__nav{display:flex}.hdr .hours-status{display:none}.burger{display:none}}
 
 /* ---------- full-screen nav overlay ---------- */
 .nav-overlay{position:fixed;inset:0;z-index:80;background:var(--h-ink);display:grid;
