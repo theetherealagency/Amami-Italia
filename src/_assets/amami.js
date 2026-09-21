@@ -176,3 +176,31 @@
     });
   });
 })();
+
+/* §4 Motion. Sections arrive once at ~20% visibility and stay; the header
+   settles once the page has scrolled past the top. Nothing here changes
+   layout — only classes that CSS turns into transform and opacity. The
+   .motion class is added only when the browser can observe intersections
+   and the visitor has not asked for reduced motion, so without either the
+   page simply renders as it is. */
+(function () {
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  var root = document.documentElement, body = document.body;
+  body.classList.add("motion");
+  var hero = document.querySelector(".pg-hero");
+  if (hero) requestAnimationFrame(function () { hero.classList.add("is-ready"); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2, rootMargin: "0px 0px -5% 0px" });
+  document.querySelectorAll("main > section").forEach(function (s) {
+    // anything already on screen at load is shown at once, not animated in
+    var r = s.getBoundingClientRect();
+    if (r.top < innerHeight * 0.8) s.classList.add("is-in"); else io.observe(s);
+  });
+  var scroller = document.scrollingElement || root;
+  function onScroll() { body.classList.toggle("is-scrolled", scroller.scrollTop > 24); }
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+})();

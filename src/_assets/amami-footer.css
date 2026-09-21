@@ -104,3 +104,13 @@
 }
 
 @media (max-width:760px){.ftr .ftr__nlrow input,.ftr__nl input,.ftr .ftr__nlrow button,.ftr__nl button{min-height:44px}.ftr__nav li+li{margin-top:8px}.ftr__nav a{display:inline-block;padding:6px 0}}
+
+/* §6 — footer links on phones: the list opens up to a 44px pitch; inline
+   links grow their hit area without moving the text. */
+@media (max-width:760px){
+  .ftr__nav a{display:inline-block;padding:12px 0}
+  .ftr__nav li+li{margin-top:0}
+  .ftr__cols p a,.ftr__hours a{display:inline-block;padding:12px 0;margin:-12px 0}
+  .ftr__label a{display:inline-block;padding:16px 0;margin:-16px 0}
+  .ftr__bar a{display:inline-block;padding:16px 0;margin:-16px 0}
+}

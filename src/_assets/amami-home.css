@@ -28,6 +28,8 @@ body.is-home{
 /* The two full-bleed lines are set to exactly 100vw; clip keeps a rounding
    error from becoming a horizontal scrollbar. */
 body.is-home main{overflow-x:clip}
+/* <picture> wraps every photograph for its WebP source; contents keeps the <img> as the layout child */
+body.is-home picture{display:contents}
 /* No header over the hero until the visitor moves or scrolls; then it
    arrives once, 300ms, and stays. */
 body.is-home .hdr{transition:opacity .3s ease-out,transform .3s cubic-bezier(.22,1,.36,1)}
@@ -388,3 +390,25 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
 }
 
 @media (max-width:760px){.hm-btn{height:44px}}
+
+/* §4 Motion on the home page — see amami-pages.css for the full note. The hero is
+   left alone (it has its own two-line word and crossfade); the sections after it
+   arrive once, 20px up, and the photographs settle from 1.04. */
+.motion main > section:where(:not(.hm-hero)){opacity:0;transform:translateY(20px);
+  transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.motion main > section.is-in{opacity:1;transform:none}
+.motion main > section:where(:not(.hm-hero):not(.hm-band)) img:where(:not(.hm-hero__img)){transform:scale(1.04);transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.motion main > section.is-in img{transform:none}
+.motion .hm-btn{transition:background .25s ease-out,color .25s ease-out,border-color .25s ease-out,transform .25s ease-out}
+.motion .hm-btn:hover{transform:translateY(-1px)}
+.motion .hdr{transition:height .3s ease-out,background-color .3s ease-out,opacity .3s ease-out,transform .3s cubic-bezier(.22,1,.36,1)}
+.motion.is-scrolled .hdr{height:66px;background:rgba(11,9,8,.94)}
+@media (prefers-reduced-motion:reduce){
+  .motion main > section:not(.hm-hero){opacity:1;transform:none;transition:none}
+  .motion main > section img{transform:none;transition:none}
+  .motion .hm-btn:hover{transform:none}
+  .motion .hdr,.motion.is-scrolled .hdr{transition:none;height:var(--h-hdr,76px)}
+}
+
+/* §6 — bare inline links (phone, e-mail) get a 44px hit area on phones without moving the text. */
+@media (max-width:760px){body.is-home main a:not([class]){display:inline-block;padding:12px 0;margin:-12px 0}}

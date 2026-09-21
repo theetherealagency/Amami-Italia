@@ -1,11 +1,14 @@
 <!doctype html>
-<html lang="en-CA" data-title-it="Amami Italia — Ristorante Toscano e Salotto a Brampton">
+<html lang="en-CA" data-title-it="Amami Italia — Ristorante Toscano e Salotto a Brampton" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Amami Italia — Tuscan Restaurant &amp; Lounge in Brampton</title>
 <meta name="description" content="Tuscan cooking in Brampton, from Chef Isabella Comello. Pasta, vino and late nights on Mayfield Road.">
 <link rel="canonical" href="https://amami-italia.vercel.app/">
+<link rel="alternate" hreflang="en-CA" href="https://amami-italia.vercel.app/">
+<link rel="alternate" hreflang="it" href="https://amami-italia.vercel.app/it/">
+<link rel="alternate" hreflang="x-default" href="https://amami-italia.vercel.app/">
 <meta name="theme-color" content="#0b0908">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
@@ -47,7 +50,7 @@
   <div class="hdr__ml">
     <a class="btn btn--line hdr__resm" href="/reservation/" data-gtm="reserve"><span data-it="Prenota ora">Reserve now</span></a>
     <span class="lang lang--m" role="group" aria-label="Language">
-      <button type="button" data-lang-set="en" lang="en">EN</button><i aria-hidden="true">|</i><button type="button" data-lang-set="it" lang="it">IT</button>
+      <a href="/" hreflang="en-CA" lang="en" aria-current="true">EN</a><i aria-hidden="true">|</i><a href="/it/" hreflang="it" lang="it" aria-current="false">IT</a>
     </span>
   </div>
   <a class="hdr__logo" href="/" aria-label="Amami Italia home">
@@ -57,7 +60,7 @@
   <div class="hdr__right">
     <span class="hours-status" data-hours-status>&nbsp;</span>
     <span class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang-set="en" lang="en">EN</button><i aria-hidden="true">|</i><button type="button" data-lang-set="it" lang="it">IT</button>
+      <a href="/" hreflang="en-CA" lang="en" aria-current="true">EN</a><i aria-hidden="true">|</i><a href="/it/" hreflang="it" lang="it" aria-current="false">IT</a>
     </span>
     <a class="btn btn--solid" href="/reservation/" data-gtm="reserve"><span data-it="Prenota un tavolo">Reserve a Table</span></a>
     <button class="burger" type="button" data-nav-open aria-label="Open menu">
@@ -78,8 +81,8 @@
     <div class="lang--panel">
       <dt><span data-it="Lingua">Language</span></dt>
       <dd class="lang__row">
-        <button type="button" data-lang-set="en"><span data-it="English">English</span></button>
-        <button type="button" data-lang-set="it"><span data-it="Italiano">Italiano</span></button>
+        <a href="/" hreflang="en-CA" lang="en" aria-current="true"><span data-it="English">English</span></a>
+        <a href="/it/" hreflang="it" lang="it" aria-current="false"><span data-it="Italiano">Italiano</span></a>
       </dd>
     </div>
   </div>
@@ -89,15 +92,15 @@
 <!-- 1. Hero. The comp's own gradient does the legibility work, so the
      photograph is left alone and the type sits in its bottom quarter. -->
 <section class="hm-hero">
-  <img class="hm-hero__img hm-hero__img--1" src="/wp-content/uploads/2026/09/home-hero-table.jpg"
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-hero-table-480w.webp 480w, /wp-content/uploads/2026/09/home-hero-table-800w.webp 800w, /wp-content/uploads/2026/09/home-hero-table-1200w.webp 1200w, /wp-content/uploads/2026/09/home-hero-table-1600w.webp 1600w, /wp-content/uploads/2026/09/home-hero-table-2400w.webp 2400w" sizes="100vw"><img class="hm-hero__img hm-hero__img--1" src="/wp-content/uploads/2026/09/home-hero-table.jpg" srcset="/wp-content/uploads/2026/09/home-hero-table-480w.jpg 480w, /wp-content/uploads/2026/09/home-hero-table-800w.jpg 800w, /wp-content/uploads/2026/09/home-hero-table-1200w.jpg 1200w, /wp-content/uploads/2026/09/home-hero-table-1600w.jpg 1600w, /wp-content/uploads/2026/09/home-hero-table.jpg 2400w"
        alt="A table laid from above: scallops on saffron rice, spaghetti, lamb chops and two cocktails"
-       width="2400" height="1799" fetchpriority="high" decoding="async" sizes="100vw">
-  <img class="hm-hero__img hm-hero__img--2" src="/wp-content/uploads/2026/09/home-hero-triptych.jpg"
-       alt="" width="2400" height="1339" loading="lazy" fetchpriority="low" decoding="async" sizes="100vw">
-  <img class="hm-hero__img hm-hero__img--3" src="/wp-content/uploads/2026/09/home-hero-room-chef.jpg"
-       alt="" width="2400" height="1339" loading="lazy" fetchpriority="low" decoding="async" sizes="100vw">
-  <img class="hm-hero__img hm-hero__img--4" src="/wp-content/uploads/2026/09/home-hero-wine.jpg"
-       alt="" width="2400" height="1339" loading="lazy" fetchpriority="low" decoding="async" sizes="100vw">
+       width="2400" height="1799" fetchpriority="high" decoding="async" sizes="100vw"></picture>
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-hero-triptych-480w.webp 480w, /wp-content/uploads/2026/09/home-hero-triptych-800w.webp 800w, /wp-content/uploads/2026/09/home-hero-triptych-1200w.webp 1200w, /wp-content/uploads/2026/09/home-hero-triptych-1600w.webp 1600w, /wp-content/uploads/2026/09/home-hero-triptych-2400w.webp 2400w" sizes="100vw"><img class="hm-hero__img hm-hero__img--2" src="/wp-content/uploads/2026/09/home-hero-triptych.jpg" srcset="/wp-content/uploads/2026/09/home-hero-triptych-480w.jpg 480w, /wp-content/uploads/2026/09/home-hero-triptych-800w.jpg 800w, /wp-content/uploads/2026/09/home-hero-triptych-1200w.jpg 1200w, /wp-content/uploads/2026/09/home-hero-triptych-1600w.jpg 1600w, /wp-content/uploads/2026/09/home-hero-triptych.jpg 2400w"
+       alt="" width="2400" height="1339" loading="lazy" fetchpriority="low" decoding="async" sizes="100vw"></picture>
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-hero-room-chef-480w.webp 480w, /wp-content/uploads/2026/09/home-hero-room-chef-800w.webp 800w, /wp-content/uploads/2026/09/home-hero-room-chef-1200w.webp 1200w, /wp-content/uploads/2026/09/home-hero-room-chef-1600w.webp 1600w, /wp-content/uploads/2026/09/home-hero-room-chef-2400w.webp 2400w" sizes="100vw"><img class="hm-hero__img hm-hero__img--3" src="/wp-content/uploads/2026/09/home-hero-room-chef.jpg" srcset="/wp-content/uploads/2026/09/home-hero-room-chef-480w.jpg 480w, /wp-content/uploads/2026/09/home-hero-room-chef-800w.jpg 800w, /wp-content/uploads/2026/09/home-hero-room-chef-1200w.jpg 1200w, /wp-content/uploads/2026/09/home-hero-room-chef-1600w.jpg 1600w, /wp-content/uploads/2026/09/home-hero-room-chef.jpg 2400w"
+       alt="" width="2400" height="1339" loading="lazy" fetchpriority="low" decoding="async" sizes="100vw"></picture>
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-hero-wine-480w.webp 480w, /wp-content/uploads/2026/09/home-hero-wine-800w.webp 800w, /wp-content/uploads/2026/09/home-hero-wine-1200w.webp 1200w, /wp-content/uploads/2026/09/home-hero-wine-1600w.webp 1600w, /wp-content/uploads/2026/09/home-hero-wine-2400w.webp 2400w" sizes="100vw"><img class="hm-hero__img hm-hero__img--4" src="/wp-content/uploads/2026/09/home-hero-wine.jpg" srcset="/wp-content/uploads/2026/09/home-hero-wine-480w.jpg 480w, /wp-content/uploads/2026/09/home-hero-wine-800w.jpg 800w, /wp-content/uploads/2026/09/home-hero-wine-1200w.jpg 1200w, /wp-content/uploads/2026/09/home-hero-wine-1600w.jpg 1600w, /wp-content/uploads/2026/09/home-hero-wine.jpg 2400w"
+       alt="" width="2400" height="1339" loading="lazy" fetchpriority="low" decoding="async" sizes="100vw"></picture>
   <div class="hm-hero__scrim" aria-hidden="true"></div>
   <div class="hm-hero__row">
     <!-- was "Pasta. Vino. Late nights. That’s the plan." (42 chars); now 29 -->
@@ -127,7 +130,7 @@
            poster="/wp-content/uploads/2026/09/home-room-poster-1s.jpg"
            aria-label="An illustration of the Amami Italia room, with the team walking out through it">
       <source src="/wp-content/uploads/2026/09/team-walk-1s.mp4" type="video/mp4">
-      <img src="/wp-content/uploads/2026/09/home-room-illustration.jpg"
+      <img src="/wp-content/uploads/2026/09/home-room-illustration.jpg" sizes="(max-width:760px) 30vw, 14vw"
            alt="An illustration of the Amami Italia room: the wine wall, the mural, the bar and the team walking through it">
     </video>
   </div>
@@ -148,16 +151,16 @@
       <p class="hm-ad__word hm-ad__word--r"><span data-it="il Menù">Menu</span></p>
     </div>
     <figure class="hm-ad__fig">
-      <img class="hm-ad__img hm-ad__img--1" src="/wp-content/uploads/2026/09/home-menu-pasta.jpg"
-           alt="Fresh tagliatelle, dusted with flour" width="1000" height="1329" loading="lazy" decoding="async" sizes="(max-width:760px) 62vw, 33vw">
-      <img class="hm-ad__img hm-ad__img--2" src="/wp-content/uploads/2026/09/home-menu-tomato.jpg"
-           alt="" width="1000" height="1329" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw">
-      <img class="hm-ad__img hm-ad__img--3" src="/wp-content/uploads/2026/09/home-menu-bread.jpg"
-           alt="" width="736" height="978" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw">
-      <img class="hm-ad__img hm-ad__img--4" src="/wp-content/uploads/2026/09/home-menu-sundried.jpg"
-           alt="" width="692" height="919" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw">
-      <img class="hm-ad__img hm-ad__img--5" src="/wp-content/uploads/2026/09/home-menu-paste.jpg"
-           alt="" width="1000" height="1329" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw">
+      <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-menu-pasta-480w.webp 480w, /wp-content/uploads/2026/09/home-menu-pasta-800w.webp 800w, /wp-content/uploads/2026/09/home-menu-pasta-1000w.webp 1000w" sizes="(max-width:760px) 62vw, 33vw"><img class="hm-ad__img hm-ad__img--1" src="/wp-content/uploads/2026/09/home-menu-pasta.jpg" srcset="/wp-content/uploads/2026/09/home-menu-pasta-480w.jpg 480w, /wp-content/uploads/2026/09/home-menu-pasta-800w.jpg 800w, /wp-content/uploads/2026/09/home-menu-pasta.jpg 1000w"
+           alt="Fresh tagliatelle, dusted with flour" width="1000" height="1329" loading="lazy" decoding="async" sizes="(max-width:760px) 62vw, 33vw"></picture>
+      <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-menu-tomato-480w.webp 480w, /wp-content/uploads/2026/09/home-menu-tomato-800w.webp 800w, /wp-content/uploads/2026/09/home-menu-tomato-1000w.webp 1000w" sizes="(max-width:760px) 62vw, 33vw"><img class="hm-ad__img hm-ad__img--2" src="/wp-content/uploads/2026/09/home-menu-tomato.jpg" srcset="/wp-content/uploads/2026/09/home-menu-tomato-480w.jpg 480w, /wp-content/uploads/2026/09/home-menu-tomato-800w.jpg 800w, /wp-content/uploads/2026/09/home-menu-tomato.jpg 1000w"
+           alt="" width="1000" height="1329" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw"></picture>
+      <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-menu-bread-480w.webp 480w, /wp-content/uploads/2026/09/home-menu-bread-736w.webp 736w" sizes="(max-width:760px) 62vw, 33vw"><img class="hm-ad__img hm-ad__img--3" src="/wp-content/uploads/2026/09/home-menu-bread.jpg" srcset="/wp-content/uploads/2026/09/home-menu-bread-480w.jpg 480w, /wp-content/uploads/2026/09/home-menu-bread.jpg 736w"
+           alt="" width="736" height="978" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw"></picture>
+      <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-menu-sundried-480w.webp 480w, /wp-content/uploads/2026/09/home-menu-sundried-692w.webp 692w" sizes="(max-width:760px) 62vw, 33vw"><img class="hm-ad__img hm-ad__img--4" src="/wp-content/uploads/2026/09/home-menu-sundried.jpg" srcset="/wp-content/uploads/2026/09/home-menu-sundried-480w.jpg 480w, /wp-content/uploads/2026/09/home-menu-sundried.jpg 692w"
+           alt="" width="692" height="919" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw"></picture>
+      <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-menu-paste-480w.webp 480w, /wp-content/uploads/2026/09/home-menu-paste-800w.webp 800w, /wp-content/uploads/2026/09/home-menu-paste-1000w.webp 1000w" sizes="(max-width:760px) 62vw, 33vw"><img class="hm-ad__img hm-ad__img--5" src="/wp-content/uploads/2026/09/home-menu-paste.jpg" srcset="/wp-content/uploads/2026/09/home-menu-paste-480w.jpg 480w, /wp-content/uploads/2026/09/home-menu-paste-800w.jpg 800w, /wp-content/uploads/2026/09/home-menu-paste.jpg 1000w"
+           alt="" width="1000" height="1329" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width:760px) 62vw, 33vw"></picture>
       <a class="hm-btn hm-ad__cta" href="/menu/"><span data-it="Menù">Menù</span></a>
     </figure>
   </div>
@@ -165,9 +168,9 @@
 
 <!-- 4. Private dining: photograph left, black panel right. -->
 <section class="hm-split hm-private">
-  <img class="hm-split__img" src="/wp-content/uploads/2026/09/home-private-dining.jpg"
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-private-dining-480w.webp 480w, /wp-content/uploads/2026/09/home-private-dining-800w.webp 800w, /wp-content/uploads/2026/09/home-private-dining-1200w.webp 1200w" sizes="(max-width:760px) 88vw, 42vw"><img class="hm-split__img" src="/wp-content/uploads/2026/09/home-private-dining.jpg" srcset="/wp-content/uploads/2026/09/home-private-dining-480w.jpg 480w, /wp-content/uploads/2026/09/home-private-dining-800w.jpg 800w, /wp-content/uploads/2026/09/home-private-dining.jpg 1200w"
        alt="A guest at the curved banquette, the table laid in front of her"
-       width="1200" height="1600" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw">
+       width="1200" height="1600" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw"></picture>
   <div class="hm-split__panel">
     <!-- was "You invite them. We feed them." (30 chars); now 33 -->
     <p class="hm-split__lede"><span data-it="Quattro sale, fino a 120 ospiti.">Four rooms, and up to 120 guests.</span></p>
@@ -189,18 +192,18 @@
     </div>
     <a class="hm-btn" href="/catering/"><span data-it="Richiedi informazioni">Enquire</span></a>
   </div>
-  <img class="hm-split__img" src="/wp-content/uploads/2026/09/home-catering-chef.jpg"
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-catering-chef-480w.webp 480w, /wp-content/uploads/2026/09/home-catering-chef-800w.webp 800w, /wp-content/uploads/2026/09/home-catering-chef-1200w.webp 1200w" sizes="(max-width:760px) 88vw, 42vw"><img class="hm-split__img" src="/wp-content/uploads/2026/09/home-catering-chef.jpg" srcset="/wp-content/uploads/2026/09/home-catering-chef-480w.jpg 480w, /wp-content/uploads/2026/09/home-catering-chef-800w.jpg 800w, /wp-content/uploads/2026/09/home-catering-chef.jpg 1200w"
        alt="Chef Isabella Comello carrying a board of bruschetta through the kitchen"
-       width="1200" height="1800" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw">
+       width="1200" height="1800" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw"></picture>
 </section>
 
 <!-- 6. Your table is waiting. The comp stops at the line of copy; the
      OpenTable widget is kept below it so the home page does not lose its
      booking path, and is the one thing on this page not drawn in the comp. -->
 <section class="hm-close" id="book">
-  <img class="hm-close__img" src="/wp-content/uploads/2026/09/home-room-night.jpg"
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/home-room-night-480w.webp 480w, /wp-content/uploads/2026/09/home-room-night-800w.webp 800w, /wp-content/uploads/2026/09/home-room-night-1200w.webp 1200w, /wp-content/uploads/2026/09/home-room-night-1600w.webp 1600w, /wp-content/uploads/2026/09/home-room-night-2400w.webp 2400w" sizes="100vw"><img class="hm-close__img" src="/wp-content/uploads/2026/09/home-room-night.jpg" srcset="/wp-content/uploads/2026/09/home-room-night-480w.jpg 480w, /wp-content/uploads/2026/09/home-room-night-800w.jpg 800w, /wp-content/uploads/2026/09/home-room-night-1200w.jpg 1200w, /wp-content/uploads/2026/09/home-room-night-1600w.jpg 1600w, /wp-content/uploads/2026/09/home-room-night.jpg 2400w"
        alt="The dining room at night, tables laid under the mural"
-       width="2400" height="1600" loading="lazy" decoding="async" sizes="100vw">
+       width="2400" height="1600" loading="lazy" decoding="async" sizes="100vw"></picture>
   <div class="hm-close__scrim" aria-hidden="true"></div>
   <!-- was the group-chat / fries / tiramisu line (107 chars); now 89 -->
   <p class="hm-close__lede"><span data-it="Prenota prima il tavolo e costruisci la serata intorno, poi resta più a lungo del previsto.">Book the table first and build the night around it, then stay longer than you planned to.</span></p>
@@ -221,12 +224,12 @@
     <section class="ftr__ig" aria-label="Instagram">
       <p class="ftr__label"><a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener">@amamiitalia_official</a></p>
       <div class="ftr__grid">
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><img src="/wp-content/uploads/2026/09/ig-room.jpg" alt="The dining room, warm light under the canopy" width="600" height="600" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><img src="/wp-content/uploads/2026/09/ig-pasta.jpg" alt="Pasta finished at the pass" width="600" height="600" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><img src="/wp-content/uploads/2026/09/ig-cocktail.jpg" alt="A smoked cocktail, lid lifting" width="600" height="600" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><img src="/wp-content/uploads/2026/09/ig-booths.jpg" alt="Curved booths by the windows" width="600" height="600" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><img src="/wp-content/uploads/2026/09/ig-wine.jpg" alt="Wine poured at a set table" width="600" height="600" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><img src="/wp-content/uploads/2026/09/ig-private.jpg" alt="The private table under the mirrors" width="600" height="600" loading="lazy" decoding="async"></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-room-480w.webp 480w, /wp-content/uploads/2026/09/ig-room-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-room.jpg" srcset="/wp-content/uploads/2026/09/ig-room-480w.jpg 480w, /wp-content/uploads/2026/09/ig-room.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="The dining room, warm light under the canopy" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-pasta-480w.webp 480w, /wp-content/uploads/2026/09/ig-pasta-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-pasta.jpg" srcset="/wp-content/uploads/2026/09/ig-pasta-480w.jpg 480w, /wp-content/uploads/2026/09/ig-pasta.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Pasta finished at the pass" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-cocktail-480w.webp 480w, /wp-content/uploads/2026/09/ig-cocktail-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-cocktail.jpg" srcset="/wp-content/uploads/2026/09/ig-cocktail-480w.jpg 480w, /wp-content/uploads/2026/09/ig-cocktail.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="A smoked cocktail, lid lifting" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-booths-480w.webp 480w, /wp-content/uploads/2026/09/ig-booths-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-booths.jpg" srcset="/wp-content/uploads/2026/09/ig-booths-480w.jpg 480w, /wp-content/uploads/2026/09/ig-booths.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Curved booths by the windows" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-wine-480w.webp 480w, /wp-content/uploads/2026/09/ig-wine-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-wine.jpg" srcset="/wp-content/uploads/2026/09/ig-wine-480w.jpg 480w, /wp-content/uploads/2026/09/ig-wine.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Wine poured at a set table" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-private-480w.webp 480w, /wp-content/uploads/2026/09/ig-private-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-private.jpg" srcset="/wp-content/uploads/2026/09/ig-private-480w.jpg 480w, /wp-content/uploads/2026/09/ig-private.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="The private table under the mirrors" width="600" height="600" loading="lazy" decoding="async"></picture></a>
       </div>
     </section>
 

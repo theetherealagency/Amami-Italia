@@ -7,6 +7,11 @@
   "use strict";
   var KEY = "amami-lang";
   var root = document.documentElement;
+  /* Pages built in one language (html[data-lang]) keep it; the EN | IT
+     switch on them is a pair of links to the counterpart page, so there
+     is nothing to swap here. This script now only serves any page that
+     still carries buttons. data-lang-fixed */
+  if (root.hasAttribute("data-lang")) return;
 
   function stored() {
     try { return localStorage.getItem(KEY); } catch (e) { return null; }
