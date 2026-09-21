@@ -32,7 +32,10 @@
   /* ---- today's hours status (spec 5.1) ----
      ONE SOURCE. The hours live in data-hours on <body> as a JSON map of
      weekday -> [openHour, closeHour] in 24h local time, so the header, the
-     footer and the Visit page cannot drift apart. Closed days are null. */
+     footer and the Visit page cannot drift apart. Closed days are null. A day
+     with a break is a list of ranges, [[12,15],[17,22]]; a close of null
+     means "open from 12, close not stated" (Friday and Saturday run late and
+     no closing hour has been confirmed — TODO(hours)). */
   var body = document.body;
   var statusEls = document.querySelectorAll("[data-hours-status]");
 
@@ -42,12 +45,12 @@
   var WORDS = {
     en: { closedNext: "Closed today — open %s from %s", closed: "Closed today",
           openUntil: "Open today until %s", opensAt: "Opens today at %s",
-          shut: "Closed for tonight",
+          openFrom: "Open today from %s", shut: "Closed for tonight",
           days: { sun: "Sunday", mon: "Monday", tue: "Tuesday", wed: "Wednesday",
                   thu: "Thursday", fri: "Friday", sat: "Saturday" } },
     it: { closedNext: "Oggi chiuso — apre %s dalle %s", closed: "Oggi chiuso",
           openUntil: "Oggi aperto fino alle %s", opensAt: "Oggi apre alle %s",
-          shut: "Chiuso per stasera",
+          openFrom: "Oggi aperto dalle %s", shut: "Chiuso per stasera",
           days: { sun: "domenica", mon: "lunedì", tue: "martedì", wed: "mercoledì",
                   thu: "giovedì", fri: "venerdì", sat: "sabato" } }
   };
@@ -70,19 +73,24 @@
         if (hours[cand]) { nextName = cand; break; }
       }
       text = nextName
-        ? w.closedNext.replace("%s", w.days[nextName]).replace("%s", fmt(hours[nextName][0], lang))
+        ? w.closedNext.replace("%s", w.days[nextName]).replace("%s", fmt(ranges(hours[nextName])[0][0], lang))
         : w.closed;
     } else {
-      var h = now.getHours() + now.getMinutes() / 60;
-      text = h < today[1] && h >= today[0]
-        ? w.openUntil.replace("%s", fmt(today[1], lang))
-        : (h < today[0] ? w.opensAt.replace("%s", fmt(today[0], lang)) : w.shut);
+      var h = now.getHours() + now.getMinutes() / 60, rs = ranges(today), cur = null, next = null;
+      rs.forEach(function (r) {
+        if (h >= r[0] && (r[1] === null || h < r[1])) cur = r;
+        else if (h < r[0] && !next) next = r;
+      });
+      text = cur
+        ? (cur[1] === null ? w.openFrom.replace("%s", fmt(cur[0], lang)) : w.openUntil.replace("%s", fmt(cur[1], lang)))
+        : (next ? w.opensAt.replace("%s", fmt(next[0], lang)) : w.shut);
     }
     statusEls.forEach(function (el) { el.textContent = text; });
   }
   renderHours();
   document.addEventListener("amami:lang", renderHours);
 
+  function ranges(day) { return Array.isArray(day[0]) ? day : [day]; }
   function fmt(h, lang) {
     var hr = Math.floor(h), m = Math.round((h - hr) * 60);
     var mins = m ? ":" + String(m).padStart(2, "0") : "";
