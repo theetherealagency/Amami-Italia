@@ -29,13 +29,16 @@
   --line:rgba(253,248,244,.16);
 
   /* Three faces, and only these three (client, 2026-08-31):
-     Cormorant Garamond for titles, Poppins for body, Forward Serif for accent.
-     Forward Serif is not on Google Fonts and no file has been supplied yet, so
-     --accent falls back to the body face and changes nothing until the font is
-     dropped in here. */
+     Cormorant Garamond for titles, Poppins for body, and an accent face.
+     The brand book's accent is Forward Serif (Mans Greback) — a vintage
+     serif italic — but the only copy anyone has is the personal-use cut,
+     which cannot go on a commercial site. Until a commercial/webfont licence
+     is bought (2026-09-21, raised with Anna), the accent is Cormorant
+     Garamond in italic: the closest licensed match in character, already
+     loaded, and it keeps the site to three families. */
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'Poppins','Helvetica Neue',system-ui,sans-serif;
-  --accent:'Forward Serif','Poppins','Helvetica Neue',system-ui,sans-serif;
+  --accent:'Cormorant Garamond',Georgia,'Times New Roman',serif;
 
   --hdr:76px;            /* header height */
   --pad:clamp(22px,5vw,64px);

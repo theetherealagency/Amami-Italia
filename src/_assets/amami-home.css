@@ -91,7 +91,7 @@ body.is-home main{overflow-x:clip}
   padding-inline:max(14px,6.142vw);
 }
 .hm-hero__claim{
-  margin:0;max-width:max(18ch,22vw);color:var(--hm-cream);
+  margin:0;max-width:max(24ch,30vw);color:var(--hm-cream);
   font-family:var(--sans);font-weight:400;
   font-size:max(8.5px,1.14vw);
   letter-spacing:.2em;line-height:2.057;text-transform:uppercase;
@@ -99,18 +99,52 @@ body.is-home main{overflow-x:clip}
 .hm-hero__mark{width:max(48px,7.03vw);height:auto}
 .hm-hero__act{justify-self:end}
 
-/* 146.73 of 1366, all caps, and the line is the full width of the artboard.
-   Its baseline sits on the hero's bottom edge: with line-height 1 the
-   baseline falls .818em down the box, and the comp wants it at 1.013em, so
-   the line is nudged the .195em difference. Caps, so nothing is lost to the
-   crop below it. */
-.hm-hero__word{
-  position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
+/* The hero word is one sentence in two halves that trade places: "AMAMI
+   MEANS LOVE ME." holds, wipes out behind a mask, and "SO DOES THE FOOD."
+   wipes in to take its place. Each half is the full width of the artboard —
+   its size is 100vw over its own measured width-to-size ratio, so a 20-char
+   line and a 17-char line both land exactly edge to edge, and the Italian
+   halves get their own sizes the same way. Baseline on the hero's bottom
+   edge as before: line-height 1 puts it .818em down, the comp wants 1.013em,
+   hence the .195em nudge. All caps, so the crop below costs nothing. */
+.hm-hero__word{position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;height:0}
+.hm-hero__line{
+  position:absolute;left:0;right:0;bottom:0;display:block;
   font-family:var(--serif);font-weight:300;color:var(--hm-cream);
-  font-size:10.8vw;line-height:1;letter-spacing:-.05em;
+  line-height:1;letter-spacing:-.05em;
   text-align:center;white-space:nowrap;text-transform:uppercase;
   transform:translateY(.195em);
+  clip-path:inset(0 0 0 0);
+  animation:hm-word-swap 9s linear infinite;
 }
+.hm-hero__line--a{font-size:9.625vw}
+.hm-hero__line--b{font-size:11.927vw;animation-delay:-4.5s}
+[data-lang="it"] .hm-hero__line--a{font-size:8.736vw}
+[data-lang="it"] .hm-hero__line--b{font-size:13.149vw}
+/* hold 3.6s -> wipe out left-to-right over .7s -> stay hidden -> wipe back
+   in left-to-right. Line B runs the same track half a cycle behind, so one
+   is always arriving as the other leaves. */
+@keyframes hm-word-swap{
+  0%,40%     {clip-path:inset(0 0 0 0);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  47.8%,92%  {clip-path:inset(0 0 0 100%)}
+  92.01%     {clip-path:inset(0 100% 0 0);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  100%       {clip-path:inset(0 0 0 0)}
+}
+
+/* --- 1b. proof bar -------------------------------------------------------
+   One tracked line directly under the hero, on the same cream, no box. The
+   Room's top padding is pulled in behind it so its title still lands where
+   the comp put it. */
+.hm-proof{
+  background:var(--hm-cream);text-align:center;
+  padding:max(14px,1.9vw) max(14px,4vw) 0;
+}
+.hm-proof__line{
+  margin:0;font-family:var(--sans);font-weight:400;color:var(--hm-red);
+  font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase;line-height:1.9;
+}
+.hm-proof__sep{margin:0 .9em;opacity:.55}
+.hm-proof + .hm-room{padding-top:max(22px,4.2vw)}
 
 /* --- 2. the room ---------------------------------------------------------
    Cream, centred, and the one drawing on the page. The four gaps here are
@@ -126,9 +160,16 @@ body.is-home main{overflow-x:clip}
   letter-spacing:-.05em;text-transform:uppercase;
 }
 .hm-room__sub{
-  margin:max(3px,.28vw) 0 0;font-family:var(--accent);
-  color:var(--hm-panel);font-size:max(11.5px,1.133vw);line-height:1.5;
+  margin:max(3px,.28vw) 0 0;font-family:var(--accent);font-style:italic;
+  color:var(--hm-panel);font-size:max(13px,1.28vw);line-height:1.5;
 }
+/* two short sentences of body under the accent line */
+.hm-room__body{
+  margin:max(10px,1.1vw) auto 0;max-width:max(30ch,44vw);
+  color:var(--hm-panel);font-family:var(--sans);
+  font-size:max(12px,1.282vw);line-height:1.5;
+}
+.hm-room__body span{display:block}
 /* The drawing is a one-second film on a loop: the team walk on the spot,
    exactly where the illustration always had them, nobody travelling and
    no fade at either end. One second is the stride period — the cut lands
@@ -160,9 +201,10 @@ body.is-home main{overflow-x:clip}
 .hm-band__h{
   margin:0;padding-top:max(18px,2.561vw);
   font-family:var(--serif);font-weight:300;color:var(--hm-cream);
-  font-size:7.63vw;line-height:1;letter-spacing:-.05em;
+  font-size:6.232vw;line-height:1;letter-spacing:-.05em;
   text-align:center;white-space:nowrap;text-transform:uppercase;
 }
+[data-lang="it"] .hm-band__h{font-size:6.409vw}
 .hm-band__cta{display:flex;justify-content:center;margin:max(20px,3.551vw) 0 0}
 .hm-band__cta .hm-btn{
   min-width:max(180px,24.599vw);
@@ -170,11 +212,26 @@ body.is-home main{overflow-x:clip}
   font-size:max(10px,1.332vw);
 }
 
-/* After Dark: the photograph is 32.57% of the artboard and the two words
-   straddle it, printed across its top corners. */
-.hm-ad{position:relative;margin-top:max(30px,6.212vw)}
-.hm-ad__fig{position:relative;width:32.57vw;margin:0 auto}
-.hm-ad__img{display:block;width:100%;height:auto;aspect-ratio:1532/2036;object-fit:cover}
+/* Explore / Menu: the photograph is 32.57% of the artboard and the two words
+   straddle it, printed across its top corners. The band's own button is gone,
+   so the photograph's top margin absorbs the 99.1 comp px that button and its
+   gap used to take, and the picture lands where the comp put it. It is five
+   shots on a crossfade — each holds 3.8s and dissolves over 1.2s, 25s a turn,
+   the first already at full opacity on load. */
+.hm-ad{position:relative;margin-top:max(30px,14.864vw)}
+.hm-ad__fig{position:relative;width:32.57vw;margin:0 auto;aspect-ratio:1532/2036;overflow:hidden}
+.hm-ad__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;animation:hm-ad-fade 25s linear infinite}
+.hm-ad__img--1{opacity:1;animation-delay:-1.2s}
+.hm-ad__img--2{animation-delay:3.8s}
+.hm-ad__img--3{animation-delay:8.8s}
+.hm-ad__img--4{animation-delay:13.8s}
+.hm-ad__img--5{animation-delay:18.8s}
+@keyframes hm-ad-fade{
+  0%,100%{opacity:0}
+  4.8%,20%{opacity:1}
+  24.8%{opacity:0}
+}
 .hm-ad__cta{position:absolute;left:50%;top:81.71%;transform:translateX(-50%)}
 .hm-ad__word{
   position:absolute;top:13.7%;margin:0;z-index:2;
@@ -250,8 +307,8 @@ body.is-home main{overflow-x:clip}
 }
 .hm-close__h{
   margin:max(14px,3.208vw) 0 0;
-  font-family:var(--accent);font-weight:400;color:var(--hm-cream);
-  font-size:max(20px,2.304vw);line-height:1.2;
+  font-family:var(--accent);font-style:italic;font-weight:400;color:var(--hm-cream);
+  font-size:max(22px,2.55vw);line-height:1.2;
 }
 .hm-close__card{display:flex;justify-content:center;width:100%;margin-top:max(18px,2.6vw)}
 .hm-close__note{
@@ -272,7 +329,9 @@ body.is-home main{overflow-x:clip}
     grid-template-columns:1fr;justify-items:center;text-align:center;
     bottom:19%;gap:max(14px,4vw);
   }
-  .hm-hero__claim{font-size:11px;line-height:1.9;max-width:26ch}
+  .hm-hero__claim{font-size:11px;line-height:1.9;max-width:30ch}
+  .hm-proof__line{font-size:9px;line-height:2;letter-spacing:.16em}
+  .hm-proof__sep{margin:0 .5em}
   .hm-hero__mark{display:none}
   .hm-hero__act{justify-self:center}
 
@@ -284,11 +343,11 @@ body.is-home main{overflow-x:clip}
   .hm-band::before{height:auto;bottom:0}
   .hm-band__h{
     white-space:normal;font-size:max(30px,9.4vw);
-    max-width:14ch;margin-inline:auto;line-height:1.02;padding-top:max(26px,7vw);
+    max-width:17ch;margin-inline:auto;line-height:1.02;padding-top:max(26px,7vw);
   }
   .hm-band__cta{margin-top:max(18px,5vw)}
 
-  .hm-ad{margin-top:max(28px,7vw)}
+  .hm-ad{margin-top:max(40px,10vw)}
   .hm-ad__fig{width:min(62vw,300px)}
   .hm-ad__words{
     display:flex;justify-content:center;gap:max(14px,5vw);
@@ -320,4 +379,8 @@ body.is-home main{overflow-x:clip}
   .hm-btn{transition:none}
   .hm-hero__img{animation:none}
   .hm-hero__img--1{opacity:1}
+  .hm-hero__line{animation:none}
+  .hm-hero__line--b{clip-path:inset(0 0 0 100%)}
+  .hm-ad__img{animation:none}
+  .hm-ad__img--1{opacity:1}
 }
