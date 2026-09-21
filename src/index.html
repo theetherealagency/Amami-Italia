@@ -122,9 +122,9 @@
   <div class="hm-room__illo">
     <video class="hm-room__film" autoplay muted loop playsinline preload="metadata"
            width="1440" height="810"
-           poster="/wp-content/uploads/2026/09/home-room-poster.jpg"
+           poster="/wp-content/uploads/2026/09/home-room-poster-1s.jpg"
            aria-label="An illustration of the Amami Italia room, with the team walking out through it">
-      <source src="/wp-content/uploads/2026/09/team-walk.mp4" type="video/mp4">
+      <source src="/wp-content/uploads/2026/09/team-walk-1s.mp4" type="video/mp4">
       <img src="/wp-content/uploads/2026/09/home-room-illustration.jpg"
            alt="An illustration of the Amami Italia room: the wine wall, the mural, the bar and the team walking through it">
     </video>
@@ -235,9 +235,14 @@
 <script>document.getElementById('yr').textContent=new Date().getFullYear();
 /* The room film loops by itself; anyone who has asked for less motion
    keeps the poster, which is the drawing with the team standing in it. */
-(function(){var v=document.querySelector('.hm-room__film');
-if(v&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
-v.removeAttribute('autoplay');v.removeAttribute('loop');try{v.pause();}catch(e){}}})();</script>
+(function(){var v=document.querySelector('.hm-room__film');if(!v)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
+v.removeAttribute('autoplay');v.removeAttribute('loop');try{v.pause();}catch(e){}return;}
+/* Some browsers decline to autoplay a video that is still off-screen and
+   never revisit it, so ask again when the section is actually in view. */
+if(window.IntersectionObserver){new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}});},
+{threshold:0.15}).observe(v);}})();</script>
 <script src="/_assets/amami.js" defer></script>
 <script src="/_assets/amami-i18n.js"></script>
 </body>
