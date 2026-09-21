@@ -102,3 +102,5 @@
   .ftr a,.ftr__grid img,.ftr__nl button{transition:none}
   .ftr__grid a:hover img{transform:none}
 }
+
+@media (max-width:760px){.ftr .ftr__nlrow input,.ftr__nl input,.ftr .ftr__nlrow button,.ftr__nl button{min-height:44px}.ftr__nav li+li{margin-top:8px}.ftr__nav a{display:inline-block;padding:6px 0}}

@@ -386,3 +386,5 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   .hm-ad__img{animation:none}
   .hm-ad__img--1{opacity:1}
 }
+
+@media (max-width:760px){.hm-btn{height:44px}}

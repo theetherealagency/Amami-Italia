@@ -121,7 +121,8 @@
           mail: "Apro la tua email…" }
   };
   function t(k) {
-    var l = document.documentElement.lang === "it" ? "it" : "en";
+    // the language switch sets lang="it-IT", so match the language, not the tag
+    var l = /^it/i.test(document.documentElement.lang) ? "it" : "en";
     return MSG[l][k];
   }
   function say(el, text, state) {

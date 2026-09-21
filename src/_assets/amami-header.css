@@ -246,3 +246,5 @@ body.has-amami-hdr .rs-otembed{margin-inline:0;width:100%}
    desktop one in the right cluster above it. */
 @media (max-width:1023px){.hdr__right .lang{display:none}}
 @media (min-width:1024px){.hdr .lang--m{display:none}}
+
+@media (max-width:760px){.hdr .lang button{min-height:44px;min-width:32px}}

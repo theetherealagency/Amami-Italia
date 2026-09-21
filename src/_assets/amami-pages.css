@@ -145,3 +145,56 @@ body.is-page main{overflow-x:clip}
   .pg-tiles{grid-template-columns:1fr;width:min(88vw,520px);gap:10px}
   .pg-tile__h{font-size:24px}.pg-tile__p{font-size:14px}
 }
+
+/* --- four text cards (rooms): the card without its photograph ------------ */
+.pg-cards--4{grid-template-columns:repeat(2,1fr)}
+.pg-card--text .pg-card__body{padding-top:max(26px,4.2vw)}
+.pg-card__cap{margin:0;font-family:var(--sans);font-weight:400;color:rgba(237,233,220,.62);
+  font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase}
+
+/* --- a line of contact, and small facts ---------------------------------- */
+.pg-contact{margin:max(12px,1.6vw) auto 0;font-family:var(--sans);color:var(--hm-panel);
+  font-size:max(12px,1.282vw);line-height:1.6}
+.pg-contact a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(22,22,22,.28)}
+.pg-contact a:hover{border-color:var(--hm-red);color:var(--hm-red)}
+.pg-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:max(16px,2.2vw);
+  width:81.226vw;margin:max(22px,3.051vw) auto 0;padding:0;text-align:left}
+.pg-fact{margin:0}
+.pg-fact dt{font-family:var(--sans);font-weight:400;color:var(--hm-red);
+  font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase;margin:0 0 max(6px,.6vw)}
+.pg-fact dd{margin:0;font-family:var(--sans);color:var(--hm-panel);font-size:max(12px,1.282vw);line-height:1.55}
+.pg-fact dd a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(22,22,22,.28)}
+.pg-fact dd a:hover{color:var(--hm-red);border-color:var(--hm-red)}
+
+/* --- the enquiry form: the footer's fields, at page scale ---------------- */
+.pg-form{display:grid;grid-template-columns:1fr 1fr;gap:max(14px,1.6vw) max(14px,1.6vw);
+  width:min(81.226vw,820px);margin:max(22px,3.051vw) auto 0;text-align:left}
+.pg-form label{display:block}
+.pg-form label span{display:block;margin:0 0 max(6px,.5vw);font-family:var(--sans);font-weight:400;color:var(--hm-panel);
+  font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase}
+.pg-form input,.pg-form textarea{display:block;width:100%;box-sizing:border-box;background:transparent;
+  border:1px solid rgba(22,22,22,.28);color:var(--hm-panel);font:inherit;font-family:var(--sans);
+  font-size:max(13px,1.1vw);padding:.75em .9em;border-radius:0;margin:0}
+.pg-form input::placeholder,.pg-form textarea::placeholder{color:rgba(22,22,22,.4)}
+.pg-form input:focus,.pg-form textarea:focus{outline:none;border-color:var(--hm-red)}
+.pg-form .pg-form__wide{grid-column:1/-1}
+.pg-form .pg-form__act{grid-column:1/-1;text-align:center;margin-top:max(6px,.6vw)}
+.pg-form .form-status{grid-column:1/-1;margin:0;text-align:center;font-family:var(--sans);
+  font-size:max(12px,1vw);color:var(--hm-panel);min-height:1.4em}
+
+/* --- the booking widget, and the map ------------------------------------- */
+.pg-widget{display:flex;justify-content:center;width:100%;margin:max(20px,2.6vw) auto 0;min-height:270px}
+.pg-map{display:block;width:81.226vw;aspect-ratio:16/8;margin:max(22px,3.051vw) auto 0;border:0;
+  filter:grayscale(1) contrast(1.05);background:#ddd}
+
+@media (max-width:760px){
+  .pg-cards--4{grid-template-columns:1fr}
+  .pg-facts{grid-template-columns:1fr 1fr;width:min(88vw,520px);gap:18px 14px}
+  .pg-fact dt{font-size:9px}.pg-fact dd{font-size:14px}
+  .pg-contact{font-size:14px}
+  .pg-form{grid-template-columns:1fr;width:min(88vw,520px);gap:14px}
+  .pg-form label span{font-size:9px}.pg-form input,.pg-form textarea{font-size:16px}
+  .pg-map{width:min(88vw,520px);aspect-ratio:4/3}
+}
+
+@media (max-width:760px){.pg-btn{height:44px}}
