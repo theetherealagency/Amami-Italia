@@ -129,11 +129,13 @@ body.is-home main{overflow-x:clip}
   margin:max(3px,.28vw) 0 0;font-family:var(--accent);
   color:var(--hm-panel);font-size:max(11.5px,1.133vw);line-height:1.5;
 }
-/* The drawing is a short film: the team stands where the illustration
-   always had them, walks out past the right edge, and the tail dissolves
-   back to the opening frame so the loop has no seam. The poster is that
-   same opening frame, so before it plays — and for anyone who has asked
-   for less motion — the section looks exactly like the original artwork. */
+/* The drawing is a short film on a true loop: the team stands where the
+   illustration always had them, walks out past the right edge, the room
+   holds empty for a beat, then they walk back in from the left and settle
+   into the same positions — the last frame is the first frame, so it
+   cycles with no cut. The poster is that opening frame, so before it
+   plays — and for anyone who has asked for less motion — the section
+   looks exactly like the original artwork. */
 .hm-room__illo{
   display:block;width:70.278vw;
   margin:max(16px,1.411vw) auto 0;
