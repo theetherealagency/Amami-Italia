@@ -203,13 +203,15 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   background:var(--hm-red)
     url(/wp-content/uploads/2026/09/home-band-tuscany.jpg) bottom center / 100% auto no-repeat;
 }
+/* The line is sized to the full artboard width, so it spans the band's side
+   padding too; the negative margins give it that width to centre in. */
 .hm-band__h{
-  margin:0;padding-top:max(18px,2.561vw);
+  margin:0 calc(-1 * max(14px,4vw));padding-top:max(18px,2.561vw);
   font-family:var(--serif);font-weight:300;color:var(--hm-cream);
-  font-size:6.232vw;line-height:1;letter-spacing:-.05em;
+  font-size:5.6vw;line-height:1;letter-spacing:-.05em; /* was 6.232vw, which filled 100vw edge to edge and ran off the right; now ~90vw, centred with margin both sides */
   text-align:center;white-space:nowrap;text-transform:uppercase;
 }
-[data-lang="it"] .hm-band__h{font-size:6.409vw}
+[data-lang="it"] .hm-band__h{font-size:5.76vw} /* was 6.409vw */
 .hm-band__cta{display:flex;justify-content:center;margin:max(20px,3.551vw) 0 0}
 .hm-band__cta .hm-btn{
   min-width:max(180px,24.599vw);
