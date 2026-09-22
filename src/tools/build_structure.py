@@ -774,9 +774,9 @@ def t_menu_page(p):
 
 def t_story(p):
     """Our Story. The client's About copy sits at the top and closes the page;
-    the three Lucca blocks in the middle are untouched, because the brief was
-    to change the chef and leave the Lucca framing alone."""
-    blocks = [("Da Lucca", "Where it came from",
+    the three blocks in the middle tell the restaurant's story (the town
+    framing was dropped at the client's request, 2026-09-22)."""
+    blocks = [("Toscana", "Where it came from",
                "A Tuscan town with the wall still round it. Bread, beans, good oil.",
                "room_booth_one"),
               ("Il Mestiere", "How it gets made",
@@ -798,7 +798,7 @@ def t_story(p):
     return """<section class="pagehead">
   <div class="pagehead__media">%s</div>
   <div class="wrap">
-    <p class="eyebrow pagehead__k">Da Lucca a Brampton</p>
+    <p class="eyebrow pagehead__k">Tuscan at heart. Brampton at home.</p>
     <h1 class="pagehead__title pagehead__title--line">Italian food. Italian energy.</h1>
     <p class="pagehead__lede">No rules—except never leave without dessert.</p>
     <div class="pagehead__copy">
@@ -1384,11 +1384,11 @@ PAGES = [
          description="Catering menu for offices, homes and celebrations across Brampton and Caledon.",
          meaning="Away from home."),
 
-    dict(url="/our-story/", share="room_wide", nav_label="Our Story", display="Da Lucca a Brampton", tpl=t_story,
+    dict(url="/our-story/", share="room_wide", nav_label="Our Story", display="Tuscan at heart. Brampton at home.", tpl=t_story,
          action="reserve",
          title="Our Story — Tuscan Restaurant in Brampton | Amami Italia",
-         description="From Lucca to Brampton. How the cooking, the chef and the room came together.",
-         meaning="From Lucca to Brampton."),
+         description="Tuscan at heart, Brampton at home. How the cooking, the chef and the room came together.",
+         meaning="Tuscan at heart. Brampton at home."),
 
     dict(url="/our-story/chef/", nav_label="Chef Isabella", display="Chef Isabella",
          tpl=t_chef, action="reserve", crumbs=STORY_CRUMB,

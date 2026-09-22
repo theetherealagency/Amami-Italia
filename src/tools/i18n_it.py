@@ -101,12 +101,12 @@ IT = {
         "Ciò che il bar serve quando i piatti sono andati via. Porto tawny, una lunga fila di amari, grappe, e caffè corretti.",
 
     # ---- our story ----
-    "Da Lucca a Brampton": "Da Lucca a Brampton",
-    "Amami means love me. It is a Tuscan kitchen on Mayfield Road, cooking the food of Lucca for Brampton, Caledon and Vaughan.":
-        "Amami vuol dire amami. È una cucina toscana su Mayfield Road, che porta i piatti di Lucca a Brampton, Caledon e Vaughan.",
+    "Tuscan at heart. Brampton at home.": "Toscana nel cuore. Brampton a casa.",
+    "Amami means love me. It is a Tuscan kitchen on Mayfield Road, cooking for Brampton, Caledon and Vaughan.":
+        "Amami vuol dire amami. È una cucina toscana su Mayfield Road, che cucina per Brampton, Caledon e Vaughan.",
     "Where it came from": "Da dove viene",
-    "Lucca sits inside its walls in northern Tuscany. Its cooking is plainer than the Italy most people picture — bread, beans, olive oil, a short list of things done properly.":
-        "Lucca sta dentro le sue mura, nel nord della Toscana. La sua cucina è più semplice dell'Italia che si immagina di solito: pane, fagioli, olio d'oliva, poche cose fatte bene.",
+    "Tuscan cooking is plainer than the Italy most people picture — bread, beans, olive oil, a short list of things done properly.":
+        "La cucina toscana è più semplice dell'Italia che si immagina di solito: pane, fagioli, olio d'oliva, poche cose fatte bene.",
     "The craft that travelled": "Il mestiere che ha viaggiato",
     "Technique arrives with a person, not from a book. Pasta is rolled here, sauces are built here, and the kitchen is run by someone who learned it where it comes from.":
         "La tecnica arriva con una persona, non da un libro. Qui la pasta si tira a mano, i sughi si costruiscono in casa, e la cucina è guidata da chi l'ha imparata dove è nata.",
@@ -277,9 +277,9 @@ IT.update({
     "Le Mani di Gianluca": "Le Mani di Gianluca",
     "Gianluca's hands. Ties the chef directly to the craft.":
         "Le mani di Gianluca. Lo chef legato direttamente al mestiere.",
-    "Born in Lucca": "Nato a Lucca",
-    "Born and raised in Lucca. Learned tordelli from his mother and grandmother. In restaurants by sixteen. In Canada since 2014. APCI certified.":
-        "Nato e cresciuto a Lucca. Ha imparato i tordelli da sua madre e sua nonna. In cucina dai sedici anni. In Canada dal 2014. Certificato APCI.",
+    "Born in Canada": "Nata in Canada",
+    "Born and raised in Canada. She cooks Italian the way she believes it should be cooked: simply, as at home.":
+        "Nata e cresciuta in Canada. Cucina l'italiano come crede che si debba cucinare: semplicemente, come a casa.",
     "Working portrait": "Ritratto al lavoro",
 
     # experiences
@@ -963,12 +963,10 @@ IT.update({
 # ---------------------------------------------------------------------------
 IT.update({
     # our story
-    "Lucca is a Tuscan town with the wall still around it. The food there doesn’t show "
-    "off. Bread, beans, good oil, and nobody trying to impress you. That’s the cooking "
-    "this kitchen came out of.":
-        "Lucca è una città toscana con le mura ancora intorno. Lì il cibo non fa scena. "
-        "Pane, fagioli, olio buono e nessuno che cerca di impressionarti. Da lì viene la "
-        "cucina di questo posto.",
+    "Tuscan food doesn’t show off. Bread, beans, good oil, and nobody trying to "
+    "impress you. That’s the cooking this kitchen came out of.":
+        "Il cibo toscano non fa scena. Pane, fagioli, olio buono e nessuno che cerca di "
+        "impressionarti. Da lì viene la cucina di questo posto.",
     "How it gets made": "Come si fa",
     "Nobody learns this out of a book. You learn it standing next to someone who already "
     "knows. Pasta gets rolled here in the morning. The sauce goes on before the doors open.":

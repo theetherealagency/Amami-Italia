@@ -94,7 +94,7 @@ Nothing technical is blocking. These need answers from the client.
 
 1. **Who is the chef?** The printed 2026 menu says *"Crafted by Chef Isabella
    Comello"* and *"made with love, by Linda, in our kitchen"*. The
-   architecture document is built around *Chef Gianluca Martinucci of Lucca*,
+   architecture document is built around *Chef Gianluca Martinucci*,
    and the home page, `/our-story/` and `/our-story/chef/` all carry that
    claim. One of the two is out of date. This is the biggest open item —
    several pages change depending on the answer.

@@ -6,8 +6,9 @@ client, then I put it into `tools/build_structure.py` and rebuild.
 Two decisions you made that this whole document follows:
 
 1. **Chef Isabella Comello replaces Gianluca Martinucci everywhere his name appears.**
-2. **The Lucca framing stays.** "Da Lucca a Brampton", the Tuscan claim, the story page —
-   all of it is untouched. Only the chef changes.
+2. **The Tuscan claim stays.** *(Updated 2026-09-22: the client dropped the town framing.
+   The story page is now "Tuscan at heart. Brampton at home." and Chef Isabella Comello is
+   Canadian-born, born and raised in Canada.)*
 
 Register: family trattoria. Hand-painted sign, not a film poster. Warm, short, a bit
 blunt. Contractions everywhere. No three-part lists with a nice beat at the end, no
@@ -22,7 +23,7 @@ capture beyond one line on the printed menu: *"Crafted by Chef Isabella Comello.
 The chef page currently makes five specific factual claims and every one of them was
 written about Gianluca:
 
-- born and raised in Lucca
+- born and raised in Italy
 - learned tordelli from his mother and grandmother
 - in restaurants by sixteen
 - in Canada since 2014
@@ -142,25 +143,24 @@ cannot send someone to a menu that isn't there. See `/menu/pizza/` below.
 
 ### Meta description (search results, link previews)
 
-- **NOW:** Tuscan cooking in Brampton, led by Chef Gianluca Martinucci of Lucca. Dining, lounge and catering on Mayfield Road.
+- **NOW:** Tuscan cooking in Brampton, led by Chef Gianluca Martinucci. Dining, lounge and catering on Mayfield Road.
 - **NEW:** Tuscan cooking in Brampton, from Chef Isabella Comello. Dining, lounge and catering on Mayfield Road.
 
 ---
 
-## `/our-story/` — Da Lucca a Brampton
+## `/our-story/` — Tuscan at heart. Brampton at home.
 
-Lucca stays. This is the restaurant's story, not the chef's.
+*Updated 2026-09-22: the client dropped the town framing everywhere. This is the
+restaurant's story, not the chef's.*
 
 ### Page head
 
-- **Title:** Da Lucca a Brampton *(unchanged)*
-- **NOW:** Amami means love me. It is a Tuscan kitchen on Mayfield Road, cooking the food of Lucca for Brampton, Caledon and Vaughan.
-- **NEW:** Amami means love me. It's a Tuscan kitchen on Mayfield Road, cooking the way Lucca cooks.
+- **Title:** Tuscan at heart. Brampton at home.
+- **Line:** Amami means love me. It is a Tuscan kitchen on Mayfield Road, cooking for Brampton, Caledon and Vaughan.
 
-### Block 1 — Da Lucca / Where it came from
+### Block 1 — Toscana / Where it came from
 
-- **NOW:** Lucca sits inside its walls in northern Tuscany. Its cooking is plainer than the Italy most people picture — bread, beans, olive oil, a short list of things done properly.
-- **NEW:** Lucca is a town in Tuscany with the wall still round it. People expect Italy to be showy. Lucca isn't. It's bread and beans and good oil, and it's very good.
+- **Line:** Tuscan cooking is plainer than the Italy most people picture — bread, beans, olive oil, a short list of things done properly.
 
 ### Block 2 — Il Mestiere / The craft that travelled
 
@@ -199,7 +199,7 @@ This is the page that changes most. URL stays the same, which is lucky — there
 | Page title (browser tab, search) | Chef Gianluca Martinucci — Amami Italia, Brampton | Chef Isabella Comello — Amami Italia, Brampton |
 | Display heading | Le Mani di Gianluca | Le Mani di Isabella |
 | Eyebrow | Chef Gianluca | Chef Isabella |
-| Meta description | Born in Lucca, APCI certified, in Canada since 2014. | `[ISABELLA: needs a real one-liner]` |
+| Meta description | (Gianluca's birthplace), APCI certified, in Canada since 2014. | Canadian-born Chef Isabella Comello is the heart of the Amami kitchen. |
 
 ### Hero
 
@@ -213,7 +213,7 @@ why the heading was chosen. It has been sitting on the live page as body copy.
 
 ### Section — who she is
 
-- **NOW (all of it about Gianluca, all of it removed):** Born and raised in Lucca. Learned tordelli from his mother and grandmother. In restaurants by sixteen. In Canada since 2014. APCI certified.
+- **NOW (all of it about Gianluca, all of it removed):** Born and raised in Italy. Learned tordelli from his mother and grandmother. In restaurants by sixteen. In Canada since 2014. APCI certified.
 
 - **NEW, once you fill the brackets:**
 
@@ -226,9 +226,8 @@ why the heading was chosen. It has been sitting on the live page as body copy.
   > Ask her what's good tonight and she'll tell you what she'd eat herself. That's usually
   > the right answer.
 
-- **Heading for the section:** currently "Born in Lucca". That claim goes with Gianluca.
-  Use **"In the kitchen"** until you know where she's from. If she is from Lucca, say so and
-  the old heading comes straight back — it's the better one.
+- **Heading for the section:** the old heading named Gianluca's birthplace and goes with him.
+  Use **"Born in Canada"**: Isabella was born and raised in Canada (confirmed 2026-09-22).
 
 ### Section — Signatures
 
