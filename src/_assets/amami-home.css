@@ -107,6 +107,9 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   letter-spacing:.2em;line-height:2.057;text-transform:uppercase;
 }
 .hm-hero__mid{display:block}
+/* bottom:24.21% puts the row's bottom edge on the comp's button centre; the
+   comp centres the row there, so shift it down by half its own height. */
+@media (min-width:761px){.hm-hero__row{transform:translateY(50%)}}
 .hm-hero__act{justify-self:end}
 
 /* The hero word is one sentence in two halves that trade places: "AMAMI
@@ -154,7 +157,7 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase;line-height:1.9;
 }
 .hm-proof__sep{margin:0 .9em;opacity:.55}
-.hm-proof + .hm-room{padding-top:max(22px,4.2vw)}
+.hm-proof + .hm-room{padding-top:max(22px,3.31vw)} /* was 4.2vw; title baseline sat 12 comp px low */
 
 /* --- 2. the room ---------------------------------------------------------
    Cream, centred, and the one drawing on the page. The four gaps here are
@@ -175,6 +178,13 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   color:var(--hm-panel);font-size:max(14px,1.5vw);line-height:1.45;
 }
 .hm-room__sub span{display:block}
+/* Desktop: one line, as the comp has it (two stacked lines pushed the
+   drawing and the button 48 comp px low). */
+@media (min-width:761px){
+  .hm-room__sub{max-width:none;font-size:max(14px,1.2vw);line-height:1.3;margin-top:.41vw}
+  .hm-room__sub span{display:inline}
+  .hm-room__sub span + span::before{content:" "}
+}
 /* The drawing is a one-second film on a loop: the team walk on the spot,
    exactly where the illustration always had them, nobody travelling and
    no fade at either end. One second is the stride period — the cut lands
@@ -256,8 +266,10 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   font-size:max(18px,3.698vw);line-height:1;
   letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;
 }
-.hm-ad__word--l{left:27.53%}
-.hm-ad__word--r{left:60.96%}
+/* 27.53% and 60.96% are of the full artboard; .hm-ad is inset by the band's
+   side padding P, so convert: left = pct*(w+2P) - P. */
+.hm-ad__word--l{left:calc(27.53% - .4494 * max(14px,4vw))}
+.hm-ad__word--r{left:calc(60.96% + .2192 * max(14px,4vw))}
 
 /* --- 4 & 5. the two split blocks ----------------------------------------
    1109.55 of 1366 wide, centred: a photograph and a black panel, mirrored
