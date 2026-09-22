@@ -200,10 +200,15 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
    Tuscan drawing is baked into that one JPEG at the blend and opacity the
    comp gives it (soft-light, 30%), which is cheaper and steadier than
    shipping two transparent PNGs for the browser to composite. */
-.hm-band{position:relative;isolation:isolate;padding:0 max(14px,4vw)}
+/* --hm-ad-gap is the space between the line and the photograph. It was a
+   straight 14.864vw, which grew without limit (285px on a 1920 screen) and
+   left a dead block of red; clamped, it reads as one group at any width.
+   The red ends where the photograph still hangs 9.375vw past it, as before:
+   line block 8.161vw + gap + photograph 43.285vw - 9.375vw. */
+.hm-band{--hm-ad-gap:clamp(40px,3.5vw,72px);position:relative;isolation:isolate;padding:0 max(14px,4vw)}
 .hm-band::before{
   content:"";position:absolute;left:0;right:0;top:0;z-index:-1;
-  height:53.398vw;
+  height:calc(42.071vw + var(--hm-ad-gap)); /* was 53.398vw */
   background:var(--hm-red)
     url(/wp-content/uploads/2026/09/home-band-tuscany.jpg) bottom center / 100% auto no-repeat;
 }
@@ -230,7 +235,7 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
    gap used to take, and the picture lands where the comp put it. It is five
    shots on a crossfade — each holds 3.8s and dissolves over 1.2s, 25s a turn,
    the first already at full opacity on load. */
-.hm-ad{position:relative;margin-top:max(30px,11.35vw)} /* was 14.864vw; raised half an inch (48 comp px) */
+.hm-ad{position:relative;margin-top:var(--hm-ad-gap)} /* was 14.864vw, then 11.35vw */
 .hm-ad__fig{position:relative;width:32.57vw;margin:0 auto;aspect-ratio:1532/2036;overflow:hidden}
 .hm-ad__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   filter:grayscale(1);opacity:0;animation:hm-ad-fade 25s linear infinite}
