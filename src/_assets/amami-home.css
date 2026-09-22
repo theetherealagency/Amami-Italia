@@ -183,10 +183,14 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
    anyone who has asked for less motion — the section looks exactly like
    the original artwork. */
 .hm-room__illo{
-  display:block;width:70.278vw;
+  position:relative;display:block;width:70.278vw;
   margin:max(16px,1.411vw) auto 0;
 }
-.hm-room__film{display:block;width:100%;height:auto;aspect-ratio:16/9}
+/* The film is drawn on white paper; multiply lets the cream ground through it,
+   so there is no white box. The wash still is placed in the film's own
+   1440x810 frame: 100,70 and 1270 wide. */
+.hm-room__film{display:block;width:100%;height:auto;aspect-ratio:16/9;mix-blend-mode:multiply}
+.hm-room__wash{position:absolute;left:6.944%;top:8.642%;width:88.194%;height:auto;pointer-events:none}
 .hm-room__film img{display:block;width:100%;height:auto}
 .hm-room__cta{margin-top:max(22px,3.051vw)}
 
@@ -402,6 +406,7 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
 .motion main > section.is-in{opacity:1;transform:none}
 .motion main > section:where(:not(.hm-hero):not(.hm-band)) img:where(:not(.hm-hero__img)){transform:scale(1.04);transition:transform .9s cubic-bezier(.22,1,.36,1)}
 .motion main > section.is-in img{transform:none}
+.hm-room .hm-room__wash{transform:none} /* must stay registered to the film */
 .motion .hm-btn{transition:background .25s ease-out,color .25s ease-out,border-color .25s ease-out,transform .25s ease-out}
 .motion .hm-btn:hover{transform:translateY(-1px)}
 .motion .hdr{transition:height .3s ease-out,background-color .3s ease-out,opacity .3s ease-out,transform .3s cubic-bezier(.22,1,.36,1)}
