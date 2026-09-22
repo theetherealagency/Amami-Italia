@@ -211,7 +211,8 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   font-size:5.6vw;line-height:1;letter-spacing:-.05em; /* was 6.232vw, which filled 100vw edge to edge and ran off the right; now ~90vw, centred with margin both sides */
   text-align:center;white-space:nowrap;text-transform:uppercase;
 }
-[data-lang="it"] .hm-band__h{font-size:5.76vw} /* was 6.409vw */
+/* desktop only: unscoped, it outranked the mobile rule and shrank the IT line to ~21px on phones */
+@media (min-width:761px){[data-lang="it"] .hm-band__h{font-size:5.76vw}} /* was 6.409vw */
 .hm-band__cta{display:flex;justify-content:center;margin:max(20px,3.551vw) 0 0}
 .hm-band__cta .hm-btn{
   min-width:max(180px,24.599vw);
@@ -348,7 +349,7 @@ body.is-home.hdr-hidden .hdr{opacity:0;transform:translateY(-10px);pointer-event
   .hm-band{padding-bottom:max(30px,8vw)}
   .hm-band::before{height:auto;bottom:0}
   .hm-band__h{
-    white-space:normal;font-size:max(30px,9.4vw);
+    white-space:normal;font-size:clamp(30px,9.4vw,48px); /* capped: uncapped it reached 71px at 760px, then dropped to 42px one pixel wider */
     max-width:17ch;margin-inline:auto;line-height:1.02;padding-top:max(26px,7vw);
   }
   .hm-band__cta{margin-top:max(18px,5vw)}
