@@ -351,3 +351,34 @@ body.is-page .dish__add{color:var(--hm-red)}
 /* OpenTable slot: spans its row so the loader can measure it (wide >= 860px, else tall), widget centred */
 .ot-slot{width:100%;display:flex;justify-content:center;min-height:301px}
 .ot-slot iframe{max-width:100%}
+
+/* --- After Dark, before it opens: a teaser that says something is coming, never what --- */
+.pg-hero--hush{min-height:max(520px,min(56vw,100svh));justify-content:center;background:var(--hm-scrim)}
+.pg-hero--hush .pg-hero__img{filter:blur(7px) brightness(.42) saturate(.8);transform:scale(1.08)}
+.pg-hero--hush .pg-hero__scrim{background:radial-gradient(ellipse at 50% 55%,rgba(8,9,9,0) 0%,rgba(8,9,9,.55) 55%,var(--hm-scrim) 100%)}
+.pg-hero--hush .pg-hero__sub{text-wrap:balance}
+.pg-hush__tag{margin:0 0 max(14px,1.6vw);font-family:var(--sans);font-weight:400;color:var(--hm-silver);
+  font-size:max(9px,.95vw);letter-spacing:.3em;text-indent:.3em;text-transform:uppercase}
+.pg-hush{background:var(--hm-panel);color:var(--hm-cream);text-align:center;
+  padding:max(40px,7vw) max(14px,4vw) max(44px,7.5vw)}
+.pg-hush__lines{list-style:none;margin:0 auto;padding:0;display:grid;gap:max(8px,1vw)}
+.pg-hush__lines li{font-family:var(--serif);font-weight:300;font-size:max(26px,3.469vw);line-height:1.05;letter-spacing:-.03em}
+.pg-hush__lines li:last-child{font-family:var(--accent);font-style:italic;color:var(--hm-silver)}
+.pg-hush__note{margin:max(24px,3vw) 0 max(16px,1.8vw);font-family:var(--accent);font-style:italic;
+  font-size:max(14px,1.5vw);color:rgba(238,233,218,.72)}
+.pg-wine{margin-top:max(34px,6.958vw)}
+.pg-wine__p{margin:0;max-width:40ch;font-family:var(--accent);font-style:italic;font-size:max(14px,1.5vw);line-height:1.45;color:rgba(238,233,218,.8)}
+.pg-wine__cta{display:flex;flex-wrap:wrap;align-items:center;gap:max(14px,1.6vw);margin:0}
+.pg-wine__tel{color:var(--hm-cream);font-family:var(--sans);font-size:max(11px,1.1vw);letter-spacing:.12em;text-decoration:none;border-bottom:1px solid rgba(238,233,218,.4)}
+.pg-wine__tel:hover{border-color:var(--hm-cream)}
+/* the three lines arrive one at a time, like someone lowering their voice */
+@media (prefers-reduced-motion:no-preference){
+  .pg-hush__lines li,.pg-hush__note{opacity:0;animation:pg-hush-in 1.4s cubic-bezier(.22,1,.36,1) forwards}
+  .pg-hush__lines li:nth-child(1){animation-delay:.3s}
+  .pg-hush__lines li:nth-child(2){animation-delay:1.3s}
+  .pg-hush__lines li:nth-child(3){animation-delay:2.3s}
+  .pg-hush__note{animation-delay:3.3s}
+  .pg-hero--hush .pg-hero__img{animation:pg-hush-breathe 9s ease-in-out infinite alternate}
+}
+@keyframes pg-hush-in{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes pg-hush-breathe{from{filter:blur(7px) brightness(.36) saturate(.8)}to{filter:blur(5px) brightness(.5) saturate(.9)}}

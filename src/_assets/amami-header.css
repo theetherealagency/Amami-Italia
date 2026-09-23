@@ -36,6 +36,20 @@
 .burger span{display:block;width:24px;height:1px;background:var(--h-cream);margin:4px 0}
 /* the hours readout stays out of the bar: logo, nav, language, one action */
 @media(min-width:1024px){.hdr__nav{display:flex}.hdr .hours-status{display:none}.burger{display:none}}
+/* After Dark, before it opens: a pulsing mark on the link and, on hover or focus,
+   a one-line preview that drops beneath it. The text comes from data-soon. */
+.hdr__nav a[data-soon]{position:relative}
+.hdr__nav a[data-soon]::before{content:"";position:absolute;top:-.3em;right:-.75em;width:5px;height:5px;border-radius:50%;
+  background:var(--h-bronze-lit);animation:hdr-soon 2.4s ease-in-out infinite}
+.hdr__nav a[data-soon]::after{content:attr(data-soon);position:absolute;left:50%;top:calc(100% + 16px);
+  transform:translate(-50%,-6px);white-space:nowrap;padding:.75em 1.2em;background:#161616;color:#eee9da;
+  border:1px solid rgba(203,214,227,.35);font-family:var(--accent);font-style:italic;font-size:.95rem;
+  letter-spacing:.02em;text-transform:none;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.hdr__nav a[data-soon]:hover::after,.hdr__nav a[data-soon]:focus-visible::after{opacity:1;transform:translate(-50%,0)}
+.nav-overlay__menu a[data-soon-tag]::after{content:attr(data-soon-tag);margin-left:.6em;vertical-align:super;
+  font-family:var(--sans,sans-serif);font-size:.28em;letter-spacing:.22em;text-transform:uppercase;color:var(--h-bronze-lit)}
+@keyframes hdr-soon{50%{opacity:.2}}
+@media (prefers-reduced-motion:reduce){.hdr__nav a[data-soon]::before{animation:none}}
 
 /* ---------- full-screen nav overlay ---------- */
 .nav-overlay{position:fixed;inset:0;z-index:80;background:var(--h-ink);display:grid;
