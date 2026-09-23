@@ -66,25 +66,24 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
    cream type sit over a photograph of a white tablecloth. */
 .hm-hero{
   position:relative;isolation:isolate;overflow:hidden;padding:0;
-  height:max(520px,55.797vw);
+  /* the comp's 762.2/1366, but never taller than the screen, so the hero
+     word on the bottom edge is always above the fold on a wide monitor */
+  height:max(520px,min(55.797vw,100svh));
   background:var(--hm-scrim);
 }
 .hm-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* Four photographs on a crossfade: each holds 4.8s and dissolves over 1.2s,
-   so one turn is 24s. The first delay is negative so slide one is already at
-   full opacity on load instead of fading up out of the ground. The later
-   three are composed pictures rather than open scenes, so each gets the
-   object-position that keeps its subject in frame when a narrow viewport
-   crops the sides. */
-.hm-hero__img{opacity:0;animation:hm-hero-fade 24s linear infinite}
+/* Three photographs (the table, the triptych, the room at night; the two
+   design mock-ups that were slides 3 and 4 are gone). The inline script
+   drives the crossfade; without script these keyframes run it: each holds
+   4.8s and dissolves over 1.2s, 18s a turn, slide one already on at load. */
+.hm-hero__img{opacity:0;animation:hm-hero-fade 18s linear infinite}
 .hm-hero__img--1{opacity:1;animation-delay:-1.2s}
 .hm-hero__img--2{animation-delay:4.8s}
-.hm-hero__img--3{animation-delay:10.8s;object-position:22% 50%}
-.hm-hero__img--4{animation-delay:16.8s;object-position:26% 50%}
+.hm-hero__img--3{animation-delay:10.8s}
 @keyframes hm-hero-fade{
   0%,100%{opacity:0}
-  5%,25%{opacity:1}
-  30%{opacity:0}
+  6.667%,33.333%{opacity:1}
+  40%{opacity:0}
 }
 .hm-hero__scrim{
   position:absolute;inset:0;pointer-events:none;
@@ -94,7 +93,9 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
    rather than space-between, so the mark stays centred however long the two
    outer items get in Italian. 24.21% is the comp's button centre. */
 .hm-hero__row{
-  position:absolute;left:0;right:0;bottom:24.21%;z-index:2;
+  /* 24.21% is the comp's button centre; the floor keeps the row clear of
+     the hero word when the height is capped to a short screen */
+  position:absolute;left:0;right:0;bottom:max(24.21%,11vw);z-index:2;
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
   gap:max(10px,2vw);
   padding-inline:max(14px,6.142vw);
