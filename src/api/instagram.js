@@ -28,12 +28,24 @@ async function fromGraph(token) {
   }));
 }
 
+// the same public profile feed, asked the way the website and the Android app ask
+const PROFILE_TRIES = [
+  ['https://www.instagram.com/api/v1/users/web_profile_info/?username=' + USER,
+    { 'x-ig-app-id': '936619743392459', 'user-agent': UA, 'accept': 'application/json', 'referer': 'https://www.instagram.com/' + USER + '/' }],
+  ['https://i.instagram.com/api/v1/users/web_profile_info/?username=' + USER,
+    { 'x-ig-app-id': '936619743392459', 'user-agent': 'Instagram 219.0.0.12.117 Android (31/12; 420dpi; 1080x2400; samsung; SM-G991B; o1s; exynos2100; en_US; 346138365)', 'accept': 'application/json' }]
+];
+
 async function fromProfile() {
-  const r = await fetch('https://www.instagram.com/api/v1/users/web_profile_info/?username=' + USER, {
-    headers: { 'x-ig-app-id': '936619743392459', 'user-agent': UA, 'accept': 'application/json', 'referer': 'https://www.instagram.com/' + USER + '/' }
-  });
-  if (!r.ok) throw new Error('profile ' + r.status);
-  const j = await r.json();
+  let j = null, why = [];
+  for (const [u, h] of PROFILE_TRIES) {
+    try {
+      const r = await fetch(u, { headers: h, redirect: 'manual' });
+      if (r.ok) { j = await r.json(); break; }
+      why.push(new URL(u).hostname + ' ' + r.status);
+    } catch (e) { why.push(new URL(u).hostname + ' ' + e.message); }
+  }
+  if (!j) throw new Error('profile: ' + why.join(', '));
   const edges = (((j.data || {}).user || {}).edge_owner_to_timeline_media || {}).edges || [];
   return edges.map(({ node: n }) => ({
     link: 'https://www.instagram.com/' + (n.is_video ? 'reel' : 'p') + '/' + n.shortcode + '/',
@@ -62,12 +74,12 @@ module.exports = async (req, res) => {
     } catch (e) { res.statusCode = 502; return res.end(); }
   }
 
-  let posts = [], source = '';
+  let posts = [], source = '', errors = [];
   try {
     if (process.env.IG_TOKEN) { posts = await fromGraph(process.env.IG_TOKEN); source = 'graph'; }
-  } catch (e) { posts = []; }
+  } catch (e) { posts = []; errors.push(e.message); }
   if (!posts.length) {
-    try { posts = await fromProfile(); source = 'profile'; } catch (e) { posts = []; }
+    try { posts = await fromProfile(); source = 'profile'; } catch (e) { posts = []; errors.push(e.message); }
   }
   // newest first by date, so a pinned older post doesn't hold a frame
   posts = posts.filter(p => p.img).sort((a, b) => b.time - a.time).slice(0, COUNT)
@@ -76,5 +88,5 @@ module.exports = async (req, res) => {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   // an empty answer is cached briefly, so a hiccup at Instagram clears itself
   res.setHeader('Cache-Control', posts.length ? 'public, s-maxage=3600, stale-while-revalidate=86400' : 'public, s-maxage=300');
-  res.end(JSON.stringify({ source, posts }));
+  res.end(JSON.stringify({ source, posts, errors }));
 };
