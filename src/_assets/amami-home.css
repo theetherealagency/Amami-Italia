@@ -374,11 +374,19 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
   font-size:max(22px,2.304vw);line-height:1.2; /* the comp's 31.47px, now the accent face matches it */
 }
 .hm-close__card{display:flex;justify-content:center;width:100%;margin-top:max(18px,2.6vw)}
+/* the large-party line: a dark pill right under the booking bar, so it reads over any photo */
 .hm-close__note{
-  margin:max(12px,1.8vw) 0 0;color:rgba(238,233,218,.86);
-  font-size:.86rem;letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:.6em;flex-wrap:wrap;justify-content:center;
+  margin:max(14px,1.4vw) 0 0;padding:.7em 1.4em;
+  background:rgba(22,22,22,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  border:1px solid rgba(203,214,227,.28);border-radius:999px;
+  color:var(--hm-cream);font-family:var(--sans);font-size:max(14px,1.02vw);line-height:1.35;letter-spacing:.01em;
 }
-.hm-close__note a{color:var(--hm-cream)}
+.hm-close__note a{color:var(--hm-silver);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(203,214,227,.5);white-space:nowrap}
+.hm-close__note a:hover{color:var(--hm-cream);border-color:var(--hm-cream)}
+@media (min-width:761px){.hm-close__note{white-space:nowrap}.hm-close__lede{max-width:none;white-space:nowrap}}
+/* the wide widget is a single bar: don't hold 301px for it */
+.hm-close .ot-slot[data-ot="wide"]{min-height:0}
 
 /* --- narrow ---------------------------------------------------------------
    The artboard is a desktop drawing, so this is interpretation rather than

@@ -84,6 +84,15 @@
 .ftr__bar a:hover{color:var(--f-cream)}
 .ftr .sep{font-style:normal;margin:0 .7em;opacity:.55}
 
+/* desktop: columns sized to their content so hours and the sign-up line sit on one line each */
+@media (min-width:1024px){
+  .ftr__cols{grid-template-columns:minmax(0,1fr) auto minmax(0,.8fr) minmax(0,1.15fr);column-gap:max(40px,4.4vw)}
+  .ftr__hours dt,.ftr__hours dd{white-space:nowrap}
+  .ftr__hours{column-gap:max(18px,1.6vw)}
+  .ftr__nl label{white-space:nowrap}
+  .ftr__bar{align-items:center}
+  .ftr__bar p{white-space:nowrap}
+}
 @media (max-width:1023px){
   .ftr__cols{grid-template-columns:1fr 1fr}
 }
