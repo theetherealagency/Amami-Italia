@@ -269,7 +269,9 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
    shots on a crossfade — each holds 3.8s and dissolves over 1.2s, 25s a turn,
    the first already at full opacity on load. The shots are pasta being made
    by hand (Unsplash, free licence, 2026-09-23), in colour: the grayscale
-   filter came off with them, since the flour and yolk warmth is the point. */
+   filter came off with them, since the flour and yolk warmth is the point.
+   Rule from the client: stock shots are hands-only close-ups. No faces, so
+   no stranger passes for Amami's own staff. */
 .hm-ad{position:relative;margin-top:var(--hm-ad-gap)} /* was 14.864vw, then 11.35vw */
 .hm-ad__fig{position:relative;width:var(--hm-ad-w,32.57vw);margin:0 auto;aspect-ratio:1532/2036;overflow:hidden}
 .hm-ad__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
@@ -471,3 +473,7 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 
 /* §6 — bare inline links (phone, e-mail) get a 44px hit area on phones without moving the text. */
 @media (max-width:760px){body.is-home main a:not([class]){display:inline-block;padding:12px 0;margin:-12px 0}}
+
+/* OpenTable slot: spans its row so the loader can measure it (wide >= 860px, else tall), widget centred */
+.ot-slot{width:100%;display:flex;justify-content:center;min-height:301px}
+.ot-slot iframe{max-width:100%}

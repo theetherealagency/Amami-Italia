@@ -347,3 +347,7 @@ body.is-page .dish__add{color:var(--hm-red)}
 
 /* §6 — bare inline links (phone, e-mail) get a 44px hit area on phones without moving the text. */
 @media (max-width:760px){body.is-page main a:not([class]){display:inline-block;padding:12px 0;margin:-12px 0}}
+
+/* OpenTable slot: spans its row so the loader can measure it (wide >= 860px, else tall), widget centred */
+.ot-slot{width:100%;display:flex;justify-content:center;min-height:301px}
+.ot-slot iframe{max-width:100%}
