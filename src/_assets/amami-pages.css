@@ -352,6 +352,10 @@ body.is-page .dish__add{color:var(--hm-red)}
 .ot-slot{width:100%;display:flex;justify-content:center;min-height:301px}
 .ot-slot iframe{max-width:100%}
 
+/* Our Story kitchen shot: lifted contrast so the steel and the chef's blacks read */
+.pg-split__img--kitchen{filter:contrast(1.12) saturate(1.06) brightness(.97);object-position:50% 45%}
+.pg-split--bleed .pg-split__img--kitchen{aspect-ratio:1/1;height:auto;min-height:0}
+
 /* --- After Dark, before it opens: a teaser that says something is coming, never what --- */
 .pg-hero--hush{min-height:max(520px,min(56vw,100svh));justify-content:center;background:var(--hm-scrim)}
 .pg-hero--hush .pg-hero__img{filter:blur(7px) brightness(.42) saturate(.8);transform:scale(1.08)}

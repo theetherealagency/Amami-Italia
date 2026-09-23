@@ -462,12 +462,15 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 .hm-room .hm-room__wash{transform:none} /* must stay registered to the film */
 .motion .hm-btn{transition:background .25s ease-out,color .25s ease-out,border-color .25s ease-out,transform .25s ease-out}
 .motion .hm-btn:hover{transform:translateY(-1px)}
+/* the Menù button is centred with translateX(-50%); the lift must keep it, or it jumps left */
+.motion .hm-ad__cta:hover{transform:translateX(-50%) translateY(-1px)}
 .motion .hdr{transition:height .3s ease-out,background-color .3s ease-out,opacity .3s ease-out,transform .3s cubic-bezier(.22,1,.36,1)}
 .motion.is-scrolled .hdr{height:66px;background:rgba(11,9,8,.94)}
 @media (prefers-reduced-motion:reduce){
   .motion main > section:not(.hm-hero){opacity:1;transform:none;transition:none}
   .motion main > section img{transform:none;transition:none}
   .motion .hm-btn:hover{transform:none}
+  .motion .hm-ad__cta:hover{transform:translateX(-50%)}
   .motion .hdr,.motion.is-scrolled .hdr{transition:none;height:var(--h-hdr,76px)}
 }
 
