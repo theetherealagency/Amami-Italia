@@ -18,11 +18,11 @@ body.is-page picture > source{display:none}
 /* the homepage button, verbatim */
 .pg-btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
   min-width:max(112px,12.027vw);height:max(36px,3.226vw);padding-inline:max(9px,.886vw);
-  border:1px solid #fff;color:#fff;background:transparent;
+  border:1px solid var(--hm-cream);color:var(--hm-cream);background:transparent;
   font-family:var(--sans);font-weight:300;font-size:max(9.5px,1.16vw);
   letter-spacing:.2em;text-indent:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap;
   transition:background .25s ease-out,color .25s ease-out,border-color .25s ease-out}
-.pg-btn:hover,.pg-btn:focus-visible{background:#fff;color:var(--hm-panel)}
+.pg-btn:hover,.pg-btn:focus-visible{background:var(--hm-cream);color:var(--hm-panel)}
 .pg-btn--red{border-color:var(--hm-red);color:var(--hm-red)}
 .pg-btn--red:hover,.pg-btn--red:focus-visible{background:var(--hm-red);color:var(--hm-cream)}
 .pg-btn--fill{background:var(--hm-red);border-color:var(--hm-red);color:var(--hm-cream)}
@@ -234,7 +234,7 @@ body.is-page picture > source{display:none}
 .motion .pg-card:hover .pg-card__img{transform:scale(1.03);filter:brightness(.92)}
 /* header on scroll: a shade more solid, a shade shorter, 300ms */
 .motion .hdr{transition:height .3s ease-out,background-color .3s ease-out,opacity .3s ease-out,transform .3s cubic-bezier(.22,1,.36,1)}
-.motion.is-scrolled .hdr{height:66px;background:rgba(11,9,8,.94)}
+.motion.is-scrolled .hdr{height:66px;background:rgba(22,22,22,.95)}
 /* proof bar and stat-like lines: plain fade only */
 .motion .hm-proof{transform:none}
 @media (prefers-reduced-motion:reduce){

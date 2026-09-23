@@ -17,15 +17,15 @@
   --cocoa:#462e24;
   --cocoa-deep:#33211a;
   --cocoa-lit:#5d3f31;
-  --warm:#433e37;        /* warm brown, the mid ground */
+  --warm:#462e24;        /* warm brown, the mid ground */
   --warm-deep:#2a2621;
-  --bronze:#a87a41;
+  --bronze:#cbd6e3;
   --bronze-lit:#cbd6e3;
-  --cream:#fdf8f4;
-  --cream-warm:#f7efe6;  /* brand blush */
-  --ink:#0b0908;         /* near-black ground */
-  --ink-soft:#141110;
-  --stone:#433e37;
+  --cream:#eee9da;
+  --cream-warm:#eee9da;  /* brand blush */
+  --ink:#161616;         /* near-black ground */
+  --ink-soft:#1f1f1f;
+  --stone:#462e24;
   --line:rgba(253,248,244,.16);
 
   /* Three faces, and only these three (client, 2026-08-31):
