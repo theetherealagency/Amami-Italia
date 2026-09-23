@@ -488,3 +488,39 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 /* OpenTable slot: spans its row so the loader can measure it (wide >= 860px, else tall), widget centred */
 .ot-slot{width:100%;display:flex;justify-content:center;min-height:301px}
 .ot-slot iframe{max-width:100%}
+
+/* --- AM/0n: the brand book's chapter index, a quiet editorial mark ------------ */
+.hm-idx{display:flex;align-items:center;justify-content:center;gap:.9em;margin:0 0 max(10px,1vw);
+  font-family:var(--sans);font-weight:400;font-size:max(9px,.8vw);letter-spacing:.32em;text-transform:uppercase;color:rgba(22,22,22,.55)}
+.hm-idx__n{color:var(--hm-red)}
+.hm-idx::before,.hm-idx::after{content:"";width:max(24px,2.6vw);height:1px;background:currentColor;opacity:.45}
+.hm-band .hm-idx,.hm-close .hm-idx,.hm-split__panel .hm-idx{color:rgba(238,233,218,.7)}
+.hm-band .hm-idx__n,.hm-close .hm-idx__n,.hm-split__panel .hm-idx__n{color:var(--hm-silver)}
+.hm-band > .hm-idx{position:relative;z-index:1;padding-top:max(18px,2vw)}
+.hm-split__panel .hm-idx{margin-bottom:0}
+
+/* --- Signature: three plates in hairline frames -------------------------------- */
+.hm-sig{background:var(--hm-cream);text-align:center;padding:max(44px,7vw) 0 max(48px,7.5vw)}
+.hm-sig__h{margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-red);
+  font-size:max(30px,4.2vw);line-height:1;letter-spacing:-.04em;text-transform:uppercase}
+.hm-sig__list{list-style:none;margin:max(28px,3.6vw) auto 0;padding:0;width:81.226vw;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:max(16px,2.2vw)}
+.hm-sig__fig{margin:0}
+.hm-sig__frame{padding:max(8px,.75vw);border:1px solid rgba(22,22,22,.18);background:rgba(255,255,255,.28)}
+.hm-sig__img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;
+  transition:transform .8s cubic-bezier(.22,1,.36,1),filter .8s ease-out}
+.hm-sig__frame{overflow:hidden}
+.hm-sig__item:hover .hm-sig__img{transform:scale(1.035);filter:brightness(1.04)}
+.hm-sig__cap{display:flex;flex-direction:column;align-items:center;gap:max(6px,.5vw);margin-top:max(14px,1.4vw)}
+.hm-sig__no{font-family:var(--sans);font-size:max(9px,.75vw);letter-spacing:.3em;color:var(--hm-red)}
+.hm-sig__it{font-family:var(--serif);font-weight:400;font-size:max(20px,1.75vw);line-height:1.1;color:var(--hm-panel);letter-spacing:-.01em}
+.hm-sig__en{font-family:var(--accent);font-style:italic;font-size:max(14px,1.2vw);color:rgba(22,22,22,.7)}
+.hm-sig__cta{margin-top:max(30px,3.4vw)}
+@media (max-width:760px){
+  .hm-sig{padding:44px 0 48px}
+  .hm-sig__list{width:min(88vw,520px);grid-template-columns:1fr;gap:34px}
+  .hm-sig__h{font-size:max(28px,8.6vw)}
+  .hm-sig__it{font-size:22px}
+  .hm-idx{font-size:9px}
+}
+@media (prefers-reduced-motion:reduce){.hm-sig__img{transition:none}.hm-sig__item:hover .hm-sig__img{transform:none;filter:none}}
