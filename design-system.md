@@ -105,15 +105,20 @@ anywhere — `border-radius: 0` is the house default.
 Three faces, and only these three.
 
 ```css
---serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;   /* titles */
---sans:   'Poppins', 'Helvetica Neue', system-ui, sans-serif;        /* body, buttons */
---accent: 'Forward Serif', 'Poppins', ...;                           /* accent lines */
+--serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;   /* headlines */
+--sans:   'Poppins', 'Helvetica Neue', system-ui, sans-serif;        /* body, buttons, labels */
+--accent: 'IM Fell English', Georgia, 'Times New Roman', serif;      /* subtitles, accent lines (italic) */
 ```
 
-Loaded from Google Fonts: Cormorant Garamond 300/400/500 + italic 400, Poppins
-300/400/500/600. **Forward Serif is not on Google Fonts and no file has been supplied**,
-so `--accent` currently falls back to Poppins. Anywhere `--accent` is used will change
-appearance the day that font is dropped in — that is intended.
+Roles follow the AMAMI BRAND BOOK (its embedded faces: Cormorant Garamond, Forward Serif,
+Poppins; Delight in the logo). The brand's accent face is **Forward Serif** (Måns
+Grebäck), but the only copy supplied is the PERSONAL USE ONLY cut — it must not ship.
+Since 2026-09-23 `--accent` is **IM Fell English** italic (SIL OFL, Google Fonts), the
+client's pick as the closest licensed match to Forward Serif's rough letterpress italic.
+Loaded from Google Fonts on every page: Cormorant Garamond 300/400/500 + italic 400,
+IM Fell English roman + italic, Poppins 300/400/500/600. If a Forward Serif webfont
+licence is bought, self-host it and switch `--accent` in `amami.css` and
+`amami-header.css`.
 
 ### The scale, as built
 

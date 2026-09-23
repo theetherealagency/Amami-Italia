@@ -135,7 +135,7 @@ body.has-amami-hdr *{
   --sans:'Poppins','Helvetica Neue',system-ui,sans-serif;
   --am-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --am-sans:'Poppins','Helvetica Neue',system-ui,sans-serif;
-  --accent:'Forward Serif','Poppins','Helvetica Neue',system-ui,sans-serif;
+  --accent:'IM Fell English',Georgia,'Times New Roman',serif; /* stands in for Forward Serif; see amami.css */
 }
 
 /* --- the menu panel on a phone ---------------------------------------------
@@ -257,6 +257,17 @@ body.has-amami-hdr .rs-otembed{margin-inline:0;width:100%}
   .nav-overlay__aside .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px}
   .nav-overlay__aside dd:not(.lang__row) a{display:inline-block;padding:10px 0;margin:-10px 0}
   .nav-overlay .lang--panel .lang__row button,.nav-overlay .lang--panel .lang__row a{min-height:44px}
+}
+
+/* Phones and tablets (2026-09-23): the bottom bar already carries Reserve, so
+   the header drops its own Reserve pill, which was wrapping onto two lines and
+   pushing the logo off centre at 360-414px. What is left is language, mark,
+   menu; minmax(0,1fr) keeps the side columns equal so the mark sits dead
+   centre whatever the language control measures. */
+@media (max-width:1023px){
+  .hdr{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+  .hdr .hdr__resm{display:none}
+  .hdr .lang--m{margin-left:0}
 }
 
 /* The switch is now two links; they dress exactly like the buttons did. */

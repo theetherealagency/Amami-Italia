@@ -80,7 +80,7 @@ body.is-page picture > source{display:none}
 /* --- the page-ending action, on the dark ground ------------------------- */
 .pg-end{background:var(--hm-panel);text-align:center;padding:max(34px,6vw) max(14px,4vw)}
 .pg-end__h{margin:0 0 max(18px,2.2vw);font-family:var(--accent);font-style:italic;font-weight:400;
-  color:var(--hm-cream);font-size:max(22px,2.55vw);line-height:1.2}
+  color:var(--hm-cream);font-size:max(22px,2.304vw);line-height:1.2}
 
 @media (max-width:760px){
   .pg-hero{min-height:max(380px,70svh);padding-block:30px 34px}

@@ -33,12 +33,14 @@
      The brand book's accent is Forward Serif (Mans Greback) — a vintage
      serif italic — but the only copy anyone has is the personal-use cut,
      which cannot go on a commercial site. Until a commercial/webfont licence
-     is bought (2026-09-21, raised with Anna), the accent is Cormorant
-     Garamond in italic: the closest licensed match in character, already
-     loaded, and it keeps the site to three families. */
+     is bought, the accent is IM Fell English (client's choice, 2026-09-23;
+     SIL Open Font License, Google Fonts): the same rough, letterpress
+     old-style italic as Forward Serif, where Cormorant italic read too clean.
+     Roles, per the brand book: headlines Cormorant Garamond, subtitles and
+     accent lines IM Fell English italic, body Poppins. */
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'Poppins','Helvetica Neue',system-ui,sans-serif;
-  --accent:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --accent:'IM Fell English',Georgia,'Times New Roman',serif;
 
   --hdr:76px;            /* header height */
   --pad:clamp(22px,5vw,64px);
