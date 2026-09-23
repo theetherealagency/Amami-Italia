@@ -229,10 +229,19 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
    left a dead block of red; clamped, it reads as one group at any width.
    The red ends where the photograph still hangs 9.375vw past it, as before:
    line block 8.161vw + gap + photograph 43.285vw - 9.375vw. */
-.hm-band{--hm-ad-gap:clamp(40px,3.5vw,72px);position:relative;isolation:isolate;padding:0 max(14px,4vw)}
+/* --hm-ad-w is the photograph's width: the comp's 32.57vw, but never so big
+   that the line, the photograph and its button stop fitting one screen
+   (header 76px + line block 8.161vw + gap + photo + 24px breathing room;
+   the photo is 1532/2036 wide-to-tall). The words, their size and the red
+   all follow it, so the composition keeps its proportions on short screens. */
+.hm-band{--hm-ad-gap:clamp(40px,3.5vw,72px);
+  --hm-ad-w:max(min(32.57vw,260px),min(32.57vw,calc((100svh - 76px - 8.161vw - var(--hm-ad-gap) - 24px) * .75246)));
+  position:relative;isolation:isolate;padding:0 max(14px,4vw)}
 .hm-band::before{
   content:"";position:absolute;left:0;right:0;top:0;z-index:-1;
-  height:calc(42.071vw + var(--hm-ad-gap)); /* was 53.398vw */
+  /* line block + gap + the photograph less the 21.66% of it that hangs past
+     the red (1.0411 = 2036/1532 x .7834); equals 42.071vw + gap at full size */
+  height:calc(8.161vw + var(--hm-ad-gap) + 1.0411 * var(--hm-ad-w)); /* was 53.398vw */
   background:var(--hm-red)
     url(/wp-content/uploads/2026/09/home-band-tuscany.jpg) bottom center / 100% auto no-repeat;
 }
@@ -260,7 +269,7 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
    shots on a crossfade — each holds 3.8s and dissolves over 1.2s, 25s a turn,
    the first already at full opacity on load. */
 .hm-ad{position:relative;margin-top:var(--hm-ad-gap)} /* was 14.864vw, then 11.35vw */
-.hm-ad__fig{position:relative;width:32.57vw;margin:0 auto;aspect-ratio:1532/2036;overflow:hidden}
+.hm-ad__fig{position:relative;width:var(--hm-ad-w,32.57vw);margin:0 auto;aspect-ratio:1532/2036;overflow:hidden}
 .hm-ad__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   filter:grayscale(1);opacity:0;animation:hm-ad-fade 25s linear infinite}
 .hm-ad__img--1{opacity:1;animation-delay:-1.2s}
@@ -277,13 +286,15 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 .hm-ad__word{
   position:absolute;top:13.7%;margin:0;z-index:2;
   font-family:var(--sans);font-weight:300;color:var(--hm-cream);
-  font-size:max(18px,3.698vw);line-height:1;
+  font-size:max(18px,calc(.11356 * var(--hm-ad-w,32.57vw)));line-height:1; /* 50.52/444.9 of the photo = 3.698vw at full size */
   letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;
 }
-/* 27.53% and 60.96% are of the full artboard; .hm-ad is inset by the band's
-   side padding P, so convert: left = pct*(w+2P) - P. */
-.hm-ad__word--l{left:calc(27.53% - .4494 * max(14px,4vw))}
-.hm-ad__word--r{left:calc(60.96% + .2192 * max(14px,4vw))}
+/* Placed from the photograph, not the page, so they keep straddling it when
+   it shrinks: the comp has EXPLORE start .2011 of a photo-width left of its
+   left edge and MENU start .1747 inside its right edge (both centred on the
+   band, whose padding is symmetric). */
+.hm-ad__word--l{left:calc(50% - .7011 * var(--hm-ad-w,32.57vw))}
+.hm-ad__word--r{left:calc(50% + .3253 * var(--hm-ad-w,32.57vw))}
 
 /* --- 4 & 5. the two split blocks ----------------------------------------
    1109.55 of 1366 wide, centred: a photograph and a black panel, mirrored
