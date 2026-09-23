@@ -11,6 +11,9 @@ body.is-page{
 }
 body.is-page main{overflow-x:clip}
 body.is-page picture{display:contents}
+/* <source> has no UA display:none, so under display:contents it became a grid
+   item, took the first cell and pushed the photo and panel out of line. */
+body.is-page picture > source{display:none}
 
 /* the homepage button, verbatim */
 .pg-btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;

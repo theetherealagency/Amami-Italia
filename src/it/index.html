@@ -43,7 +43,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "@id": "https://amami-italia.vercel.app/#restaurant", "name": "Amami Italia", "description": "Tuscan restaurant, lounge & catering in Brampton.", "url": "https://amami-italia.vercel.app/", "image": ["https://amami-italia.vercel.app/_assets/share/room_evening.jpg"], "logo": "https://amami-italia.vercel.app/wp-content/uploads/2025/09/amami-logo.png", "telephone": "+1-905-794-3366", "email": "info@amamiitalia.com", "priceRange": "$$$", "servesCuisine": ["Italian", "Tuscan"], "address": {"@type": "PostalAddress", "streetAddress": "6261 Mayfield Rd, #140", "addressLocality": "Brampton", "addressRegion": "ON", "postalCode": "L6P 0X9", "addressCountry": "CA"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "15:00", "closes": "23:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "12:00", "closes": "15:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "17:00", "closes": "22:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "12:00"}], "acceptsReservations": "https://amami-italia.vercel.app/reservation/", "hasMenu": "https://amami-italia.vercel.app/menu/", "sameAs": ["https://www.instagram.com/amamiitalia_official"]}</script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MNHMB7C9');</script>
 </head>
-<body class="is-home hdr-hidden" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, null], "sat": [12, null]}'>
+<body class="is-home"data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, null], "sat": [12, null]}'>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNHMB7C9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="sr-only" href="#main"><span data-it="Vai al contenuto">Vai al contenuto</span></a>
 <header class="hdr">
@@ -105,7 +105,7 @@
   <div class="hm-hero__row">
     <!-- was "Pasta. Vino. Late nights. That’s the plan." (42 chars); now 29 -->
     <p class="hm-hero__claim"><span data-it="A quindici minuti da Caledon.">A quindici minuti da Caledon.</span></p>
-    <span class="hm-hero__mid" aria-hidden="true"></span>
+    <div class="hm-hero__mid hm-dots" role="group" aria-label="Fotografie"><button class="hm-dot" type="button" aria-label="Fotografia 1 di 4" aria-pressed="true"></button><button class="hm-dot" type="button" aria-label="Fotografia 2 di 4" aria-pressed="false"></button><button class="hm-dot" type="button" aria-label="Fotografia 3 di 4" aria-pressed="false"></button><button class="hm-dot" type="button" aria-label="Fotografia 4 di 4" aria-pressed="false"></button></div>
     <a class="hm-btn hm-btn--fill hm-hero__act" href="/it/reservation/" data-gtm="reserve"><span data-it="Prenota un tavolo">Prenota un tavolo</span></a>
   </div>
   <!-- was "Welcome to Amami" (16 chars). The brand line is 38, so it is set as two halves
@@ -297,13 +297,18 @@
   <a href="https://www.google.com/maps/dir/?api=1&destination=6261+Mayfield+Rd+%23140,+Brampton,+ON+L6P+0X9" target="_blank" rel="noopener"><span data-it="Indicazioni">Indicazioni</span></a>
 </nav>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();
-/* The header stays out of the way on the home page until the visitor does
-   anything at all — a scroll, a pointer move, a touch, a key — then it
-   arrives once and stays. */
-(function(){var b=document.body;function show(){b.classList.remove('hdr-hidden');
-['scroll','pointermove','touchstart','keydown','wheel'].forEach(function(e){window.removeEventListener(e,show,{passive:true});});}
-if(scrollY>0){show();return;}
-['scroll','pointermove','touchstart','keydown','wheel'].forEach(function(e){window.addEventListener(e,show,{passive:true});});})();
+/* The hero crossfade, driven here so the dots can jump to a photograph: six
+   seconds a photograph, 1.2s dissolve, restarted after a click. Anyone who
+   has asked for less motion gets the dots and no auto-advance. */
+(function(){var h=document.querySelector('.hm-hero');if(!h)return;
+var imgs=h.querySelectorAll('.hm-hero__img'),dots=h.querySelectorAll('.hm-dot');if(imgs.length<2||dots.length!==imgs.length)return;
+var i=0,t,still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function go(n){i=(n+imgs.length)%imgs.length;
+for(var k=0;k<imgs.length;k++){imgs[k].classList.toggle('is-on',k===i);dots[k].setAttribute('aria-pressed',k===i?'true':'false');}
+var nx=imgs[(i+1)%imgs.length];if(nx.loading==='lazy')nx.loading='eager';}
+function play(){clearInterval(t);if(!still)t=setInterval(function(){go(i+1);},6000);}
+for(var k=0;k<dots.length;k++){(function(k){dots[k].addEventListener('click',function(){go(k);play();});})(k);}
+h.classList.add('hm-hero--js');go(0);play();})();
 /* The room film loops by itself; anyone who has asked for less motion
    keeps the poster, which is the drawing with the team standing in it. */
 (function(){var v=document.querySelector('.hm-room__film');if(!v)return;
