@@ -289,12 +289,17 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
   font-size:max(18px,calc(.11356 * var(--hm-ad-w,32.57vw)));line-height:1; /* 50.52/444.9 of the photo = 3.698vw at full size */
   letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;
 }
-/* Placed from the photograph, not the page, so they keep straddling it when
-   it shrinks: the comp has EXPLORE start .2011 of a photo-width left of its
-   left edge and MENU start .1747 inside its right edge (both centred on the
-   band, whose padding is symmetric). */
-.hm-ad__word--l{left:calc(50% - .7011 * var(--hm-ad-w,32.57vw))}
-.hm-ad__word--r{left:calc(50% + .3253 * var(--hm-ad-w,32.57vw))}
+/* Desktop: the words moved off the photograph (client, 2026-09-23). They sit
+   in the cream strip beside the part of the photo that hangs below the red
+   (the photo's lower 21.66%), vertically centred on it at 89.17%, each held a
+   clear gap off the photo's edge. Red, because cream-on-cream would vanish.
+   Positions come from the photo width, so they follow it as it scales.
+   EXPLORE drops its trailing .2em of tracking so the gap reads true. */
+@media (min-width:761px){
+  .hm-ad__word{top:89.17%;transform:translateY(-50%);color:var(--hm-red)}
+  .hm-ad__word--l{right:calc(50% + .5 * var(--hm-ad-w,32.57vw) + max(22px,.09 * var(--hm-ad-w,32.57vw)));margin-right:-.2em}
+  .hm-ad__word--r{left:calc(50% + .5 * var(--hm-ad-w,32.57vw) + max(22px,.09 * var(--hm-ad-w,32.57vw)))}
+}
 
 /* --- 4 & 5. the two split blocks ----------------------------------------
    1109.55 of 1366 wide, centred: a photograph and a black panel, mirrored
