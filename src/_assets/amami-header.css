@@ -287,3 +287,6 @@ body.has-amami-hdr .rs-otembed{margin-inline:0;width:100%}
 /* The switch is now two links; they dress exactly like the buttons did. */
 .hdr .lang a,.nav-overlay .lang--panel a{text-decoration:none;color:inherit}
 .nav-overlay .lang--panel a{display:inline-flex;align-items:center;justify-content:center;text-align:center}
+
+/* phones: the 44px language links centre their label, so EN | IT sit on one line with the bar */
+.hdr .lang a,.hdr .lang button{display:inline-flex;align-items:center;justify-content:center}
