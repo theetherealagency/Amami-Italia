@@ -21,6 +21,15 @@ const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 // IG_TOKEN + IG_USER_ID: a Facebook Page / system-user token (starts EAA…) for the
 // Instagram business account id — a system-user token does not expire.
 async function fromGraph(token, userId) {
+  // a Meta (EAA…) token without IG_USER_ID: find the Instagram business account
+  // behind the Page(s) the token can see
+  if (!userId && /^EAA/.test(token)) {
+    const a = await fetch('https://graph.facebook.com/v21.0/me/accounts?fields=instagram_business_account&access_token=' + encodeURIComponent(token));
+    if (!a.ok) throw new Error('accounts ' + a.status);
+    const page = ((await a.json()).data || []).find(p => p.instagram_business_account);
+    if (!page) throw new Error('no Instagram business account on this token');
+    userId = page.instagram_business_account.id;
+  }
   const fields = 'fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=12&access_token=' + encodeURIComponent(token);
   const u = userId ? 'https://graph.facebook.com/v21.0/' + encodeURIComponent(userId) + '/media?' + fields
                    : 'https://graph.instagram.com/me/media?' + fields;
