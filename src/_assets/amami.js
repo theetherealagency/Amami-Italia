@@ -212,3 +212,34 @@
   function onScroll() { body.classList.toggle("is-scrolled", scroller.scrollTop > 24); }
   addEventListener("scroll", onScroll, { passive: true }); onScroll();
 })();
+
+
+/* Footer "recent posts": swap the six static frames for the account's latest
+   posts from /api/instagram/ (refreshed hourly at the edge). Each new image is
+   loaded before it replaces the old one, and if the feed is unavailable the
+   photographs already in the HTML simply stay. */
+(function () {
+  var grid = document.querySelector(".ftr__grid");
+  if (!grid || !window.fetch) return;
+  function load() {
+    fetch("/api/instagram/").then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      var posts = d && d.posts, frames = grid.querySelectorAll("a");
+      if (!posts || posts.length < frames.length) return;
+      Array.prototype.forEach.call(frames, function (a, i) {
+        var p = posts[i], img = new Image();
+        img.onload = function () {
+          img.alt = p.alt || "Instagram post by Amami Italia";
+          img.width = 600; img.height = 600; img.decoding = "async";
+          a.href = p.link;
+          a.textContent = "";
+          a.appendChild(img);
+        };
+        img.src = p.img;
+      });
+    }).catch(function () {});
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { io.disconnect(); load(); } }, { rootMargin: "600px 0px" });
+    io.observe(grid);
+  } else load();
+})();
