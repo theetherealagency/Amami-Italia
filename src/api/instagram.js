@@ -7,6 +7,8 @@
 //  1. The Instagram Graph API, when IG_TOKEN is set in the Vercel project's
 //     environment (a long-lived Instagram token for the account). Most reliable.
 //  2. Otherwise Instagram's public profile feed, the one instagram.com itself uses.
+//     (As of 2026-09 Instagram answers this with 429 from cloud and home IPs alike,
+//     so in practice the grid goes live once IG_TOKEN is set.)
 // Vercel's edge caches the answer for an hour, so Instagram is asked at most once
 // an hour. If both fail the page keeps the six photographs already in the HTML.
 
@@ -15,8 +17,13 @@ const COUNT = 6;
 const IMG_HOSTS = /(^|\.)(cdninstagram\.com|fbcdn\.net)$/i;
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 
-async function fromGraph(token) {
-  const u = 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=12&access_token=' + encodeURIComponent(token);
+// IG_TOKEN alone: an "Instagram Login" token (starts IGAA…, lasts 60 days).
+// IG_TOKEN + IG_USER_ID: a Facebook Page / system-user token (starts EAA…) for the
+// Instagram business account id — a system-user token does not expire.
+async function fromGraph(token, userId) {
+  const fields = 'fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=12&access_token=' + encodeURIComponent(token);
+  const u = userId ? 'https://graph.facebook.com/v21.0/' + encodeURIComponent(userId) + '/media?' + fields
+                   : 'https://graph.instagram.com/me/media?' + fields;
   const r = await fetch(u);
   if (!r.ok) throw new Error('graph ' + r.status);
   const j = await r.json();
@@ -76,7 +83,7 @@ module.exports = async (req, res) => {
 
   let posts = [], source = '', errors = [];
   try {
-    if (process.env.IG_TOKEN) { posts = await fromGraph(process.env.IG_TOKEN); source = 'graph'; }
+    if (process.env.IG_TOKEN) { posts = await fromGraph(process.env.IG_TOKEN, process.env.IG_USER_ID); source = 'graph'; }
   } catch (e) { posts = []; errors.push(e.message); }
   if (!posts.length) {
     try { posts = await fromProfile(); source = 'profile'; } catch (e) { posts = []; errors.push(e.message); }
