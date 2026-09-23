@@ -111,6 +111,9 @@ body.is-page picture > source{display:none}
   display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;
   gap:max(14px,1.6vw);padding:max(28px,4.5vw) max(22px,4.2vw)}
 .pg-split__panel--center{align-items:center;text-align:center}
+/* an inset split's black panel ran straight into the dark closing band and
+   read as one block; give it the homepage's cream gap below */
+.pg-split:not(.pg-split--bleed) + .pg-end{margin-top:max(34px,6.958vw)}
 .pg-label{margin:0;font-family:var(--sans);font-weight:400;color:rgba(237,233,220,.62);
   font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase}
 .pg-split__h{margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-silver);
