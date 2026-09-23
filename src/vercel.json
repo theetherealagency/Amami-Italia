@@ -82,12 +82,12 @@
     },
     {
       "source": "/contact-us-new/",
-      "destination": "/contact-us/",
+      "destination": "/contact/",
       "permanent": true
     },
     {
       "source": "/dining-experience-new/",
-      "destination": "/dining-experience/",
+      "destination": "/our-story/",
       "permanent": true
     },
     {
@@ -102,9 +102,31 @@
     },
     {
       "source": "/about-us-new/",
-      "destination": "/about-us/",
+      "destination": "/our-story/",
       "permanent": true
     },
+    { "source": "/about-us/", "destination": "/our-story/", "permanent": true },
+    { "source": "/dining-experience/", "destination": "/our-story/", "permanent": true },
+    { "source": "/book-a-table/", "destination": "/reservation/", "permanent": true },
+    { "source": "/contact-us/", "destination": "/contact/", "permanent": true },
+    { "source": "/visit/", "destination": "/contact/", "permanent": true },
+    { "source": "/visit/contact/", "destination": "/contact/", "permanent": true },
+    { "source": "/dining-menu/", "destination": "/menu/dining/", "permanent": true },
+    { "source": "/food-menu/", "destination": "/menu/dining/", "permanent": true },
+    { "source": "/drinks/", "destination": "/menu/after-dark/", "permanent": true },
+    { "source": "/lounge-menu/", "destination": "/after-dark/", "permanent": true },
+    { "source": "/catering-menu/", "destination": "/catering/", "permanent": true },
+    { "source": "/catering-services/", "destination": "/catering/", "permanent": true },
+    { "source": "/privacy-policy-2/", "destination": "/legal/privacy/", "permanent": true },
+    { "source": "/site-map/", "destination": "/", "permanent": true },
+    { "source": "/test/", "destination": "/", "permanent": true },
+    { "source": "/index-wp-legacy.html", "destination": "/", "permanent": true },
+    { "source": "/thank-you/", "destination": "/", "permanent": true },
+    { "source": "/blogs/", "destination": "/journal/", "permanent": true },
+    { "source": "/category/:path*", "destination": "/journal/", "permanent": true },
+    { "source": "/2024/:path*", "destination": "/journal/", "permanent": true },
+    { "source": "/2025/:path*", "destination": "/journal/", "permanent": true },
+    { "source": "/2026/:path*", "destination": "/journal/", "permanent": true },
     {
       "source": "/xmlrpc.php",
       "destination": "/",
