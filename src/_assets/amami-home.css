@@ -17,10 +17,10 @@
    ========================================================================== */
 
 body.is-home{
-  --hm-cream:#ede9dc;      /* the artboard ground */
-  --hm-red:#77312c;        /* the band, and the type that sits on cream */
+  --hm-cream:#eee9da;      /* the artboard ground */
+  --hm-red:#812b28;        /* the band, and the type that sits on cream */
   --hm-panel:#161616;      /* the two split panels */
-  --hm-silver:#cdd6e2;     /* panel titles and the line icons */
+  --hm-silver:#cbd6e3;     /* panel titles and the line icons */
   --hm-scrim:#080809;      /* both photographic gradients */
   background:var(--hm-cream);
   color:var(--hm-panel);
@@ -243,7 +243,7 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
      the red (1.0411 = 2036/1532 x .7834); equals 42.071vw + gap at full size */
   height:calc(8.161vw + var(--hm-ad-gap) + 1.0411 * var(--hm-ad-w)); /* was 53.398vw */
   background:var(--hm-red)
-    url(/wp-content/uploads/2026/09/home-band-tuscany.jpg) bottom center / 100% auto no-repeat;
+    url(/wp-content/uploads/2026/09/home-band-tuscany-812b28.jpg) bottom center / 100% auto no-repeat;
 }
 /* The line is sized to the full artboard width, so it spans the band's side
    padding too; the negative margins give it that width to centre in. */
@@ -371,7 +371,7 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 }
 .hm-close__card{display:flex;justify-content:center;width:100%;margin-top:max(18px,2.6vw)}
 .hm-close__note{
-  margin:max(12px,1.8vw) 0 0;color:rgba(237,233,220,.86);
+  margin:max(12px,1.8vw) 0 0;color:rgba(238,233,218,.86);
   font-size:.86rem;letter-spacing:.02em;
 }
 .hm-close__note a{color:var(--hm-cream)}

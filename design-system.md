@@ -54,14 +54,30 @@ setting its own `padding` shorthand — do the same on new sections rather than 
 
 ## 2. Colour
 
+### Brand book palette (AMAMI BRAND BOOK, p.12) — the source of truth since 2026-09-23
+
+| brand name | value | token(s) on the site | used for |
+|---|---|---|---|
+| Charcoal Black | `#161616` | `--hm-panel`, `--f-ink` | dark panels, type on cream |
+| Warm Beige | `#eee9da` | `--hm-cream`, `--f-cream` | the ground, type on dark |
+| Mist Blue | `#cbd6e3` | `--hm-silver`, `--h-bronze-lit` | titles and icons on dark panels; header/nav hover and active states |
+| Tuscan Brown | `#462e24` | `--h-cocoa`, `--cocoa` | the header's Reserve button |
+| Medium Rare Red | `#812b28` | `--hm-red`, `--f-red` | the red band, type and buttons on cream |
+
+The site had drifted to `#77312c` / `#ede9dc` / `#cdd6e2` (the SVG's values) and used
+gold `#ca9d75` for hovers; all four were snapped to the brand book on 2026-09-23 (the gold
+became Mist Blue — the token is still named `--h-bronze-lit`). The red band's Tuscan
+drawing is an opaque JPEG with the red baked in: it was re-tinted and renamed
+`home-band-tuscany-812b28.jpg`. **If the red ever changes again, re-tint that image too.**
+
 ### Homepage palette (on `body.is-home`)
 
 | token | value | used for |
 |---|---|---|
-| `--hm-cream` | `#ede9dc` | the artboard ground, and type on dark |
-| `--hm-red` | `#77312c` | the band, and type on cream |
+| `--hm-cream` | `#eee9da` | the artboard ground, and type on dark |
+| `--hm-red` | `#812b28` | the band, and type on cream |
 | `--hm-panel` | `#161616` | the two split panels |
-| `--hm-silver` | `#cdd6e2` | split-panel titles and the line icons |
+| `--hm-silver` | `#cbd6e3` | split-panel titles and the line icons |
 | `--hm-scrim` | `#080809` | both photographic gradients |
 
 ### Site-wide palette (`amami.css :root`)

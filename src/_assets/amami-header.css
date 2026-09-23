@@ -11,7 +11,7 @@
   --h-cream:#fdf8f4;
   --h-warm:#433e37;
   --h-cocoa:#462e24;
-  --h-bronze-lit:#ca9d75;
+  --h-bronze-lit:#cbd6e3;
   --h-line:rgba(253,248,244,.16);
   --h-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --h-sans:'Poppins','Helvetica Neue',system-ui,sans-serif;
@@ -94,7 +94,7 @@ nav.mobile-bar a{display:block;min-height:44px;text-align:center;text-decoration
   font-family:'Poppins','Helvetica Neue',system-ui,sans-serif;
   font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;
   color:#fdf8f4;padding:.85rem .3rem;line-height:1.3}
-nav.mobile-bar a:hover{color:#ca9d75}
+nav.mobile-bar a:hover{color:#cbd6e3}
 
 /* The two restored pages keep their own type scale, which was set for a
    desktop and drops to 9–11px on a phone. Only their small labels are lifted,

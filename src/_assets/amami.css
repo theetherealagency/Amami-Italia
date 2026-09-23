@@ -7,7 +7,7 @@
 
 :root{
   /* Brand palette, taken from the live site's own tokens and the
-     colours it actually uses — not invented. Bronze #a87a41 / #ca9d75,
+     colours it actually uses — not invented. Bronze #a87a41 / #cbd6e3,
      cream #fdf8f4, ink #0b0908, warm brown #433e37, blush #f7efe6. */
   /* Client-specified: #812b28 on 2026-08-31, changed to #462e24 on 2026-09-01
      because the red was not wanted. A dark brown now, not a maroon. Used with
@@ -20,7 +20,7 @@
   --warm:#433e37;        /* warm brown, the mid ground */
   --warm-deep:#2a2621;
   --bronze:#a87a41;
-  --bronze-lit:#ca9d75;
+  --bronze-lit:#cbd6e3;
   --cream:#fdf8f4;
   --cream-warm:#f7efe6;  /* brand blush */
   --ink:#0b0908;         /* near-black ground */

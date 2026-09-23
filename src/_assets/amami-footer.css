@@ -12,10 +12,10 @@
    ========================================================================== */
 .ftr{
   --f-ink:#161616;
-  --f-cream:#ede9dc;
-  --f-cream-dim:rgba(237,233,220,.62);
-  --f-line:rgba(237,233,220,.16);
-  --f-red:#77312c;
+  --f-cream:#eee9da;
+  --f-cream-dim:rgba(238,233,218,.62);
+  --f-line:rgba(238,233,218,.16);
+  --f-red:#812b28;
   --f-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --f-sans:'Poppins','Helvetica Neue',system-ui,sans-serif;
   background:var(--f-ink);color:var(--f-cream);
