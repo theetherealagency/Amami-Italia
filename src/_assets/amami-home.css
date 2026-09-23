@@ -392,7 +392,7 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
     grid-template-columns:1fr;justify-items:center;text-align:center;
     bottom:19%;gap:max(14px,4vw);
   }
-  .hm-hero__claim{font-size:11px;line-height:1.9;max-width:26ch}
+  .hm-hero__claim{display:none} /* phones: the Caledon line goes; button and dots only */
   .hm-proof__line{font-size:9px;line-height:2;letter-spacing:.16em}
   .hm-proof__sep{margin:0 .5em}
   .hm-hero__act{justify-self:center}

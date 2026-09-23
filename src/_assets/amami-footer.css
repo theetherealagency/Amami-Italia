@@ -114,3 +114,20 @@
   .ftr__label a{display:inline-block;padding:16px 0;margin:-16px 0}
   .ftr__bar a{display:inline-block;padding:16px 0;margin:-16px 0}
 }
+
+/* Phones, sleeker: one row of three posts, links in two columns, tighter
+   rhythm, the legal bar centred. Hit areas stay at 44px. */
+@media (max-width:760px){
+  .ftr{font-size:13px;padding:32px 0 18px}
+  .ftr__ig{margin-bottom:26px}
+  .ftr__grid a:nth-child(n+4){display:none}
+  .ftr__cols{gap:22px;padding-top:24px}
+  .ftr__col p+p{margin-top:6px}
+  .ftr__brand{font-size:20px;margin-bottom:8px!important}
+  .ftr__hours{row-gap:2px;column-gap:14px}
+  .ftr__nav{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}
+  .ftr__nav a{padding:10px 0}
+  .ftr__nl label{margin-bottom:8px;color:var(--f-cream-dim)}
+  .ftr__bar{margin-top:24px;padding-top:14px;align-items:center;text-align:center;gap:6px;letter-spacing:.12em}
+  .ftr__bar .sep{margin:0 .5em}
+}

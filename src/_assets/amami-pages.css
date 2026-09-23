@@ -352,6 +352,18 @@ body.is-page .dish__add{color:var(--hm-red)}
 .ot-slot{width:100%;display:flex;justify-content:center;min-height:301px}
 .ot-slot iframe{max-width:100%}
 
+/* Menu hub: the card photographs sit taller (4:3) so the food reads, and a
+   row of four plates under "What people order" */
+.pg-cards--menu .pg-card__img{aspect-ratio:4/3;object-position:50% 55%}
+.pg-plates{list-style:none;padding:0;margin:max(26px,3.2vw) auto 0;width:81.226vw;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:max(8px,1vw)}
+.pg-plates li{overflow:hidden;background:var(--hm-panel)}
+.pg-plates img{display:block;width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;
+  transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.pg-plates li:hover img{transform:scale(1.04)}
+@media (max-width:760px){.pg-plates{width:min(88vw,520px);grid-template-columns:1fr 1fr;gap:8px}}
+@media (prefers-reduced-motion:reduce){.pg-plates img{transition:none}.pg-plates li:hover img{transform:none}}
+
 /* Our Story kitchen shot: lifted contrast so the steel and the chef's blacks read */
 .pg-split__img--kitchen{filter:contrast(1.12) saturate(1.06) brightness(.97);object-position:50% 45%}
 .pg-split--bleed .pg-split__img--kitchen{aspect-ratio:1/1;height:auto;min-height:0}
