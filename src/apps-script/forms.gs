@@ -22,7 +22,9 @@ var TABS = {
   event:      { tab: 'Events',     subject: 'Event enquiry' },
   catering:   { tab: 'Catering',   subject: 'Catering enquiry' },
   contact:    { tab: 'Contact',    subject: 'Contact form' },
-  newsletter: { tab: 'Newsletter', subject: 'Newsletter signup' }
+  newsletter: { tab: 'Newsletter', subject: 'Newsletter signup' },
+  'event-updates': { tab: 'Event Alerts', subject: 'Event alerts signup' },
+  careers:    { tab: 'Careers',    subject: 'Careers application' }
 };
 
 /* Column order per tab. Anything posted that is not listed is appended to the
@@ -31,7 +33,8 @@ var COLUMNS = {
   Events:     ['received', 'firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message', 'page'],
   Catering:   ['received', 'firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message', 'page'],
   Contact:    ['received', 'topic', 'name', 'email', 'message', 'page'],
-  Newsletter: ['received', 'email', 'page']
+  Newsletter: ['received', 'email', 'page'],
+  'Event Alerts': ['received', 'email', 'page']
 };
 
 var LABELS = {
