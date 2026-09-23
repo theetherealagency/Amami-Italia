@@ -364,6 +364,10 @@ body.is-page .dish__add{color:var(--hm-red)}
 @media (max-width:760px){.pg-plates{width:min(88vw,520px);grid-template-columns:1fr 1fr;gap:8px}}
 @media (prefers-reduced-motion:reduce){.pg-plates img{transition:none}.pg-plates li:hover img{transform:none}}
 
+/* Our Story: Isabella at the pass is the one chef photograph; framed on her and the plate */
+.pg-split__img--chef{object-position:50% 45%}
+.pg-split__lede--kitchen{font-family:var(--accent);font-style:italic;font-size:max(14px,1.5vw);line-height:1.45;color:var(--hm-silver)}
+
 /* Our Story kitchen shot: lifted contrast so the steel and the chef's blacks read */
 .pg-split__img--kitchen{filter:contrast(1.12) saturate(1.06) brightness(.97);object-position:50% 45%}
 .pg-split--bleed .pg-split__img--kitchen{aspect-ratio:1/1;height:auto;min-height:0}
