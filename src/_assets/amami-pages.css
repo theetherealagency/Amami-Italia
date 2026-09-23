@@ -402,3 +402,6 @@ body.is-page .dish__add{color:var(--hm-red)}
 }
 @keyframes pg-hush-in{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 @keyframes pg-hush-breathe{from{filter:blur(7px) brightness(.36) saturate(.8)}to{filter:blur(5px) brightness(.5) saturate(.9)}}
+
+/* a portrait hero where the face is high in the frame */
+.pg-hero__img--face{object-position:50% 18%}
