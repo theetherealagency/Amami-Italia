@@ -26,9 +26,17 @@ then `HANDOFF-2026-09-21.md` before touching anything. Do not re-derive what is 
 `/` · `/menu/` · `/our-story/` · `/after-dark/` · `/events/` · `/reservation/` · `/contact/`
 and their Italian mirrors `/it/`, `/it/menu/`, … `/it/contact/` (generated — **never hand-edit `src/it/`**).
 
-**Everything else** (`/careers/`, `/gift-cards/`, `/legal/*`, `/menu/dining/` and the other menu subpages, `/visit/*`, old blog posts, etc.)
-is legacy WordPress-export HTML. It received the new footer, the EN|IT links, `data-lang="en"`, the brief's hours and a JSON-LD hours fix — nothing more.
-Leave it alone unless asked; if you are asked to rebuild one, build it from the `.pg-*` patterns like the seven.
+**Rebuilt 2026-09-23 on the same `.pg-*` kit (English only; IT switch points at `/it/`):** `/catering/`, `/careers/`, `/gift-cards/`,
+`/legal/` + six policies, `/menu/dining/`, `/menu/after-dark/`, the five coming-soon menus (`pizza`, `wine`, `cocktails`, `tasting`, `catering`),
+`/visit/faq/`, `/press/`, `/journal/`, `/our-story/chef/`, the three occasion and three town landing pages, `/404/`, and the five journal posts.
+Each is plain static HTML with the `/contact/` page's head, header and footer; edit it directly. New kit pieces in `amami-pages.css`:
+`.pg-head` (cream page head), `.pg-anchors`, `.pg-menu` + `.dish` rows, `.pg-notes`, `.pg-prose` (posts/legal), `.pg-faq`, `.pg-facts--3`.
+Open `TODO(legal)`, `TODO(menu)`, `TODO(gift-cards)` comments mark copy the client still has to supply — do not invent it.
+
+**Redirected 2026-09-23** (see `src/vercel.json`): the raw WordPress copies (`/about-us/`, `/book-a-table/`, `/contact-us/`, `/dining-menu/`,
+`/food-menu/`, `/drinks/`, `/lounge-menu/`, `/catering-menu/`, `/catering-services/`, `/dining-experience/`, `/privacy-policy-2/`, archives,
+`/test/`, `/thank-you/`, `/site-map/`) and the duplicate `/visit/`, `/visit/contact/` → their new pages. Still raw WordPress, left on purpose:
+`/christmas-menu/`, `/new-years-menu/`, `/valentines-day-menu/`.
 
 ## 3. Rules that will bite you if you skip them
 

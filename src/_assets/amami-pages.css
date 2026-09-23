@@ -243,5 +243,104 @@ body.is-page picture > source{display:none}
   .motion .hdr,.motion.is-scrolled .hdr{transition:none;height:var(--h-hdr,76px)}
 }
 
+/* ==========================================================================
+   The kit, extended for the pages rebuilt from the legacy set (menus, legal,
+   journal, FAQ, the landing pages). Same rule: homepage sizes and colours only.
+   ========================================================================== */
+/* a cream page head for pages without a photograph: the Room section's title
+   and accent line, sitting under the fixed header */
+.pg-head{background:var(--hm-cream);text-align:center;
+  padding:calc(var(--h-hdr,76px) + max(30px,4.2vw)) max(14px,4vw) max(10px,1.4vw)}
+.pg-head__k{margin:0 0 max(10px,1vw);font-family:var(--sans);font-weight:400;color:var(--hm-red);
+  font-size:max(9px,.95vw);letter-spacing:.2em;text-transform:uppercase}
+.pg-head__k a{color:inherit;text-decoration:none}
+.pg-head__k a:hover{text-decoration:underline}
+.pg-head__h{margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-red);
+  font-size:max(34px,5.748vw);line-height:1;letter-spacing:-.05em;text-transform:uppercase}
+.pg-head__sub{margin:max(6px,.6vw) auto 0;max-width:max(30ch,50vw);font-family:var(--accent);font-style:italic;
+  color:var(--hm-panel);font-size:max(14px,1.5vw);line-height:1.45}
+
+/* section jump links (menus): the red outline button, small */
+.pg-anchors{display:flex;flex-wrap:wrap;justify-content:center;gap:max(8px,.8vw);
+  margin:max(20px,2.4vw) auto 0;padding:0;list-style:none}
+.pg-anchors a{display:inline-flex;align-items:center;height:max(32px,2.6vw);padding-inline:max(12px,1.2vw);
+  border:1px solid var(--hm-red);color:var(--hm-red);text-decoration:none;
+  font-family:var(--sans);font-weight:300;font-size:max(9.5px,.95vw);letter-spacing:.2em;text-transform:uppercase;
+  transition:background .25s ease-out,color .25s ease-out}
+.pg-anchors a:hover,.pg-anchors a:focus-visible{background:var(--hm-red);color:var(--hm-cream)}
+
+/* the jump-link row sits straight on top of the first course, so it drops
+   its own bottom padding (the course brings its own top) */
+.pg-sec--nav{padding-bottom:0}
+/* a menu course: title, accent line, then the dishes, one measure wide */
+.pg-menu{background:var(--hm-cream);padding:max(28px,4.6vw) max(14px,4vw) 0;scroll-margin-top:var(--h-hdr,76px)}
+.pg-menu .pg-head__k{text-align:center}
+.pg-menu__h{margin:0;text-align:center;font-family:var(--serif);font-weight:300;color:var(--hm-red);
+  font-size:max(28px,3.469vw);line-height:1;letter-spacing:-.05em;text-transform:uppercase}
+.pg-menu__sub{margin:max(6px,.5vw) auto 0;text-align:center;font-family:var(--accent);font-style:italic;
+  color:var(--hm-panel);font-size:max(14px,1.3vw);line-height:1.45}
+body.is-page .menu-list{width:min(81.226vw,820px);margin:max(16px,1.8vw) auto 0;border-top:1px solid rgba(22,22,22,.14)}
+body.is-page .dish{display:grid;grid-template-columns:1fr auto;column-gap:max(16px,2vw);align-items:baseline;
+  padding:max(12px,1.1vw) 0;border-bottom:1px solid rgba(22,22,22,.14)}
+body.is-page .dish > div{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5em}
+body.is-page .dish__name{font-family:var(--serif);font-weight:400;color:var(--hm-panel);font-size:max(18px,1.6vw);line-height:1.15}
+body.is-page .dish__tag{font-family:var(--sans);font-size:max(8px,.7vw);letter-spacing:.12em;color:var(--hm-red);
+  border:1px solid rgba(119,49,44,.4);padding:.1em .45em;text-decoration:none;line-height:1.4}
+body.is-page .dish__price{font-family:var(--sans);font-weight:400;color:var(--hm-red);font-size:max(13px,1.1vw);white-space:nowrap}
+body.is-page .dish__desc,body.is-page .dish__add{grid-column:1/-1;margin:max(4px,.35vw) 0 0;font-family:var(--sans);
+  color:rgba(22,22,22,.72);font-size:max(12px,1vw);line-height:1.5;max-width:60ch}
+body.is-page .dish__add{color:var(--hm-red)}
+.pg-notes{width:min(81.226vw,820px);margin:max(22px,2.6vw) auto 0;padding:0;list-style:none;text-align:center;
+  font-family:var(--sans);color:rgba(22,22,22,.62);font-size:max(11px,.9vw);line-height:1.7}
+
+/* long-form text (journal posts, legal): left-aligned, one reading measure */
+.pg-prose{width:min(88vw,720px);margin:0 auto;padding:max(10px,1.4vw) 0 max(34px,5vw);
+  font-family:var(--sans);color:var(--hm-panel);font-size:max(15px,1.14vw);line-height:1.75;text-align:left}
+.pg-prose > :first-child{margin-top:0}
+.pg-prose p,.pg-prose ul,.pg-prose ol{margin:0 0 1.1em}
+.pg-prose ul,.pg-prose ol{padding-left:1.2em}
+.pg-prose li{margin:.35em 0}
+.pg-prose h2{margin:1.8em 0 .5em;font-family:var(--serif);font-weight:300;color:var(--hm-red);
+  font-size:max(26px,2.6vw);line-height:1.05;letter-spacing:-.04em;text-transform:uppercase}
+.pg-prose h3{margin:1.4em 0 .4em;font-family:var(--serif);font-weight:500;color:var(--hm-panel);font-size:max(19px,1.5vw);line-height:1.2}
+.pg-prose strong,.pg-prose b{font-weight:500}
+.pg-prose a{color:var(--hm-red);text-decoration:none;border-bottom:1px solid rgba(119,49,44,.35)}
+.pg-prose a:hover{border-color:var(--hm-red)}
+.pg-prose blockquote{margin:1.4em 0;padding-left:1em;border-left:2px solid var(--hm-red);
+  font-family:var(--accent);font-style:italic;font-size:1.25em;line-height:1.45}
+.pg-prose figure{margin:1.6em 0}
+.pg-prose figure img{display:block;width:100%;height:auto}
+/* a journal post's title runs longer than a page name: the section-title size */
+.pg-hero__h--post{font-size:max(34px,5.748vw);max-width:14em;margin-inline:auto}
+.pg-hero__sub a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(237,233,220,.4)}
+.pg-hero__sub a:hover{border-color:var(--hm-cream)}
+.pg-meta{margin:max(10px,1vw) 0 0;font-family:var(--sans);color:rgba(22,22,22,.6);
+  font-size:max(10px,.85vw);letter-spacing:.2em;text-transform:uppercase}
+
+/* three facts under a section title (the landing pages) */
+.pg-facts--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:760px){.pg-facts--3{grid-template-columns:1fr}}
+
+/* questions and answers */
+.pg-faq{width:min(81.226vw,820px);margin:max(18px,2.2vw) auto 0;padding:0;text-align:left;border-top:1px solid rgba(22,22,22,.14)}
+.pg-faq > div{padding:max(14px,1.4vw) 0;border-bottom:1px solid rgba(22,22,22,.14)}
+.pg-faq dt{font-family:var(--serif);font-weight:400;color:var(--hm-panel);font-size:max(19px,1.7vw);line-height:1.2}
+.pg-faq dd{margin:max(6px,.5vw) 0 0;font-family:var(--sans);color:rgba(22,22,22,.78);font-size:max(13px,1.1vw);line-height:1.6}
+.pg-faq dd a{color:var(--hm-red);text-decoration:none;border-bottom:1px solid rgba(119,49,44,.35)}
+
+@media (max-width:760px){
+  .pg-head{padding:calc(var(--h-hdr,76px) + 34px) 16px 8px}
+  .pg-head__h{font-size:max(32px,10vw)}
+  .pg-head__sub,.pg-menu__sub{font-size:15px}
+  .pg-anchors a{height:40px;font-size:10px}
+  .pg-menu{padding:34px 16px 0}
+  .pg-menu__h{font-size:max(28px,8.4vw)}
+  body.is-page .menu-list,.pg-notes,.pg-faq{width:100%}
+  body.is-page .dish__name{font-size:19px}body.is-page .dish__price{font-size:14px}
+  body.is-page .dish__desc,body.is-page .dish__add{font-size:13px}
+  .pg-prose{font-size:16px}
+  .pg-faq dt{font-size:19px}.pg-faq dd{font-size:14px}
+}
+
 /* §6 — bare inline links (phone, e-mail) get a 44px hit area on phones without moving the text. */
 @media (max-width:760px){body.is-page main a:not([class]){display:inline-block;padding:12px 0;margin:-12px 0}}
