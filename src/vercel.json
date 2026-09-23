@@ -123,10 +123,8 @@
     { "source": "/index-wp-legacy.html", "destination": "/", "permanent": true },
     { "source": "/thank-you/", "destination": "/", "permanent": true },
     { "source": "/blogs/", "destination": "/journal/", "permanent": true },
-    { "source": "/category/:path*", "destination": "/journal/", "permanent": true },
-    { "source": "/2024/:path*", "destination": "/journal/", "permanent": true },
-    { "source": "/2025/:path*", "destination": "/journal/", "permanent": true },
-    { "source": "/2026/:path*", "destination": "/journal/", "permanent": true },
+    { "source": "/category/(.*)", "destination": "/journal/", "permanent": true },
+    { "source": "/(2024|2025|2026)/(.*)", "destination": "/journal/", "permanent": true },
     {
       "source": "/xmlrpc.php",
       "destination": "/",
