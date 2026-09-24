@@ -22,9 +22,13 @@
 var NOTIFY_TO = 'info@amamiitalia.com';
 var SITE_NAME = 'Amami Italia';
 var SITE_URL = 'https://amamiitalia.etherealpr.com';
-// Logo baked onto charcoal, so it shows even where a client strips the dark
-// table background (Outlook, Gmail dark mode) — a white-on-transparent PNG vanishes there.
-var LOGO = SITE_URL + '/wp-content/uploads/2026/09/email-logo-amami-charcoal.png';
+// The logo travels inside the email (an inline cid: attachment), so it shows
+// even in inboxes that block pictures from the web (Outlook / Microsoft 365
+// do this for new senders). Baked onto charcoal, 300x243, 4 KB.
+var LOGO_B64 = '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';
+function logoBlob_() {
+  return Utilities.newBlob(Utilities.base64Decode(LOGO_B64), 'image/png', 'amami-italia.png');
+}
 
 var BRAND = { ink: '#161616', beige: '#eee9da', brown: '#462e24', red: '#812b28', line: '#d9d2bf' };
 
@@ -198,7 +202,7 @@ function shell_(inner) {
   return '<div style="margin:0;padding:24px 12px;background:' + BRAND.beige + '">' +
     '<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;margin:0 auto;border-collapse:collapse">' +
     '<tr><td bgcolor="' + BRAND.ink + '" style="background:' + BRAND.ink + ';padding:18px 32px;text-align:center">' +
-      '<a href="' + SITE_URL + '"><img src="' + LOGO + '" width="150" height="121" alt="Amami Italia" ' +
+      '<a href="' + SITE_URL + '"><img src="cid:amamilogo" width="150" height="122" alt="Amami Italia" ' +
       'style="display:inline-block;width:150px;height:auto;border:0;background:' + BRAND.ink + '"></a>' +
     '</td></tr>' +
     '<tr><td bgcolor="#ffffff" style="background:#ffffff;padding:30px 32px 32px">' + inner + '</td></tr>' +
@@ -241,7 +245,7 @@ function notify_(type, data) {
     to: NOTIFY_TO, replyTo: data.email, name: SITE_NAME + ' Website',
     subject: title + ' — ' + who,
     body: text + '\n\n— sent by the Amami Italia website',
-    htmlBody: shell_(inner)
+    htmlBody: shell_(inner), inlineImages: { amamilogo: logoBlob_() }
   });
 }
 
@@ -285,7 +289,7 @@ function confirmGuest_(type, data) {
   MailApp.sendEmail({
     to: data.email, replyTo: NOTIFY_TO, name: SITE_NAME,
     subject: c.subj + ' — Amami Italia',
-    body: text, htmlBody: shell_(inner)
+    body: text, htmlBody: shell_(inner), inlineImages: { amamilogo: logoBlob_() }
   });
 }
 
