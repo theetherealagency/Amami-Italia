@@ -92,8 +92,10 @@ body.is-events{--ev-sand:#ddd7c7}
 
 /* --- phone: the 1366 artboard ---------------------------------------- */
 @media (max-width:760px){
-  .ev-hero{height:58.9vw;min-height:0}
-  .ev-hero__img{width:100%}
+  /* the phone hero photograph (client, 2026-09-24) is drawn to the full
+     1366x1077 frame, so the hero shows all of it, as the menu hero does */
+  .ev-hero{height:78.85vw;min-height:0}
+  .ev-hero__img{width:100%;object-position:50% 0}
   .ev-hero__sub{left:auto;right:3.9vw;top:auto;bottom:13.9vw;transform:none;text-align:right;
     font-size:max(9px,2.146vw);line-height:1.35}
   .ev-hero__sub span{display:block}
