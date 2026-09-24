@@ -1,10 +1,12 @@
 // Every form on the site posts here: POST /api/forms/ (urlencoded, from
 // amami.js).
 //
-// 1. SCRIPT_URL set: the submission is forwarded to the Apps Script web app
+// Only event enquiries (form=event) are handled here; every other form is
+// answered { fallback:true } and the browser opens a pre-filled email to info@.
+// 1. SCRIPT_URL set: the event enquiry is forwarded to the Apps Script web app
 //    bound to the "Amami Enquiries - Event" Google Sheet
-//    (apps-script/enquiries.gs). It adds event enquiries to the sheet and
-//    emails every form to info@amamiitalia.com.
+//    (apps-script/enquiries.gs): a row in the sheet, an email to
+//    info@amamiitalia.com, and a confirmation to the guest.
 // 2. Otherwise, RESEND_API_KEY set: emailed to info@ through Resend from the
 //    verified amamiitalia.com domain.
 // 3. Neither: answers { ok:false, fallback:true } and the browser opens a
@@ -63,6 +65,12 @@ module.exports = async (req, res) => {
 
   const email = String(data.email || '').trim();
   if (!EMAIL.test(email)) return send(res, 400, { ok: false, error: 'Please check your email address.' });
+
+  // Only event enquiries go to the sheet + emails (client, 2026-09-24).
+  // Every other form (catering, careers, footer sign-up) gets the browser's
+  // pre-filled email to info@ instead.
+  const type0 = String(data.form || '').toLowerCase();
+  if (type0 !== 'event') return send(res, 200, { ok: false, fallback: true });
 
   if (SCRIPT_URL) {
     try {

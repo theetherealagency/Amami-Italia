@@ -3,12 +3,12 @@
  * "Amami Enquiries - Event" (docs.google.com/spreadsheets/d/19qSzznDcYxVcPPo4lwyPt4jozp6iUbbmxTv7sw0scIU).
  *
  * Every form on the site reaches this through the site's /api/forms/ function:
- *   - Event enquiries (/events/) are added as a row on the first tab, and
- *     emailed to info@amamiitalia.com.
- *   - Every other form (catering, careers, event alerts) is emailed to info@
- *     only, so the Event sheet holds nothing but event leads.
- *   - The guest also gets a short branded confirmation with a copy of what
- *     they sent (Reply-To info@, so their answer lands with the team).
+ * EVENT ENQUIRIES ONLY (/events/ and /it/events/):
+ *   - added as a row on the first tab,
+ *   - emailed to info@amamiitalia.com with every field,
+ *   - and the guest gets a branded confirmation with a copy of what they sent
+ *     (Reply-To info@, so their answer lands with the team).
+ * Other forms on the site do not come here.
  * Emails and the sheet use the Amami brand book palette: Charcoal Black
  * #161616, Warm Beige #eee9da, Tuscan Brown #462e24, Medium Rare Red #812b28.
  *
@@ -68,7 +68,9 @@ function doPost(e) {
     if (!data.email) return json_({ ok: false, error: 'An email address is required.' });
 
     var type = String(data.form || 'contact').toLowerCase();
-    if (type === 'event') addRow_(data);
+    // Events only (client, 2026-09-24): other forms are not handled here.
+    if (type !== 'event') return json_({ ok: false, error: 'Only event enquiries are handled here.' });
+    addRow_(data);
     notify_(type, data);
     try { confirmGuest_(type, data); } catch (x) { console.error('guest copy', x); }  // never fail the lead over this
     return json_({ ok: true });
