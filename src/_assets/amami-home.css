@@ -68,20 +68,24 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
   position:relative;isolation:isolate;overflow:hidden;padding:0;
   /* the comp's 762.2/1366, but never taller than the screen, so the hero
      word on the bottom edge is always above the fold on a wide monitor */
-  height:max(520px,min(55.797vw,100svh));
+  /* was the comp's 55.797vw; the client's hero photographs (2026-09-24) are
+     composed collages at 2880x1220, so the hero takes their frame, 42.361vw,
+     and nothing is cropped off the sides */
+  height:42.361vw;min-height:420px;
+  /* and it starts under the fixed 76px header, which would otherwise sit on
+     the top of every photograph */
+  margin-top:76px;
   background:var(--hm-scrim);
 }
 .hm-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* Four photographs, as the client wants them: the table, the triptych, the room
-   with the chef, the wine. The inline script drives the crossfade; without it
-   these keyframes run: each holds 4.8s and dissolves over 1.2s, 24s a turn. The
-   later two are composed pictures, so each keeps its subject in frame when a
-   narrow viewport crops the sides. */
+/* Four photographs, the client's numbered set: 1-4 on desktop, 5-8 on a phone
+   (swapped by <source media> in the markup). The inline script drives the crossfade; without it
+   these keyframes run: each holds 4.8s and dissolves over 1.2s, 24s a turn. */
 .hm-hero__img{opacity:0;animation:hm-hero-fade 24s linear infinite}
 .hm-hero__img--1{opacity:1;animation-delay:-1.2s}
 .hm-hero__img--2{animation-delay:4.8s}
-.hm-hero__img--3{animation-delay:10.8s;object-position:22% 50%}
-.hm-hero__img--4{animation-delay:16.8s;object-position:26% 50%}
+.hm-hero__img--3{animation-delay:10.8s}
+.hm-hero__img--4{animation-delay:16.8s}
 @keyframes hm-hero-fade{
   0%,100%{opacity:0}
   5%,25%{opacity:1}
@@ -397,16 +401,18 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
    the hero's three-across row becomes copy over an action. The gold mark
    goes, because at 48px it is a smudge. */
 @media (max-width:760px){
-  .hm-hero{height:max(480px,min(88svh,680px))}
+  /* the phone set (5-8) is 1366x1120, so the hero is that frame, 81.991vw */
+  .hm-hero{height:81.991vw;min-height:0}
+  /* a 320px-tall frame has no room for a stacked row, so dots and button
+     share one line just above the hero word, off the middle of the photograph */
   .hm-hero__row{
-    grid-template-columns:1fr;justify-items:center;text-align:center;
-    bottom:19%;gap:max(14px,4vw);
+    grid-template-columns:auto auto;justify-content:space-between;align-items:center;
+    bottom:13.5vw;gap:max(14px,4vw);padding-inline:max(14px,4.5vw);
   }
   .hm-hero__claim{display:none} /* phones: the Caledon line goes; button and dots only */
   .hm-proof__line{font-size:9px;line-height:2;letter-spacing:.16em}
   .hm-proof__sep{margin:0 .5em}
-  .hm-hero__act{justify-self:center}
-  .hm-dots{order:3}
+  .hm-hero__act{justify-self:end}
   .hm-dot{width:32px;padding:14px 0}
 
   .hm-room{padding-top:max(34px,9vw)}
