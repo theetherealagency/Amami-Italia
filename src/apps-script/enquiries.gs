@@ -6,8 +6,8 @@
  * EVENT ENQUIRIES ONLY (/events/ and /it/events/):
  *   - added as a row on the first tab,
  *   - emailed to info@amamiitalia.com with every field,
- *   - and the guest gets a branded confirmation with a copy of what they sent
- *     (Reply-To info@, so their answer lands with the team).
+ *   - and the guest gets a short branded thank-you: "We have received your
+ *     enquiry and will get back to you soon." (Reply-To info@).
  * Other forms on the site do not come here.
  * Emails and the sheet use the Amami brand book palette: Charcoal Black
  * #161616, Warm Beige #eee9da, Tuscan Brown #462e24, Medium Rare Red #812b28.
@@ -238,7 +238,7 @@ function notify_(type, data) {
     (type === 'event'
       ? '<p style="margin:22px 0 0;font:13px/1.5 Georgia,serif;font-style:italic;color:' + BRAND.brown + '">Also added to the <a href="' +
         SpreadsheetApp.getActiveSpreadsheet().getUrl() + '" style="color:' + BRAND.red + '">Amami Enquiries &ndash; Event</a> sheet.</p>' : '') +
-    '<p style="margin:14px 0 0;font:12px/1.5 Arial,Helvetica,sans-serif;color:#8a8373">' + esc_(who) + ' has been sent a confirmation email with a copy of these details.</p>';
+    '<p style="margin:14px 0 0;font:12px/1.5 Arial,Helvetica,sans-serif;color:#8a8373">' + esc_(who) + ' has been sent a short confirmation that we received the enquiry.</p>';
 
   var text = rows.concat(meta).map(function (r) { return r.label + ': ' + (r.value || '— not given'); }).join('\n');
   MailApp.sendEmail({
@@ -249,47 +249,26 @@ function notify_(type, data) {
   });
 }
 
-/* The guest's copy: a thank-you, what happens next, and exactly what they sent. */
+/* The guest's confirmation: a thank-you and one line, nothing else
+   (client, 2026-09-24). English or Italian to match the page they wrote from. */
 var GUEST = {
-  en: {
-    event:    { subj: 'We have your event enquiry', h: 'Thank you', p: 'Your enquiry for an evening at Amami is with our events team. We answer within one business day, usually sooner, with the rooms that fit, menus and a quote.' },
-    catering: { subj: 'We have your catering enquiry', h: 'Thank you', p: 'Your catering enquiry is with our team. We answer within one business day with menus and a quote.' },
-    careers:  { subj: 'We have your application', h: 'Thank you', p: 'Thanks for wanting to work with us. The kitchen and floor managers read every application, and we will be in touch if there is a fit.' },
-    contact:  { subj: 'We have your message', h: 'Thank you', p: 'Your message is with our team. We answer within one business day.' },
-    'event-updates': { subj: 'You are on the list', h: 'You are on the list', p: 'We will write when there is something worth coming in for: tasting nights, holiday menus and events at Amami. Nothing more than that.' },
-    copy: 'What you sent us', call: 'Need us sooner? Call', sign: 'A presto,<br>Amami Italia', book: 'Book a table'
-  },
-  it: {
-    event:    { subj: 'Abbiamo ricevuto la tua richiesta per un evento', h: 'Grazie', p: 'La tua richiesta è arrivata al nostro team eventi. Rispondiamo entro un giorno lavorativo, di solito prima, con le sale adatte, i menù e un preventivo.' },
-    catering: { subj: 'Abbiamo ricevuto la tua richiesta di catering', h: 'Grazie', p: 'La tua richiesta di catering è arrivata al nostro team. Rispondiamo entro un giorno lavorativo con menù e preventivo.' },
-    careers:  { subj: 'Abbiamo ricevuto la tua candidatura', h: 'Grazie', p: 'Grazie per voler lavorare con noi. Leggiamo ogni candidatura e ti contatteremo se c’è l’occasione giusta.' },
-    contact:  { subj: 'Abbiamo ricevuto il tuo messaggio', h: 'Grazie', p: 'Il tuo messaggio è arrivato al nostro team. Rispondiamo entro un giorno lavorativo.' },
-    'event-updates': { subj: 'Sei nella lista', h: 'Sei nella lista', p: 'Ti scriveremo quando ci sarà qualcosa per cui vale la pena venire: serate di degustazione, menù delle feste ed eventi da Amami.' },
-    copy: 'Cosa ci hai inviato', call: 'Serve prima? Chiama il', sign: 'A presto,<br>Amami Italia', book: 'Prenota un tavolo'
-  }
+  en: { subj: 'We have received your enquiry', h: 'Thank you',
+        p: 'We have received your enquiry and will get back to you soon.' },
+  it: { subj: 'Abbiamo ricevuto la tua richiesta', h: 'Grazie',
+        p: 'Abbiamo ricevuto la tua richiesta e ti risponderemo presto.' }
 };
 
 function confirmGuest_(type, data) {
   var lang = /^\/it\//.test(data.page || '') ? 'it' : 'en';
-  var L = GUEST[lang], c = L[type] || L.contact;
+  var c = GUEST[lang];
   var first = data.firstName || (data.name ? String(data.name).split(' ')[0] : '');
-  var rows = fieldRows_(type, data, lang).filter(function (r) { return r.value; });
   var inner = heading_('Amami Italia', c.h + (first ? ', ' + first : ''), '') +
-    '<p style="margin:0 0 22px;font:16px/1.6 Georgia,serif;color:' + BRAND.ink + '">' + esc_(c.p) + '</p>' +
-    (type === 'event-updates' ? '' :
-      '<p style="margin:0 0 8px;font:11px/1 Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:' + BRAND.brown + '">' + esc_(L.copy) + '</p>' +
-      '<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;border-top:1px solid ' + BRAND.line + '">' + rowsHtml_(rows, false) + '</table>') +
-    '<p style="margin:24px 0 0;font:15px/1.6 Georgia,serif;color:' + BRAND.ink + '">' + esc_(L.call) +
-      ' <a href="tel:+19057943366" style="color:' + BRAND.red + ';text-decoration:none">905-794-3366</a>.</p>' +
-    '<p style="margin:18px 0 0;font:italic 16px/1.5 Georgia,serif;color:' + BRAND.brown + '">' + L.sign + '</p>' +
-    '<p style="margin:26px 0 0"><a href="' + SITE_URL + (lang === 'it' ? '/it' : '') + '/reservation/" style="display:inline-block;border:1px solid ' + BRAND.red + ';color:' + BRAND.red + ';' +
-      'font:12px/1 Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:13px 24px">' + esc_(L.book) + '</a></p>';
-  var text = c.p + '\n\n' + rows.map(function (r) { return r.label + ': ' + r.value; }).join('\n') +
-    '\n\n' + L.call + ' 905-794-3366.\n\nAmami Italia\n6261 Mayfield Rd, #140, Brampton, ON';
+    '<p style="margin:0;font:17px/1.6 Georgia,serif;color:' + BRAND.ink + '">' + esc_(c.p) + '</p>';
   MailApp.sendEmail({
     to: data.email, replyTo: NOTIFY_TO, name: SITE_NAME,
     subject: c.subj + ' — Amami Italia',
-    body: text, htmlBody: shell_(inner), inlineImages: { amamilogo: logoBlob_() }
+    body: c.h + (first ? ', ' + first : '') + '\n\n' + c.p + '\n\nAmami Italia',
+    htmlBody: shell_(inner), inlineImages: { amamilogo: logoBlob_() }
   });
 }
 
