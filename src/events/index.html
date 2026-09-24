@@ -172,10 +172,10 @@
     <label><span data-it="Nome">First name</span><input id="fn" name="firstName" autocomplete="given-name" required></label>
     <label><span data-it="Cognome">Last name</span><input id="ln" name="lastName" autocomplete="family-name" required></label>
     <label><span data-it="Email">Email</span><input id="em" type="email" name="email" autocomplete="email" required></label>
-    <label><span data-it="Telefono">Phone</span><input id="tel" type="tel" name="phone" autocomplete="tel"></label>
-    <label><span data-it="Data">Date</span><input id="dt" type="date" name="date"></label>
-    <label><span data-it="Ospiti">Guests</span><input id="pax" type="number" min="1" name="guests"></label>
-    <label class="pg-form__wide"><span data-it="Raccontaci la serata">Tell us about the evening</span><textarea id="msg" name="message" rows="4"></textarea></label>
+    <label><span data-it="Telefono">Phone</span><input id="tel" type="tel" name="phone" autocomplete="tel" required></label>
+    <label><span data-it="Data">Date</span><input id="dt" type="date" name="date" required></label>
+    <label><span data-it="Ospiti">Guests</span><input id="pax" type="number" min="1" name="guests" required></label>
+    <label class="pg-form__wide"><span data-it="Raccontaci la serata">Tell us about the evening</span><textarea id="msg" name="message" rows="4" required></textarea></label>
     <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
     <p class="form-status" role="status" aria-live="polite"></p>
     <p class="pg-form__act"><button class="pg-btn pg-btn--fill" type="submit"><span data-it="Invia la richiesta">Send Enquiry</span></button></p>

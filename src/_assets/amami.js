@@ -122,11 +122,15 @@
     en: { sending: "Sending…",
           ok: "Thanks — we’ll be in touch.",
           fail: "That didn’t send. Call 905-794-3366 and we’ll sort it.",
-          mail: "Opening your email…" },
+          mail: "Opening your email…",
+          email: "Please check your email address.",
+          missing: "Please fill in every field." },
     it: { sending: "Invio…",
           ok: "Grazie — ci sentiamo presto.",
           fail: "Non è partito. Chiama il 905-794-3366 e sistemiamo.",
-          mail: "Apro la tua email…" }
+          mail: "Apro la tua email…",
+          email: "Controlla il tuo indirizzo email.",
+          missing: "Compila tutti i campi." }
   };
   function t(k) {
     // the language switch sets lang="it-IT", so match the language, not the tag
@@ -187,7 +191,7 @@
         .then(function (d) {
           if (d && d.ok) { form.reset(); say(status, t("ok"), "ok"); }
           else if (d && d.fallback) { mailtoFallback(form, fd, status); }
-          else { say(status, (d && d.error) || t("fail"), "err"); }
+          else { say(status, d && (d.code === "email" || d.code === "missing") ? t(d.code) : ((d && d.error) || t("fail")), "err"); }
         })
         .catch(function () { mailtoFallback(form, fd, status); })
         .then(function () { if (btn) btn.disabled = false; });

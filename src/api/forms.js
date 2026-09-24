@@ -64,13 +64,18 @@ module.exports = async (req, res) => {
   if (data.company_website) return send(res, 200, { ok: true });
 
   const email = String(data.email || '').trim();
-  if (!EMAIL.test(email)) return send(res, 400, { ok: false, error: 'Please check your email address.' });
+  if (!EMAIL.test(email)) return send(res, 400, { ok: false, code: 'email' });
 
   // Only event enquiries go to the sheet + emails (client, 2026-09-24).
   // Every other form (catering, careers, footer sign-up) gets the browser's
   // pre-filled email to info@ instead.
   const type0 = String(data.form || '').toLowerCase();
   if (type0 !== 'event') return send(res, 200, { ok: false, fallback: true });
+
+  // Every field of the event enquiry is mandatory (client, 2026-09-24); the
+  // form enforces it in the browser, this stops anything that skips the form.
+  const REQUIRED = ['space', 'firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message'];
+  if (REQUIRED.some(k => !String(data[k] || '').trim())) return send(res, 400, { ok: false, code: 'missing' });
 
   if (SCRIPT_URL) {
     try {
