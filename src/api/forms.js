@@ -1,12 +1,17 @@
 // Every form on the site posts here: POST /api/forms/ (urlencoded, from
-// amami.js). Each submission is emailed to the info inbox through Resend,
-// sent from the verified amamiitalia.com domain, with Reply-To set to the
-// person who filled it in so answering is one click.
+// amami.js).
 //
-// Needs RESEND_API_KEY in the Vercel project's environment (a sending-only
-// key for amamiitalia.com). Without it the handler answers
-// { ok:false, fallback:true } and the browser opens a pre-filled email to
-// info@ instead, so an enquiry is never lost while the key is missing.
+// 1. SCRIPT_URL set: the submission is forwarded to the Apps Script web app
+//    bound to the "Amami Enquiries - Event" Google Sheet
+//    (apps-script/enquiries.gs). It adds event enquiries to the sheet and
+//    emails every form to info@amamiitalia.com.
+// 2. Otherwise, RESEND_API_KEY set: emailed to info@ through Resend from the
+//    verified amamiitalia.com domain.
+// 3. Neither: answers { ok:false, fallback:true } and the browser opens a
+//    pre-filled email to info@, so an enquiry is never lost.
+
+// The Apps Script web app URL (…/exec). Not a secret: it only accepts posts.
+const SCRIPT_URL = process.env.FORMS_SCRIPT_URL || '';
 
 const TO = 'info@amamiitalia.com';
 const FROM = 'Amami Italia Website <website@amamiitalia.com>';
@@ -57,6 +62,21 @@ module.exports = async (req, res) => {
 
   const email = String(data.email || '').trim();
   if (!EMAIL.test(email)) return send(res, 400, { ok: false, error: 'Please check your email address.' });
+
+  if (SCRIPT_URL) {
+    try {
+      const body = new URLSearchParams();
+      for (const [k, v] of Object.entries(data)) body.append(k, String(v).slice(0, 5000));
+      // Apps Script answers a POST with a 302 to its echo URL; fetch follows it.
+      const r = await fetch(SCRIPT_URL, { method: 'POST', body, redirect: 'follow' });
+      const d = await r.json().catch(() => null);
+      if (d && d.ok) return send(res, 200, { ok: true });
+      console.error('apps-script', r.status, d);
+    } catch (e) {
+      console.error('apps-script', e);
+    }
+    // fall through to Resend, then to the browser's email fallback
+  }
 
   const key = process.env.RESEND_API_KEY;
   if (!key) return send(res, 503, { ok: false, fallback: true });
