@@ -11,7 +11,8 @@
 //    pre-filled email to info@, so an enquiry is never lost.
 
 // The Apps Script web app URL (…/exec). Not a secret: it only accepts posts.
-const SCRIPT_URL = process.env.FORMS_SCRIPT_URL || '';
+const SCRIPT_URL = process.env.FORMS_SCRIPT_URL ||
+  'https://script.google.com/macros/s/AKfycbwvrH3PsAW6LZQ1D2SBX9RwgX4_qM29xvE0QlWc77wFSpb7ghJyHHV_GUwwXOO9WUHwjA/exec';
 
 const TO = 'info@amamiitalia.com';
 const FROM = 'Amami Italia Website <website@amamiitalia.com>';
