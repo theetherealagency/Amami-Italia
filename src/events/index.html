@@ -39,9 +39,10 @@
 <link rel="stylesheet" href="/_assets/amami-header.css">
 <link rel="stylesheet" href="/_assets/amami-footer.css">
 <link rel="stylesheet" href="/_assets/amami-pages.css">
+<link rel="stylesheet" href="/_assets/amami-events.css">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MNHMB7C9');</script>
 </head>
-<body class=" is-page" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, 23], "sat": [12, 23]}'>
+<body class=" is-page is-events" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, 23], "sat": [12, 23]}'>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNHMB7C9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="sr-only" href="#main"><span data-it="Vai al contenuto">Skip to content</span></a>
 <header class="hdr">
@@ -87,78 +88,77 @@
 </div>
 <main id="main">
 
-<!-- Brief §2 /events, on the Canoe model: capacity is the content and sits high.
-     hero → four room cards → what's included → review quote → direct contact → form. -->
-<section class="pg-hero">
-  <picture><img class="pg-hero__img" src="/wp-content/uploads/2026/09/new-room-gold-ceiling.jpg" srcset="/wp-content/uploads/2026/09/new-room-gold-ceiling-480w.jpg 480w, /wp-content/uploads/2026/09/new-room-gold-ceiling-800w.jpg 800w, /wp-content/uploads/2026/09/new-room-gold-ceiling-1200w.jpg 1200w, /wp-content/uploads/2026/09/new-room-gold-ceiling.jpg 1600w" alt="The room under its gold floral ceiling, set for guests"
-       width="1600" height="2399" fetchpriority="high" decoding="async" sizes="100vw"></picture>
-  <div class="pg-hero__scrim" aria-hidden="true"></div>
-  <h1 class="pg-hero__h"><span data-it="Eventi e Sala Privata">Events &amp; Private Dining</span></h1>
-  <p class="pg-hero__sub"><span data-it="Quattro spazi. Fino a 120 ospiti.">Four spaces. Up to 120 guests.</span></p>
+<!-- Client comp "amami web - events page DESK/MOB" (2026-09-24), coded from the SVG
+     artboards: 2880 wide on desktop, 1366 on a phone, lengths as vw of those.
+     hero → the four spaces → what's included → Fiorentina Night → enquire → speak to someone.
+     Styles: /_assets/amami-events.css. -->
+<section class="ev-hero">
+  <picture><source media="(max-width:760px)" type="image/webp" srcset="/wp-content/uploads/2026/09/events-room-mob-480w.webp 480w, /wp-content/uploads/2026/09/events-room-mob-800w.webp 800w, /wp-content/uploads/2026/09/events-room-mob-1200w.webp 1200w" sizes="100vw"><source media="(max-width:760px)" srcset="/wp-content/uploads/2026/09/events-room-mob-800w.jpg"><source type="image/webp" srcset="/wp-content/uploads/2026/09/events-room-desk-800w.webp 800w, /wp-content/uploads/2026/09/events-room-desk-1200w.webp 1200w, /wp-content/uploads/2026/09/events-room-desk-1600w.webp 1600w, /wp-content/uploads/2026/09/events-room-desk-2000w.webp 2000w" sizes="48vw"><img class="ev-hero__img" src="/wp-content/uploads/2026/09/events-room-desk-1200w.jpg" alt="The dining room set for guests: rattan chairs, marble tables and the arched mirror" fetchpriority="high" decoding="async"></picture>
+  <p class="ev-hero__sub"><span data-it="Quattro spazi.">Four spaces.</span> <span data-it="Fino a 120 ospiti.">Up to 120 guests.</span></p>
+  <h1 class="ev-hero__h"><span class="ev-hero__l1" data-it="Eventi e">Events &amp;</span> <span class="ev-hero__l2" data-it="Sala Privata">Private Dining</span></h1>
 </section>
 
-<section class="pg-sec pg-sec--tight" aria-label="Rooms">
-  <div class="pg-cards pg-cards--4">
-    <article class="pg-card pg-card--text">
-      <div class="pg-card__body">
-        <h2 class="pg-card__it"><span data-it="La Sala Privata">The Private Room</span></h2>
-        <p class="pg-card__cap"><span data-it="16–22 a sedere">16–22 seated</span></p>
-        <p class="pg-card__lede"><span data-it="Cene a porte chiuse e piccole celebrazioni.">Closed-door dinners and small celebrations.</span></p>
-        <a class="pg-btn pg-card__cta" href="#enquiry"><span data-it="Richiedi informazioni">Enquire</span></a>
+<section class="ev-rooms" aria-label="Rooms">
+  <div class="ev-rooms__grid">
+    <article class="ev-room ev-room--the-private-room">
+      <p class="ev-room__lede"><span data-it="Cene a porte chiuse e piccole celebrazioni.">Closed-door dinners and small celebrations.</span></p>
+      <p class="ev-room__cap"><span data-it="16–22 a sedere">16–22 seated</span></p>
+      <div class="ev-room__row">
+        <h2 class="ev-room__name"><span data-it="La Sala Privata">The Private Room</span></h2>
+        <img class="ev-room__illo" src="/wp-content/uploads/2026/09/events-illo-the-private-room.svg" alt="" width="213" height="221" loading="lazy" decoding="async">
       </div>
+      <a class="ev-btn" href="#enquiry" data-gtm="event-enquire"><span data-it="Richiedi informazioni">Enquire</span></a>
     </article>
-    <article class="pg-card pg-card--text">
-      <div class="pg-card__body">
-        <h2 class="pg-card__it"><span data-it="Il Tavolo Lungo">The Long Table</span></h2>
-        <p class="pg-card__cap"><span data-it="24–30 a sedere">24–30 seated</span></p>
-        <p class="pg-card__lede"><span data-it="Un tavolo, una conversazione.">One table, one conversation.</span></p>
-        <a class="pg-btn pg-card__cta" href="#enquiry"><span data-it="Richiedi informazioni">Enquire</span></a>
+    <article class="ev-room ev-room--the-lounge">
+      <p class="ev-room__lede"><span data-it="Eventi in piedi e inizi più tardi.">Standing events and later starts.</span></p>
+      <p class="ev-room__cap"><span data-it="30 a sedere / 60 in piedi">30 seated / 60 reception</span></p>
+      <div class="ev-room__row">
+        <h2 class="ev-room__name"><span data-it="Il Salotto">The Lounge</span></h2>
+        <img class="ev-room__illo" src="/wp-content/uploads/2026/09/events-illo-the-lounge.svg" alt="" width="245" height="204" loading="lazy" decoding="async">
       </div>
+      <a class="ev-btn" href="#enquiry" data-gtm="event-enquire"><span data-it="Richiedi informazioni">Enquire</span></a>
     </article>
-    <article class="pg-card pg-card--text">
-      <div class="pg-card__body">
-        <h2 class="pg-card__it"><span data-it="Il Salotto">The Lounge</span></h2>
-        <p class="pg-card__cap"><span data-it="30 a sedere / 60 in piedi">30 seated / 60 reception</span></p>
-        <p class="pg-card__lede"><span data-it="Eventi in piedi e inizi più tardi.">Standing events and later starts.</span></p>
-        <a class="pg-btn pg-card__cta" href="#enquiry"><span data-it="Richiedi informazioni">Enquire</span></a>
+    <article class="ev-room ev-room--the-long-table">
+      <p class="ev-room__lede"><span data-it="Un tavolo, una conversazione.">One table, one conversation.</span></p>
+      <p class="ev-room__cap"><span data-it="24–30 a sedere">24–30 seated</span></p>
+      <div class="ev-room__row">
+        <h2 class="ev-room__name"><span data-it="Il Tavolo Lungo">The Long Table</span></h2>
+        <img class="ev-room__illo" src="/wp-content/uploads/2026/09/events-illo-the-long-table.svg" alt="" width="383" height="170" loading="lazy" decoding="async">
       </div>
+      <a class="ev-btn" href="#enquiry" data-gtm="event-enquire"><span data-it="Richiedi informazioni">Enquire</span></a>
     </article>
-    <article class="pg-card pg-card--text">
-      <div class="pg-card__body">
-        <h2 class="pg-card__it"><span data-it="Uso esclusivo">Full Buyout</span></h2>
-        <p class="pg-card__cap"><span data-it="120 in piedi">120 reception</span></p>
-        <p class="pg-card__lede"><span data-it="Tutta la sala, vostra.">The whole room, yours.</span></p>
-        <a class="pg-btn pg-card__cta" href="#enquiry"><span data-it="Richiedi informazioni">Enquire</span></a>
+    <article class="ev-room ev-room--full-buyout">
+      <p class="ev-room__lede"><span data-it="Tutta la sala, vostra.">The whole room, yours.</span></p>
+      <p class="ev-room__cap"><span data-it="120 in piedi">120 reception</span></p>
+      <div class="ev-room__row">
+        <h2 class="ev-room__name"><span data-it="Uso esclusivo">Full Buyout</span></h2>
+        <img class="ev-room__illo" src="/wp-content/uploads/2026/09/events-illo-full-buyout.svg" alt="" width="227" height="207" loading="lazy" decoding="async">
       </div>
+      <a class="ev-btn" href="#enquiry" data-gtm="event-enquire"><span data-it="Richiedi informazioni">Enquire</span></a>
     </article>
   </div>
 </section>
 
-<section class="pg-sec pg-sec--tight">
-  <h2 class="pg-sec__h"><span data-it="Cosa è incluso">What’s included</span></h2>
-  <p class="pg-sec__sub"><span data-it="Menù fissi costruiti intorno alla vostra serata.">Set menus built around your evening.</span><span data-it="Abito semi-formale per il servizio serale.">Semi-formal dress for evening service.</span><span data-it="Abbinamenti di vini su richiesta.">Wine pairings on request.</span></p>
+<section class="ev-incl">
+  <h2 class="ev-incl__h"><span data-it="Cosa è incluso">What’s included</span></h2>
+  <ul class="ev-incl__list">
+    <li><span data-it="Menù fissi costruiti intorno alla vostra serata">Set menus built around your evening</span></li>
+    <li><span data-it="Abito semi-formale per il servizio serale">Semi-formal dress for evening service</span></li>
+    <li><span data-it="Abbinamenti di vini su richiesta.">Wine pairings on request.</span></li>
+  </ul>
 </section>
 
-<section class="pg-split" aria-label="A review">
-  <picture><img class="pg-split__img" src="/wp-content/uploads/2026/09/new-table-flowers.jpg" srcset="/wp-content/uploads/2026/09/new-table-flowers-480w.jpg 480w, /wp-content/uploads/2026/09/new-table-flowers-800w.jpg 800w, /wp-content/uploads/2026/09/new-table-flowers-1200w.jpg 1200w, /wp-content/uploads/2026/09/new-table-flowers.jpg 1600w" alt="A table set with fresh flowers and candlelight"
-       width="1600" height="2399" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw"></picture>
-  <div class="pg-split__panel">
-    <!-- The review stays in English in both languages; the Italian rendering appears
-         beneath, smaller, only when Italian is on. -->
-    <blockquote class="pg-quote" lang="en">“They took care of us like we were their own family.”<span class="pg-quote__it" lang="it" data-it="«Si sono presi cura di noi come fossimo la loro famiglia.»"></span></blockquote>
-    <p class="pg-label"><span data-it="Recensione Google, ricevimento di nozze da Amami Italia">Google review, wedding reception at Amami Italia</span></p>
+<section class="ev-fio" aria-label="Fiorentina Night">
+  <picture><source media="(max-width:760px)" type="image/webp" srcset="/wp-content/uploads/2026/09/events-fiorentina-mob-480w.webp 480w, /wp-content/uploads/2026/09/events-fiorentina-mob-800w.webp 800w, /wp-content/uploads/2026/09/events-fiorentina-mob-1200w.webp 1200w" sizes="100vw"><source media="(max-width:760px)" srcset="/wp-content/uploads/2026/09/events-fiorentina-mob-800w.jpg"><source type="image/webp" srcset="/wp-content/uploads/2026/09/events-fiorentina-desk-800w.webp 800w, /wp-content/uploads/2026/09/events-fiorentina-desk-1200w.webp 1200w, /wp-content/uploads/2026/09/events-fiorentina-desk-1600w.webp 1600w, /wp-content/uploads/2026/09/events-fiorentina-desk-2000w.webp 2000w" sizes="48vw"><img class="ev-fio__img" src="/wp-content/uploads/2026/09/events-fiorentina-desk-1200w.jpg" alt="Bistecca alla Fiorentina on a white platter as red wine is poured" loading="lazy" decoding="async"></picture>
+  <div class="ev-fio__panel">
+    <p class="ev-fio__p"><span data-it="Scopri l’Italia attraverso la Bistecca alla Fiorentina, vini pregiati e una serata da ricordare.">Discover Italy through Bistecca alla Fiorentina, premium wines and an evening made to be remembered.</span></p>
+    <h2 class="ev-fio__h"><span data-it="Serata Fiorentina">Fiorentina Night</span></h2>
   </div>
 </section>
 
-<section class="pg-sec pg-sec--tight">
-  <h2 class="pg-sec__h"><span data-it="Parla con qualcuno">Speak to someone</span></h2>
-  <p class="pg-contact"><a href="mailto:info@amamiitalia.com">info@amamiitalia.com</a> &middot; <a href="tel:+19057943366">905-794-3366</a>. <span data-it="Rispondiamo entro un giorno lavorativo.">We answer within one business day.</span></p>
-</section>
-
-<section class="pg-sec pg-sec--tight" id="enquiry">
-  <h2 class="pg-sec__h"><span data-it="Richiedi informazioni">Enquire</span></h2>
-  <!-- The same fields and handler attributes as before; only the presentation and the
-       submit label change. -->
+<section class="ev-enq" id="enquiry">
+  <h2 class="ev-enq__h"><span data-it="Richiedi informazioni">Enquire</span></h2>
+  <!-- Same fields and handler attributes as before. -->
   <form class="pg-form" action="#" method="post" data-amami-form="event" data-endpoint="" data-mailto="info@amamiitalia.com">
     <label><span data-it="Nome">First name</span><input id="fn" name="firstName" autocomplete="given-name" required></label>
     <label><span data-it="Cognome">Last name</span><input id="ln" name="lastName" autocomplete="family-name" required></label>
@@ -173,9 +173,10 @@
   </form>
 </section>
 
-<section class="pg-end">
-  <h2 class="pg-end__h"><span data-it="Il tuo tavolo ti aspetta.">Your table is waiting.</span></h2>
-  <a class="pg-btn pg-btn--fill" href="/reservation/" data-gtm="reserve"><span data-it="Prenota un tavolo">Reserve a Table</span></a>
+<section class="ev-talk">
+  <h2 class="ev-talk__h"><span data-it="Parla con qualcuno">Speak to someone</span></h2>
+  <p class="ev-talk__sub"><span data-it="Rispondiamo entro un giorno lavorativo.">We answer within one business day.</span></p>
+  <p class="ev-talk__line"><a href="mailto:info@amamiitalia.com">info@amamiitalia.com</a><i aria-hidden="true">&middot;</i><a href="tel:+19057943366" data-gtm="call">905-794-3366</a></p>
 </section>
 </main>
 <footer class="ftr">
