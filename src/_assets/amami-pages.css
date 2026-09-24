@@ -220,11 +220,11 @@ body.is-page picture > source{display:none}
    ========================================================================== */
 /* section entrance: 20px up, 700ms. :where() keeps the exclusions at zero
    specificity so the .is-in state below always wins. */
-.motion main > section:where(:not(.pg-hero):not(.hm-hero)){opacity:0;transform:translateY(20px);
+.motion main > section:where(:not(.pg-hero):not(.hm-hero):not(:first-child)){opacity:0;transform:translateY(20px);
   transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .motion main > section.is-in{opacity:1;transform:none}
 /* photographs settle from 1.04 to 1 over 900ms as their section arrives */
-.motion main > section:where(:not(.pg-hero):not(.hm-hero)) img{transform:scale(1.04);
+.motion main > section:where(:not(.pg-hero):not(.hm-hero):not(:first-child)) img{transform:scale(1.04);
   transition:transform .9s cubic-bezier(.22,1,.36,1)}
 .motion main > section.is-in img{transform:none}
 /* H1 only: one line revealed behind a mask */

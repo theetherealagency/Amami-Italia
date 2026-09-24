@@ -32,9 +32,9 @@
 <meta name="twitter:image" content="https://amami-italia.vercel.app/_assets/share/room_lounge.jpg">
 <meta name="twitter:image:alt" content="Il salotto in penombra">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=IM+Fell+English:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/_assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/_assets/fonts/poppins-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/_assets/fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/_assets/amami.css">
 <link rel="stylesheet" href="/_assets/amami-header.css">
 <link rel="stylesheet" href="/_assets/amami-footer.css">
@@ -52,7 +52,7 @@
     </span>
   </div>
   <a class="hdr__logo" href="/it/" aria-label="Amami Italia, pagina iniziale">
-    <img src="/wp-content/uploads/2025/09/amami-logo.png" alt="Amami Italia" width="120" height="34">
+    <img src="/wp-content/uploads/2025/09/amami-logo-h102.png" alt="Amami Italia" width="120" height="34">
   </a>
   <nav class="hdr__nav" aria-label="Principale"><a href="/it/menu/"><span data-it="Menù">Menù</span></a><a href="/it/our-story/"><span data-it="Chi siamo">Chi siamo</span></a><a href="/it/after-dark/" data-soon="Qualcosa sta arrivando, a notte fonda." data-soon-tag="Presto"><span data-it="A Notte Fonda">A Notte Fonda</span></a><a href="/it/events/"><span data-it="Eventi">Eventi</span></a><a href="/it/reservation/"><span data-it="Prenotazioni">Prenotazioni</span></a></nav>
   <div class="hdr__right">
@@ -91,7 +91,7 @@
      something is coming, never what. No dates, hours or pours here until the
      client confirms them. While they wait, point them at the wine list. -->
 <section class="pg-hero pg-hero--hush">
-  <picture><img class="pg-hero__img" src="/wp-content/uploads/2026/09/new-room-bar-wall-g2.jpg" srcset="/wp-content/uploads/2026/09/new-room-bar-wall-g2-480w.jpg 480w, /wp-content/uploads/2026/09/new-room-bar-wall-g2-800w.jpg 800w, /wp-content/uploads/2026/09/new-room-bar-wall-g2-1200w.jpg 1200w, /wp-content/uploads/2026/09/new-room-bar-wall-g2.jpg 1600w" alt=""
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/new-room-bar-wall-g2-480w.webp 480w, /wp-content/uploads/2026/09/new-room-bar-wall-g2-800w.webp 800w, /wp-content/uploads/2026/09/new-room-bar-wall-g2-1200w.webp 1200w, /wp-content/uploads/2026/09/new-room-bar-wall-g2.webp 1600w" sizes="100vw"><img class="pg-hero__img" src="/wp-content/uploads/2026/09/new-room-bar-wall-g2.jpg" srcset="/wp-content/uploads/2026/09/new-room-bar-wall-g2-480w.jpg 480w, /wp-content/uploads/2026/09/new-room-bar-wall-g2-800w.jpg 800w, /wp-content/uploads/2026/09/new-room-bar-wall-g2-1200w.jpg 1200w, /wp-content/uploads/2026/09/new-room-bar-wall-g2.jpg 1600w" alt=""
        width="1600" height="2399" fetchpriority="high" decoding="async" sizes="100vw"></picture>
   <div class="pg-hero__scrim" aria-hidden="true"></div>
   <p class="pg-hush__tag"><span data-it="Prossimamente">Prossimamente</span></p>
@@ -119,7 +119,7 @@
       <a class="pg-wine__tel" href="tel:+19057943366">905-794-3366</a>
     </p>
   </div>
-  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-wine-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-wine-g2-600w.webp 600w" sizes="(max-width:760px) 88vw, 42vw"><img class="pg-split__img" src="/wp-content/uploads/2026/09/ig-wine-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-wine-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-wine-g2.jpg 600w" alt="Vino versato a una tavola apparecchiata"
+  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-wine-g2-240w.webp 240w, /wp-content/uploads/2026/09/ig-wine-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-wine-g2-600w.webp 600w" sizes="(max-width:760px) 88vw, 42vw"><img class="pg-split__img" src="/wp-content/uploads/2026/09/ig-wine-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-wine-g2-240w.jpg 240w, /wp-content/uploads/2026/09/ig-wine-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-wine-g2.jpg 600w" alt="Vino versato a una tavola apparecchiata"
        width="600" height="600" loading="lazy" decoding="async" sizes="(max-width:760px) 88vw, 42vw"></picture>
 </section>
 
@@ -138,12 +138,12 @@ document.querySelector('[data-hush-join]').addEventListener('click',function(e){
     <section class="ftr__ig" aria-label="Instagram">
       <p class="ftr__label"><a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener">@amamiitalia_official</a></p>
       <div class="ftr__grid">
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-room-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-room-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-room-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-room-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-room-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="La sala, luce calda sotto il baldacchino" width="600" height="600" loading="lazy" decoding="async"></picture></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-pasta-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-pasta-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-pasta-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-pasta-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-pasta-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Pasta rifinita al pass" width="600" height="600" loading="lazy" decoding="async"></picture></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-cocktail-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-cocktail-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-cocktail-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-cocktail-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-cocktail-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Un cocktail affumicato, il coperchio che si solleva" width="600" height="600" loading="lazy" decoding="async"></picture></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-booths-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-booths-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-booths-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-booths-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-booths-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Divanetti curvi accanto alle finestre" width="600" height="600" loading="lazy" decoding="async"></picture></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-wine-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-wine-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-wine-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-wine-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-wine-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Vino versato a un tavolo apparecchiato" width="600" height="600" loading="lazy" decoding="async"></picture></a>
-        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-private-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-private-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-private-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-private-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-private-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Il tavolo privato sotto gli specchi" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-room-g2-240w.webp 240w, /wp-content/uploads/2026/09/ig-room-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-room-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-room-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-room-g2-240w.jpg 240w, /wp-content/uploads/2026/09/ig-room-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-room-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="La sala, luce calda sotto il baldacchino" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-pasta-g2-240w.webp 240w, /wp-content/uploads/2026/09/ig-pasta-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-pasta-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-pasta-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-pasta-g2-240w.jpg 240w, /wp-content/uploads/2026/09/ig-pasta-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-pasta-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Pasta rifinita al pass" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-cocktail-g2-240w.webp 240w, /wp-content/uploads/2026/09/ig-cocktail-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-cocktail-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-cocktail-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-cocktail-g2-240w.jpg 240w, /wp-content/uploads/2026/09/ig-cocktail-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-cocktail-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Un cocktail affumicato, il coperchio che si solleva" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-booths-g2-240w.webp 240w, /wp-content/uploads/2026/09/ig-booths-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-booths-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-booths-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-booths-g2-240w.jpg 240w, /wp-content/uploads/2026/09/ig-booths-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-booths-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Divanetti curvi accanto alle finestre" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-wine-g2-240w.webp 240w, /wp-content/uploads/2026/09/ig-wine-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-wine-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-wine-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-wine-g2-240w.jpg 240w, /wp-content/uploads/2026/09/ig-wine-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-wine-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Vino versato a un tavolo apparecchiato" width="600" height="600" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/amamiitalia_official" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/ig-private-g2-240w.webp 240w, /wp-content/uploads/2026/09/ig-private-g2-480w.webp 480w, /wp-content/uploads/2026/09/ig-private-g2-600w.webp 600w" sizes="(max-width:760px) 30vw, 14vw"><img src="/wp-content/uploads/2026/09/ig-private-g2.jpg" srcset="/wp-content/uploads/2026/09/ig-private-g2-240w.jpg 240w, /wp-content/uploads/2026/09/ig-private-g2-480w.jpg 480w, /wp-content/uploads/2026/09/ig-private-g2.jpg 600w" sizes="(max-width:760px) 30vw, 14vw" alt="Il tavolo privato sotto gli specchi" width="600" height="600" loading="lazy" decoding="async"></picture></a>
       </div>
     </section>
 
@@ -205,6 +205,7 @@ document.querySelector('[data-hush-join]').addEventListener('click',function(e){
 </nav>
 <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
 <script src="/_assets/amami.js" defer></script>
-<script src="/_assets/amami-i18n.js"></script>
+<script src="/_assets/amami-i18n.js" defer></script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/api/*"}}]},"eagerness":"moderate"}]}</script>
 </body>
 </html>

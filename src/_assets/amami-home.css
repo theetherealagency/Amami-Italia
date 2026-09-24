@@ -252,6 +252,9 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
   height:calc(8.161vw + var(--hm-ad-gap) + 1.0411 * var(--hm-ad-w)); /* was 53.398vw */
   background:var(--hm-red)
     url(/wp-content/uploads/2026/09/home-band-tuscany-812b28.jpg) bottom center / 100% auto no-repeat;
+  /* same picture as WebP (39 KB instead of 154 KB) where supported */
+  background-image:image-set(url(/wp-content/uploads/2026/09/home-band-tuscany-812b28.webp) type("image/webp"),
+    url(/wp-content/uploads/2026/09/home-band-tuscany-812b28.jpg) type("image/jpeg"));
 }
 /* The line is sized to the full artboard width, so it spans the band's side
    padding too; the negative margins give it that width to centre in. */
@@ -472,7 +475,7 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 /* §4 Motion on the home page — see amami-pages.css for the full note. The hero is
    left alone (it has its own two-line word and crossfade); the sections after it
    arrive once, 20px up, and the photographs settle from 1.04. */
-.motion main > section:where(:not(.hm-hero)){opacity:0;transform:translateY(20px);
+.motion main > section:where(:not(.hm-hero):not(:first-child)){opacity:0;transform:translateY(20px);
   transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .motion main > section.is-in{opacity:1;transform:none}
 .motion main > section:where(:not(.hm-hero):not(.hm-band)) img:where(:not(.hm-hero__img)){transform:scale(1.04);transition:transform .9s cubic-bezier(.22,1,.36,1)}

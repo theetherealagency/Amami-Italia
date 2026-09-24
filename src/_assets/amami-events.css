@@ -18,7 +18,8 @@ body.is-events{--ev-sand:#ddd7c7}
 .ev-hero__h{position:absolute;left:0;bottom:0;margin:0;
   font-family:var(--serif);font-weight:300;color:var(--hm-cream);text-transform:uppercase;
   font-size:11.389vw;line-height:.913;letter-spacing:-.05em;white-space:nowrap;
-  transform:translateY(.1em)}
+  /* bleeds off the bottom edge exactly as the home title does */
+  transform:translateY(.152em)}
 .ev-hero__l1,.ev-hero__l2{display:block}
 
 /* --- the four spaces: a 2x2 grid on a hairline cross ------------------- */
