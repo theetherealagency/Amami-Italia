@@ -86,7 +86,7 @@ body.is-events{--ev-sand:#ddd7c7}
   .ev-hero{height:58.9vw;min-height:0}
   .ev-hero__img{width:100%}
   .ev-hero__sub{left:auto;right:3.9vw;top:auto;bottom:13.9vw;transform:none;text-align:right;
-    font-size:max(8px,2.146vw);line-height:1.35}
+    font-size:max(9px,2.146vw);line-height:1.35}
   .ev-hero__sub span{display:block}
   .ev-hero__h{font-size:14.315vw}
 
