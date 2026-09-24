@@ -112,10 +112,10 @@
 })();
 
 /* ------------------------------------------------------------------------
-   Forms. Every form on the site posts to one Apps Script handler
-   (apps-script/forms.gs). While the endpoint is empty the submit falls back
-   to opening a pre-filled email, so an enquiry still reaches somebody rather
-   than disappearing into action="#".
+   Forms. Every form on the site posts to /api/forms/ (api/forms.js), which
+   emails it to info@amamiitalia.com through Resend. If the endpoint is empty,
+   the handler has no key, or the request fails, the submit falls back to
+   opening a pre-filled email to info@, so an enquiry still reaches somebody.
    ------------------------------------------------------------------------ */
 (function () {
   var MSG = {
@@ -177,9 +177,10 @@
         .then(function (r) { return r.json(); })
         .then(function (d) {
           if (d && d.ok) { form.reset(); say(status, t("ok"), "ok"); }
+          else if (d && d.fallback) { mailtoFallback(form, fd, status); }
           else { say(status, (d && d.error) || t("fail"), "err"); }
         })
-        .catch(function () { say(status, t("fail"), "err"); })
+        .catch(function () { mailtoFallback(form, fd, status); })
         .then(function () { if (btn) btn.disabled = false; });
     });
   });
