@@ -59,10 +59,18 @@ body.is-events{--ev-sand:#ddd7c7}
 /* --- Fiorentina Night: photograph left, sand panel right ---------------- */
 .ev-fio{position:relative;display:grid;padding:0;grid-template-columns:47.704vw 1fr;height:42.361vw;background:var(--ev-sand)}
 .ev-fio__img{grid-column:1;width:100%;height:100%;object-fit:cover}
-.ev-fio__panel{grid-column:2;display:flex;flex-direction:column;justify-content:space-between;
+/* the line, the title and the booking link sit together at the foot of the
+   panel (client, 2026-09-24: "reduce the space between these two") */
+.ev-fio__panel{grid-column:2;display:flex;flex-direction:column;justify-content:flex-end;
   padding:4.6vw 4vw 4.3vw 5.7vw}
-.ev-fio__p{margin:0;max-width:40vw;font-family:var(--accent);font-size:max(12px,1.217vw);
+.ev-fio__p{margin:0 0 2.2vw;max-width:40vw;font-family:var(--accent);font-size:max(12px,1.217vw);
   letter-spacing:.08em;line-height:1.9}
+.ev-fio__cta{align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
+  margin-top:2.4vw;height:max(40px,3.2vw);padding:0 max(18px,1.8vw);
+  background:var(--hm-red);border:1px solid var(--hm-red);color:var(--hm-cream);text-decoration:none;
+  font-family:var(--sans);font-weight:300;font-size:max(10px,.9vw);letter-spacing:.2em;text-indent:.2em;text-transform:uppercase;
+  transition:background .25s ease-out,color .25s ease-out}
+.ev-fio__cta:hover,.ev-fio__cta:focus-visible{background:transparent;color:var(--hm-red)}
 .ev-fio__h{margin:0;max-width:8ch;font-family:var(--serif);font-weight:300;text-transform:uppercase;
   font-size:6.122vw;line-height:.913;letter-spacing:-.05em;color:var(--hm-panel)}
 
@@ -114,8 +122,9 @@ body.is-events{--ev-sand:#ddd7c7}
   .ev-fio{display:block;height:auto}
   .ev-fio__img{display:block;width:100%;height:63vw}
   .ev-fio__panel{display:block;padding:5.6vw 8vw 12vw 10.6vw}
-  .ev-fio__p{max-width:none;font-size:max(12px,2.341vw);line-height:1.7}
-  .ev-fio__h{margin-top:13vw;font-size:11.772vw}
+  .ev-fio__p{max-width:none;margin:0;font-size:max(12px,2.341vw);line-height:1.7}
+  .ev-fio__h{margin-top:6vw;font-size:11.772vw}
+  .ev-fio__cta{margin-top:6vw;height:44px}
 
   .ev-enq{padding:14vw 0 10vw}
   .ev-enq__h{font-size:10.557vw}

@@ -38,13 +38,13 @@ var SUBJECT = {
 
 // Columns of the Event sheet, in order. Anything else a form sends is folded
 // into Message so nothing typed is ever lost.
-var COLUMNS = ['received', 'firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message', 'page'];
-var WIDTHS  = [150, 120, 120, 220, 130, 110, 70, 360, 110];
+var COLUMNS = ['received', 'space', 'firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message', 'page'];
+var WIDTHS  = [150, 170, 120, 120, 220, 130, 110, 70, 360, 110];
 // Every field of every form, in the order the guest fills them in. All of
 // them appear in the team's email, even the ones left blank, so nothing the
 // form asked is ever missing from the notification.
 var FIELDS = {
-  event:    ['firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message'],
+  event:    ['space', 'firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message'],
   catering: ['firstName', 'lastName', 'email', 'phone', 'date', 'guests', 'message'],
   careers:  ['name', 'email', 'phone', 'role', 'message'],
   contact:  ['name', 'email', 'phone', 'topic', 'message'],
@@ -58,7 +58,7 @@ var FIELD_LABEL = {
 var LABELS = {
   received: 'Received', firstName: 'First name', lastName: 'Last name', name: 'Name',
   email: 'Email', phone: 'Phone', date: 'Event date', guests: 'Guests', message: 'Message',
-  page: 'Page', topic: 'About', role: 'Role'
+  page: 'Page', topic: 'About', role: 'Role', space: 'Space'
 };
 
 function doPost(e) {
@@ -88,6 +88,7 @@ function doGet() {
 function addRow_(data) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   if (sheet.getLastRow() === 0) styleSheet_(sheet);
+  else addSpaceColumn_(sheet);
 
   var extras = [];
   for (var k in data) {
@@ -123,11 +124,23 @@ function styleSheet_(sheet) {
   sheet.setTabColor(BRAND.red);
 }
 
+/* Sheets styled before the "Which space?" field existed have no Space
+   column: add it after Received, styled like the rest of the header. */
+function addSpaceColumn_(sheet) {
+  if (String(sheet.getRange(1, 2).getValue()) === LABELS.space) return;
+  sheet.insertColumnAfter(1);
+  sheet.getRange(1, 2).setValue(LABELS.space)
+       .setBackground(BRAND.ink).setFontColor(BRAND.beige)
+       .setFontFamily('Cormorant Garamond').setFontSize(13).setFontWeight('bold').setVerticalAlignment('middle');
+  sheet.setColumnWidth(2, 170);
+}
+
 /* Run this once from the editor (Run ▸ styleNow) to brand the sheet before
    the first enquiry arrives. Safe to run again. */
 function styleNow() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   if (sheet.getLastRow() === 0) styleSheet_(sheet);
+  else addSpaceColumn_(sheet);
 }
 
 /* ---- the emails --------------------------------------------------------- */

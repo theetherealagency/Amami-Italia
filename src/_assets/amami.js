@@ -159,6 +159,15 @@
       "&body=" + encodeURIComponent(lines.join("\n"));
   }
 
+  /* Events: each space's Enquire button picks that space in the form's
+     "Which space?" list before the page jumps to it. */
+  document.querySelectorAll("a[data-space]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var sel = document.querySelector('form select[name="space"]');
+      if (sel) { sel.value = a.getAttribute("data-space"); sel.dispatchEvent(new Event("change")); }
+    });
+  });
+
   document.querySelectorAll("form[data-amami-form]").forEach(function (form) {
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
