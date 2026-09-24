@@ -405,17 +405,17 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 @media (max-width:760px){
   /* the phone set (5-8) is 1366x1120, so the hero is that frame, 81.991vw */
   .hm-hero{height:81.991vw;min-height:0}
-  /* a 320px-tall frame has no room for a stacked row, so dots and button
-     share one line just above the hero word, off the middle of the photograph */
+  /* a 320px-tall frame: the button alone, centred just above the hero word,
+     off the middle of the photograph (the slide dots are gone, 2026-09-24) */
   .hm-hero__row{
-    grid-template-columns:auto auto;justify-content:space-between;align-items:center;
-    bottom:13.5vw;gap:max(14px,4vw);padding-inline:max(14px,4.5vw);
+    grid-template-columns:1fr;justify-items:center;
+    bottom:13.5vw;padding-inline:max(14px,4.5vw);
   }
+  .hm-hero__mid{display:none}
   .hm-hero__claim{display:none} /* phones: the Caledon line goes; button and dots only */
   .hm-proof__line{font-size:9px;line-height:2;letter-spacing:.16em}
   .hm-proof__sep{margin:0 .5em}
-  .hm-hero__act{justify-self:end}
-  .hm-dot{width:32px;padding:14px 0}
+  .hm-hero__act{justify-self:center}
 
   .hm-room{padding-top:max(34px,9vw)}
   .hm-room__illo{width:92vw;margin-top:max(18px,3vw)}
