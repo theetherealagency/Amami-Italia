@@ -352,7 +352,7 @@ body.is-page .dish__add{color:var(--hm-red)}
    wrapped rows on top of each other (legal, 404, menu section rows). */
 @media (max-width:760px){
   body.is-page .pg-anchors{gap:10px 8px;padding-inline:16px}
-  body.is-page .pg-anchors a{display:inline-flex;align-items:center;height:44px;padding:0 14px;margin:0;font-size:10px}
+  body.is-page main .pg-anchors a{display:inline-flex;align-items:center;height:44px;padding:0 14px;margin:0;font-size:10px}
 }
 
 /* OpenTable slot: spans its row so the loader can measure it (wide >= 860px, else tall), widget centred */

@@ -704,7 +704,15 @@ body.am-clear-header .qodef-widget-holder{position:relative;z-index:2}
 #qodef-page-footer li{margin-bottom:4px !important}
 #qodef-page-footer-bottom-area{padding:10px 0 !important}
 @media(max-width:1024px){.amami-footer-map{max-width:150px}}
-</style></head>
+</style><style id="amami-holiday-mobile">
+/* Legacy WordPress holiday pages: on phones the 54px letter-spaced titles broke
+   mid-word ("BENVENU / TO", "VALENTINE' / S"). Size them to the screen instead. */
+@media (max-width:760px){
+  .qodef-m-title{font-size:clamp(28px,8.6vw,54px)!important;letter-spacing:.02em!important;
+    overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important;line-height:1.1!important}
+}
+</style>
+</head>
 <body class="wp-singular page-template page-template-page-full-width page-template-page-full-width-php page page-id-6624 wp-custom-logo wp-theme-rolanda wp-child-theme-rolanda-child qi-blocks-1.4.9 qodef-gutenberg--no-touch qode-framework-1.2.4 qodef-qi--no-touch qi-addons-for-elementor-1.9.6 qodef-back-to-top--enabled qodef-skin--dark qodef-header--standard qodef-header-appearance--sticky qodef-mobile-header--standard qodef-drop-down-second--full-width qodef-drop-down-second--animate-height rolanda-core-1.0 qode-optimizer-1.2.2 rolanda-child-1.0 rolanda-1.0.1 qodef-content-grid-1300 qodef-header-standard--center qodef-search--covers-header elementor-default elementor-kit-10 elementor-page elementor-page-6624" itemscope="" itemtype="https://schema.org/WebPage">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNHMB7C9"
