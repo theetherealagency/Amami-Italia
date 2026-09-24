@@ -145,18 +145,36 @@ function styleNow() {
 
 /* ---- the emails --------------------------------------------------------- */
 
-function fieldRows_(type, data) {
+// The guest's copy is in the language of the page they wrote from.
+var LABELS_IT = {
+  space: 'Spazio', firstName: 'Nome', lastName: 'Cognome', name: 'Nome', email: 'Email',
+  phone: 'Telefono', date: 'Data dell’evento', guests: 'Ospiti', message: 'La serata',
+  role: 'Ruolo', topic: 'Argomento'
+};
+var SPACE_IT = {
+  'The Private Room': 'La Sala Privata', 'The Lounge': 'Il Salotto',
+  'The Long Table': 'Il Tavolo Lungo', 'Full Buyout': 'Uso esclusivo', 'Not sure yet': 'Non so ancora'
+};
+var DAYS_IT = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
+var MONTHS_IT = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio',
+                 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+
+function fieldRows_(type, data, lang) {
   var order = (FIELDS[type] || []).slice();
   for (var k in data) {                       // anything extra the form sent, after
     if (k === 'form' || k === 'company_website' || k === 'page' || order.indexOf(k) !== -1) continue;
     order.push(k);
   }
   return order.map(function (k) {
-    var label = (FIELD_LABEL[type] && FIELD_LABEL[type][k]) || LABELS[k] || k;
+    var it = lang === 'it';
+    var label = (it && LABELS_IT[k]) || (FIELD_LABEL[type] && FIELD_LABEL[type][k]) || LABELS[k] || k;
     var v = data[k] ? String(data[k]).trim() : '';
     if (k === 'date' && /^\d{4}-\d{2}-\d{2}$/.test(v)) {
-      v = Utilities.formatDate(new Date(v + 'T12:00:00'), 'America/Toronto', 'EEEE d MMMM yyyy') + ' (' + v + ')';
+      var d = new Date(v + 'T12:00:00');
+      v = it ? DAYS_IT[d.getDay()] + ' ' + d.getDate() + ' ' + MONTHS_IT[d.getMonth()] + ' ' + d.getFullYear()
+             : Utilities.formatDate(d, 'America/Toronto', 'EEEE d MMMM yyyy') + ' (' + v + ')';
     }
+    if (k === 'space' && it && SPACE_IT[v]) v = SPACE_IT[v];
     return { key: k, label: label, value: v };
   });
 }
@@ -251,7 +269,7 @@ function confirmGuest_(type, data) {
   var lang = /^\/it\//.test(data.page || '') ? 'it' : 'en';
   var L = GUEST[lang], c = L[type] || L.contact;
   var first = data.firstName || (data.name ? String(data.name).split(' ')[0] : '');
-  var rows = fieldRows_(type, data).filter(function (r) { return r.value; });
+  var rows = fieldRows_(type, data, lang).filter(function (r) { return r.value; });
   var inner = heading_('Amami Italia', c.h + (first ? ', ' + first : ''), '') +
     '<p style="margin:0 0 22px;font:16px/1.6 Georgia,serif;color:' + BRAND.ink + '">' + esc_(c.p) + '</p>' +
     (type === 'event-updates' ? '' :
