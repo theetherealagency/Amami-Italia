@@ -80,17 +80,19 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 .hm-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 /* Four photographs, the client's numbered set: 1-4 on desktop, 5-8 on a phone
    (swapped by <source media> in the markup). The inline script drives the crossfade; without it
-   these keyframes run: each holds 4.8s and dissolves over 1.2s, 24s a turn. */
-.hm-hero__img{opacity:0;animation:hm-hero-fade 24s linear infinite}
-.hm-hero__img--1{opacity:1;animation-delay:-1.2s}
-.hm-hero__img--2{animation-delay:4.8s}
-.hm-hero__img--3{animation-delay:10.8s}
-.hm-hero__img--4{animation-delay:16.8s}
+   these keyframes run: three seconds a photograph (client, 2026-09-24), .8s
+   dissolves, 12s a turn. */
+.hm-hero__img{opacity:0;animation:hm-hero-fade 12s linear infinite}
+.hm-hero__img--1{opacity:1;animation-delay:-.8s}
+.hm-hero__img--2{animation-delay:2.2s}
+.hm-hero__img--3{animation-delay:5.2s}
+.hm-hero__img--4{animation-delay:8.2s}
 @keyframes hm-hero-fade{
   0%,100%{opacity:0}
-  5%,25%{opacity:1}
-  30%{opacity:0}
+  6.667%,25%{opacity:1}
+  31.667%{opacity:0}
 }
+
 .hm-hero__scrim{
   position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(to bottom,rgba(8,9,9,0) 40.6%,var(--hm-scrim) 100%);
@@ -125,7 +127,7 @@ body.is-home picture > source{display:none} /* else it becomes a grid item; see 
 .hm-dot:hover::before{opacity:.8}
 .hm-dot[aria-pressed="true"]::before{opacity:1}
 .hm-dot:focus-visible{outline:1px solid var(--hm-cream);outline-offset:3px}
-.hm-hero--js .hm-hero__img{animation:none;opacity:0;transition:opacity 1.2s linear}
+.hm-hero--js .hm-hero__img{animation:none;opacity:0;transition:opacity .8s linear}
 .hm-hero--js .hm-hero__img.is-on{opacity:1}
 /* bottom:24.21% puts the row's bottom edge on the comp's button centre; the
    comp centres the row there, so shift it down by half its own height. */

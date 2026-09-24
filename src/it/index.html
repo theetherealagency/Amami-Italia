@@ -331,8 +331,8 @@
   <a href="https://www.google.com/maps/dir/?api=1&destination=6261+Mayfield+Rd+%23140,+Brampton,+ON+L6P+0X9" target="_blank" rel="noopener"><span data-it="Indicazioni">Indicazioni</span></a>
 </nav>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();
-/* The hero crossfade, driven here so the dots can jump to a photograph: six
-   seconds a photograph, 1.2s dissolve, restarted after a click. Anyone who
+/* The hero crossfade, driven here so the dots can jump to a photograph: three
+   seconds a photograph (client, 2026-09-24), .8s dissolve, restarted after a click. Anyone who
    has asked for less motion gets the dots and no auto-advance. */
 (function(){var h=document.querySelector('.hm-hero');if(!h)return;
 var imgs=h.querySelectorAll('.hm-hero__img'),dots=h.querySelectorAll('.hm-dot');if(imgs.length<2||dots.length!==imgs.length)return;
@@ -340,7 +340,7 @@ var i=0,t,still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)'
 function go(n){i=(n+imgs.length)%imgs.length;
 for(var k=0;k<imgs.length;k++){imgs[k].classList.toggle('is-on',k===i);dots[k].setAttribute('aria-pressed',k===i?'true':'false');}
 var nx=imgs[(i+1)%imgs.length];if(nx.loading==='lazy')nx.loading='eager';}
-function play(){clearInterval(t);if(!still)t=setInterval(function(){go(i+1);},6000);}
+function play(){clearInterval(t);if(!still)t=setInterval(function(){go(i+1);},3000);}
 for(var k=0;k<dots.length;k++){(function(k){dots[k].addEventListener('click',function(){go(k);play();});})(k);}
 h.classList.add('hm-hero--js');go(0);play();})();
 /* The room film loops by itself; anyone who has asked for less motion
