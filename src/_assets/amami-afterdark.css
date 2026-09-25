@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Amami Italia — /after-dark/ (and /it/after-dark/), from the client's comp
+   "amami web - after dark page DESK / MOB" (2026-09-25). Only what the comp
+   holds: the hero, the three lines + list button, and "While you wait".
+   Desktop artboard 2880 wide, phone 1366: lengths are comp units over that
+   width as vw (u/28.8 desktop, u/13.66 phone), px floors only for legibility.
+   ========================================================================== */
+body.is-afterdark{--ad-mist:#cdd6e2}
+
+/* --- hero: red ground, the bar on the right, the title across both ------- */
+.ad-hero{position:relative;isolation:isolate;overflow:hidden;margin:76px 0 0;padding:0;
+  height:42.361vw;min-height:380px;background:var(--hm-red)}
+.ad-hero__img{position:absolute;top:0;right:0;width:47.704vw;height:100%;object-fit:cover;z-index:-2}
+.ad-hero__scrim{display:none}
+.ad-hero__copy{position:absolute;left:0;top:14.1vw;width:52.296vw;text-align:center;color:var(--hm-cream)}
+.ad-hero__p{margin:0 auto;font-family:var(--accent);font-size:max(11px,1.173vw);letter-spacing:.08em;line-height:2.13}
+.ad-hero__p span,.ad-hush__lines span,.ad-wait__p span{display:block}
+.ad-hero__soon{margin:12.5vw 0 0;font-family:var(--sans);font-weight:400;font-size:max(9px,1.377vw);
+  letter-spacing:.2em;text-transform:uppercase}
+.ad-hero__h{position:absolute;left:0;bottom:0;margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-cream);
+  text-transform:uppercase;font-size:9.523vw;line-height:.913;letter-spacing:-.05em;white-space:nowrap;
+  transform:translateY(.152em)}   /* bleeds off the bottom edge like the home title */
+[data-lang="it"] .ad-hero__h{font-size:7.1vw}   /* "A NOTTE FONDA" is longer: keep it on the red panel */
+
+/* --- the three lines, the list ------------------------------------------ */
+.ad-hush{text-align:center;padding:9.8vw 4vw 9.4vw;background:var(--hm-cream)}
+.ad-hush__lines{margin:0;font-family:var(--sans);font-weight:400;color:var(--hm-panel);
+  font-size:max(12px,1.852vw);letter-spacing:.2em;line-height:1.72;text-transform:uppercase}
+.ad-hush__note{margin:5.4vw 0 0;font-family:var(--accent);color:var(--hm-red);font-size:max(15px,2.156vw);letter-spacing:.08em}
+.ad-btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;text-decoration:none;
+  font-family:var(--sans);font-weight:300;letter-spacing:.2em;text-indent:.2em;text-transform:uppercase;
+  transition:background .25s ease-out,color .25s ease-out}
+.ad-btn--red{margin-top:3.5vw;width:25.045vw;height:4.83vw;min-height:44px;border:1px solid var(--hm-red);color:var(--hm-red);
+  font-size:max(10px,1.738vw)}
+.ad-btn--red:hover,.ad-btn--red:focus-visible{background:var(--hm-red);color:var(--hm-cream)}
+
+/* --- while you wait: photograph left, black panel right ------------------- */
+.ad-wait{display:grid;grid-template-columns:47.704vw 1fr;height:42.361vw;padding:0;background:var(--hm-panel)}
+.ad-wait__img{width:100%;height:100%;object-fit:cover}
+.ad-wait__panel{padding:6.6vw 4vw 0 8.03vw;color:var(--hm-cream)}
+.ad-wait__h{margin:0;font-family:var(--serif);font-weight:300;color:var(--ad-mist);text-transform:uppercase;
+  font-size:4.777vw;line-height:1;letter-spacing:-.04em}
+.ad-wait__p{margin:3.2vw 0 0;font-family:var(--sans);font-weight:400;font-size:max(11px,1.565vw);line-height:1.6;color:var(--hm-cream)}
+.ad-wait__p + .ad-wait__p{margin-top:2.2vw}
+.ad-btn--cream{margin-top:4.6vw;width:30.104vw;height:5.114vw;min-height:44px;border:1px solid var(--hm-cream);color:var(--hm-cream);
+  font-size:max(10px,1.84vw)}
+.ad-btn--cream:hover,.ad-btn--cream:focus-visible{background:var(--hm-cream);color:var(--hm-panel)}
+
+/* --- phone: the 1366 artboard ------------------------------------------ */
+@media (max-width:760px){
+  .ad-hero{height:78.85vw;min-height:0}
+  .ad-hero__img{width:100%;object-position:50% 0}
+  /* the comp's dark wash rising from the bottom of the photograph */
+  .ad-hero__scrim{display:block;position:absolute;left:0;right:0;bottom:0;height:44%;z-index:-1;
+    background:linear-gradient(to top,#080809 0%,rgba(7,4,8,0) 100%)}
+  .ad-hero__copy{left:0;right:0;width:auto;top:26vw;bottom:0;padding:0 3.5vw;text-shadow:0 1px 8px rgba(22,22,22,.6)}
+  .ad-hero__p{font-size:max(10.5px,2.237vw);line-height:1.75;letter-spacing:.05em}
+  /* "COMING" and "SOON" sit at the two edges, above the title */
+  .ad-hero__soon{position:absolute;left:3.5vw;right:3.5vw;bottom:19.6vw;margin:0;display:flex;justify-content:space-between;
+    font-size:max(9px,2.627vw)}
+  .ad-hero__h{font-size:18.155vw}
+  [data-lang="it"] .ad-hero__h{font-size:13.8vw}
+
+  .ad-hush{padding:10.6vw 5vw 10vw}
+  .ad-hush__lines{font-size:max(11px,3.04vw);line-height:1.7}
+  .ad-hush__note{margin-top:6.2vw;font-size:max(14px,3.539vw)}
+  .ad-btn--red{margin-top:4.4vw;width:auto;min-width:41.1vw;padding:0 1.2em;height:44px;font-size:max(10px,2.851vw)}
+
+  .ad-wait{display:block;height:auto}
+  .ad-wait__img{display:block;height:89.3vw}
+  .ad-wait__panel{padding:10.4vw 7vw 12vw;text-align:center}
+  .ad-wait__h{font-size:9.187vw}
+  .ad-wait__p{margin-top:5vw;font-size:max(12px,3.01vw)}
+  .ad-wait__p + .ad-wait__p{margin-top:3.6vw}
+  .ad-btn--cream{margin-top:6.6vw;width:auto;min-width:57.9vw;padding:0 1.2em;height:max(44px,9.836vw);font-size:max(10px,3.539vw)}
+}
+@media (prefers-reduced-motion:reduce){.ad-btn{transition:none}}
