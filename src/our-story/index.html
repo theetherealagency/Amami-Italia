@@ -39,9 +39,10 @@
 <link rel="stylesheet" href="/_assets/amami-header.css">
 <link rel="stylesheet" href="/_assets/amami-footer.css">
 <link rel="stylesheet" href="/_assets/amami-pages.css">
+<link rel="stylesheet" href="/_assets/amami-ourstory.css">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MNHMB7C9');</script>
 </head>
-<body class=" is-page" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, 23], "sat": [12, 23]}'>
+<body class=" is-page is-ourstory" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, 23], "sat": [12, 23]}'>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNHMB7C9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="sr-only" href="#main"><span data-it="Vai al contenuto">Skip to content</span></a>
 <header class="hdr">
@@ -87,38 +88,31 @@
 </div>
 <main id="main">
 
-<!-- Brief §2 /our-story: hero → two paragraphs → chef block → CTA. Nothing else. -->
-<section class="pg-hero">
-  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/new-room-mural-wine-g2-480w.webp 480w, /wp-content/uploads/2026/09/new-room-mural-wine-g2-800w.webp 800w, /wp-content/uploads/2026/09/new-room-mural-wine-g2-1200w.webp 1200w, /wp-content/uploads/2026/09/new-room-mural-wine-g2.webp 1600w" sizes="100vw"><img class="pg-hero__img" src="/wp-content/uploads/2026/09/new-room-mural-wine-g2.jpg" srcset="/wp-content/uploads/2026/09/new-room-mural-wine-g2-480w.jpg 480w, /wp-content/uploads/2026/09/new-room-mural-wine-g2-800w.jpg 800w, /wp-content/uploads/2026/09/new-room-mural-wine-g2-1200w.jpg 1200w, /wp-content/uploads/2026/09/new-room-mural-wine-g2.jpg 1600w" alt="The mural and the wine wall, tables lit for dinner"
-       width="1600" height="2399" fetchpriority="high" decoding="async" sizes="100vw"></picture>
-  <div class="pg-hero__scrim" aria-hidden="true"></div>
-  <h1 class="pg-hero__h"><span data-it="Toscana nel cuore. Brampton a casa.">Tuscan at heart. Brampton at home.</span></h1>
+<!-- Client comp "amami web - our story page DESK/MOB" (2026-09-25), coded from the SVG
+     artboards (2880 desktop, 1366 phone; lengths as vw). Only what the comp holds.
+     Styles: /_assets/amami-ourstory.css. -->
+<section class="os-hero">
+  <picture><source media="(max-width:760px)" type="image/webp" srcset="/wp-content/uploads/2026/09/ourstory-hero-mob-480w.webp 480w, /wp-content/uploads/2026/09/ourstory-hero-mob-800w.webp 800w, /wp-content/uploads/2026/09/ourstory-hero-mob-1200w.webp 1200w" sizes="100vw"><source media="(max-width:760px)" srcset="/wp-content/uploads/2026/09/ourstory-hero-mob-480w.jpg"><source type="image/webp" srcset="/wp-content/uploads/2026/09/ourstory-hero-desk-800w.webp 800w, /wp-content/uploads/2026/09/ourstory-hero-desk-1374w.webp 1374w" sizes="48vw"><img class="os-hero__img" src="/wp-content/uploads/2026/09/ourstory-hero-desk-1374w.jpg" alt="A Tuscan hill town seen through a stone arch" fetchpriority="high" decoding="async"></picture>
+  <p class="os-hero__p"><span data-it="Toscana nel cuore.">Tuscan at heart.</span> <span data-it="Brampton a casa.">Brampton at home.</span></p>
+  <h1 class="os-hero__h"><span data-it="La nostra storia">Our Story</span></h1>
 </section>
 
-<section class="pg-sec pg-sec--tight">
-  <div class="pg-body">
-    <p><span data-it="La cucina toscana è fatta di misura: buon pane, buon olio, fagioli cotti piano, niente per fare scena. È per quello standard che la certificazione APCI contava, per noi.">Tuscan cooking is built on restraint: good bread, good oil, beans cooked slowly, nothing added for show. That standard is why the APCI certification mattered to us.</span></p>
-    <p><span data-it="Abbiamo aperto a novembre 2025 perché a questa zona mancava solo una vera sala italiana — tovaglie, carta dei vini, dress code — abbastanza vicina da venirci un martedì.">We opened in November 2025 because this corridor had everything except a proper Italian dining room — tablecloths, wine list, dress code — close enough to drive to on a Tuesday.</span></p>
+<section class="os-band" aria-label="Our kitchen">
+  <p class="os-band__p"><span data-it="La cucina toscana è fatta di misura: buon pane, buon olio, fagioli cotti piano, niente per fare scena. È per quello standard che la certificazione APCI contava, per noi.">Tuscan cooking is built on restraint: good bread, good oil, beans cooked slowly, nothing added for show. That standard is why the APCI certification mattered to us.</span></p>
+  <p class="os-band__p"><span data-it="Abbiamo aperto a novembre 2025 perché a questa zona mancava solo una vera sala italiana — tovaglie, carta dei vini, dress code — abbastanza vicina da venirci un martedì.">We opened in November 2025 because this corridor had everything except a proper Italian dining room — tablecloths, wine list, dress code — close enough to drive to on a Tuesday.</span></p>
+</section>
+
+<section class="os-chef" aria-label="The chef">
+  <div class="os-chef__photo">
+    <picture><source media="(max-width:760px)" type="image/webp" srcset="/wp-content/uploads/2026/09/ourstory-chef-mob-480w.webp 480w, /wp-content/uploads/2026/09/ourstory-chef-mob-800w.webp 800w, /wp-content/uploads/2026/09/ourstory-chef-mob-1200w.webp 1200w" sizes="100vw"><source media="(max-width:760px)" srcset="/wp-content/uploads/2026/09/ourstory-chef-mob-480w.jpg"><source type="image/webp" srcset="/wp-content/uploads/2026/09/ourstory-chef-desk-600w.webp 600w, /wp-content/uploads/2026/09/ourstory-chef-desk-1177w.webp 1177w" sizes="41vw"><img class="os-chef__img" src="/wp-content/uploads/2026/09/ourstory-chef-desk-1177w.jpg" alt="Chef Isabella Comello with a board of bruschetta" loading="lazy" decoding="async"></picture>
+    <h2 class="os-chef__h"><span class="os-chef__k" data-it="La chef">Chef</span><span class="os-chef__n">Isabella</span><span class="os-chef__n">Comello</span></h2>
+    <img class="os-chef__mark" src="/wp-content/uploads/2026/09/ourstory-bird-mark.svg" alt="" width="87" height="106" loading="lazy" decoding="async">
   </div>
-</section>
-
-<!-- Chef Isabella Comello is the chef (confirmed by the client, 2026-09-22). -->
-<section class="pg-split pg-split--bleed" aria-label="The chef">
-  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/chef-isabella-kitchen-g2-480w.webp 480w, /wp-content/uploads/2026/09/chef-isabella-kitchen-g2-800w.webp 800w, /wp-content/uploads/2026/09/chef-isabella-kitchen-g2.webp 1200w" sizes="(max-width:760px) 100vw, 52vw"><img class="pg-split__img pg-split__img--chef" src="/wp-content/uploads/2026/09/chef-isabella-kitchen-g2.jpg" srcset="/wp-content/uploads/2026/09/chef-isabella-kitchen-g2-480w.jpg 480w, /wp-content/uploads/2026/09/chef-isabella-kitchen-g2-800w.jpg 800w, /wp-content/uploads/2026/09/chef-isabella-kitchen-g2.jpg 1200w" alt="Chef Isabella Comello in the kitchen, spooning fresh pasta from the pan onto a plate"
-       width="1200" height="1798" loading="lazy" decoding="async" sizes="(max-width:760px) 100vw, 52vw"></picture>
-  <div class="pg-split__panel">
-    <p class="pg-label"><span data-it="La chef">Chef</span> Isabella Comello</p>
-    <p class="pg-split__lede"><span data-it="Nata e cresciuta qui in Canada, Isabella è una chef con esperienza e un punto di vista suo, e cucina come crede che si debba cucinare l’italiano — semplicemente, come a casa, senza distanza. Sapori tradizionali, la sua creatività in ogni piatto. Scrive lei gli speciali. Esce lei ai tavoli.">Born and raised right here in Canada, Isabella is an experienced chef with her own point of view, and she cooks the way she believes Italian food should be cooked — simply, at home, without distance. Traditional flavours, her own creativity in every dish. She writes the specials. She comes out to the tables.</span></p>
-    <p class="pg-split__lede pg-split__lede--kitchen"><span data-it="Pasta tirata fresca ogni mattina. Ogni piatto rifinito al pass, e assaggiato prima di uscire.">Pasta rolled fresh every morning. Every plate finished at the pass, and tasted before it leaves.</span></p>
-    <!-- The quote stays in English in both languages; the Italian rendering appears
-         beneath it, smaller, only when Italian is on. -->
-    <blockquote class="pg-quote" lang="en">“I want them to feel like they’re at home, having a home-cooked meal made by their family. It’s the best.”<span class="pg-quote__it" lang="it" data-it="«Voglio che si sentano a casa, a mangiare un piatto cucinato dalla loro famiglia. È la cosa più bella.»"></span></blockquote>
+  <div class="os-chef__panel">
+    <p class="os-chef__p"><span data-it="Nata e cresciuta qui in Canada, Isabella è una chef con esperienza e un punto di vista suo, e cucina come crede che si debba cucinare l’italiano — semplicemente, come a casa, senza distanza. Sapori tradizionali, la sua creatività in ogni piatto. Scrive lei gli speciali. Esce lei ai tavoli.">Born and raised right here in Canada, Isabella is an experienced chef with her own point of view, and she cooks the way she believes Italian food should be cooked — simply, at home, without distance. Traditional flavours, her own creativity in every dish. She writes the specials. She comes out to the tables.</span></p>
+    <hr class="os-chef__rule">
+    <blockquote class="os-chef__q"><p><span data-it="«Voglio che si sentano a casa, a mangiare un piatto cucinato dalla loro famiglia. È la cosa più bella.»">“I want them to feel like they’re at home, having a home-cooked meal made by their family. It’s the best.”</span></p></blockquote>
   </div>
-</section>
-
-<section class="pg-end">
-  <h2 class="pg-end__h"><span data-it="Il tuo tavolo ti aspetta.">Your table is waiting.</span></h2>
-  <a class="pg-btn pg-btn--fill" href="/reservation/" data-gtm="reserve"><span data-it="Prenota un tavolo">Reserve a Table</span></a>
 </section>
 </main>
 <footer class="ftr">
