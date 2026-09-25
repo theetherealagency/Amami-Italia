@@ -10,7 +10,7 @@
 //   POST /api/admin/upload    {name, data}              upload a photo (base64)
 //   GET  /api/admin/status                              is the last change live yet?
 const crypto = require('crypto');
-const A = require('../_lib/admin');
+const A = require('./_lib/admin');
 
 // A few wrong passwords in a row lock sign-in for a while (per server instance).
 const tries = new Map();

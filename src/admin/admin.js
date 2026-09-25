@@ -47,7 +47,7 @@ function toast(msg, bad = false) {
 
 // ---------- API ----------
 async function api(action, { method = 'GET', query, body } = {}) {
-  const url = `/api/admin/${action}` + (query ? '?' + new URLSearchParams(query) : '');
+  const url = `/api/admin/${action}/` + (query ? '?' + new URLSearchParams(query) : '');
   const headers = method === 'GET' ? {} : { 'X-Amami-Admin': '1', 'Content-Type': 'application/json' };
   const r = await fetch(url, { method, credentials: 'same-origin', headers, body: body ? JSON.stringify(body) : undefined });
   let j = {};
