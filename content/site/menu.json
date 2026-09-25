@@ -1,0 +1,2056 @@
+{
+  "slots": {
+    "menu.hero.image": {
+      "desk": "/wp-content/uploads/2026/09/menu-hero-desk-o",
+      "mob": "/wp-content/uploads/2026/09/menu-hero-mob-o",
+      "alt": {
+        "en": "Saffron risotto with seared shrimp and asparagus on a black plate, a glass of white wine beside it",
+        "it": "Risotto allo zafferano con gamberi scottati e asparagi su un piatto nero, accanto un calice di bianco"
+      }
+    },
+    "menu.card1.image": {
+      "desk": "/wp-content/uploads/2026/09/menu-card-dining-o",
+      "mob": "",
+      "alt": {
+        "en": "Spaghetti aglio e olio in a white bowl",
+        "it": "Spaghetti aglio e olio in un piatto bianco"
+      }
+    },
+    "menu.card2.image": {
+      "desk": "/wp-content/uploads/2026/09/menu-card-wine-o",
+      "mob": "",
+      "alt": {
+        "en": "Red wine poured at a candlelit table",
+        "it": "Vino rosso versato a un tavolo a lume di candela"
+      }
+    },
+    "menu.card3.image": {
+      "desk": "/wp-content/uploads/2026/09/menu-card-pizza-o",
+      "mob": "",
+      "alt": {
+        "en": "A Neapolitan pizza with a glass of white wine",
+        "it": "Una pizza napoletana con un calice di bianco"
+      }
+    },
+    "menu.card4.image": {
+      "desk": "/wp-content/uploads/2026/09/menu-card-cocktails-o",
+      "mob": "",
+      "alt": {
+        "en": "A bartender finishing a yellow cocktail with a lemon wheel",
+        "it": "Un barman completa un cocktail giallo con una rondella di limone"
+      }
+    },
+    "menu.dining.hero": {
+      "desk": "/wp-content/uploads/2026/09/new-lamb-chops-g2",
+      "mob": "",
+      "w": 1600,
+      "h": 2400,
+      "alt": {
+        "en": "Lamb chops seasoned at the pass, straight from the pan"
+      }
+    },
+    "menu.pizza.hero": {
+      "desk": "/wp-content/uploads/2026/09/ig-room",
+      "mob": "",
+      "w": 600,
+      "h": 600,
+      "alt": {
+        "en": "The dining room, warm light under the canopy"
+      }
+    },
+    "menu.cocktails.hero": {
+      "desk": "/wp-content/uploads/2026/09/ig-room",
+      "mob": "",
+      "w": 600,
+      "h": 600,
+      "alt": {
+        "en": "The dining room, warm light under the canopy"
+      }
+    },
+    "menu.after-dark.hero": {
+      "desk": "/wp-content/uploads/2026/09/new-room-bar-wall-g2",
+      "mob": "",
+      "w": 1600,
+      "h": 2399,
+      "alt": {
+        "en": "The bar wall glowing behind the lounge seats"
+      }
+    }
+  },
+  "menus": {
+    "dining": {
+      "sections": [
+        {
+          "id": "antipasti",
+          "title": "Antipasti",
+          "items": [
+            {
+              "name": "Arancini",
+              "price": "18",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Rice balls filled with mozzarella, served with house tomato sauce (3)",
+                "it": "Arancini ripieni di mozzarella, serviti con salsa di pomodoro della casa (3)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Melanzane Parmigiana",
+              "price": "18",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Baked layers of eggplant, tomato sauce, mozzarella and parmigiano",
+                "it": "Strati di melanzane al forno con salsa di pomodoro, mozzarella e parmigiano"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Caprese",
+              "price": "28",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Buffalo mozzarella with heirloom tomatoes and basil oil",
+                "it": "Mozzarella di bufala con pomodori antichi e olio al basilico"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Bruschetta",
+              "price": "14",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Toasted artisan bread topped with tomatoes, garlic, olive oil and sea salt (3)",
+                "it": "Pane artigianale tostato con pomodoro, aglio, olio d'oliva e sale marino (3)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Burrata",
+              "price": "30",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Fresh burrata with sautéed cherry tomatoes, garlic and basil oil",
+                "it": "Burrata fresca con pomodorini saltati, aglio e olio al basilico"
+              },
+              "add": {
+                "en": "Add Parma prosciutto 6",
+                "it": "Aggiungi prosciutto di Parma 6"
+              }
+            },
+            {
+              "name": "Frittura di Mare Mista",
+              "price": "38",
+              "v": false,
+              "gf": true,
+              "desc": {
+                "en": "Fried calamari, prawns and zucchini with Greek lime yogurt",
+                "it": "Frittura di calamari, gamberi e zucchine con yogurt greco al lime"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "primi-piatti",
+          "title": "Primi Piatti",
+          "items": [
+            {
+              "name": "Gnocchi al Pesto",
+              "price": "38",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Potato gnocchi tossed in fresh basil pesto and pine nuts, Parmigiano, topped with stracciatella",
+                "it": "Gnocchi di patate al pesto di basilico fresco e pinoli, parmigiano, con stracciatella"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Ravioli",
+              "price": "38",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Ricotta and spinach ravioli with blush sauce",
+                "it": "Ravioli di ricotta e spinaci con salsa rosata"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Risotto allo Zafferano e Asparagi",
+              "price": "35",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Carnaroli risotto finished with saffron",
+                "it": "Riso Carnaroli mantecato allo zafferano"
+              },
+              "add": {
+                "en": "Add shrimp 8",
+                "it": "Aggiungi gamberi 8"
+              }
+            },
+            {
+              "name": "Spaghetti Aglio Olio e Peperoncino",
+              "price": "30",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Garlic, extra virgin olive oil, hot pepper",
+                "it": "Aglio, olio extravergine d'oliva, peperoncino"
+              },
+              "add": {
+                "en": "Add shrimp 8",
+                "it": "Aggiungi gamberi 8"
+              }
+            },
+            {
+              "name": "Lasagna",
+              "price": "30",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Beef, spinach, mozzarella and house tomato sauce",
+                "it": "Manzo, spinaci, mozzarella e salsa di pomodoro della casa"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Artisanal Penne",
+              "price": "28",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Vodka-infused tomato cream sauce",
+                "it": "Crema di pomodoro alla vodka"
+              },
+              "add": {
+                "en": "Add chicken 6 · shrimp 8 · vegetables 6",
+                "it": "Aggiungi pollo 6 · gamberi 8 · verdure 6"
+              }
+            }
+          ]
+        },
+        {
+          "id": "secondi",
+          "title": "Secondi",
+          "items": [
+            {
+              "name": "Salmone al Sambuca",
+              "price": "52",
+              "v": false,
+              "gf": true,
+              "desc": {
+                "en": "Sesame-crusted seared salmon with Pernod and Sambuca cream sauce",
+                "it": "Salmone in crosta di sesamo con crema al Pernod e Sambuca"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Agnello alla Griglia",
+              "price": "80",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Grilled lamb chops marinated with rosemary and lemon",
+                "it": "Costolette d'agnello alla griglia marinate con rosmarino e limone"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Tomahawk",
+              "price": "195/kg",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Dry-aged 45 days, AAA Canadian",
+                "it": "Frollata 45 giorni, AAA canadese"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Bistecca alla Fiorentina",
+              "price": "190/kg",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Dry-aged 45 days, AAA Canadian T-bone",
+                "it": "T-bone AAA canadese, frollata 45 giorni"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Scaloppine al Marsala",
+              "price": "40",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Veal or chicken scaloppine, mushrooms and creamy marsala sauce",
+                "it": "Scaloppine di vitello o pollo, funghi e crema al marsala"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Bistecca di Cavolfiore",
+              "price": "38",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Grilled cauliflower steak with chickpea and beet cream sauce",
+                "it": "Trancio di cavolfiore alla griglia con crema di ceci e barbabietola"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Ribeye",
+              "price": "80",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "12 oz AAA",
+                "it": "340 g AAA"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Petto di Pollo al Limone",
+              "price": "38",
+              "v": false,
+              "gf": true,
+              "desc": {
+                "en": "Chicken breast with a light lemon jus",
+                "it": "Petto di pollo con un leggero jus al limone"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "contorni",
+          "title": "Contorni",
+          "items": [
+            {
+              "name": "Cavoletti Fritti",
+              "price": "18",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Cajun fried brussels sprouts",
+                "it": "Cavoletti fritti alla cajun"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Caesar Salad",
+              "price": "18",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Crisp romaine, croutons and house caesar dressing",
+                "it": "Lattuga romana croccante, crostini e salsa caesar della casa"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Truffle Fries / Sweet Potato Fries",
+              "price": "14",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Insalata di Casa",
+              "price": "18",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Seasonal mixed salad with house dressing",
+                "it": "Insalata mista di stagione con condimento della casa"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Fagioli al Pomodoro",
+              "price": "12",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Beans in house tomato sauce",
+                "it": "Fagioli in salsa di pomodoro della casa"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Mandy's Signature Salad",
+              "price": "21",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Roasted red beets, greens, feta, mandarin oranges and house Italian dressing",
+                "it": "Barbabietole rosse arrostite, insalata, feta, mandarini e condimento italiano della casa"
+              },
+              "add": {
+                "en": "Add to any salad: chicken 6, smoked salmon 10, shrimp 8",
+                "it": "Aggiungi a qualsiasi insalata: pollo 6, salmone affumicato 10, gamberi 8"
+              }
+            }
+          ]
+        },
+        {
+          "id": "dolci",
+          "title": "Dolci",
+          "items": [
+            {
+              "name": "Cheesecake ai Frutti di Bosco",
+              "price": "18",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Light ricotta and mascarpone cheesecake with fresh berries",
+                "it": "Cheesecake leggera di ricotta e mascarpone con frutti di bosco freschi"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Ricotta & Pistachio Cheesecake",
+              "price": "18",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Pistachio and ricotta creams separated by sponge cake, crusted pistachios, powdered sugar",
+                "it": "Creme di pistacchio e ricotta separate da pan di Spagna, pistacchi in granella, zucchero a velo"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Chocolate Cheesecake",
+              "price": "15",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Creamy cheesecake with rich ganache on a chocolate crumb base",
+                "it": "Cheesecake cremosa con ganache su base di biscotto al cacao"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Sorbetto al Limone",
+              "price": "18",
+              "v": true,
+              "gf": true,
+              "desc": {
+                "en": "Artisanal lemon sorbet",
+                "it": "Sorbetto al limone artigianale"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Tiramisù",
+              "price": "22",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Savoiardi soaked in espresso and rum essence, layered with mascarpone and cocoa",
+                "it": "Savoiardi inzuppati in espresso ed essenza di rum, con mascarpone e cacao"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Affogato",
+              "price": "14",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "Vanilla or pistachio ice cream drowned in freshly made espresso",
+                "it": "Gelato alla vaniglia o al pistacchio affogato nell'espresso appena fatto"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "caffe",
+          "title": "Caffè e Specialità",
+          "items": [
+            {
+              "name": "Espresso",
+              "price": "5",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Single",
+                "it": "Singolo"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Espresso Double or Macchiato",
+              "price": "7",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Americano",
+              "price": "7",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Cappuccino",
+              "price": "8",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Latte Macchiato",
+              "price": "8",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Tea",
+              "price": "8",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Mighty Leaf",
+                "it": "Mighty Leaf"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Caffè Corretto",
+              "price": "10",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Espresso 'corrected' with grappa or sambuca (0.5 oz)",
+                "it": "Espresso 'corretto' con grappa o sambuca (0,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Irish Coffee",
+              "price": "17",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Americano with Bushmills and a hint of vanilla (1.5 oz)",
+                "it": "Americano con Bushmills e un tocco di vaniglia (1,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amami Caffè",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Americano with Frangelico, Galliano and Gran Sasso amaro (1.5 oz)",
+                "it": "Americano con Frangelico, Galliano e amaro Gran Sasso (1,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Spanish Coffee",
+              "price": "17",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Americano with brandy and Kahlúa (1.5 oz)",
+                "it": "Americano con brandy e Kahlúa (1,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "pizza": {
+      "sections": [
+        {
+          "id": "pizze",
+          "title": "Pizze",
+          "items": [
+            {
+              "name": "Margherita",
+              "price": "18",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "San Marzano DOP tomato, fior di latte mozzarella and basil oil",
+                "it": "Pomodoro San Marzano DOP, mozzarella fior di latte e olio al basilico"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Diavola",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "San Marzano DOP tomato, fior di latte, spicy salami, black olives and chilli pepper",
+                "it": "Pomodoro San Marzano DOP, fior di latte, salame piccante, olive nere e peperoncino"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Vegetariana",
+              "price": "20",
+              "v": true,
+              "gf": false,
+              "desc": {
+                "en": "San Marzano DOP tomato, fior di latte and seasonal vegetables",
+                "it": "Pomodoro San Marzano DOP, fior di latte e verdure di stagione"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Quattro Stagioni",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "San Marzano DOP tomato, fior di latte, ham, artichokes, mushrooms and black olives",
+                "it": "Pomodoro San Marzano DOP, fior di latte, prosciutto cotto, carciofi, funghi e olive nere"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Le Cremosa Toscana",
+              "price": "26",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "San Marzano DOP tomato, mascarpone and fior di latte, oven-baked and finished with hand-sliced prosciutto crudo",
+                "it": "Pomodoro San Marzano DOP, mascarpone e fior di latte, cotta al forno e rifinita con prosciutto crudo tagliato a mano"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "cocktails": {
+      "sections": [
+        {
+          "id": "cocktails",
+          "title": "Cocktails",
+          "items": [
+            {
+              "name": "Marble Manhattan",
+              "price": "21",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Dillon's single grain rye, Lillet Blanc, angostura bitters, vanilla simple syrup, smoked (2.25 oz)",
+                "it": "Segale single grain Dillon's, Lillet Blanc, angostura, sciroppo alla vaniglia, affumicato (2,25 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "New Fashioned",
+              "price": "21",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Barnburner rye, maple syrup, orange and angostura bitters, smoked (1.75 oz)",
+                "it": "Segale Barnburner, sciroppo d'acero, bitter all'arancia e angostura, affumicato (1,75 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Lychee Martini",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Cîroc peach, lychee liqueur, Chambord (2 oz)",
+                "it": "Cîroc alla pesca, liquore al litchi, Chambord (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Miami Spice",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "1800 tequila, triple sec, lime juice, spicy syrup, mango juice (2 oz)",
+                "it": "Tequila 1800, triple sec, lime, sciroppo piccante, succo di mango (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Cherry Sour",
+              "price": "20",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Canadian Club, lime juice, simple syrup, red wine (2.5 oz)",
+                "it": "Canadian Club, lime, sciroppo di zucchero, vino rosso (2,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Sunset",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Prosecco, peach schnapps, peach purée, grenadine (4 oz)",
+                "it": "Prosecco, schnapps alla pesca, purea di pesca, granatina (4 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Golden Emperor",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Cîroc peach, Galliano, lemon juice, pineapple juice (2 oz). The chef's favourite",
+                "it": "Cîroc alla pesca, Galliano, limone, succo d'ananas (2 oz). Il preferito della chef"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Espresso Martini",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Stoli vodka, Kahlúa, Frangelico, espresso (2 oz)",
+                "it": "Vodka Stoli, Kahlúa, Frangelico, espresso (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amami Caesar",
+              "price": "20",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Cîroc vodka, Worcestershire and Tabasco, vegetable skewer, candied spice, Clamato (1.5 oz)",
+                "it": "Vodka Cîroc, Worcestershire e Tabasco, spiedino di verdure, spezie candite, Clamato (1,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "New York Sour",
+              "price": "20",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Forty Creek rye, cherry brandy, lime juice, simple syrup, egg whites (2 oz)",
+                "it": "Segale Forty Creek, brandy alla ciliegia, lime, sciroppo di zucchero, albume (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Mojito",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Bacardí rum, mint, soda, lime juice, simple syrup (1 oz)",
+                "it": "Rum Bacardí, menta, soda, lime, sciroppo di zucchero (1 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Hard Hugo",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Empress gin, St-Germain, lemon juice, Prosecco, soda (2 oz)",
+                "it": "Gin Empress, St-Germain, limone, Prosecco, soda (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amami Mule",
+              "price": "21",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Bombay Sapphire gin, ginger beer, lime juice, mint (2 oz)",
+                "it": "Gin Bombay Sapphire, ginger beer, lime, menta (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Campari Spritz",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Campari, Prosecco, soda (4 oz)",
+                "it": "Campari, Prosecco, soda (4 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "mocktails",
+          "title": "Mocktails",
+          "items": [
+            {
+              "name": "Blackberry Mule",
+              "price": "14",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Lime juice, simple syrup, fresh blackberries, Fever-Tree ginger beer",
+                "it": "Lime, sciroppo di zucchero, more fresche, ginger beer Fever-Tree"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Tropic Fizz",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Bella zero-proof gin, lemon and lime juice, egg whites, vanilla, orange and pineapple juice",
+                "it": "Gin analcolico Bella, limone e lime, albume, vaniglia, succo d'arancia e d'ananas"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "No-Groni Café",
+              "price": "15",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Bella zero-proof gin, Bella zero-proof Campari, espresso, simple syrup",
+                "it": "Gin e Campari analcolici Bella, espresso, sciroppo di zucchero"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Cos-No-Politan",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Bella zero-proof gin, orange juice, cranberry juice, lime juice, simple syrup",
+                "it": "Gin analcolico Bella, succo d'arancia, succo di mirtillo rosso, lime, sciroppo di zucchero"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Long Island Virgin",
+              "price": "14",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Bella zero-proof gin, lemon juice, pineapple juice, cola, simple syrup",
+                "it": "Gin analcolico Bella, limone, succo d'ananas, cola, sciroppo di zucchero"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amami Virgin Mule",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Bella zero-proof gin, lime juice, ginger beer, mint, simple syrup",
+                "it": "Gin analcolico Bella, lime, ginger beer, menta, sciroppo di zucchero"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "bibite",
+          "title": "Birre e Bibite",
+          "items": [
+            {
+              "name": "Beer",
+              "price": "10",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Heineken, Stella, Peroni Nastro Azzurro, Peroni Zero, Moretti, Corona",
+                "it": "Heineken, Stella, Peroni Nastro Azzurro, Peroni Zero, Moretti, Corona"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Soda",
+              "price": "6",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Assorted Brio, soda, Coke (Zero), Sprite, ginger beer, tonic, ginger ale, iced tea",
+                "it": "Brio assortiti, soda, Coca-Cola (Zero), Sprite, ginger beer, acqua tonica, ginger ale, tè freddo"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Juice",
+              "price": "7",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Orange, apple, cranberry, pineapple, mango, Clamato",
+                "it": "Arancia, mela, mirtillo rosso, ananas, mango, Clamato"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Water",
+              "price": "9",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Natural or sparkling mineral water",
+                "it": "Acqua minerale naturale o frizzante"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "dopo-cena",
+          "title": "Dopo Cena",
+          "items": [
+            {
+              "name": "Fonseca White Port",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Port",
+                "it": "Porto"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Taylor Fladgate 20 Yr Tawny",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Port (4 oz)",
+                "it": "Porto (4 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Castelgrave Vin Santo",
+              "price": "25",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Tuscany. Bottle $60",
+                "it": "Toscana. Bottiglia $60"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Grotta del Ninfeo Recioto",
+              "price": "45",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Veneto. Bottle $125",
+                "it": "Veneto. Bottiglia $125"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Montenegro",
+              "price": "16",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Nonino",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Faccia Brutto Centerbe",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Venti Amaro",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Paesani Amaro Gran Sasso",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Jefferson",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Washington",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Queen Mary Amaro Trittico",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Digestivo (2 oz)",
+                "it": "Digestivo (2 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Limoncello, Sambuca (white or black), Jägermeister, Kahlúa, Malibu, Peach Schnapps, Goldschläger, St-Germain",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Liqueurs",
+                "it": "Liquori"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Baileys, Frangelico, Amaretto, Southern Comfort",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Liqueurs",
+                "it": "Liquori"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Chambord, Drambuie, Cointreau",
+              "price": "15",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Liqueurs",
+                "it": "Liquori"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Grand Marnier",
+              "price": "16",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Liqueur",
+                "it": "Liquore"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Grappa Friulano Nonino",
+              "price": "15",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Grappa (1.5 oz)",
+                "it": "Grappa (1,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Po' di Poli Morbida",
+              "price": "17",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Grappa (1.5 oz)",
+                "it": "Grappa (1,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Bocale Grappa di Sagrantino",
+              "price": "20",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Grappa (1.5 oz)",
+                "it": "Grappa (1,5 oz)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "after-dark": {
+      "sections": [
+        {
+          "id": "porto-dessert-wine",
+          "title": "Porto & Dessert Wine",
+          "items": [
+            {
+              "name": "Fonseca White Port",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Taylor Fladgate 20 Year Tawny",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Castelgrave Vinsanto",
+              "price": "25",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Tuscany",
+                "it": "Toscana"
+              },
+              "add": {
+                "en": "Bottle 60",
+                "it": "Bottiglia 60"
+              }
+            },
+            {
+              "name": "Grotta del Ninfeo Recioto",
+              "price": "45",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Veneto",
+                "it": "Veneto"
+              },
+              "add": {
+                "en": "Bottle 125",
+                "it": "Bottiglia 125"
+              }
+            }
+          ]
+        },
+        {
+          "id": "digestivi",
+          "title": "Digestivi",
+          "items": [
+            {
+              "name": "Amaro Montenegro",
+              "price": "16",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Dli Amis",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Nonino",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Faccia Brutto Centerbe",
+              "price": "18",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Venti Amaro",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Paesani Amaro Gran Sasso",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Jefferson",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaro Washington",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Queen Mary Amaro Trittico",
+              "price": "22",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "liquore",
+          "title": "Liquore",
+          "items": [
+            {
+              "name": "Limoncello",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Sambuca",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "White or black",
+                "it": "Bianca o nera"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Jägermeister",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Kahlúa",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Malibu",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Peach Schnapps",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Goldschläger",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "St. Germain",
+              "price": "12",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Baileys",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Frangelico",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amaretto",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Southern Comfort",
+              "price": "13",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Chambord",
+              "price": "15",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Drambuie",
+              "price": "15",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Cointreau",
+              "price": "15",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Grand Marnier",
+              "price": "16",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "grappa",
+          "title": "Grappa",
+          "items": [
+            {
+              "name": "Montanaro Liquore di Camomilla",
+              "price": "14",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Grappa Friulano Nonino",
+              "price": "15",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Po' di Poli Morbida Grappa",
+              "price": "17",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Bocale Grappa di Sagrantino",
+              "price": "20",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "caff-e-specialit",
+          "title": "Caffè e Specialità",
+          "items": [
+            {
+              "name": "Espresso",
+              "price": "5",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Single",
+                "it": "Singolo"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Espresso double or macchiato",
+              "price": "7",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Americano",
+              "price": "7",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Cappuccino",
+              "price": "8",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Latte macchiato",
+              "price": "8",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "",
+                "it": ""
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Tea",
+              "price": "8",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Mighty Leaf",
+                "it": "Mighty Leaf"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Caffè Corretto",
+              "price": "10",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Espresso corrected with grappa or Sambuca (0.5 oz)",
+                "it": "Espresso corretto con grappa o Sambuca (15 ml)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Irish Coffee",
+              "price": "17",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Americano with Bushmills and a hint of vanilla (1.5 oz)",
+                "it": "Americano con Bushmills e un tocco di vaniglia (45 ml)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Amami Caffè",
+              "price": "19",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Americano with Frangelico, Galliano and Gran Sasso Amaro (1.5 oz)",
+                "it": "Americano con Frangelico, Galliano e Amaro Gran Sasso (45 ml)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            },
+            {
+              "name": "Spanish Coffee",
+              "price": "17",
+              "v": false,
+              "gf": false,
+              "desc": {
+                "en": "Americano with brandy and Kahlúa (1.5 oz)",
+                "it": "Americano con brandy e Kahlúa (45 ml)"
+              },
+              "add": {
+                "en": "",
+                "it": ""
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

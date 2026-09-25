@@ -1,0 +1,140 @@
+{
+  "slots": {
+    "events.hero.image": {
+      "desk": "/wp-content/uploads/2026/09/events-room-desk-g2",
+      "mob": "/wp-content/uploads/2026/09/events-hero-mob-v2",
+      "alt": {
+        "en": "The dining room set for guests: rattan chairs, marble tables and the arched mirror",
+        "it": "La sala apparecchiata per gli ospiti: sedie in rattan, tavoli in marmo e lo specchio ad arco"
+      }
+    },
+    "events.hero.sub1": {
+      "en": "Four spaces.",
+      "it": "Quattro spazi."
+    },
+    "events.hero.sub2": {
+      "en": "Up to 120 guests.",
+      "it": "Fino a 120 ospiti."
+    },
+    "events.room1.lede": {
+      "en": "Closed-door dinners and small celebrations.",
+      "it": "Cene a porte chiuse e piccole celebrazioni."
+    },
+    "events.room1.cap": {
+      "en": "16–22 seated",
+      "it": "16–22 a sedere"
+    },
+    "events.room1.name": {
+      "en": "The Private Room",
+      "it": "La Sala Privata"
+    },
+    "events.room2.lede": {
+      "en": "Standing events and later starts.",
+      "it": "Eventi in piedi e inizi più tardi."
+    },
+    "events.room2.cap": {
+      "en": "30 seated / 60 reception",
+      "it": "30 a sedere / 60 in piedi"
+    },
+    "events.room2.name": {
+      "en": "The Lounge",
+      "it": "Il Salotto"
+    },
+    "events.room3.lede": {
+      "en": "One table, one conversation.",
+      "it": "Un tavolo, una conversazione."
+    },
+    "events.room3.cap": {
+      "en": "24–30 seated",
+      "it": "24–30 a sedere"
+    },
+    "events.room3.name": {
+      "en": "The Long Table",
+      "it": "Il Tavolo Lungo"
+    },
+    "events.room4.lede": {
+      "en": "The whole room, yours.",
+      "it": "Tutta la sala, vostra."
+    },
+    "events.room4.cap": {
+      "en": "120 reception",
+      "it": "120 in piedi"
+    },
+    "events.room4.name": {
+      "en": "Full Buyout",
+      "it": "Uso esclusivo"
+    },
+    "events.incl.title": {
+      "en": "What’s included",
+      "it": "Cosa è incluso"
+    },
+    "events.incl.items": {
+      "items": [
+        {
+          "en": "Set menus built around your evening",
+          "it": "Menù fissi costruiti intorno alla vostra serata"
+        },
+        {
+          "en": "Semi-formal dress for evening service",
+          "it": "Abito semi-formale per il servizio serale"
+        },
+        {
+          "en": "Wine pairings on request.",
+          "it": "Abbinamenti di vini su richiesta."
+        }
+      ]
+    },
+    "events.fio.image": {
+      "desk": "/wp-content/uploads/2026/09/events-fiorentina-desk",
+      "mob": "/wp-content/uploads/2026/09/events-fiorentina-mob",
+      "alt": {
+        "en": "Bistecca alla Fiorentina on a white platter as red wine is poured",
+        "it": "Bistecca alla Fiorentina su un piatto bianco mentre si versa il vino rosso"
+      }
+    },
+    "events.fio.menu": {
+      "en": "Five courses",
+      "it": "Cinque portate"
+    },
+    "events.fio.text": {
+      "en": "Discover Italy through Bistecca alla Fiorentina, premium wines and an evening made to be remembered.",
+      "it": "Scopri l’Italia attraverso la Bistecca alla Fiorentina, vini pregiati e una serata da ricordare."
+    },
+    "events.fio.title": {
+      "en": "Fiorentina Night",
+      "it": "Serata Fiorentina"
+    },
+    "events.fio.cta": {
+      "en": "Reserve your table",
+      "it": "Prenota il tuo tavolo"
+    },
+    "bistecca.hero.image": {
+      "desk": "/wp-content/uploads/2026/09/events-fiorentina-desk",
+      "mob": "/wp-content/uploads/2026/09/events-fiorentina-mob",
+      "w": 1200,
+      "h": 1065,
+      "alt": {
+        "en": "Bistecca alla Fiorentina on a white platter as red wine is poured",
+        "it": "Bistecca alla Fiorentina su un piatto bianco mentre si versa il vino rosso"
+      }
+    },
+    "bistecca.title": {
+      "en": "Bistecca Night",
+      "it": "Bistecca Night"
+    },
+    "bistecca.intro": {
+      "en": "\n    <p><em>A five-course Tuscan evening built around one steak.</em></p>\n    <p>Bistecca Night is a five-course dinner at Amami. It opens with a glass of Prosecco, and the Bistecca alla Fiorentina, dry-aged forty-five days and carved at the table, is its centrepiece.</p>\n    <p>Seats are limited. Book through OpenTable, or call us on <a href=\"tel:+19057943366\">905-794-3366</a>.</p>\n  ",
+      "it": "\n    <p><em>Una serata toscana in cinque portate, costruita intorno a una bistecca.</em></p>\n    <p>La Bistecca Night è una cena in cinque portate da Amami. Si apre con un calice di Prosecco, e la Bistecca alla Fiorentina, frollata a secco quarantacinque giorni e tagliata al tavolo, ne è la protagonista.</p>\n    <p>I posti sono limitati. Prenota su OpenTable, oppure chiamaci al <a href=\"tel:+19057943366\">905-794-3366</a>.</p>\n  "
+    },
+    "bistecca.cta": {
+      "en": "Reserve your seat",
+      "it": "Prenota il tuo posto"
+    },
+    "event.date": {
+      "value": "2026-10-01"
+    },
+    "event.time": {
+      "value": "19:00"
+    }
+  }
+}

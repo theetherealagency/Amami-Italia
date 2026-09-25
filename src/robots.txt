@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /admin/
 Allow: /
 
 # The old file pointed at amamiitalia.com's WordPress sitemap over http.

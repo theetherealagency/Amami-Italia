@@ -24,6 +24,7 @@ import html
 import json
 import os
 import re
+import shutil
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -161,10 +162,20 @@ def main():
                 sys.exit(f'{f}: needs both an "en" and an "it" block')
             if p['category'] not in cats:
                 sys.exit(f'{f}: unknown category "{p["category"]}" (add it to categories.json)')
+            if p.get('draft'):          # saved in the admin portal but not published yet
+                continue
             if p.get('path'):
                 PATHS[p['slug']] = p['path'].strip('/')
             posts.append(p)
     posts.sort(key=lambda p: p['date'], reverse=True)
+    # a post that was deleted or turned back into a draft leaves the site with it
+    live = {url(p['slug'], lang).strip('/') for p in posts for lang in ('en', 'it')}
+    for base in ('journal', os.path.join('it', 'journal')):
+        for d in sorted(os.listdir(os.path.join(SRC, base))):
+            full = os.path.join(SRC, base, d)
+            if os.path.isdir(full) and os.path.join(base, d).replace(os.sep, '/') not in live:
+                shutil.rmtree(full)
+                print(f'removed {base}/{d}/ (no longer published)')
     used = [c for c in cats if any(p['category'] == c for p in posts)]
 
     for lang in ('en', 'it'):
