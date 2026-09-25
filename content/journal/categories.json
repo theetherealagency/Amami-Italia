@@ -18,5 +18,15 @@
   "corporate-events": {
     "en": "Corporate Events",
     "it": "Eventi aziendali"
+  },
+  "wine": {
+    "en": "Vino",
+    "it": "Vino",
+    "code": "AM/02"
+  },
+  "aperitivo": {
+    "en": "Aperitivo",
+    "it": "Aperitivo",
+    "code": "AM/03"
   }
 }

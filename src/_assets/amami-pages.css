@@ -430,3 +430,15 @@ body.is-page .dish__add{color:var(--hm-red)}
 .pg-anchors a[aria-current="true"]{background:var(--hm-red);color:var(--hm-cream)}
 .pg-anchors--cats{margin-top:max(18px,2vw)}
 .pg-card[hidden]{display:none}
+
+/* Journal tables (wine pairings, regions): hairlines and the site type */
+.pg-prose table{width:100%;border-collapse:collapse;margin:1em 0 1.6em;font-size:.92em;line-height:1.45}
+.pg-prose th{font-family:var(--sans);font-weight:400;font-size:max(9px,.72vw);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--hm-red);text-align:left;padding:.7em .8em .7em 0;border-bottom:1px solid rgba(129,43,40,.45);vertical-align:bottom}
+.pg-prose td{padding:.75em .8em .75em 0;border-bottom:1px solid rgba(22,22,22,.14);vertical-align:top}
+.pg-prose td:first-child{font-weight:500}
+.pg-prose small{font-size:.82em;color:rgba(22,22,22,.62)}
+@media (max-width:760px){
+  .pg-prose table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:14px}
+  .pg-prose th{font-size:9px}.pg-prose th,.pg-prose td{min-width:120px}
+}

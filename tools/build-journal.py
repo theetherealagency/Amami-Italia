@@ -36,16 +36,16 @@ T = {
     'en': dict(kicker='Journal', sub='Notes on the cooking, the room and Brampton.', all='All', read='Read',
                all_posts='All posts', end='Your table is waiting.', reserve='Reserve a Table',
                reserve_href='/reservation/', posts_label='Posts', cats_label='Categories',
-               list_title='Journal — Amami Italia, Brampton',
-               list_desc='Notes on the cooking, the room and Brampton, from Amami Italia.',
+               list_title='Journal | Italian Food & Wine Notes | Amami Italia, Brampton',
+               list_desc='Wine pairing, aperitivo and Italian wine regions, explained simply. Notes from our table at Amami Italia in Brampton, near Castlemore.',
                months=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
                        'September', 'October', 'November', 'December'],
                locale='en_CA', lang='en-CA'),
     'it': dict(kicker='Giornale', sub='Appunti sulla cucina, sulla sala e su Brampton.', all='Tutti', read='Leggi',
                all_posts='Tutti gli articoli', end='Il tuo tavolo ti aspetta.', reserve='Prenota un tavolo',
                reserve_href='/it/reservation/', posts_label='Articoli', cats_label='Categorie',
-               list_title='Il Quaderno — Amami Italia, Brampton',
-               list_desc='Appunti sulla cucina, sulla sala e su Brampton, da Amami Italia.',
+               list_title='Il Quaderno | Cucina e vino italiani | Amami Italia, Brampton',
+               list_desc='Abbinamenti, aperitivo e regioni del vino italiano, spiegati in modo semplice. Appunti dalla nostra tavola ad Amami Italia, a Brampton, vicino a Castlemore.',
                months=['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto',
                        'settembre', 'ottobre', 'novembre', 'dicembre'],
                locale='it_IT', lang='it-IT'),
@@ -62,8 +62,27 @@ def month(d, lang):
     return f"{T[lang]['months'][int(m) - 1]} {y}"
 
 
+PATHS = {}   # slug -> URL path, when a post lives somewhere other than /<slug>/ (e.g. journal/<slug>)
+
+
 def url(slug, lang):
-    return ('/it' if lang == 'it' else '') + (f'/{slug}/' if slug else '/journal/')
+    path = PATHS.get(slug, slug) if slug else 'journal'
+    return ('/it' if lang == 'it' else '') + f'/{path}/'
+
+
+RESTAURANT = {'@type': 'Restaurant', 'name': 'Amami Italia', 'servesCuisine': 'Italian',
+              'address': {'@type': 'PostalAddress', 'streetAddress': '6261 Mayfield Rd, #140', 'addressLocality': 'Brampton',
+                          'addressRegion': 'ON', 'postalCode': 'L6P 0X9', 'addressCountry': 'CA'},
+              'telephone': '+1-905-794-3366',
+              'areaServed': ['Brampton', 'Castlemore', 'Caledon', 'Bolton', 'Vaughan', 'Peel Region']}
+
+
+def faq_from_body(body):
+    """Question/answer pairs from the post's own FAQ: every <h3> after the last <h2>, with the <p> that follows it."""
+    last = body.rfind('<h2>')
+    tail = body[last:] if last >= 0 else ''
+    strip = lambda x: html.unescape(re.sub(r'<[^>]+>', '', x)).strip()
+    return [{'q': strip(q), 'a': strip(a)} for q, a in re.findall(r'<h3>(.*?)</h3>\s*<p>(.*?)</p>', tail, re.S)]
 
 
 def picture(base, w, h, alt, sizes, cls, eager):
@@ -138,6 +157,8 @@ def main():
                 sys.exit(f'{f}: needs both an "en" and an "it" block')
             if p['category'] not in cats:
                 sys.exit(f'{f}: unknown category "{p["category"]}" (add it to categories.json)')
+            if p.get('path'):
+                PATHS[p['slug']] = p['path'].strip('/')
             posts.append(p)
     posts.sort(key=lambda p: p['date'], reverse=True)
     used = [c for c in cats if any(p['category'] == c for p in posts)]
@@ -222,16 +243,27 @@ function fromHash(){{show(location.hash.slice(1));}}window.addEventListener('has
 </section>
 </main>'''
             img = HOST + p['photo']['base'] + '.jpg'
-            ld = {'@context': 'https://schema.org', '@type': 'BlogPosting', 'headline': L['title'],
-                  'description': L['seo_description'], 'image': img, 'datePublished': p['date'],
-                  'inLanguage': T[lang]['lang'], 'articleSection': cat,
-                  'mainEntityOfPage': HOST + url(p['slug'], lang),
-                  'author': {'@type': 'Organization', 'name': 'Amami Italia'},
-                  'publisher': {'@type': 'Organization', 'name': 'Amami Italia',
-                                'logo': {'@type': 'ImageObject', 'url': HOST + '/wp-content/uploads/2025/09/amami-logo.png'}}}
+            og = HOST + (L.get('og_image') or p.get('og_image') or p['photo']['base'] + '.jpg')
+            code = cats[p['category']].get('code')
+            post_ld = {'@type': 'BlogPosting', 'headline': L['title'], 'description': L['seo_description'],
+                       'mainEntityOfPage': HOST + url(p['slug'], lang), 'image': img,
+                       'datePublished': p['date'], 'dateModified': p.get('modified', p['date']),
+                       'inLanguage': T[lang]['lang'], 'articleSection': (code + ' ' + cat) if code else cat,
+                       'author': p.get('author') or {'@type': 'Organization', 'name': 'Amami Italia'},
+                       'publisher': {'@type': 'Organization', 'name': 'Amami Italia',
+                                     'logo': {'@type': 'ImageObject', 'url': HOST + '/wp-content/uploads/2025/09/amami-logo.png'}},
+                       'about': RESTAURANT}
+            if L.get('keywords'):
+                post_ld['keywords'] = L['keywords']
+            graph = [post_ld]
+            faq = L.get('faq') or faq_from_body(L['body_html'])
+            if faq:
+                graph.append({'@type': 'FAQPage', 'mainEntity': [
+                    {'@type': 'Question', 'name': f['q'], 'acceptedAnswer': {'@type': 'Answer', 'text': f['a']}} for f in faq]})
+            ld = {'@context': 'https://schema.org', '@graph': graph}
             write(url(p['slug'], lang).lstrip('/') + 'index.html',
                   page(lang, url(p['slug'], 'en'), url(p['slug'], 'it'), L['seo_title'], L['seo_description'],
-                       img, L['photo_alt'], 'article', main, ld))
+                       og, L['photo_alt'], 'article', main, ld))
 
     # --- sitemap: drop old Journal entries, add these with their language pairs ---
     sm_path = os.path.join(SRC, 'sitemap.xml')
