@@ -120,6 +120,10 @@ function imgTag(base, alt = '') {
   if (!t.length) return `<div class="ph__img">No photo yet</div>`;
   return `<div class="ph__img"><img src="${esc(t[0])}" data-alts="${esc(t.slice(1).join('|'))}" alt="${esc(alt)}" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>`;
 }
+function thumbImg(base) {
+  const t = thumbs(base);
+  return t.length ? `<img class="thumb" src="${esc(t[0])}" data-alts="${esc(t.slice(1).join('|'))}" alt="" style="object-fit:cover" loading="lazy">` : '<div class="thumb"></div>';
+}
 document.addEventListener('error', e => {
   const im = e.target;
   if (im.tagName !== 'IMG' || !im.dataset.alts) return;
@@ -358,7 +362,7 @@ async function eventsList() {
   const shown = up.find(e => e.featured) || up[0];
   const rows = S.events.map(e => {
     const st = e.draft ? ['Draft', ''] : isPast(e) ? ['Past', ''] : ['Upcoming', 'badge--dark'];
-    return `<tr><td><div class="thumb" style="background-image:url('${esc(thumbs(e.photo)[0] || '')}')"></div></td>
+    return `<tr><td>${thumbImg(e.photo)}</td>
       <td><a href="#/events/${esc(e.slug)}">${esc(e.title)}</a>${shown && shown.slug === e.slug ? ' <span class="badge badge--ok" style="margin-left:6px">On the Events page</span>' : ''}<br><small class="muted">${esc(e.title_it)}</small></td>
       <td>${esc(fmtDate(e.date))}<br><small class="muted">${esc(fmtTime(e.time))}</small></td>
       <td><span class="badge ${st[1]}">${st[0]}</span></td>
@@ -399,7 +403,7 @@ function blankEvent() {
 async function eventEditor(slug) {
   if (!S.events) S.events = (await api('events')).events;
   let f;
-  if (slug === 'new') { f = 'new-event'; if (!S.files[f]) S.files[f] = { data: blankEvent(), sha: null, orig: '' }; }
+  if (slug === 'new') { f = 'new-event'; if (!S.files[f]) { const b = blankEvent(); S.files[f] = { data: b, sha: null, orig: JSON.stringify(b) }; } }
   else { f = `content/events/${slug}.json`; await load(f); }
   const d = S.files[f].data;
   d.photo = d.photo || { desk: '', mob: '' };
@@ -433,7 +437,7 @@ async function eventEditor(slug) {
       <div class="btns">${slug !== 'new' ? `<button class="btn btn--danger" type="button" id="del">${ic('trash')} Delete</button>` : ''}</div>
     </div>
     <div class="card"><h2>Photo</h2><p class="hint">At the top of the event's page and in the panel.</p>
-      <div class="imgfield" style="grid-template-columns:1fr 1fr">${ph('Computer', ['photo'], 'desk')}${ph('Phone', ['photo'], 'mob')}</div>
+      <div class="imgfield" style="grid-template-columns:1fr">${ph('Computer', ['photo'], 'desk')}${ph('Phone', ['photo'], 'mob')}</div>
       <div class="f"><span class="f__l">Describe the photo</span><div class="pair" style="grid-template-columns:1fr"><label><span class="lang">EN</span>${input(f, ['en', 'photo_alt'])}</label><label><span class="lang">IT</span>${input(f, ['it', 'photo_alt'])}</label></div></div>
       <p class="help">No phone photo? The computer one is used on phones too.</p></div>
     <div class="card"><h2>Google</h2><p class="hint">Optional. Made from the name and description if left empty.</p>
@@ -696,7 +700,7 @@ async function journal() {
   const cats = (await load(CATS)).data;
   const body = head('Journal', 'Write and publish posts. They appear in English and Italian.', `<a class="btn btn--dark" href="#/journal/new">${ic('plus')} New post</a>`) + `
   <div class="card" style="padding:8px 10px"><table class="table"><thead><tr><th></th><th>Title</th><th>Category</th><th>Date</th><th>Status</th><th></th></tr></thead><tbody>
-  ${S.posts.map(p => `<tr><td><div class="thumb" style="background-image:url('${esc(thumbs(p.photo)[0] || '')}')"></div></td>
+  ${S.posts.map(p => `<tr><td>${thumbImg(p.photo)}</td>
     <td><a href="#/journal/${esc(p.slug)}">${esc(p.title)}</a><br><small class="muted">${esc(p.title_it)}</small></td>
     <td>${esc((cats[p.category] || {}).en || p.category)}</td><td>${esc(p.date)}</td>
     <td><span class="badge ${p.draft ? '' : 'badge--dark'}">${p.draft ? 'Draft' : 'Published'}</span></td>
@@ -718,7 +722,7 @@ async function post(slug) {
   let f;
   if (slug === 'new') {
     f = 'new-post';
-    if (!S.files[f]) S.files[f] = { data: blankPost(Object.keys(cats.data)[0]), sha: null, orig: '' };
+    if (!S.files[f]) { const b = blankPost(Object.keys(cats.data)[0]); S.files[f] = { data: b, sha: null, orig: JSON.stringify(b) }; }
   } else {
     f = `content/journal/posts/${slug}.json`;
     await load(f);

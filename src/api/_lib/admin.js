@@ -236,7 +236,8 @@ async function sheet(body) {
   let j;
   try { j = JSON.parse(text); } catch (e) { const x = new Error('The enquiry sheet did not answer. Try again in a minute.'); x.status = 502; throw x; }
   if (!j.ok) {
-    const x = new Error(j.error === 'not allowed'
+    const old = j.error === 'not allowed' || /email address is required|Only event enquiries/i.test(j.error || '');
+    const x = new Error(old
       ? 'The enquiry sheet has not been updated for the portal yet (paste the new Code.gs and deploy a new version).'
       : (j.error || 'The enquiry sheet returned an error.'));
     x.status = 502; throw x;
