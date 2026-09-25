@@ -165,7 +165,7 @@ def swap_picture(inner, open_tag, v, lang):
         return re.sub(r'(-\d+w)?\.(jpe?g|webp|png)$', '', url)
 
     def fix(tag):
-        mob = 'max-width:760px' in tag
+        mob = tag.startswith('<source') and re.search(r'media="[^"]*max-width:760px', tag) is not None
         want = v.get('mob') if mob else v.get('desk')
         if not want:
             return tag
