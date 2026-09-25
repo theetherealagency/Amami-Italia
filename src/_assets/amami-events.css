@@ -115,7 +115,8 @@ body.is-events{--ev-sand:#ddd7c7}
   .ev-room__lede{font-size:max(10px,1.772vw)}
   .ev-room__cap{margin-top:1.6vw;font-size:max(10px,2.305vw)}
   .ev-room__name{margin-top:3vw;font-size:7.083vw;white-space:normal}
-  .ev-btn{margin-top:2.2vw;width:auto;min-width:132px;height:44px;padding:0 1.4em;font-size:9px;justify-self:start}
+  .ev-btn{position:relative;margin-top:2.2vw;width:15.15vw;min-width:0;height:4.06vw;min-height:0;padding:0;font-size:max(7px,1.64vw);justify-self:start}
+  .ev-btn::after{content:"";position:absolute;inset:-14px -10px}
 
   .ev-incl{padding:8.6vw 6vw 9vw}
   .ev-incl__h{font-size:7.577vw}

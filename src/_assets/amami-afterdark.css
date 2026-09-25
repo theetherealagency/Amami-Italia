@@ -53,10 +53,10 @@ body.is-afterdark{--ad-mist:#cdd6e2}
   /* the comp's dark wash rising from the bottom of the photograph */
   .ad-hero__scrim{display:block;position:absolute;left:0;right:0;bottom:0;height:44%;z-index:-1;
     background:linear-gradient(to top,#080809 0%,rgba(7,4,8,0) 100%)}
-  .ad-hero__copy{left:0;right:0;width:auto;top:26vw;bottom:0;padding:0 3.5vw;text-shadow:0 1px 8px rgba(22,22,22,.6)}
+  .ad-hero__copy{left:0;right:0;width:auto;top:33.6vw;bottom:0;padding:0 3.5vw;text-shadow:0 1px 8px rgba(22,22,22,.6)}
   .ad-hero__p{font-size:max(10.5px,2.237vw);line-height:1.75;letter-spacing:.05em}
   /* "COMING" and "SOON" sit at the two edges, above the title */
-  .ad-hero__soon{position:absolute;left:3.5vw;right:3.5vw;bottom:19.6vw;margin:0;display:flex;justify-content:space-between;
+  .ad-hero__soon{position:absolute;left:3.5vw;right:3.5vw;bottom:15.2vw;margin:0;display:flex;justify-content:space-between;
     font-size:max(9px,2.627vw)}
   .ad-hero__h{font-size:18.155vw}
   [data-lang="it"] .ad-hero__h{font-size:13.8vw}

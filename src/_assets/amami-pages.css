@@ -442,3 +442,34 @@ body.is-page .dish__add{color:var(--hm-red)}
   .pg-prose table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:14px}
   .pg-prose th{font-size:9px}.pg-prose th,.pg-prose td{min-width:120px}
 }
+
+/* ==========================================================================
+   Matching the client's preview images ("PREVIEW AMAMI WEB", 2026-09-25) on the
+   five comp pages: the comp's red (#77312c), the accent lines in italic (the
+   comp's Forward Serif is personal-use only; IM Fell English italic stands in,
+   a touch larger and tighter so it sets like it), and the comp's hairline
+   button borders.
+   ========================================================================== */
+body.is-afterdark,body.is-ourstory,body.is-menu,body.is-events,body.is-reservation{--hm-red:#77312c}
+body.is-page .ad-hero__p,body.is-page .ad-hush__note,body.is-page .ev-room__lede,body.is-page .ev-incl__list,body.is-page .ev-fio__p,body.is-page .mn-hero__p,body.is-page .mn-order__p,body.is-page .os-hero__p,body.is-page .os-chef__k,body.is-page .os-chef__q p,body.is-page .rs-hero__p{font-style:italic;letter-spacing:.02em}
+body.is-page .ad-hero__p,body.is-page .mn-hero__p,body.is-page .os-hero__p{font-size:max(12px,1.36vw)}
+body.is-page .rs-hero__p{font-size:max(14px,1.84vw)}
+body.is-page .ad-hush__note{font-size:max(17px,2.6vw)}
+body.is-page .ev-room__lede{font-size:max(11px,1.12vw)}
+body.is-page .ev-incl__list{font-size:max(12px,1.5vw)}
+body.is-page .ev-fio__p,body.is-page .mn-order__p{font-size:max(13px,1.46vw);line-height:1.6}
+body.is-page .os-chef__k{font-size:max(13px,1.6vw)}
+body.is-page .os-chef__q p{font-size:max(14px,1.77vw);line-height:1.55}
+body.is-page .rs-book__tel,body.is-page .ev-fio__facts dd{font-variant-numeric:lining-nums}
+body.is-page .ad-btn--red,body.is-page .rs-btn,body.is-page .ev-btn{border-color:rgba(119,49,44,.5)}
+body.is-page .ad-btn--cream{border-color:rgba(238,233,218,.55)}
+@media (max-width:760px){
+body.is-page .ad-hero__p,body.is-page .mn-hero__p,body.is-page .os-hero__p{font-size:max(11px,2.7vw)}
+body.is-page .rs-hero__p{font-size:max(13px,3.9vw)}
+body.is-page .ad-hush__note{font-size:max(15px,4.25vw)}
+body.is-page .ev-room__lede{font-size:max(11px,2.13vw)}
+body.is-page .ev-incl__list{font-size:max(12px,2.6vw)}
+body.is-page .ev-fio__p,body.is-page .mn-order__p{font-size:max(12px,2.8vw)}
+body.is-page .os-chef__k{font-size:max(13px,3.77vw)}
+body.is-page .os-chef__q p{font-size:max(13px,3.4vw)}
+}

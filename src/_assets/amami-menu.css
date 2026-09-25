@@ -70,8 +70,13 @@ body.is-menu{--mn-sand:#ddd7c7;--mn-mist:#cdd6e2}
   .mn-hero__apci{margin-top:max(16px,23.5vw);font-size:max(8px,1.672vw)}
   .mn-hero__h{font-size:21.78vw}
 
-  .mn-cards{grid-template-columns:min(78vw,340px);row-gap:24px;padding:14.4vw 0 12vw}
-  .mn-card__btn{height:44px}
+  /* the comp's phone card: 554.7 of 1366 wide, stacked, 7.3vw apart; the small
+     button keeps the comp's size and gets a 44px invisible tap area */
+  .mn-cards{grid-template-columns:40.61vw;row-gap:7.3vw;padding:14.4vw 0 12vw}
+  /* the card keeps the column's width; legible text makes it taller, not wider */
+  .mn-card{min-width:0;width:100%;aspect-ratio:auto;min-height:calc(40.61vw * 998.38 / 554.7)}
+  .mn-card__btn{position:relative}
+  .mn-card__btn::after{content:"";position:absolute;inset:-14px -8px}
 
   .mn-order{display:block;height:auto}
   .mn-order__img{display:block;height:62.96vw}

@@ -20,11 +20,11 @@ body.is-ourstory{--os-mist:#cdd6e2}
 [data-lang="it"] .os-hero__h{font-size:6.13vw}   /* "LA NOSTRA STORIA" is longer: same width as OUR STORY */
 
 /* --- the band: two paragraphs over the soft Florence drawing ------------- */
-.os-band{height:49.545vw;box-sizing:border-box;padding:9.9vw 14vw 0;text-align:center;
+.os-band{height:49.545vw;box-sizing:border-box;padding:9.9vw 8vw 0;text-align:center;
   background:var(--hm-cream) url(/wp-content/uploads/2026/09/ourstory-band-desk-1440w.webp) center top / 100% auto no-repeat;
   background-image:image-set(url(/wp-content/uploads/2026/09/ourstory-band-desk-2880w.webp) 2x,
     url(/wp-content/uploads/2026/09/ourstory-band-desk-1440w.webp) 1x)}
-.os-band__p{margin:0 auto;max-width:55vw;font-family:var(--sans);font-weight:300;color:var(--hm-panel);
+.os-band__p{margin:0 auto;max-width:66vw;font-family:var(--sans);font-weight:300;color:var(--hm-panel);
   font-size:max(12px,1.458vw);line-height:1.75}
 .os-band__p + .os-band__p{margin-top:2.3vw}
 
