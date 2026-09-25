@@ -20,8 +20,9 @@ body.is-reservation{--rs-mist:#cdd6e2}
 
 /* --- booking: the widget, then the two ways round it -------------------- */
 .rs-book{text-align:center;padding:5.2vw 4vw 8.4vw;background:var(--hm-cream)}
-.rs-book__widget{display:flex;justify-content:center;min-height:max(301px,20vw)}
-.rs-book__widget .ot-slot{min-height:301px}
+.rs-book__widget{display:flex;justify-content:center}
+/* OpenTable's booking page: a 440px-wide card; step 2 (your details) is the tallest */
+.rs-book__frame{display:block;width:min(100%,640px);height:880px;border:0;background:transparent}
 .rs-book__alt{margin:4.2vw 0 0}
 .rs-book__alt a{font-family:var(--sans);font-weight:300;color:var(--hm-panel);text-decoration:none;
   font-size:max(10px,1.79vw);letter-spacing:.2em;text-transform:uppercase}
@@ -58,7 +59,8 @@ body.is-reservation{--rs-mist:#cdd6e2}
   .rs-hero__h{font-size:15.61vw}
   [data-lang="it"] .rs-hero__h{font-size:15.2vw}
 
-  .rs-book{padding:8vw 4vw 12vw}
+  .rs-book{padding:6vw 0 12vw}
+  .rs-book__frame{width:100%;height:960px}
   .rs-book__alt{margin-top:6vw}
   .rs-book__alt a{font-size:max(10px,2.473vw)}
   .rs-book__call{margin-top:6vw;font-size:max(18px,4.28vw)}
