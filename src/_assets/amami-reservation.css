@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Amami Italia — /reservation/ (and /it/reservation/), from the client's comp
+   "amami web - reservation page DESK / MOB" (2026-09-25). Only what the comp
+   holds; the OpenTable widget sits in the comp's open band under the hero.
+   Desktop artboard 2880 wide, phone 1366: lengths are comp units over that
+   width as vw (u/28.8 desktop, u/13.66 phone), px floors only for legibility.
+   ========================================================================== */
+body.is-reservation{--rs-mist:#cdd6e2}
+
+/* --- hero: red ground, the dining room on the right, the title across ---- */
+.rs-hero{position:relative;isolation:isolate;overflow:hidden;margin:76px 0 0;padding:0;
+  height:42.361vw;min-height:380px;background:var(--hm-red)}
+.rs-hero__img{position:absolute;top:0;right:0;width:47.704vw;height:100%;object-fit:cover;z-index:-1}
+.rs-hero__p{position:absolute;left:0;top:18.4vw;width:52.296vw;margin:0;text-align:center;color:var(--hm-cream);
+  font-family:var(--accent);font-size:max(12px,1.534vw);letter-spacing:.08em}
+.rs-hero__h{position:absolute;left:0;bottom:0;margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-cream);
+  text-transform:uppercase;font-size:11.389vw;line-height:.913;letter-spacing:-.05em;white-space:nowrap;
+  transform:translateY(.152em)}   /* bleeds off the bottom edge like the home title */
+[data-lang="it"] .rs-hero__h{font-size:11.2vw}
+
+/* --- booking: the widget, then the two ways round it -------------------- */
+.rs-book{text-align:center;padding:5.2vw 4vw 8.4vw;background:var(--hm-cream)}
+.rs-book__widget{display:flex;justify-content:center;min-height:max(301px,20vw)}
+.rs-book__widget .ot-slot{min-height:301px}
+.rs-book__alt{margin:4.2vw 0 0}
+.rs-book__alt a{font-family:var(--sans);font-weight:300;color:var(--hm-panel);text-decoration:none;
+  font-size:max(10px,1.79vw);letter-spacing:.2em;text-transform:uppercase}
+.rs-book__alt a:hover{color:var(--hm-red)}
+.rs-book__call{margin:4.3vw 0 0;font-family:var(--serif);font-weight:300;color:var(--hm-panel);text-transform:uppercase;
+  font-size:max(20px,3.098vw);line-height:1.2;letter-spacing:-.02em}
+.rs-book__tel{display:block;margin-top:.4vw;font-weight:600;font-size:max(20px,3.183vw);letter-spacing:.01em;
+  color:var(--hm-panel);text-decoration:none}
+.rs-book__tel:hover{color:var(--hm-red)}
+
+/* --- before you come: mist band, four notes ---------------------------- */
+.rs-before{background:var(--rs-mist);min-height:28.194vw;box-sizing:border-box;padding:4.2vw 3vw 4.6vw;text-align:center}
+.rs-before__h{margin:0;font-family:var(--serif);font-weight:300;color:var(--hm-red);text-transform:uppercase;
+  font-size:6.251vw;line-height:1;letter-spacing:-.05em}
+.rs-tips{display:grid;grid-template-columns:repeat(4,1fr);width:93.75vw;max-width:100%;margin:3.2vw auto 0}
+.rs-tip__h{margin:0;font-family:var(--serif);font-weight:600;color:var(--hm-panel);text-transform:uppercase;
+  font-size:max(16px,2.485vw);line-height:1.1;letter-spacing:-.02em}
+.rs-tip__p{margin:.9vw auto 0;max-width:22vw;font-family:var(--sans);font-weight:400;color:var(--hm-panel);
+  font-size:max(11px,1.242vw);line-height:1.4}
+
+/* --- plan your party ---------------------------------------------------- */
+.rs-party{text-align:center;padding:5.8vw 0;background:var(--hm-cream)}
+.rs-btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
+  width:22.716vw;height:4.83vw;min-height:44px;border:1px solid var(--hm-red);color:var(--hm-red);text-decoration:none;
+  font-family:var(--sans);font-weight:300;font-size:max(10px,1.738vw);letter-spacing:.2em;text-indent:.2em;
+  text-transform:uppercase;transition:background .25s ease-out,color .25s ease-out}
+.rs-btn:hover,.rs-btn:focus-visible{background:var(--hm-red);color:var(--hm-cream)}
+
+/* --- phone: the 1366 artboard ------------------------------------------ */
+@media (max-width:760px){
+  .rs-hero{height:78.85vw;min-height:0}
+  .rs-hero__img{width:100%;object-position:50% 0}
+  .rs-hero__p{left:0;right:0;width:auto;top:auto;bottom:17.2vw;font-size:max(11px,3.234vw);text-shadow:0 1px 8px rgba(22,22,22,.6)}
+  .rs-hero__h{font-size:15.61vw}
+  [data-lang="it"] .rs-hero__h{font-size:15.2vw}
+
+  .rs-book{padding:8vw 4vw 12vw}
+  .rs-book__alt{margin-top:6vw}
+  .rs-book__alt a{font-size:max(10px,2.473vw)}
+  .rs-book__call{margin-top:6vw;font-size:max(18px,4.28vw)}
+  .rs-book__tel{font-size:max(19px,4.4vw)}
+
+  .rs-before{min-height:82.93vw;padding:12vw 6vw 11vw}
+  .rs-before__h{font-size:10.8vw;line-height:.92}
+  .rs-before__h span{display:block}
+  .rs-tips{grid-template-columns:1fr 1fr;width:auto;gap:9vw 4vw;margin-top:9vw;text-align:left;padding-left:6vw}
+  .rs-tip__h{font-size:max(16px,4.294vw)}
+  .rs-tip__p{max-width:none;margin:1.6vw 0 0;font-size:max(12px,2.146vw)}
+
+  .rs-party{padding:11vw 0 12vw}
+  .rs-btn{width:auto;min-width:47.9vw;padding:0 1.2em;height:max(44px,10.18vw);font-size:max(11px,3.663vw)}
+}
+@media (prefers-reduced-motion:reduce){.rs-btn{transition:none}}

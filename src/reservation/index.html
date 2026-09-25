@@ -39,9 +39,10 @@
 <link rel="stylesheet" href="/_assets/amami-header.css">
 <link rel="stylesheet" href="/_assets/amami-footer.css">
 <link rel="stylesheet" href="/_assets/amami-pages.css">
+<link rel="stylesheet" href="/_assets/amami-reservation.css">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MNHMB7C9');</script>
 </head>
-<body class=" is-page" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, 23], "sat": [12, 23]}'>
+<body class=" is-page is-reservation" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, 23], "sat": [12, 23]}'>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNHMB7C9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="sr-only" href="#main"><span data-it="Vai al contenuto">Skip to content</span></a>
 <header class="hdr">
@@ -87,45 +88,35 @@
 </div>
 <main id="main">
 
-<!-- Brief §2 /reservations: a utility page, all personality stripped.
-     TODO(group size, brief §7.4): the homepage says eight or more by phone; the
-     brief's copy for this page said six or more plus 18% gratuity. One number is
-     used in both places — eight, matching the locked homepage — and the gratuity
-     line is kept. Confirm both with the client. -->
-<section class="pg-hero">
-  <picture><source type="image/webp" srcset="/wp-content/uploads/2026/09/new-booths-dusk-g2-480w.webp 480w, /wp-content/uploads/2026/09/new-booths-dusk-g2-800w.webp 800w, /wp-content/uploads/2026/09/new-booths-dusk-g2-1200w.webp 1200w, /wp-content/uploads/2026/09/new-booths-dusk-g2.webp 1600w" sizes="100vw"><img class="pg-hero__img" src="/wp-content/uploads/2026/09/new-booths-dusk-g2.jpg" srcset="/wp-content/uploads/2026/09/new-booths-dusk-g2-480w.jpg 480w, /wp-content/uploads/2026/09/new-booths-dusk-g2-800w.jpg 800w, /wp-content/uploads/2026/09/new-booths-dusk-g2-1200w.jpg 1200w, /wp-content/uploads/2026/09/new-booths-dusk-g2.jpg 1600w" alt="Velvet booths by the windows at dusk"
-       width="1600" height="2399" fetchpriority="high" decoding="async" sizes="100vw"></picture>
-  <div class="pg-hero__scrim" aria-hidden="true"></div>
-  <h1 class="pg-hero__h"><span data-it="Prenotazioni">Reservations</span></h1>
-  <p class="pg-hero__sub"><span data-it="Il tuo tavolo ti aspetta.">Your table is waiting.</span></p>
+<!-- Client comp "amami web - reservation page DESK/MOB" (2026-09-25), coded from the SVG
+     artboards (2880 desktop, 1366 phone; lengths as vw). Only what the comp holds; the
+     comp's empty band under the hero is where the OpenTable widget sits.
+     Styles: /_assets/amami-reservation.css. -->
+<section class="rs-hero">
+  <picture><source media="(max-width:760px)" type="image/webp" srcset="/wp-content/uploads/2026/09/reservation-hero-mob-480w.webp 480w, /wp-content/uploads/2026/09/reservation-hero-mob-800w.webp 800w, /wp-content/uploads/2026/09/reservation-hero-mob-1200w.webp 1200w" sizes="100vw"><source media="(max-width:760px)" srcset="/wp-content/uploads/2026/09/reservation-hero-mob-480w.jpg"><source type="image/webp" srcset="/wp-content/uploads/2026/09/reservation-hero-desk-800w.webp 800w, /wp-content/uploads/2026/09/reservation-hero-desk-1374w.webp 1374w" sizes="48vw"><img class="rs-hero__img" src="/wp-content/uploads/2026/09/reservation-hero-desk-1374w.jpg" alt="The dining room at Amami Italia under its canopy of golden leaves" fetchpriority="high" decoding="async"></picture>
+  <p class="rs-hero__p"><span data-it="Il tuo tavolo ti aspetta.">Your table is waiting.</span></p>
+  <h1 class="rs-hero__h"><span data-it="Prenotazioni">Reservations</span></h1>
 </section>
 
-<section class="pg-sec pg-sec--tight" id="book" aria-label="Book a table">
-  <div class="pg-widget">
+<section class="rs-book" id="book" aria-label="Book a table">
+  <div class="rs-book__widget">
 <div class="ot-slot"></div>
     <script>/* OpenTable, sized to the room it has: wide where it fits, tall on phones */
     (function(){var el=document.currentScript.previousElementSibling,t=el.clientWidth>=860?'wide':'tall',s=document.createElement('script');
     s.src='https://www.opentable.ca/widget/reservation/loader?'+'rid=1470808&type=__T__&theme=__T__&color=1&dark=false&iframe=true&domain=ca&lang=en-CA&newtab=false&ot_source=Restaurant%20website&cfe=true'.replace(/__T__/g,t);el.setAttribute('data-ot',t);el.appendChild(s);})();</script>
 <noscript><a class="pg-btn pg-btn--red" href="https://www.opentable.ca/booking/restref/availability?rid=1470808&amp;restref=1470808&amp;lang=en-CA&amp;otSource=Restaurant%20website" target="_blank" rel="noopener"><span data-it="Prenota su OpenTable">Book on OpenTable</span></a></noscript>
   </div>
-  <p class="pg-contact"><span data-it="Non si carica?">Not loading?</span> <a href="https://www.opentable.ca/booking/restref/availability?rid=1470808&amp;restref=1470808&amp;lang=en-CA&amp;otSource=Restaurant%20website" target="_blank" rel="noopener"><span data-it="Prenota su OpenTable">Book on OpenTable</span></a></p>
-  <p class="pg-contact"><span data-it="Preferisci parlare con qualcuno —">Prefer to speak to someone —</span> <a href="tel:+19057943366">905-794-3366</a></p>
+  <p class="rs-book__alt"><a href="https://www.opentable.ca/booking/restref/availability?rid=1470808&amp;restref=1470808&amp;lang=en-CA&amp;otSource=Restaurant%20website" target="_blank" rel="noopener"><span data-it="Non si carica? Prenota su OpenTable">Not loading? Book on OpenTable</span></a></p>
+  <p class="rs-book__call"><span data-it="Preferisci parlare con qualcuno">Prefer to speak to someone</span><a class="rs-book__tel" href="tel:+19057943366" data-gtm="call">905-794-3366</a></p>
 </section>
 
-<section class="pg-sec pg-sec--tight">
-  <h2 class="pg-sec__h"><span data-it="Prima di venire">Before you come</span></h2>
-  <div class="pg-facts">
-    <dl class="pg-fact"><dt><span data-it="Abbigliamento">Dress</span></dt><dd><span data-it="Semi-formale per il servizio serale. Camicia con colletto e pantaloni, o un abito.">Semi-formal for evening service. Collared shirt and trousers, or a dress.</span></dd></dl>
-    <dl class="pg-fact"><dt><span data-it="Tavoli grandi">Larger tables</span></dt><dd><span data-it="Da otto in su, chiamateci. Si applica un servizio del 18%.">Eight or more, please call. An 18% gratuity applies.</span></dd></dl>
-    <dl class="pg-fact"><dt><span data-it="In ritardo">Running late</span></dt><dd><span data-it="Chiamate e terremo quello che possiamo.">Call and we’ll hold what we can.</span></dd></dl>
-    <dl class="pg-fact"><dt><span data-it="Il salotto">The lounge</span></dt><dd><span data-it="Porto, amaro, grappa, caffè.">Port, amaro, grappa, coffee.</span></dd></dl>
-  </div>
+<section class="rs-before" aria-label="Before you come">
+  <h2 class="rs-before__h"><span data-it="Prima di">Before</span> <span data-it="venire">you come</span></h2>
+  <div class="rs-tips"><div class="rs-tip"><h3 class="rs-tip__h"><span data-it="Abbigliamento">Dress</span></h3><p class="rs-tip__p"><span data-it="Semi-formale per il servizio serale. Camicia con colletto e pantaloni, o un abito.">Semi-formal for evening service. Collared shirt &amp; trousers, or a dress.</span></p></div><div class="rs-tip"><h3 class="rs-tip__h"><span data-it="In ritardo">Running late</span></h3><p class="rs-tip__p"><span data-it="Chiamate e terremo quello che possiamo.">Call &amp; we’ll hold what we can.</span></p></div><div class="rs-tip"><h3 class="rs-tip__h"><span data-it="Tavoli grandi">Larger tables</span></h3><p class="rs-tip__p"><span data-it="Da otto in su, chiamateci. Si applica un servizio del 18%.">Eight or more, please call. An 18% gratuity applies.</span></p></div><div class="rs-tip"><h3 class="rs-tip__h"><span data-it="Il salotto">The lounge</span></h3><p class="rs-tip__p"><span data-it="Porto, amaro, grappa, caffè.">Port, amaro, grappa, coffee.</span></p></div></div>
 </section>
 
-<section class="pg-sec pg-sec--tight">
-  <h2 class="pg-sec__h"><span data-it="Gruppi">Groups</span></h2>
-  <p class="pg-sec__sub"><span data-it="Quattro spazi privati, fino a 120.">Four private spaces, up to 120.</span></p>
-  <a class="pg-btn pg-btn--red pg-sec__cta" href="/events/"><span data-it="Organizza la tua festa">Plan your party</span></a>
+<section class="rs-party">
+  <a class="rs-btn" href="/events/"><span data-it="Organizza la tua festa">Plan your party</span></a>
 </section>
 </main>
 <footer class="ftr">
@@ -173,11 +164,14 @@
       <div class="ftr__col">
         <p class="ftr__label"><span data-it="Eventi">Events</span></p>
         <form class="ftr__nl" action="#" method="post" aria-label="Event updates signup" data-amami-form="event-updates" data-endpoint="/api/forms/" data-mailto="info@amamiitalia.com">
-          <label for="nl"><span data-it="Scopri per primo i nostri eventi.">Be first to hear about our events.</span></label>
-          <span class="ftr__nlrow">
-            <input id="nl" type="email" name="email" placeholder="Your email" data-it-placeholder="La tua email" required>
-            <button type="submit"><span data-it="Avvisami">Notify me</span></button>
-          </span>
+          <p class="ftr__nllabel"><span data-it="Scopri per primo i nostri eventi.">Be first to hear about our events.</span></p>
+          <div class="ftr__nlgrid">
+            <label class="sr-only" for="nl-fn">First name</label><input id="nl-fn" type="text" name="firstName" autocomplete="given-name" placeholder="First name" data-it-placeholder="Nome" required>
+            <label class="sr-only" for="nl-ln">Last name</label><input id="nl-ln" type="text" name="lastName" autocomplete="family-name" placeholder="Last name" data-it-placeholder="Cognome" required>
+            <label class="sr-only" for="nl">Email</label><input id="nl" type="email" name="email" autocomplete="email" placeholder="Email" data-it-placeholder="Email" required>
+            <label class="sr-only" for="nl-ph">Phone number</label><input id="nl-ph" type="tel" name="phone" autocomplete="tel" placeholder="Phone number" data-it-placeholder="Telefono" required>
+          </div>
+          <button type="submit"><span data-it="Avvisami">Notify me</span></button>
           <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px"><p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>

@@ -151,3 +151,10 @@
 .ftr__soc:hover,.ftr__soc:focus-visible{color:#cbd6e3;transform:translateY(-1px)}
 @media (max-width:760px){.ftr__social{gap:4px 6px}.ftr__soc{min-width:48px;min-height:44px}}
 @media (prefers-reduced-motion:reduce){.ftr__soc{transition:none}.ftr__soc:hover{transform:none}}
+/* Event alerts sign-up: first name, last name, email, phone (client, 2026-09-25) */
+.ftr__nllabel{margin:0 0 max(10px,1vw);color:var(--f-cream);line-height:1.5}
+.ftr__nlgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ftr__nl .ftr__nlgrid input{border-right:1px solid var(--f-line);width:100%;box-sizing:border-box}
+.ftr__nl .ftr__nlgrid input:focus{border-color:var(--f-cream)}
+.ftr__nl > button{margin-top:8px;width:100%;min-height:max(40px,2.8vw)}
+@media (max-width:760px){.ftr__nlgrid{grid-template-columns:1fr}.ftr__nl > button{min-height:44px}}

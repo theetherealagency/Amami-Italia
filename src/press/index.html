@@ -151,11 +151,14 @@
       <div class="ftr__col">
         <p class="ftr__label"><span data-it="Eventi">Events</span></p>
         <form class="ftr__nl" action="#" method="post" aria-label="Event updates signup" data-amami-form="event-updates" data-endpoint="/api/forms/" data-mailto="info@amamiitalia.com">
-          <label for="nl"><span data-it="Scopri per primo i nostri eventi.">Be first to hear about our events.</span></label>
-          <span class="ftr__nlrow">
-            <input id="nl" type="email" name="email" placeholder="Your email" data-it-placeholder="La tua email" required>
-            <button type="submit"><span data-it="Avvisami">Notify me</span></button>
-          </span>
+          <p class="ftr__nllabel"><span data-it="Scopri per primo i nostri eventi.">Be first to hear about our events.</span></p>
+          <div class="ftr__nlgrid">
+            <label class="sr-only" for="nl-fn">First name</label><input id="nl-fn" type="text" name="firstName" autocomplete="given-name" placeholder="First name" data-it-placeholder="Nome" required>
+            <label class="sr-only" for="nl-ln">Last name</label><input id="nl-ln" type="text" name="lastName" autocomplete="family-name" placeholder="Last name" data-it-placeholder="Cognome" required>
+            <label class="sr-only" for="nl">Email</label><input id="nl" type="email" name="email" autocomplete="email" placeholder="Email" data-it-placeholder="Email" required>
+            <label class="sr-only" for="nl-ph">Phone number</label><input id="nl-ph" type="tel" name="phone" autocomplete="tel" placeholder="Phone number" data-it-placeholder="Telefono" required>
+          </div>
+          <button type="submit"><span data-it="Avvisami">Notify me</span></button>
           <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px"><p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
