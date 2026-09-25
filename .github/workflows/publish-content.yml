@@ -1,0 +1,47 @@
+# Publishes what the client changes in the admin portal (/admin/).
+# The portal saves JSON (and uploaded photos) under content/; this turns them
+# into the site's pages and commits the result, which Vercel then deploys.
+name: Publish content
+
+on:
+  push:
+    branches: [main]
+    paths: ['content/**', 'tools/build-cms.py', 'tools/build-journal.py', 'tools/process-uploads.py']
+  workflow_dispatch:
+
+concurrency:
+  group: publish-content
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --quiet pillow==11.3.0
+      - name: Photos, pages, journal, asset versions
+        run: |
+          python3 tools/process-uploads.py
+          python3 tools/build-cms.py
+          python3 tools/build-journal.py
+          python3 tools/version-assets.py
+      - name: Commit the built pages
+        env:
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          git config user.name "Amami admin portal"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A src
+          if git diff --cached --quiet; then echo "Nothing to publish"; exit 0; fi
+          git commit -m "Publish: $(printf '%s' "${MSG:-content}" | head -n1 | cut -c1-120)" -m "Built from content/ by the publish-content workflow."
+          for i in 1 2 3; do git pull --rebase --quiet origin main && git push origin HEAD:main && exit 0; sleep 5; done
+          exit 1
