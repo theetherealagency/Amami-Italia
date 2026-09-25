@@ -154,3 +154,10 @@ textarea.in{min-height:76px;resize:vertical;line-height:1.5}
   .savebar{left:0;padding:12px 16px}
   .h1{font-size:22px}
 }
+
+/* ---- lead folders ---- */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:12px;background:var(--muted);border-radius:10px;padding:9px 16px;text-decoration:none;font-size:15px}
+.chip b{font-weight:500;font-variant-numeric:tabular-nums}
+.chip[aria-current="page"]{background:var(--ink);color:#fff}
+.chip[aria-current="page"] b{border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:0 10px}

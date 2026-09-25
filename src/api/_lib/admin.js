@@ -148,7 +148,7 @@ async function deleteFile(path, message, sha, email) {
 
 // ---- content rules -------------------------------------------------------------
 
-const EDITABLE = /^content\/(site\/(events|menu)\.json|journal\/categories\.json|journal\/posts\/[a-z0-9]+(?:-[a-z0-9]+)*\.json)$/;
+const EDITABLE = /^content\/(site\/(events|menu)\.json|journal\/categories\.json|(journal\/posts|events)\/[a-z0-9]+(?:-[a-z0-9]+)*\.json)$/;
 
 // Writing tags and the Journal's own classes; everything else is dropped.
 const TAGS = new Set(['p', 'h2', 'h3', 'h4', 'strong', 'b', 'em', 'i', 'a', 'br', 'ul', 'ol', 'li', 'blockquote', 'span',
@@ -193,11 +193,21 @@ function validate(path, data) {
       for (const k of Object.keys(L)) if (typeof L[k] === 'string' && k !== 'body_html' && L[k].length > 2000) throw bad(`"${k}" is too long.`);
     }
   }
+  if (/^content\/events\//.test(path)) {
+    const slug = path.split('/').pop().replace(/\.json$/, '');
+    if (data.slug !== slug) throw bad('The event address does not match its file.');
+    if (!/^\d{4}-\d\d-\d\d$/.test(data.date || '')) throw bad('The event needs a date.');
+    if (!/^\d\d:\d\d$/.test(data.time || '')) throw bad('The event needs a time.');
+    if (!data.draft && !/^\/wp-content\/uploads\/[\w/.-]+$/.test((data.photo || {}).desk || '')) throw bad('Add a photo before publishing the event.');
+    for (const lang of ['en', 'it']) {
+      const L = data[lang];
+      if (!L || !textOk(L.title, 160) || !L.title.trim()) throw bad(`The ${lang === 'en' ? 'English' : 'Italian'} event name is missing.`);
+      for (const k of ['intro_html', 'after_html']) if (typeof L[k] === 'string') L[k] = cleanHtml(L[k]);
+      for (const k of Object.keys(L)) if (typeof L[k] === 'string' && !/_html$/.test(k) && L[k].length > 2000) throw bad(`"${k}" is too long.`);
+    }
+  }
   if (/site\/events\.json$/.test(path)) {
-    const s = data.slots || {};
-    if (!/^\d{4}-\d\d-\d\d$/.test((s['event.date'] || {}).value || '')) throw bad('The event needs a date.');
-    if (!/^\d\d:\d\d$/.test((s['event.time'] || {}).value || '')) throw bad('The event needs a time.');
-    if (s['bistecca.intro']) for (const l of ['en', 'it']) s['bistecca.intro'][l] = cleanHtml(s['bistecca.intro'][l]);
+    if (!data.slots || typeof data.slots !== 'object') throw bad('The Events page content is empty.');
   }
   if (/site\/menu\.json$/.test(path)) {
     for (const [page, m] of Object.entries(data.menus || {})) {
@@ -214,5 +224,25 @@ function validate(path, data) {
 
 function bad(msg) { const e = new Error(msg); e.status = 400; return e; }
 
-module.exports = { send, readJson, checkPassword, makeSession, readSession, cookie, guard, gh, readFile, writeFile,
+// The Google Sheet behind the event enquiry form (apps-script/enquiries.gs).
+const SCRIPT_URL = process.env.FORMS_SCRIPT_URL ||
+  'https://script.google.com/macros/s/AKfycbwvrH3PsAW6LZQ1D2SBX9RwgX4_qM29xvE0QlWc77wFSpb7ghJyHHV_GUwwXOO9WUHwjA/exec';
+
+async function sheet(body) {
+  if (!process.env.LEADS_KEY) { const e = new Error('Leads are not connected yet (LEADS_KEY is missing).'); e.status = 503; throw e; }
+  const r = await fetch(SCRIPT_URL, { method: 'POST', redirect: 'follow', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...body, key: process.env.LEADS_KEY }) });
+  const text = await r.text();
+  let j;
+  try { j = JSON.parse(text); } catch (e) { const x = new Error('The enquiry sheet did not answer. Try again in a minute.'); x.status = 502; throw x; }
+  if (!j.ok) {
+    const x = new Error(j.error === 'not allowed'
+      ? 'The enquiry sheet has not been updated for the portal yet (paste the new Code.gs and deploy a new version).'
+      : (j.error || 'The enquiry sheet returned an error.'));
+    x.status = 502; throw x;
+  }
+  return j;
+}
+
+module.exports = { sheet, send, readJson, checkPassword, makeSession, readSession, cookie, guard, gh, readFile, writeFile,
   deleteFile, EDITABLE, validate, cleanHtml, REPO, BRANCH, SESSION_HOURS };

@@ -31,6 +31,7 @@ const ICONS = {
   trash: '<path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>',
   up: '<path d="m18 15-6-6-6 6"/>', down: '<path d="m6 9 6 6 6-6"/>',
   arrow: '<path d="M5 12h14M12 5l7 7-7 7"/>', upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>',
+  inbox: '<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
   bars: '<path d="M4 6h16M4 12h16M4 18h16"/>', search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
 };
 const ic = (n, cls = '') => `<svg class="i ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
@@ -251,7 +252,7 @@ function discardView() {
 }
 
 // ---------- shell ----------
-const NAV = [['dashboard', 'Dashboard', 'grid'], ['events', 'Events', 'ticket'], ['journal', 'Journal', 'book'], ['menu', 'Menu', 'menu'], ['photos', 'Photos', 'image']];
+const NAV = [['dashboard', 'Dashboard', 'grid'], ['leads', 'Leads', 'inbox'], ['events', 'Events', 'ticket'], ['journal', 'Journal', 'book'], ['menu', 'Menu', 'menu'], ['photos', 'Photos', 'image']];
 function shell(route, body) {
   return `<div class="shell">
   <aside class="side">
@@ -301,33 +302,42 @@ function loginView() {
 async function dashboard() {
   const [ev, mn] = await Promise.all([load(EVENTS), load(MENU)]);
   if (!S.posts) S.posts = (await api('posts')).posts;
+  if (!S.events) S.events = (await api('events')).events;
+  let leadList = null;
+  if (S.me.leads) { try { leadList = await loadLeads(); } catch (e) { leadList = null; } }
   const menus = mn.data.menus || {};
   const dishes = Object.values(menus).flatMap(m => m.sections.flatMap(s => s.items));
   const published = S.posts.filter(p => !p.draft), drafts = S.posts.filter(p => p.draft);
   const photos = Object.values(ev.data.slots).concat(Object.values(mn.data.slots)).filter(v => v && v.desk !== undefined).length;
-  const s = ev.data.slots;
-  const evDate = (s['event.date'] || {}).value;
+  const up = S.events.filter(e => !e.draft && !isPast(e)).sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const next = up.find(e => e.featured) || up[0];
+  const newLeads = leadList ? leadList.filter(l => l.status === 'New') : [];
   const needs = [];
-  if (!S.me.github) needs.push(['The portal is not connected to GitHub yet, so saving is switched off. Your agency is setting this up.', '#/dashboard', 'bad']);
-  if (evDate && evDate < today()) needs.push([`The featured event (${(s['events.fio.title'] || {}).en || 'event'}, ${evDate}) has already happened. Change the date or the event.`, '#/events']);
+  if (!S.me.github) needs.push(['The portal is not connected to GitHub yet, so saving is switched off.', '#/dashboard', 'bad']);
+  if (newLeads.length) needs.push([`${newLeads.length} new event enquir${newLeads.length > 1 ? 'ies' : 'y'} to answer.`, '#/leads']);
+  if (S.me.leads && !leadList) needs.push(['The enquiry sheet is not answering the portal yet. Leads will show here once it is updated.', '#/leads', 'bad']);
+  if (!up.length) needs.push(['No event is coming up, so the event panel is hidden on the Events page. Add one.', '#/events/new']);
   const noIt = dishes.filter(d => d.desc && d.desc.en && !d.desc.it).length;
   if (noIt) needs.push([`${noIt} dish${noIt > 1 ? 'es have' : ' has'} no Italian description.`, '#/menu']);
-  const evNoIt = Object.entries(s).filter(([k, v]) => v && typeof v.en === 'string' && v.en && !v.it).length;
-  if (evNoIt) needs.push([`${evNoIt} piece${evNoIt > 1 ? 's' : ''} of Events text ${evNoIt > 1 ? 'have' : 'has'} no Italian.`, '#/events']);
+  const evDrafts = S.events.filter(e => e.draft).length;
+  if (evDrafts) needs.push([`${evDrafts} event${evDrafts > 1 ? 's are' : ' is'} saved as a draft and not on the website yet.`, '#/events']);
   if (drafts.length) needs.push([`${drafts.length} Journal post${drafts.length > 1 ? 's are' : ' is'} saved as a draft and not on the website yet.`, '#/journal']);
-  const nPub = published.length;
-  const body = head('Dashboard', "An overview of what's on the website.") + `
+  const leadRow = l => `<a class="row" href="#/leads/${encodeURIComponent(l.space || 'Not sure yet')}"><span><span class="badge">${esc(l.space || 'Not sure yet')}</span> ${l.status === 'New' ? '<span class="badge badge--dark">New</span>' : ''}<br><b>${esc([l.firstName, l.lastName].filter(Boolean).join(' ') || l.email)}</b> <small class="muted">${esc(l.email)}</small></span><small>${esc(l.received ? new Date(l.received).toLocaleDateString('en-CA') : '')}</small></a>`;
+  const body = head('Dashboard', "An overview of what's happening on the website.") + `
   <div class="stats">
+    <a class="stat" href="#/leads"><span class="stat__i">${ic('inbox')}</span><div><b>${leadList ? newLeads.length : '–'}</b><span>New leads</span></div></a>
     <a class="stat" href="#/menu"><span class="stat__i">${ic('menu')}</span><div><b>${dishes.length}</b><span>Menu items</span></div></a>
-    <a class="stat" href="#/journal"><span class="stat__i">${ic('book')}</span><div><b>${nPub}</b><span>Journal posts${drafts.length ? ` · ${drafts.length} draft` : ''}</span></div></a>
-    <a class="stat" href="#/events"><span class="stat__i">${ic('ticket')}</span><div><b>${evDate && evDate >= today() ? 1 : 0}</b><span>Upcoming events</span></div></a>
+    <a class="stat" href="#/events"><span class="stat__i">${ic('ticket')}</span><div><b>${up.length}</b><span>Upcoming events</span></div></a>
+    <a class="stat" href="#/journal"><span class="stat__i">${ic('book')}</span><div><b>${published.length}</b><span>Journal posts${drafts.length ? ` · ${drafts.length} draft` : ''}</span></div></a>
     <a class="stat" href="#/photos"><span class="stat__i">${ic('image')}</span><div><b>${photos}</b><span>Page photos</span></div></a>
   </div>
   <div class="card"><h2>${ic(needs.length ? 'warn' : 'ok')} ${needs.length ? 'Needs attention' : 'All good'}</h2>
     <p class="hint">${needs.length ? `${needs.length} thing${needs.length > 1 ? 's' : ''} worth a look.` : 'Nothing needs your attention right now.'}</p>
     <div class="rows">${needs.map(([t, h, k]) => `<a class="row" href="${h}"><span${k === 'bad' ? ' style="color:var(--bad)"' : ''}>${esc(t)}</span>${ic('arrow')}</a>`).join('')}</div></div>
-  <div class="card"><h2>Coming up</h2><p class="hint">The featured event on the Events page.</p>
-    <a class="row" href="#/events"><span><b>${esc((s['events.fio.title'] || {}).en)}</b><br><small>${esc(fmtDate(evDate))} · ${esc(fmtTime((s['event.time'] || {}).value))}</small></span>${ic('arrow')}</a></div>
+  <div class="card"><div style="display:flex;justify-content:space-between;gap:12px"><div><h2>Recent leads</h2><p class="hint">The latest event enquiries.</p></div><a class="btn" href="#/leads" style="align-self:flex-start">View all</a></div>
+    <div class="rows">${leadList ? (leadList.slice(0, 5).map(leadRow).join('') || '<p class="muted">No enquiries yet.</p>') : '<p class="muted">Leads appear here once the enquiry sheet is connected.</p>'}</div></div>
+  <div class="card"><div style="display:flex;justify-content:space-between;gap:12px"><div><h2>Coming up</h2><p class="hint">Upcoming events, soonest first.</p></div><a class="btn" href="#/events/new" style="align-self:flex-start">${ic('plus')} New event</a></div>
+    <div class="rows">${up.map(e => `<a class="row" href="#/events/${esc(e.slug)}"><span><b>${esc(e.title)}</b>${next && next.slug === e.slug ? ' <span class="badge badge--ok">On the Events page</span>' : ''}<br><small>${esc(fmtDate(e.date))} · ${esc(fmtTime(e.time))}</small></span>${ic('arrow')}</a>`).join('') || '<p class="muted">Nothing coming up.</p>'}</div></div>
   <div class="card"><h2>Latest Journal posts</h2><p class="hint">Newest first.</p>
     <div class="rows">${S.posts.slice(0, 4).map(p => `<a class="row" href="#/journal/${esc(p.slug)}"><span><span class="badge ${p.draft ? '' : 'badge--dark'}">${p.draft ? 'Draft' : 'Published'}</span> &nbsp;${esc(p.title)}</span><small>${esc(p.date)}</small></a>`).join('') || '<p class="muted">No posts yet.</p>'}</div>
     <p style="margin:14px 0 0"><a class="btn" href="#/journal/new">${ic('plus')} New post</a></p></div>`;
@@ -338,34 +348,32 @@ function fmtDate(d) { if (!d) return ''; const [y, m, dd] = d.split('-').map(Num
 function fmtTime(t) { if (!t) return ''; const [h, m] = t.split(':').map(Number); return `${h % 12 || 12}${m ? ':' + String(m).padStart(2, '0') : ''} ${h < 12 ? 'AM' : 'PM'}`; }
 
 // ---------- events ----------
-async function events() {
+const isPast = e => e.date < today();
+async function eventsList() {
+  S.events = (await api('events')).events;
   await load(EVENTS);
   const f = EVENTS;
   const s = S.files[f].data.slots;
+  const up = S.events.filter(e => !e.draft && !isPast(e)).sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const shown = up.find(e => e.featured) || up[0];
+  const rows = S.events.map(e => {
+    const st = e.draft ? ['Draft', ''] : isPast(e) ? ['Past', ''] : ['Upcoming', 'badge--dark'];
+    return `<tr><td><div class="thumb" style="background-image:url('${esc(thumbs(e.photo)[0] || '')}')"></div></td>
+      <td><a href="#/events/${esc(e.slug)}">${esc(e.title)}</a>${shown && shown.slug === e.slug ? ' <span class="badge badge--ok" style="margin-left:6px">On the Events page</span>' : ''}<br><small class="muted">${esc(e.title_it)}</small></td>
+      <td>${esc(fmtDate(e.date))}<br><small class="muted">${esc(fmtTime(e.time))}</small></td>
+      <td><span class="badge ${st[1]}">${st[0]}</span></td>
+      <td>${e.draft ? '' : `<a class="btn btn--sm btn--ghost" href="/events/${esc(e.slug)}/" target="_blank" rel="noopener" aria-label="View">${ic('ext')}</a>`}</td></tr>`;
+  }).join('');
   const rooms = [1, 2, 3, 4].map(i => `<div class="card" style="box-shadow:none"><h2 style="font-size:15px">${esc((s[`events.room${i}.name`] || {}).en)}</h2><p class="hint"></p>
       ${pair('Name', f, ['slots', `events.room${i}.name`])}
       ${pair('One line about it', f, ['slots', `events.room${i}.lede`])}
       ${pair('How many guests', f, ['slots', `events.room${i}.cap`], { note: 'Also shown in the enquiry form' })}</div>`).join('');
   const incl = (s['events.incl.items'] || { items: [] }).items;
-  const body = head('Events', 'The Events page and the featured event.', `<a class="btn" href="/events/" target="_blank" rel="noopener">${ic('ext')} View page</a>`) + `
-  <div class="card"><h2>Featured event</h2><p class="hint">The dark panel on the Events page, and its own page (<a href="/events/bistecca-alla-fiorentina/" target="_blank" rel="noopener">/events/bistecca-alla-fiorentina/</a>).</p>
-    <div class="grid2">${field('Date', f, ['slots', 'event.date', 'value'], { type: 'date' })}${field('Time', f, ['slots', 'event.time', 'value'], { type: 'time' })}</div>
-    <p class="help">The date and time are written out for you in English and Italian everywhere they appear, and Google gets the new date too.</p>
-    ${pair('Name on the Events page', f, ['slots', 'events.fio.title'])}
-    ${pair('Short description', f, ['slots', 'events.fio.text'], { rows: 3 })}
-    ${pair('Menu line', f, ['slots', 'events.fio.menu'], { note: 'e.g. Five courses' })}
-    ${pair('Button', f, ['slots', 'events.fio.cta'], { note: 'Goes to the reservation page' })}
-    ${imageField('Photo on the Events page', f, 'events.fio.image')}
-    <hr class="sep">
-    <h2 style="font-size:15px">The event's own page</h2><p class="hint"></p>
-    ${pair('Page title', f, ['slots', 'bistecca.title'])}
-    <div class="f"><span class="f__l">About the evening</span><div class="pair">
-      <div><span class="lang">EN</span>${rich(f, ['slots', 'bistecca.intro', 'en'], true)}</div>
-      <div><span class="lang">IT</span>${rich(f, ['slots', 'bistecca.intro', 'it'], true)}</div></div></div>
-    ${pair('Button', f, ['slots', 'bistecca.cta'])}
-    ${imageField('Photo at the top of the page', f, 'bistecca.hero.image')}
-  </div>
-  <div class="card"><h2>Top of the page</h2><p class="hint">The two short lines beside the title.</p>
+  const body = head('Events', 'Add events, and edit the Events page.', `<a class="btn" href="/events/" target="_blank" rel="noopener">${ic('ext')} View page</a><a class="btn btn--dark" href="#/events/new">${ic('plus')} New event</a>`) + `
+  <div class="card" style="padding:8px 10px"><table class="table"><thead><tr><th></th><th>Event</th><th>When</th><th>Status</th><th></th></tr></thead><tbody>
+  ${rows || '<tr><td colspan="5" class="muted">No events yet.</td></tr>'}</tbody></table></div>
+  <p class="help" style="margin:-8px 0 26px">The dark panel on the Events page shows the event marked “Show on the Events page”, or else the next one coming up. When more than one event is coming up, the others are listed under it. Past events leave the Events page by themselves the next morning; their own page stays up without the booking button.</p>
+  <div class="card"><h2>Top of the Events page</h2><p class="hint">The two short lines beside the title.</p>
     ${pair('First line', f, ['slots', 'events.hero.sub1'])}${pair('Second line', f, ['slots', 'events.hero.sub2'])}
     ${imageField('Photo', f, 'events.hero.image')}</div>
   <div class="card"><h2>The four spaces</h2><p class="hint">Names and sizes of the rooms. The drawings stay the same.</p><div class="grid2">${rooms}</div></div>
@@ -375,18 +383,171 @@ async function events() {
       <button class="btn btn--icon btn--ghost btn--danger" type="button" data-incl-del="${i}" aria-label="Remove line" style="margin-bottom:14px">${ic('trash')}</button></div>`).join('')}
     <button class="btn" type="button" id="incl-add">${ic('plus')} Add a line</button></div>`;
   S.view = { title: 'Events page', files: [f], message: () => 'Update the Events page',
-    check: () => {
-      const e = [];
-      if (!(s['event.date'] || {}).value) e.push('Please choose the event date.');
-      if (!(s['event.time'] || {}).value) e.push('Please choose the event time.');
-      return e;
-    },
     wire: () => {
       $('#incl-add').onclick = () => { s['events.incl.items'].items.push({ en: '', it: '' }); render(); };
       $$('[data-incl-del]').forEach(b => { b.onclick = () => { s['events.incl.items'].items.splice(+b.dataset.inclDel, 1); render(); }; });
-      wireRich();
     } };
   return shell('events', body);
+}
+
+function blankEvent() {
+  const L = () => ({ title: '', panel_title: '', summary: '', menu_line: '', cta: '', panel_cta: '', intro_html: '', after_html: '',
+    photo_alt: '', seo_title: '', seo_description: '' });
+  return { slug: '', draft: true, featured: false, date: '', time: '19:00', photo: { desk: '', mob: '', w: 0, h: 0 }, en: L(), it: L() };
+}
+
+async function eventEditor(slug) {
+  if (!S.events) S.events = (await api('events')).events;
+  let f;
+  if (slug === 'new') { f = 'new-event'; if (!S.files[f]) S.files[f] = { data: blankEvent(), sha: null, orig: '' }; }
+  else { f = `content/events/${slug}.json`; await load(f); }
+  const d = S.files[f].data;
+  d.photo = d.photo || { desk: '', mob: '' };
+  const E = k => [k];
+  const ph = (label, p, role) => photoCard(label, f, p, role, d.en.photo_alt);
+  const body = head(slug === 'new' ? 'New event' : (d.en.title || 'Event'),
+    slug === 'new' ? 'Fill it in, in English and Italian, then publish.' : (d.draft ? 'Draft: not on the website yet.' : (d.date < today() ? 'This event has passed.' : 'Published on the website.')),
+    `<a class="btn" href="#/events">Back to events</a>${!d.draft && d.slug ? `<a class="btn" href="/events/${esc(d.slug)}/" target="_blank" rel="noopener">${ic('ext')} View</a>` : ''}`) + `
+  <div class="editor"><div>
+    <div class="card"><h2>The event</h2><p class="hint"></p>
+      <div class="f"><span class="f__l">Name</span><div class="pair"><label><span class="lang">EN</span>${input(f, ['en', 'title'])}</label><label><span class="lang">IT</span>${input(f, ['it', 'title'])}</label></div></div>
+      <div class="grid2">${field('Date', f, ['date'], { type: 'date' })}${field('Time', f, ['time'], { type: 'time' })}</div>
+      <div class="f"><span class="f__l">Short description<small>On the Events page and in the list of events</small></span><div class="pair"><label><span class="lang">EN</span>${input(f, ['en', 'summary'], { rows: 3 })}</label><label><span class="lang">IT</span>${input(f, ['it', 'summary'], { rows: 3 })}</label></div></div>
+      <div class="f"><span class="f__l">What's on the menu<small>e.g. Five courses</small></span><div class="pair"><label><span class="lang">EN</span>${input(f, ['en', 'menu_line'])}</label><label><span class="lang">IT</span>${input(f, ['it', 'menu_line'])}</label></div></div>
+      <div class="f"><span class="f__l">About the evening<small>On the event's own page</small></span><div class="pair">
+        <div><span class="lang">EN</span>${rich(f, ['en', 'intro_html'], true)}</div><div><span class="lang">IT</span>${rich(f, ['it', 'intro_html'], true)}</div></div></div>
+      <div class="f"><span class="f__l">Button<small>Goes to the reservation page. Leave empty for “Reserve a Table”</small></span><div class="pair"><label><span class="lang">EN</span>${input(f, ['en', 'cta'], { ph: 'Reserve your seat' })}</label><label><span class="lang">IT</span>${input(f, ['it', 'cta'], { ph: 'Prenota il tuo posto' })}</label></div></div>
+      <div class="f"><span class="f__l">Extra note under the button<small>Optional</small></span><div class="pair">
+        <div><span class="lang">EN</span>${rich(f, ['en', 'after_html'], true)}</div><div><span class="lang">IT</span>${rich(f, ['it', 'after_html'], true)}</div></div></div>
+    </div>
+    <div class="card"><h2>On the Events page</h2><p class="hint">How it looks in the dark panel. Leave these empty to use the name and button above.</p>
+      <div class="f"><span class="f__l">Name in the panel</span><div class="pair"><label><span class="lang">EN</span>${input(f, ['en', 'panel_title'], { ph: d.en.title })}</label><label><span class="lang">IT</span>${input(f, ['it', 'panel_title'], { ph: d.it.title })}</label></div></div>
+      <div class="f"><span class="f__l">Button in the panel</span><div class="pair"><label><span class="lang">EN</span>${input(f, ['en', 'panel_cta'], { ph: d.en.cta || 'Reserve your table' })}</label><label><span class="lang">IT</span>${input(f, ['it', 'panel_cta'], { ph: d.it.cta || 'Prenota il tuo tavolo' })}</label></div></div>
+    </div>
+  </div>
+  <div>
+    <div class="card"><h2>Publishing</h2><p class="hint"></p>
+      <label class="check" style="margin-bottom:10px"><input type="checkbox" id="pub" ${d.draft ? '' : 'checked'}> Published on the website</label>
+      <label class="check" style="margin-bottom:14px"><input type="checkbox" id="feat" ${d.featured ? 'checked' : ''}> Show on the Events page</label>
+      ${slug === 'new' ? `<label class="f"><span class="f__l">Web address<small>Made from the English name</small></span><input class="in" id="slug" value="${esc(d.slug || slugify(d.en.title))}" placeholder="made-from-the-name"></label>` : `<p class="help">Address: /events/${esc(d.slug)}/</p>`}
+      <div class="btns">${slug !== 'new' ? `<button class="btn btn--danger" type="button" id="del">${ic('trash')} Delete</button>` : ''}</div>
+    </div>
+    <div class="card"><h2>Photo</h2><p class="hint">At the top of the event's page and in the panel.</p>
+      <div class="imgfield" style="grid-template-columns:1fr 1fr">${ph('Computer', ['photo'], 'desk')}${ph('Phone', ['photo'], 'mob')}</div>
+      <div class="f"><span class="f__l">Describe the photo</span><div class="pair" style="grid-template-columns:1fr"><label><span class="lang">EN</span>${input(f, ['en', 'photo_alt'])}</label><label><span class="lang">IT</span>${input(f, ['it', 'photo_alt'])}</label></div></div>
+      <p class="help">No phone photo? The computer one is used on phones too.</p></div>
+    <div class="card"><h2>Google</h2><p class="hint">Optional. Made from the name and description if left empty.</p>
+      ${field('Search title (EN)', f, ['en', 'seo_title'], { max: 60, ph: d.en.title ? d.en.title + ' | Amami Italia' : '' })}
+      ${field('Search description (EN)', f, ['en', 'seo_description'], { rows: 3, max: 160, ph: d.en.summary })}
+      ${field('Search title (IT)', f, ['it', 'seo_title'], { max: 60, ph: d.it.title ? d.it.title + ' | Amami Italia' : '' })}
+      ${field('Search description (IT)', f, ['it', 'seo_description'], { rows: 3, max: 160, ph: d.it.summary })}</div>
+  </div></div>`;
+  S.view = {
+    title: 'event', files: [f],
+    onInput: (el, p) => { if (p[0] === 'en' && p[1] === 'title' && slug === 'new' && $('#slug') && !S.slugTouched) $('#slug').value = slugify(el.value); },
+    check: () => {
+      const e = [];
+      const nd = S.files[f].data;
+      if (slug === 'new') {
+        const sl = slugify($('#slug') ? $('#slug').value : nd.en.title);
+        if (!sl) e.push('Give the event an English name first.');
+        else if (S.events.some(x => x.slug === sl) || ['index'].includes(sl)) e.push('An event with that web address already exists. Change the name or the address.');
+        nd.slug = sl;
+        S.view.pathFor = k => (k === f ? `content/events/${sl}.json` : k);
+      }
+      if (!nd.en.title.trim()) e.push('The English name is missing.');
+      if (!nd.it.title.trim()) e.push('Il nome in italiano manca (the Italian name is missing).');
+      if (!nd.date) e.push('Choose the date.');
+      if (!nd.time) e.push('Choose the time.');
+      if (!nd.draft) {
+        if (!nd.photo.desk) e.push('Add a photo before publishing.');
+        for (const l of ['en', 'it']) if (!String(nd[l].summary || '').trim()) e.push(`The ${l === 'en' ? 'English' : 'Italian'} short description is empty.`);
+        for (const l of ['en', 'it']) if (!String(nd[l].menu_line || '').trim()) e.push(`Fill in "What's on the menu" (${l === 'en' ? 'English' : 'Italian'}).`);
+      }
+      nd.modified = today();
+      return e;
+    },
+    message: () => `${S.files[f].data.draft ? 'Save event draft' : 'Publish event'}: ${S.files[f].data.en.title}`.slice(0, 110),
+    after: async () => {
+      const nd = S.files[f].data;
+      if (nd.featured) {           // only one event is "on the Events page"
+        for (const ev of (S.events || []).filter(x => x.featured && x.slug !== nd.slug)) {
+          const pth = `content/events/${ev.slug}.json`;
+          await load(pth, true); S.files[pth].data.featured = false; await save(pth, `Events page now shows ${nd.en.title}`);
+        }
+      }
+      if (slug === 'new') {
+        const path = `content/events/${nd.slug}.json`;
+        S.files[path] = S.files[f]; delete S.files[f];
+        S.slugTouched = false;
+        location.hash = `#/events/${nd.slug}`;
+      }
+      S.events = null;
+    },
+    wire: () => {
+      $('#pub').onchange = e => { S.files[f].data.draft = !e.target.checked; paintSaveBar(); };
+      $('#feat').onchange = e => { S.files[f].data.featured = e.target.checked; paintSaveBar(); };
+      if ($('#slug')) $('#slug').oninput = () => { S.slugTouched = true; };
+      if ($('#del')) $('#del').onclick = async () => {
+        if (!confirm(`Delete "${d.en.title}"? Its page comes off the website in English and Italian.`)) return;
+        try {
+          const j = await api('content', { method: 'DELETE', body: { path: f, sha: S.files[f].sha } });
+          S.pending = { commit: j.commit, since: Date.now() }; watchStatus();
+          delete S.files[f]; S.events = null;
+          toast('Event deleted. It comes off the website in about a minute.');
+          location.hash = '#/events';
+        } catch (err) { toast(err.message, true); }
+      };
+      wireRich();
+    },
+  };
+  return shell('events', body);
+}
+
+// ---------- leads ----------
+const SPACES = [['The Private Room', 'Private Room'], ['The Lounge', 'Lounge'], ['The Long Table', 'Long Table'], ['Full Buyout', 'Full Buyout'], ['Not sure yet', 'Not sure yet']];
+async function loadLeads(force) {
+  if (!S.leads || force) { const j = await api('leads'); S.leads = j.leads; S.statuses = j.statuses; }
+  return S.leads;
+}
+async function leads(folder) {
+  let list = [], err = '';
+  try { list = await loadLeads(); } catch (e) { err = e.message; }
+  const fold = decodeURIComponent(folder || 'all');
+  const inFolder = (l, k) => k === 'all' || (l.space || 'Not sure yet') === k || (k === 'Not sure yet' && !SPACES.some(s => s[0] === l.space));
+  const chips = [['all', 'All'], ...SPACES].map(([k, t]) => {
+    const n = list.filter(l => inFolder(l, k)).length, nw = list.filter(l => inFolder(l, k) && l.status === 'New').length;
+    return `<a class="chip" href="#/leads/${encodeURIComponent(k)}" ${fold === k ? 'aria-current="page"' : ''}>${esc(t)} <b>${n}</b>${nw ? '<span class="dot" style="color:#dc2626"></span>' : ''}</a>`;
+  }).join('');
+  const q = (S.leadQ || '').toLowerCase();
+  const shown = list.filter(l => inFolder(l, fold) && (!q || JSON.stringify(l).toLowerCase().includes(q)));
+  const card = l => {
+    const name = [l.firstName, l.lastName].filter(Boolean).join(' ') || l.name || l.email;
+    return `<div class="card lead" style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start">
+        <div><div class="btns" style="margin-bottom:6px"><span class="badge">${esc(l.space || 'Not sure yet')}</span>${l.status === 'New' ? '<span class="badge badge--dark">New</span>' : ''}</div>
+          <b style="font-size:16px">${esc(name)}</b><div class="muted" style="font-size:14px">${esc(l.email)}${l.phone ? ' · ' + esc(l.phone) : ''}</div></div>
+        <div style="text-align:right"><small class="muted">${esc(l.received ? new Date(l.received).toLocaleString('en-CA', { dateStyle: 'medium', timeStyle: 'short' }) : '')}</small><br>
+          <select class="in" style="width:auto;margin-top:6px" data-lead="${esc(l.row)}">${(S.statuses || ['New', 'Contacted', 'Booked', 'Not going ahead']).map(st => `<option ${st === l.status ? 'selected' : ''}>${esc(st)}</option>`).join('')}</select></div></div>
+      <div class="grid3" style="margin-top:14px;font-size:14px"><div><small class="muted">Event date</small><br>${esc(l.date ? String(l.date).slice(0, 10) : '—')}</div><div><small class="muted">Guests</small><br>${esc(l.guests || '—')}</div><div><small class="muted">From page</small><br>${esc(l.page || '—')}</div></div>
+      ${l.message ? `<p style="margin:14px 0 0;white-space:pre-wrap">${esc(l.message)}</p>` : ''}
+      <div class="btns" style="margin-top:14px"><a class="btn btn--sm" href="mailto:${esc(l.email)}?subject=${encodeURIComponent('Your event enquiry at Amami Italia')}">Reply by email</a>${l.phone ? `<a class="btn btn--sm" href="tel:${esc(String(l.phone).replace(/[^+\d]/g, ''))}">Call</a>` : ''}</div></div>`;
+  };
+  const body = head('Leads', 'Every event enquiry from the website, by space. Pick a folder to focus on one.', `<button class="btn" type="button" id="lead-refresh">Refresh</button>`) + `
+  ${err ? `<div class="notice notice--bad">${esc(err)}</div>` : ''}
+  <div class="chips">${chips}</div>
+  <div class="btns" style="margin:0 0 18px"><label class="search" style="position:relative;flex:1"><input class="in" id="lq" placeholder="Search name, email, message" value="${esc(S.leadQ || '')}" style="padding-left:34px"><span style="position:absolute;left:10px;top:10px;color:var(--ink-3)">${ic('search')}</span></label></div>
+  ${shown.map(card).join('') || (err ? '' : '<p class="muted">No enquiries here yet.</p>')}`;
+  S.view = { files: [], wire: () => {
+    $('#lead-refresh').onclick = async () => { try { await loadLeads(true); render(); } catch (e) { toast(e.message, true); } };
+    $('#lq').oninput = e => { S.leadQ = e.target.value; const pos = e.target.selectionStart; render(); const n = $('#lq'); n.focus(); n.setSelectionRange(pos, pos); };
+    $$('[data-lead]').forEach(sel => { sel.onchange = async () => {
+      const l = S.leads.find(x => String(x.row) === sel.dataset.lead);
+      try { await api('leads', { method: 'POST', body: { row: l.row, status: sel.value } }); l.status = sel.value; toast(`Marked as ${sel.value}.`); render(); }
+      catch (e) { toast(e.message, true); sel.value = l.status; }
+    }; });
+  } };
+  return shell('leads', body);
 }
 
 // ---------- rich text (Journal writing, event page) ----------
@@ -518,12 +679,11 @@ async function photos() {
   if (!S.posts) S.posts = (await api('posts')).posts;
   const E = EVENTS, M = MENU;
   const groups = [
-    ['Events page', E, [['events.hero.image', 'Top of the page'], ['events.fio.image', 'Featured event']]],
-    ['Event page (Bistecca Night)', E, [['bistecca.hero.image', 'Top of the page']]],
+    ['Events page', E, [['events.hero.image', 'Top of the page']]],
     ['Menu page', M, [['menu.hero.image', 'Top of the page'], ['menu.card1.image', 'Card 1 · Pranzo e Cena'], ['menu.card2.image', 'Card 2 · La Cantina'], ['menu.card3.image', 'Card 3 · Dal Forno'], ['menu.card4.image', 'Card 4 · Cocktails']]],
     ['Menu pages', M, MENUS.map(([k, t]) => [`menu.${k}.hero`, t])],
   ];
-  const body = head('Photos', 'Replace the photos on the Events and Menu pages. Journal photos are changed in each post.') +
+  const body = head('Photos', 'Replace the photos on the Events and Menu pages. Event and Journal photos are changed in each event or post.') +
     groups.map(([t, f, list]) => `<div class="card"><h2>${esc(t)}</h2><p class="hint"></p>${list.filter(([k]) => S.files[f].data.slots[k]).map(([k, l]) => imageField(l, f, k)).join('<hr class="sep">')}</div>`).join('') +
     `<div class="card"><h2>Journal</h2><p class="hint">Open a post to change its photo.</p><div class="photos">${S.posts.map(p => `<a class="ph" href="#/journal/${esc(p.slug)}" style="text-decoration:none">${imgTag(p.photo, p.title)}<div class="ph__b"><b>${esc(p.title)}</b>${ic('arrow')}</div></a>`).join('')}</div></div>`;
   S.view = { title: 'photos', files: [E, M], message: () => 'Update page photos' };
@@ -696,7 +856,7 @@ async function render() {
   }
   const scroll = window.scrollY;
   try {
-    const views = { dashboard, events, journal: () => (arg ? post(arg) : journal()), menu: () => menu(arg), photos };
+    const views = { dashboard, leads: () => leads(arg), events: () => (arg ? eventEditor(arg) : eventsList()), journal: () => (arg ? post(arg) : journal()), menu: () => menu(arg), photos };
     const html = await (views[route] || dashboard)();
     if (seq !== renderSeq) return;
     const prevRoute = S.lastRoute; S.lastRoute = location.hash;

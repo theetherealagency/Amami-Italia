@@ -151,3 +151,27 @@ body.is-events{--ev-sand:#ddd7c7}
   .ev-fio__facts{flex-wrap:wrap;gap:4vw 7vw;margin-bottom:6vw}
   .ev-fio__facts dt{font-size:9px}.ev-fio__facts dd{font-size:max(18px,5vw);margin-top:1.5vw}
 }
+
+/* --- the featured event's title links to its own page; "More events" (only when
+   there is more than one upcoming event, from the admin portal) ------------ */
+.ev-fio__link{color:inherit;text-decoration:none}
+.ev-fio__link:hover{opacity:.85}
+.ev-more{background:var(--hm-cream);padding:5.2vw 8vw 6vw;text-align:center}
+.ev-more__h{margin:0;font-family:var(--serif);font-weight:300;text-transform:uppercase;color:var(--hm-panel);
+  font-size:3.945vw;line-height:1;letter-spacing:-.04em}
+.ev-more__list{list-style:none;margin:3vw auto 0;padding:0;max-width:64vw;text-align:left}
+.ev-more__item{border-top:1px solid rgba(22,22,22,.18)}
+.ev-more__item:last-child{border-bottom:1px solid rgba(22,22,22,.18)}
+.ev-more__link{display:grid;grid-template-columns:18vw 1fr;column-gap:3vw;align-items:baseline;padding:1.8vw 0;color:var(--hm-panel);text-decoration:none}
+.ev-more__link:hover .ev-more__name{color:var(--hm-red)}
+.ev-more__date{grid-row:span 2;font-family:var(--sans);font-weight:300;font-size:max(11px,1.1vw);letter-spacing:.14em;text-transform:uppercase;color:var(--hm-red)}
+.ev-more__name{font-family:var(--serif);font-weight:300;text-transform:uppercase;font-size:max(20px,2.2vw);line-height:1.05;letter-spacing:-.02em;transition:color .2s}
+.ev-more__txt{margin-top:.5vw;font-family:var(--accent);font-size:max(13px,1.15vw);line-height:1.5}
+@media (max-width:760px){
+  .ev-more{padding:10vw 6vw 11vw}
+  .ev-more__h{font-size:7.577vw}
+  .ev-more__list{max-width:none;margin-top:6vw}
+  .ev-more__link{grid-template-columns:1fr;padding:5vw 0}
+  .ev-more__date{grid-row:auto;margin-bottom:1.6vw}
+  .ev-more__txt{margin-top:1.4vw}
+}

@@ -83,58 +83,6 @@
           "it": "Abbinamenti di vini su richiesta."
         }
       ]
-    },
-    "events.fio.image": {
-      "desk": "/wp-content/uploads/2026/09/events-fiorentina-desk",
-      "mob": "/wp-content/uploads/2026/09/events-fiorentina-mob",
-      "alt": {
-        "en": "Bistecca alla Fiorentina on a white platter as red wine is poured",
-        "it": "Bistecca alla Fiorentina su un piatto bianco mentre si versa il vino rosso"
-      }
-    },
-    "events.fio.menu": {
-      "en": "Five courses",
-      "it": "Cinque portate"
-    },
-    "events.fio.text": {
-      "en": "Discover Italy through Bistecca alla Fiorentina, premium wines and an evening made to be remembered.",
-      "it": "Scopri l’Italia attraverso la Bistecca alla Fiorentina, vini pregiati e una serata da ricordare."
-    },
-    "events.fio.title": {
-      "en": "Fiorentina Night",
-      "it": "Serata Fiorentina"
-    },
-    "events.fio.cta": {
-      "en": "Reserve your table",
-      "it": "Prenota il tuo tavolo"
-    },
-    "bistecca.hero.image": {
-      "desk": "/wp-content/uploads/2026/09/events-fiorentina-desk",
-      "mob": "/wp-content/uploads/2026/09/events-fiorentina-mob",
-      "w": 1200,
-      "h": 1065,
-      "alt": {
-        "en": "Bistecca alla Fiorentina on a white platter as red wine is poured",
-        "it": "Bistecca alla Fiorentina su un piatto bianco mentre si versa il vino rosso"
-      }
-    },
-    "bistecca.title": {
-      "en": "Bistecca Night",
-      "it": "Bistecca Night"
-    },
-    "bistecca.intro": {
-      "en": "\n    <p><em>A five-course Tuscan evening built around one steak.</em></p>\n    <p>Bistecca Night is a five-course dinner at Amami. It opens with a glass of Prosecco, and the Bistecca alla Fiorentina, dry-aged forty-five days and carved at the table, is its centrepiece.</p>\n    <p>Seats are limited. Book through OpenTable, or call us on <a href=\"tel:+19057943366\">905-794-3366</a>.</p>\n  ",
-      "it": "\n    <p><em>Una serata toscana in cinque portate, costruita intorno a una bistecca.</em></p>\n    <p>La Bistecca Night è una cena in cinque portate da Amami. Si apre con un calice di Prosecco, e la Bistecca alla Fiorentina, frollata a secco quarantacinque giorni e tagliata al tavolo, ne è la protagonista.</p>\n    <p>I posti sono limitati. Prenota su OpenTable, oppure chiamaci al <a href=\"tel:+19057943366\">905-794-3366</a>.</p>\n  "
-    },
-    "bistecca.cta": {
-      "en": "Reserve your seat",
-      "it": "Prenota il tuo posto"
-    },
-    "event.date": {
-      "value": "2026-10-01"
-    },
-    "event.time": {
-      "value": "19:00"
     }
   }
 }

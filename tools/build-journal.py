@@ -305,9 +305,11 @@ function fromHash(){{show(location.hash.slice(1));}}window.addEventListener('has
     ours = {'/journal/', '/it/journal/'} | {u for p in posts for u in (url(p['slug'], 'en'), url(p['slug'], 'it'))}
     sm = re.sub(r'\s*<url><loc>' + re.escape(HOST) + r'(/[^<]*)</loc>.*?</url>',
                 lambda m: '' if m.group(1) in ours else m.group(0), sm, flags=re.S)
-    today = datetime.date.today().isoformat()
+    # lastmod = when the post last changed (not today), so a rebuild with no edits changes nothing
+    mod = lambda p: p.get('modified') or p['date']
+    newest = max((mod(p) for p in posts), default=datetime.date.today().isoformat())
     rows = []
-    for en_u, it_u, pr in [('/journal/', '/it/journal/', '0.6')] + [(url(p['slug'], 'en'), url(p['slug'], 'it'), '0.5') for p in posts]:
+    for en_u, it_u, pr, today in [('/journal/', '/it/journal/', '0.6', newest)] + [(url(p['slug'], 'en'), url(p['slug'], 'it'), '0.5', mod(p)) for p in posts]:
         alt = (f'<xhtml:link rel="alternate" hreflang="en-CA" href="{HOST}{en_u}"/>'
                f'<xhtml:link rel="alternate" hreflang="it" href="{HOST}{it_u}"/>'
                f'<xhtml:link rel="alternate" hreflang="x-default" href="{HOST}{en_u}"/>')

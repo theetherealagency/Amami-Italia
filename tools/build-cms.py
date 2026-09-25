@@ -54,7 +54,58 @@ def load():
         d = json.load(open(f, encoding='utf-8'))
         slots.update(d.get('slots', {}))
         menus.update(d.get('menus', {}))
+    slots.update(event_slots())
     return slots, menus
+
+
+def events_module():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('build_events', os.path.join(ROOT, 'tools', 'build-events.py'))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+EV = None
+
+
+def event_slots():
+    """The Events page panel shows the featured (or next) upcoming event from content/events/."""
+    global EV
+    EV = events_module()
+    up = EV.upcoming(EV.load())
+    if not up:
+        return {'events.fio.show': {'value': False}, 'events.more': {'items': []}}
+    e = up[0]
+    two = lambda k, alt=None: {l: (e[l].get(k) or (e[l].get(alt) if alt else '') or '') for l in ('en', 'it')}
+    ph = e.get('panel_photo') or {}
+    return {
+        'events.fio.show': {'value': True},
+        'events.fio.title': two('panel_title', 'title'),
+        'events.fio.text': two('summary'),
+        'events.fio.menu': two('menu_line'),
+        'events.fio.cta': two('panel_cta', 'cta'),
+        'events.fio.href': {'en': EV.url(e['slug'], 'en'), 'it': EV.url(e['slug'], 'it')},
+        'events.fio.image': {'desk': ph.get('desk') or e['photo']['desk'], 'mob': ph.get('mob') or e['photo'].get('mob') or '',
+                             'alt': two('panel_photo_alt', 'photo_alt')},
+        'event.date': {'value': e['date']}, 'event.time': {'value': e['time']},
+        'events.more': {'items': up[1:]},
+    }
+
+
+MORE = {'en': ('More events', 'More events'), 'it': ('Altri eventi', 'Altri eventi')}
+
+
+def more_events(items, lang):
+    if not items:
+        return ''
+    rows = ''.join(
+        f'<li class="ev-more__item"><a class="ev-more__link" href="{EV.url(e["slug"], lang)}">'
+        f'<span class="ev-more__date">{esc(EV.long_date(e["date"], lang))} · {esc(EV.clock(e["time"], lang, "card" if lang == "it" else "fact"))}</span>'
+        f'<span class="ev-more__name">{esc(e[lang]["title"])}</span>'
+        f'<span class="ev-more__txt">{esc(e[lang].get("summary") or "")}</span></a></li>' for e in items)
+    return (f'\n<section class="ev-more" aria-label="{MORE[lang][0]}">\n  <h2 class="ev-more__h">{MORE[lang][1]}</h2>\n'
+            f'  <ul class="ev-more__list">{rows}</ul>\n</section>\n')
 
 
 def derived(slots):
@@ -227,6 +278,28 @@ def build_file(path, lang, slots, menus):
             return None
         return open_tag, ''.join(dish(it) for it in secs[sec].get('items', []))
     s = replace_all(s, 'data-cms-menu', menu)
+
+    def href(key, open_tag, inner):
+        if key not in slots:
+            return None
+        return set_attr(open_tag, 'href', esc(pick(slots[key], lang))), inner
+    s = replace_all(s, 'data-cms-href', href)
+
+    def show(key, open_tag, inner):
+        on = (slots.get(key + '.show') or {}).get('value', True)
+        tag = re.sub(r'\shidden(?=[\s>])', '', open_tag)
+        if not on:
+            tag = tag[:-1] + ' hidden>'
+        title = slots.get(key + '.title')
+        if title and 'aria-label="' in tag:
+            tag = set_attr(tag, 'aria-label', esc(pick(title, lang)))
+        return tag, inner
+    s = replace_all(s, 'data-cms-show', show)
+
+    if '<!--cms:more-events-->' in s and 'events.more' in slots:
+        s = re.sub(r'<!--cms:more-events-->.*?<!--/cms:more-events-->',
+                   lambda m: '<!--cms:more-events-->' + more_events(slots['events.more']['items'], lang) + '<!--/cms:more-events-->',
+                   s, flags=re.S)
 
     if 'event.start_iso' in slots and 'data-cms-event' in s:
         s = re.sub(r'("startDate": ")[^"]*(")', lambda m: m.group(1) + slots['event.start_iso']['value'] + m.group(2), s)

@@ -1,0 +1,51 @@
+{
+  "slug": "bistecca-alla-fiorentina",
+  "draft": false,
+  "featured": true,
+  "gtm": "bistecca-night-reserve",
+  "date": "2026-10-01",
+  "time": "19:00",
+  "photo": {
+    "desk": "/wp-content/uploads/2026/09/events-fiorentina-desk",
+    "mob": "/wp-content/uploads/2026/09/events-fiorentina-mob",
+    "w": 1200,
+    "h": 1065
+  },
+  "panel_photo": {
+    "desk": "/wp-content/uploads/2026/09/events-fiorentina-desk",
+    "mob": "/wp-content/uploads/2026/09/events-fiorentina-mob"
+  },
+  "en": {
+    "title": "Bistecca Night",
+    "panel_title": "Fiorentina Night",
+    "summary": "Discover Italy through Bistecca alla Fiorentina, premium wines and an evening made to be remembered.",
+    "menu_line": "Five courses",
+    "cta": "Reserve your seat",
+    "panel_cta": "Reserve your table",
+    "intro_html": "<p><em>A five-course Tuscan evening built around one steak.</em></p>\n    <p>Bistecca Night is a five-course dinner at Amami. It opens with a glass of Prosecco, and the Bistecca alla Fiorentina, dry-aged forty-five days and carved at the table, is its centrepiece.</p>\n    <p>Seats are limited. Book through OpenTable, or call us on <a href=\"tel:+19057943366\">905-794-3366</a>.</p>",
+    "photo_alt": "Bistecca alla Fiorentina on a white platter as red wine is poured",
+    "panel_photo_alt": "Bistecca alla Fiorentina on a white platter as red wine is poured",
+    "seo_title": "Bistecca Night | Bistecca alla Fiorentina | Amami Italia",
+    "seo_description": "A five-course Tuscan evening in Brampton, with Bistecca alla Fiorentina carved at the table. Near Castlemore, Caledon and Vaughan. Seats are limited.",
+    "og_alt": "Bistecca alla Fiorentina on a white platter as red wine is poured",
+    "after_html": "<p>Before you come: <a href=\"/journal/how-to-pair-wine-with-bistecca-alla-fiorentina/\">How to pair wine with Bistecca alla Fiorentina</a>.</p>",
+    "ld_description": "A five-course Tuscan evening in Brampton, with Bistecca alla Fiorentina carved at the table. Near Castlemore, Caledon and Vaughan. Seats are limited."
+  },
+  "og_image": "/wp-content/uploads/2026/09/amami-bistecca-alla-fiorentina-wine-pairing-brampton-1200x630.jpg",
+  "it": {
+    "title": "Bistecca Night",
+    "panel_title": "Serata Fiorentina",
+    "summary": "Scopri l’Italia attraverso la Bistecca alla Fiorentina, vini pregiati e una serata da ricordare.",
+    "menu_line": "Cinque portate",
+    "cta": "Prenota il tuo posto",
+    "panel_cta": "Prenota il tuo tavolo",
+    "intro_html": "<p><em>Una serata toscana in cinque portate, costruita intorno a una bistecca.</em></p>\n    <p>La Bistecca Night è una cena in cinque portate da Amami. Si apre con un calice di Prosecco, e la Bistecca alla Fiorentina, frollata a secco quarantacinque giorni e tagliata al tavolo, ne è la protagonista.</p>\n    <p>I posti sono limitati. Prenota su OpenTable, oppure chiamaci al <a href=\"tel:+19057943366\">905-794-3366</a>.</p>",
+    "photo_alt": "Bistecca alla Fiorentina su un piatto bianco mentre si versa il vino rosso",
+    "panel_photo_alt": "Bistecca alla Fiorentina su un piatto bianco mentre si versa il vino rosso",
+    "seo_title": "Bistecca Night | Bistecca alla Fiorentina | Amami Italia",
+    "seo_description": "Una serata toscana in cinque portate a Brampton, con la Bistecca alla Fiorentina tagliata al tavolo. Vicino a Castlemore, Caledon e Vaughan. Posti limitati.",
+    "og_alt": "Bistecca alla Fiorentina su un piatto bianco mentre si versa il vino rosso",
+    "after_html": "<p>Prima di venire: <a href=\"/it/journal/how-to-pair-wine-with-bistecca-alla-fiorentina/\">Come abbinare il vino alla Bistecca alla Fiorentina</a>.</p>",
+    "ld_description": "Una serata toscana in cinque portate a Brampton, con la Bistecca alla Fiorentina tagliata al tavolo. Vicino a Castlemore, Caledon e Vaughan. Posti limitati."
+  }
+}

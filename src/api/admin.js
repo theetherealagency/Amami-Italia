@@ -8,6 +8,8 @@
 //   DELETE /api/admin/content {path, sha}               delete a Journal post
 //   GET  /api/admin/posts                               every Journal post (title, date, draft)
 //   POST /api/admin/upload    {name, data}              upload a photo (base64)
+//   GET  /api/admin/events                              every event (title, date, draft)
+//   GET  /api/admin/leads     POST {row, status}        event enquiries from the Google Sheet
 //   GET  /api/admin/status                              is the last change live yet?
 const crypto = require('crypto');
 const A = require('./_lib/admin');
@@ -55,11 +57,38 @@ async function content(req, res) {
     return A.send(res, 200, { ok: true, sha: r.content.sha, commit: r.commit.sha });
   }
   if (req.method === 'DELETE') {
-    if (!/^content\/journal\/posts\//.test(path)) return A.send(res, 400, { ok: false, error: 'Only posts can be deleted.' });
+    if (!/^content\/(journal\/posts|events)\//.test(path)) return A.send(res, 400, { ok: false, error: 'Only posts and events can be deleted.' });
     const r = await A.deleteFile(path, `Delete ${path.split('/').pop()}`, body.sha, s.e);
     return A.send(res, 200, { ok: true, commit: r.commit.sha });
   }
   A.send(res, 405, { ok: false });
+}
+
+async function events(req, res) {
+  if (!A.guard(req, res)) return;
+  let list = [];
+  try { list = await A.gh(`/contents/content/events?ref=${A.BRANCH}&t=${Date.now()}`); } catch (e) { if (e.status !== 404) throw e; }
+  const out = await Promise.all(list.filter(f => f.name.endsWith('.json')).map(async f => {
+    const { text, sha } = await A.readFile(f.path);
+    const e = JSON.parse(text);
+    return { path: f.path, sha, slug: e.slug, date: e.date, time: e.time, draft: !!e.draft, featured: !!e.featured,
+      title: (e.en || {}).title || e.slug, title_it: (e.it || {}).title || '', photo: (e.photo || {}).desk || '' };
+  }));
+  out.sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
+  A.send(res, 200, { ok: true, events: out });
+}
+
+async function leads(req, res) {
+  if (req.method === 'GET') {
+    if (!A.guard(req, res)) return;
+    const j = await A.sheet({ action: 'leads' });
+    return A.send(res, 200, { ok: true, leads: j.leads, statuses: j.statuses });
+  }
+  const s = A.guard(req, res, { write: true });
+  if (!s) return;
+  const { row, status } = await A.readJson(req, 10000);
+  await A.sheet({ action: 'status', row, status });
+  A.send(res, 200, { ok: true });
 }
 
 async function posts(req, res) {
@@ -133,10 +162,12 @@ module.exports = async (req, res) => {
     if (action === 'logout') return A.send(res, 200, { ok: true }, { 'Set-Cookie': A.cookie('', 0) });
     if (action === 'me') {
       const s = A.readSession(req);
-      return A.send(res, s ? 200 : 401, s ? { ok: true, email: s.e, github: !!process.env.GITHUB_TOKEN } : { ok: false });
+      return A.send(res, s ? 200 : 401, s ? { ok: true, email: s.e, github: !!process.env.GITHUB_TOKEN, leads: !!process.env.LEADS_KEY } : { ok: false });
     }
     if (action === 'content') return await content(req, res);
     if (action === 'posts') return await posts(req, res);
+    if (action === 'events') return await events(req, res);
+    if (action === 'leads') return await leads(req, res);
     if (action === 'upload') return await upload(req, res);
     if (action === 'status') return await status(req, res);
     A.send(res, 404, { ok: false });

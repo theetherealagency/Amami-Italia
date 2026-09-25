@@ -20,6 +20,11 @@
  */
 
 var NOTIFY_TO = 'info@amamiitalia.com';
+// The admin portal (/admin/) reads the leads with this key. It must match the
+// LEADS_KEY setting in Vercel. The copy in the website's code has a
+// placeholder; the real key is only in the copy pasted into the sheet.
+var PORTAL_KEY = '__PORTAL_KEY__';
+var STATUSES = ['New', 'Contacted', 'Booked', 'Not going ahead'];
 var SITE_NAME = 'Amami Italia';
 var SITE_URL = 'https://amamiitalia.etherealpr.com';
 // The logo travels inside the email (an inline cid: attachment), so it shows
@@ -68,6 +73,7 @@ var LABELS = {
 function doPost(e) {
   try {
     var data = parseBody_(e);
+    if (data.action) return portal_(data);                          // the admin portal, not a form
     if (data.company_website) return json_({ ok: true });            // honeypot
     if (!data.email) return json_({ ok: false, error: 'An email address is required.' });
 
@@ -85,6 +91,59 @@ function doPost(e) {
 
 function doGet() {
   return json_({ ok: true, service: SITE_NAME + ' forms' });
+}
+
+/* ---- the admin portal ---------------------------------------------------- */
+
+/* {action:'leads', key} -> every enquiry, newest first.
+   {action:'status', key, row, status} -> set the Status column of one row. */
+function portal_(data) {
+  if (!PORTAL_KEY || PORTAL_KEY.indexOf('__') === 0 || String(data.key || '') !== PORTAL_KEY) {
+    return json_({ ok: false, error: 'not allowed' });
+  }
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  var col = statusColumn_(sheet);
+  if (data.action === 'status') {
+    var r = parseInt(data.row, 10);
+    if (!(r > 1 && r <= sheet.getLastRow()) || STATUSES.indexOf(data.status) === -1) return json_({ ok: false, error: 'bad request' });
+    sheet.getRange(r, col).setValue(data.status === 'New' ? '' : data.status);
+    return json_({ ok: true });
+  }
+  if (data.action !== 'leads') return json_({ ok: false, error: 'unknown action' });
+  var last = sheet.getLastRow();
+  if (last < 2) return json_({ ok: true, leads: [], statuses: STATUSES });
+  var width = sheet.getLastColumn();
+  var head = sheet.getRange(1, 1, 1, width).getValues()[0].map(String);
+  var byLabel = {};
+  for (var k in LABELS) byLabel[LABELS[k]] = k;
+  byLabel.Status = 'status';
+  var values = sheet.getRange(2, 1, last - 1, width).getValues();
+  var leads = values.map(function (row, i) {
+    var o = { row: i + 2 };
+    head.forEach(function (h, j) {
+      var key = byLabel[h] || h;
+      var v = row[j];
+      o[key] = v instanceof Date ? v.toISOString() : String(v == null ? '' : v);
+    });
+    o.status = o.status || 'New';
+    return o;
+  }).filter(function (o) { return o.email || o.firstName || o.name; });
+  leads.reverse();
+  return json_({ ok: true, leads: leads, statuses: STATUSES });
+}
+
+/* The Status column the portal writes to; added once, after the others. */
+function statusColumn_(sheet) {
+  var width = Math.max(sheet.getLastColumn(), 1);
+  var head = sheet.getRange(1, 1, 1, width).getValues()[0].map(String);
+  var i = head.indexOf('Status');
+  if (i !== -1) return i + 1;
+  var c = width + 1;
+  sheet.getRange(1, c).setValue('Status')
+       .setBackground(BRAND.ink).setFontColor(BRAND.beige)
+       .setFontFamily('Cormorant Garamond').setFontSize(13).setFontWeight('bold').setVerticalAlignment('middle');
+  sheet.setColumnWidth(c, 130);
+  return c;
 }
 
 /* ---- the sheet ---------------------------------------------------------- */

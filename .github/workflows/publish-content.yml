@@ -6,7 +6,9 @@ name: Publish content
 on:
   push:
     branches: [main]
-    paths: ['content/**', 'tools/build-cms.py', 'tools/build-journal.py', 'tools/process-uploads.py']
+    paths: ['content/**', 'tools/build-cms.py', 'tools/build-events.py', 'tools/build-journal.py', 'tools/process-uploads.py', 'tools/templates/**']
+  schedule:
+    - cron: '0 9 * * *'     # 5 AM Toronto: events whose date has passed leave the Events page
   workflow_dispatch:
 
 concurrency:
@@ -31,6 +33,7 @@ jobs:
       - name: Photos, pages, journal, asset versions
         run: |
           python3 tools/process-uploads.py
+          python3 tools/build-events.py
           python3 tools/build-cms.py
           python3 tools/build-journal.py
           python3 tools/version-assets.py
