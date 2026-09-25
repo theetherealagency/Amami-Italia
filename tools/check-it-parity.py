@@ -11,7 +11,11 @@ import re
 import sys
 from html.parser import HTMLParser
 
-PAGES = ['', 'menu/', 'our-story/', 'after-dark/', 'events/', 'reservation/', 'contact/']
+PAGES = ['', 'menu/', 'our-story/', 'after-dark/', 'events/', 'reservation/', 'contact/', 'journal/']
+# every Journal post is bilingual too (content/journal/posts/<slug>.json)
+import os as _os
+_POSTS = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'content', 'journal', 'posts')
+PAGES += sorted(f[:-5] + '/' for f in _os.listdir(_POSTS) if f.endswith('.json')) if _os.path.isdir(_POSTS) else []
 
 
 class Main(HTMLParser):
