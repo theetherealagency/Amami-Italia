@@ -267,6 +267,106 @@
       "source": "/team/gianluca-martinucci/",
       "destination": "/our-story/chef/",
       "permanent": true
+    },
+    {
+      "source": "/from-italy-to-brampton-amami-italia/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/from-italy-to-brampton-amami-italia",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/from-italy-to-brampton-amami-italia/",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/from-italy-to-brampton-amami-italia",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/romantic-dining-in-brampton/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/romantic-dining-in-brampton",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/romantic-dining-in-brampton/",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/romantic-dining-in-brampton",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/special-events-brampton/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/special-events-brampton",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/special-events-brampton/",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/special-events-brampton",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/what-makes-a-luxury-italian-restaurant-in-brampton-different/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/what-makes-a-luxury-italian-restaurant-in-brampton-different",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/what-makes-a-luxury-italian-restaurant-in-brampton-different/",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/what-makes-a-luxury-italian-restaurant-in-brampton-different",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/why-italian-food-works-for-corporate-events/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/why-italian-food-works-for-corporate-events",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/why-italian-food-works-for-corporate-events/",
+      "destination": "/it/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/it/why-italian-food-works-for-corporate-events",
+      "destination": "/it/journal/",
+      "permanent": true
     }
   ]
 }

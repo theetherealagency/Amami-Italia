@@ -11,7 +11,7 @@ import re
 import sys
 from html.parser import HTMLParser
 
-PAGES = ['', 'menu/', 'our-story/', 'after-dark/', 'events/', 'reservation/', 'contact/', 'journal/']
+PAGES = ['', 'menu/', 'our-story/', 'after-dark/', 'events/', 'reservation/', 'contact/', 'journal/', 'events/bistecca-alla-fiorentina/']
 # every Journal post is bilingual too (content/journal/posts/<slug>.json)
 import os as _os
 _POSTS = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'content', 'journal', 'posts')
