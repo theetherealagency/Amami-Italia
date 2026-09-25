@@ -135,8 +135,8 @@ def page(lang, en_url, it_url, title, desc, og_img, og_alt, og_type, main, jsonl
     if jsonld:
         head += '<script type="application/ld+json">' + json.dumps(jsonld, ensure_ascii=False) + '</script>\n'
     if journal_post:
-        head = head.replace('<link rel="stylesheet" href="/_assets/amami-pages.css">',
-                            '<link rel="stylesheet" href="/_assets/amami-pages.css">\n<link rel="stylesheet" href="/_assets/amami-journal.css">', 1)
+        head = re.sub(r'(<link rel="stylesheet" href="/_assets/amami-pages\.css(?:\?v=[0-9a-f]*)?">)',
+                      lambda m: m.group(1) + '\n<link rel="stylesheet" href="/_assets/amami-journal.css">', head, count=1)
         rest = re.sub(r'<body class="([^"]*)"', lambda m: f'<body class="{m.group(1)} is-journal-post"', rest, 1)
     # language switch in the header and the menu overlay
     rest = re.sub(r'(<a href=")[^"]*(" hreflang="en-CA")', lambda m: m.group(1) + en_url + m.group(2), rest)

@@ -139,3 +139,14 @@ body.is-events{--ev-sand:#ddd7c7}
   .ev-talk__line i{margin:0 .8em}
 }
 @media (prefers-reduced-motion:reduce){.ev-btn{transition:none}}
+
+/* Fiorentina Night: date, time and the five courses above the line (client, 2026-09-25) */
+.ev-fio__facts{display:flex;flex-wrap:wrap;gap:1.6vw 3.4vw;margin:0 0 auto;padding:0}
+.ev-fio__facts dt{font-family:var(--sans);font-weight:400;font-size:max(9px,.8vw);letter-spacing:.2em;text-transform:uppercase;color:var(--hm-red)}
+.ev-fio__facts dd{margin:.5vw 0 0;white-space:nowrap;font-family:var(--serif);font-weight:500;font-size:max(17px,1.9vw);line-height:1.1;color:var(--hm-panel)}
+.ev-fio__panel{justify-content:space-between}
+.ev-fio__facts + .ev-fio__p{margin-top:0}
+@media (max-width:760px){
+  .ev-fio__facts{flex-wrap:wrap;gap:4vw 7vw;margin-bottom:6vw}
+  .ev-fio__facts dt{font-size:9px}.ev-fio__facts dd{font-size:max(18px,5vw);margin-top:1.5vw}
+}
