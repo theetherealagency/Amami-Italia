@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="/_assets/amami-header.css?v=c84bddfd">
 <link rel="stylesheet" href="/_assets/amami-footer.css?v=835cfbab">
 <link rel="stylesheet" href="/_assets/amami-pages.css?v=096dab7d">
-<link rel="stylesheet" href="/_assets/amami-reservation.css?v=55a3cc9b">
+<link rel="stylesheet" href="/_assets/amami-reservation.css?v=5e71811f">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MNHMB7C9');</script>
 </head>
 <body class=" is-page is-reservation" data-hours='{"sun": [15, 23], "mon": null, "tue": [[12, 15], [17, 22]], "wed": [[12, 15], [17, 22]], "thu": [[12, 15], [17, 22]], "fri": [12, 23], "sat": [12, 23]}'>
@@ -102,9 +102,10 @@
   <!-- OpenTable's full booking flow (find a table, then your details, then
        confirmation) embedded here, so guests finish booking on this page. -->
   <div class="rs-book__widget">
-    <iframe class="rs-book__frame" title="Book a table at Amami Italia" src="https://www.opentable.ca/booking/restref/availability?rid=1470808&amp;restref=1470808&amp;lang=en-CA&amp;otSource=Restaurant%20website" allow="payment" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <p class="rs-book__loading" aria-hidden="true">Loading tables…</p>
+    <iframe class="rs-book__frame" title="Book a table at Amami Italia" src="https://www.opentable.ca/booking/restref/availability?rid=1470808&amp;lang=en-CA&amp;otSource=Restaurant%20website" allow="payment" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
-  <p class="rs-book__alt"><a href="https://www.opentable.ca/booking/restref/availability?rid=1470808&amp;restref=1470808&amp;lang=en-CA&amp;otSource=Restaurant%20website" target="_blank" rel="noopener"><span data-it="Non si carica? Prenota su OpenTable">Not loading? Book on OpenTable</span></a></p>
+  <p class="rs-book__alt"><a href="https://www.opentable.ca/booking/restref/availability?rid=1470808&amp;lang=en-CA&amp;otSource=Restaurant%20website" target="_blank" rel="noopener"><span data-it="Non si carica? Prenota su OpenTable">Not loading? Book on OpenTable</span></a></p>
   <p class="rs-book__call"><span data-it="Preferisci parlare con qualcuno">Prefer to speak to someone</span><a class="rs-book__tel" href="tel:+19057943366" data-gtm="call">905-794-3366</a></p>
 </section>
 

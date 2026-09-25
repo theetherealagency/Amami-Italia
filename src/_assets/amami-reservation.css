@@ -77,3 +77,9 @@ body.is-reservation{--rs-mist:#cdd6e2}
   .rs-btn{width:auto;min-width:47.9vw;padding:0 1.2em;height:max(44px,10.18vw);font-size:max(11px,3.663vw)}
 }
 @media (prefers-reduced-motion:reduce){.rs-btn{transition:none}}
+
+/* the frame sits over a quiet loading line, so the box is never empty while OpenTable loads */
+.rs-book__widget{position:relative}
+.rs-book__loading{position:absolute;top:120px;left:0;right:0;margin:0;z-index:0;font-family:var(--sans);font-weight:300;
+  color:var(--hm-panel);font-size:max(11px,1.1vw);letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+.rs-book__frame{position:relative;z-index:1}
