@@ -64,6 +64,32 @@
     "seo_title": "Bistecca alla Fiorentina: quale vino abbinare | Amami Italia",
     "seo_description": "Quale vino con la bistecca toscana? Chianti Classico, Brunello e altri abbinamenti consigliati da Amami Italia, ristorante toscano a Brampton.",
     "og_image": "/wp-content/uploads/2026/09/amami-bistecca-alla-fiorentina-wine-pairing-brampton-1200x630.jpg",
-    "og_alt": "Bistecca alla Fiorentina con vino rosso versato nel calice"
+    "og_alt": "Bistecca alla Fiorentina con vino rosso versato nel calice",
+    "faq": [
+      {
+        "q": "Quale vino abbinare alla Bistecca alla Fiorentina?",
+        "a": "Un rosso toscano da uve Sangiovese. Il Chianti Classico è l’abbinamento classico; il Brunello di Montalcino è perfetto per una festa."
+      },
+      {
+        "q": "Con cosa si accompagna la Bistecca alla Fiorentina?",
+        "a": "A Firenze i contorni restano semplici, così la bistecca può fare da protagonista: patate, verdure e fagioli bianchi con un buon olio d’oliva. Da Amami arriva con verdure di stagione grigliate e patate novelle, e i Fagioli al Pomodoro, fagioli nel nostro sugo di pomodoro della casa, sono un ottimo compagno."
+      },
+      {
+        "q": "Posso bere vino bianco con la bistecca?",
+        "a": "Certo. Un bianco più pieno e ricco regge bene la crosta, e un calice di Prosecco è un modo bellissimo per cominciare."
+      },
+      {
+        "q": "Per quante persone basta una bistecca?",
+        "a": "Pesando circa un chilo, di solito una bistecca basta per un tavolo da due a quattro persone."
+      },
+      {
+        "q": "Che vino abbinare a una tomahawk?",
+        "a": "Scegli un rosso toscano più pieno. La marezzatura della tomahawk si sposa con un Chianti Classico Riserva, un Brunello o un Supertuscan."
+      },
+      {
+        "q": "Dove trovo la Bistecca alla Fiorentina vicino a Toronto?",
+        "a": "Da Amami Italia, tra Airport Road e Mayfield Road a Brampton, vicino a Castlemore. La nostra bistecca è frollata a secco per quarantacinque giorni e venduta al chilo, a breve distanza in auto da Toronto, Vaughan e Caledon."
+      }
+    ]
   }
 }
