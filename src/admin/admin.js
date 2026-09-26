@@ -732,7 +732,7 @@ async function post(slug) {
   const lp = k => [lg, k];
   const seoT = (d[lg] || {}).seo_title || (d[lg] || {}).title || '';
   const seoD = (d[lg] || {}).seo_description || (d[lg] || {}).excerpt || '';
-  const url = `amamiitalia.etherealpr.com${lg === 'it' ? '/it' : ''}/journal/${d.slug || slugify(d.en.title) || 'your-post'}/`;
+  const url = `www.amamiitalia.com${lg === 'it' ? '/it' : ''}/journal/${d.slug || slugify(d.en.title) || 'your-post'}/`;
   const faq = d[lg].faq || [];
   const done = l => d[l].title && d[l].body_html && d[l].excerpt;
   const body = head(slug === 'new' ? 'New post' : (d.en.title || 'Post'), slug === 'new' ? 'Write it in English and Italian, then publish.' : (d.draft ? 'Draft: not on the website yet.' : 'Published on the website.'),

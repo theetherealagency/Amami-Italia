@@ -85,6 +85,17 @@
   ],
   "redirects": [
     {
+      "source": "/admin/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "amamiitalia.etherealpr.com"
+        }
+      ],
+      "destination": "https://www.amamiitalia.com/admin/:path*",
+      "permanent": false
+    },
+    {
       "source": "/lounge",
       "destination": "/after-dark/",
       "permanent": true
